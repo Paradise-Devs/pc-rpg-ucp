@@ -23,8 +23,7 @@
             <div class="panel-body p15 pt25">
                 <div class="alert alert-micro alert-info pastel mn">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <i class="fa fa-info pr10"></i> Insira o seu
-                    <b>e-mail</b> e instruções serão enviadas para você.
+                    <i class="fa fa-info pr10"></i> Redefina a sua senha.
                 </div>
             </div>
             <div class="panel-footer">
@@ -40,24 +39,13 @@
                             <em for="email" class="state-error">{{ $errors->first('email') }}</em>
                         @endif
                     </div>
-
+                </div>
+                <div class="section">
                     <div class="smart-widget">
                         <label for="password" class="field prepend-icon {{ $errors->has('password') ? 'state-error' : '' }}">
-                            <input type="password" name="password" id="password" class="gui-input">
+                            <input type="password" name="password" id="password" class="gui-input" placeholder="Insira a sua nova senha">
                             <label for="password" class="field-icon">
-                                <i class="fa fa-envelope-o"></i>
-                            </label>
-                        </label>
-                        @if ($errors->has('password'))
-                            <em for="password" class="state-error">{{ $errors->first('password') }}</em>
-                        @endif
-                    </div>
-
-                    <div class="smart-widget">
-                        <label for="password" class="field prepend-icon {{ $errors->has('password') ? 'state-error' : '' }}">
-                            <input type="password" name="password_confirmation" id="password-confirm" class="gui-input">
-                            <label for="password" class="field-icon">
-                                <i class="fa fa-envelope-o"></i>
+                                <i class="fa fa-lock"></i>
                             </label>
                         </label>
                         @if ($errors->has('password'))
@@ -65,7 +53,20 @@
                         @endif
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success btn-block">Enviar solicitação</button>
+                <div class="section">
+                    <div class="smart-widget">
+                        <label for="password" class="field prepend-icon {{ $errors->has('password') ? 'state-error' : '' }}">
+                            <input type="password" name="password_confirmation" id="password-confirm" class="gui-input" placeholder="Repita a sua nova senha">
+                            <label for="password" class="field-icon">
+                                <i class="fa fa-lock"></i>
+                            </label>
+                        </label>
+                        @if ($errors->has('password'))
+                            <em for="password" class="state-error">{{ $errors->first('password') }}</em>
+                        @endif
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Redefinir senha</button>
             </div>
         </form>
     </div>

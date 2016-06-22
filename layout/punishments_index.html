@@ -3,7 +3,7 @@
     <head>
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
-        <title>PC:RPG | FAQ</title>
+        <title>PC:RPG | Punições</title>
         <meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
         <meta name="description" content="Paradise City RPG">
         <meta name="author" content="Paradise Devs">
@@ -13,7 +13,13 @@
         <!-- Stylesheets -->
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
-        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/faq.css">
+        <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
+
+        <!-- Plugins -->
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/magnific/magnific-popup.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/Editor/css/dataTables.editor.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -31,7 +37,7 @@
             <header class="navbar navbar-fixed-top navbar-shadow bg-primary">
                 <div class="navbar-branding dark bg-primary">
                     <a class="navbar-brand" href="dashboard.html">
-                    <b>PC</b>RPG
+                    <strong>PC</strong>RPG
                     </a>
                     <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
                 </div>
@@ -42,7 +48,7 @@
                                 <span class="ad ad-radio-tower fs14 va-m"></span>
                                 <span class="badge">5</span>
                             </button>
-                            <div class="dropdown-menu dropdown-persist w350" role="menu">
+                            <div class="dropdown-menu dropdown-persist w350 animated animated-shorter fadeIn" role="menu">
                                 <div class="panel mbn">
                                     <div class="panel-menu">
                                         <div class="btn-group btn-group-justified btn-group-nav" role="tablist">
@@ -134,7 +140,7 @@
                                 </a>
                                 <div class="media-body">
                                     <div class="media-author">Los</div>
-                                    <div class="media-links"><span style="color: #17AE48">Developer<span></div>
+                                    <div class="media-links" style="color: #17AE48">Developer</div>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +158,7 @@
                     <!-- Start: Sidebar Menu -->
                     <ul class="nav sidebar-menu">
                         <li class="sidebar-label pt20">Início</li>
-                        <li class="active">
+                        <li>
                             <a href="index.html">
                                 <span class="glyphicon glyphicon-home"></span>
                                 <span class="sidebar-title">Início</span>
@@ -246,7 +252,7 @@
                                 <span class="sidebar-title">Ranking</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="punishments_index.html">
                                 <span class="fa fa-eye"></span>
                                 <span class="sidebar-title">Punições</span>
@@ -261,12 +267,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="ban_index.html">
+                            <a href="complaint_index.html">
                                 <span class="fa fa-flag"></span>
                                 <span class="sidebar-title">Denúncias</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="faq_index.html">
                                 <span class="fa fa-info"></span>
                                 <span class="sidebar-title">FAQ</span>
@@ -324,112 +330,116 @@
                                 <span class="glyphicon glyphicon-home"></span>
                                 </a>
                             </li>
-                            <li class="crumb-trail">FAQ</li>
+                            <li class="crumb-trail">Punições</li>
                         </ol>
-                    </div>
-                    <div class="topbar-right">
-                        <a href="faq_manage.html" type="button" class="btn btn-system btn-gradient dark btn-block">
-                            <i class="fa fa-cog"></i> Gerenciar FAQ
-                        </a>
                     </div>
                 </header>
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
                 <section id="content" class="animated fadeIn">
                     <div class="row">
-                        <!-- FAQ Left Column -->
+                        <div class="col-md-6">
+                            <div class="panel panel-primary mb50 panel-border top">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <span class="fa fa-fire"></span>Notificações
+                                    </span>
+                                    <div class="widget-menu pull-right mr10">
+                                        <div class="progress progress-bar" style="width: 120px; margin-top: 13%">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%;">3/5</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body panel-scroller scroller-sm pn">
+                                    <blockquote class="blockquote-primary" style="font-size: 95%">
+                                        <p>Você foi notificado por que eu quis, é isso, valeu, flw</p>
+                                        <h6>Administrador: <a href="user_profile.html">Larceny</a></h6>
+                                    </blockquote>
+                                    <hr class="short alt">
+                                    <blockquote class="blockquote-primary" style="font-size: 95%">
+                                        <p>Você foi notificado por que eu também quis, é isso, valeu, flw</p>
+                                        <h6>Administrador: <a href="user_profile.html">With</a></h6>
+                                    </blockquote>
+                                    <hr class="short alt">
+                                    <blockquote class="blockquote-primary" style="font-size: 95%">
+                                        <p>Eu também</p>
+                                        <h6>Administrador: <a href="user_profile.html">Los</a></h6>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <span class="panel-title"><i class="fa fa-info"></i> Informações</span>
+                                </div>
+                                <div class="panel-body panel-scroller scroller-sm pn">
+                                    <p class="p2">
+                                        <ul>
+                                            <li>Com <strong>5</strong> notificações você é banido automaticamente por 7 dias.</li>
+                                            <li>Você pode ter até 4 banimentos temporários antes de ser banido permanentemente (isto não quer dizer que você não possa ser banido permanentemente antes de ser banido temporariamente)</li>
+                                            <li>Banimentos temporários podem durar até <strong>7</strong> dias.</li>
+                                            <li>Você pode ser preso por até <strong>24</strong> horas.</li>
+                                            <li>Você pode ser enviado para o underworld por até <strong>24</strong> horas.</li>
+                                            <li>Só é possível contestar banimentos.</li>
+                                            <li>Não utilize tickets para contestar banimentos.</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="pading-top: 1%">
                         <div class="col-md-12">
-                            <div class="panel br-t bw5 br-grey">
+                            <div class="panel panel-primary panel-border top">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                    <span class="fa fa-eye"></span>Minhas Punições</span>
+                                </div>
                                 <div class="panel-body pn">
-                                    <div class="p25 br-b">
-                                        <h2 class="fw200 mb20 mt10">Precisa de Suporte? Estamos aqui para ajudar!</h2>
-                                        <div class="input-group input-hero mb30">
-                                            <span class="input-group-addon">
-                                            <i class="fa fa-search"></i>
-                                            </span>
-                                            <input type="text" id="faqSearch" class="form-control" placeholder="Procurar respostas..." data-list=".faqItem">
-                                        </div>
-                                    </div>
-                                    <div id="recentAnswered" class="table-layout bg-light">
-                                        <div class="col-xs-3 text-center va-m">
-                                            <span class="fa fa-user-md fs80 text-info"></span>
-                                        </div>
-                                        <div class="col-xs-9 br-l">
-                                            <h5 class="text-muted pl5 mt20 mb20"> Respondidas Recentemente </h5>
-                                            <ul class="fs15 list-divide-items mb30">
-                                                <li>
-                                                    <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_1">
-                                                        <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> Quais as vantagens do Paradise Pass?</a>
-                                                    </a>
-                                                    <div id="accord1_1" class="panel-collapse collapse">
-                                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_2">
-                                                        <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> Como sei que vai ocorrer um evento?</a>
-                                                    </a>
-                                                    <div id="accord1_2" class="panel-collapse collapse">
-                                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_3">
-                                                        <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> Qual a diferença de um grupo para uma facção?</a>
-                                                    </a>
-                                                    <div id="accord1_3" class="panel-collapse collapse">
-                                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_4">
-                                                        <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> O que eu ganho com eventos?</a>
-                                                    </a>
-                                                    <div id="accord1_4" class="panel-collapse collapse">
-                                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="p25 br-t">
-                                        <h5 class="text-muted mb20 mtn"> Todas as Perguntas </h5>
-                                        <div class="panel-group accordion accordion-lg" id="accordion2">
-                                            <div class="faqItem">
-                                                <div class="panel">
-                                                    <div class="panel-heading">
-                                                        <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_1">
-                                                        Como posso alterar meu nome?
-                                                        </a>
-                                                    </div>
-                                                    <div id="accord2_1" class="panel-collapse collapse">
-                                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="faqItem">
-                                                <div class="panel">
-                                                    <div class="panel-heading">
-                                                        <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_2">
-                                                        Fui banido injustamente, o que eu faço? </a>
-                                                    </div>
-                                                    <div id="accord2_2" class="panel-collapse collapse">
-                                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="faqItem">
-                                                <div class="panel">
-                                                    <div class="panel-heading">
-                                                        <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_3">
-                                                        Posso ser da equipe? </a>
-                                                    </div>
-                                                    <div id="accord2_3" class="panel-collapse collapse">
-                                                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="bs-component">
+                                        <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Tipo</th>
+                                                    <th>Quando</th>
+                                                    <th>Expira Em</th>
+                                                    <th>Administrador</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details-contest" data-effect="mfp-with-fade">#213</a></td>
+                                                    <td>Banimento</td>
+                                                    <td>3 dias atrás</td>
+                                                    <td>Nunca</td>
+                                                    <td>Servidor</td>
+                                                </tr>
+                                                <tr class="text-muted">
+                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details-contest" data-effect="mfp-with-fade">#209</a></td>
+                                                    <td>Banimento</td>
+                                                    <td>3 dias atrás</td>
+                                                    <td>Expirado</td>
+                                                    <td><a href="user_profile.html">Los</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details" data-effect="mfp-with-fade">#200</a></td>
+                                                    <td>Expulsão</td>
+                                                    <td>3 dias atrás</td>
+                                                    <td>-</td>
+                                                    <td><a href="user_profile.html">With</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details" data-effect="mfp-with-fade">#154</a></td>
+                                                    <td>Remoção de Cargo</td>
+                                                    <td>3 dias atrás</td>
+                                                    <td>-</td>
+                                                    <td><a href="user_profile.html">Larceny</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
                                     </div>
                                 </div>
                             </div>
@@ -444,7 +454,7 @@
                             <span class="footer-legal">© 2012-2016 Paradise City</span>
                         </div>
                         <div class="col-md-6 text-right">
-                            <span class="footer-meta">Paradise<b>Devs</b></span>
+                            <span class="footer-meta">Paradise<strong>Devs</strong></span>
                             <a href="#content" class="footer-return-top">
                                 <span class="fa fa-arrow-up"></span>
                             </a>
@@ -452,6 +462,65 @@
                     </div>
                 </footer>
                 <!-- End: Page Footer -->
+                <!-- Begin: Modals -->
+                <div id="modal-details" class="popup-basic p25 mfp-with-anim mfp-hide">
+                    <blockquote class="blockquote-primary" style="font-size: 95%; margin-bottom: 2px">
+                        <p>Eu te kickei por que eu quis seu maldito otário fdp troxa witch burro idiota traoxaxa sd pwq s amd o wonsa ojwqqd</p>
+                        <h6>Data/Hora: 13/06/2016 - 13:13<br />
+                        Expulsão<br />
+                        Administrador: <a href="user_profile.html" target="_blank">Los</a></h6>
+                    </blockquote>
+                </div>
+
+                <div id="modal-details-contest" class="popup-basic admin-form mfp-with-anim mfp-hide">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <span class="panel-title">
+                            <i class="fa fa-info"></i>Detalhes da Punição #213</span>
+                        </div>
+                        <!-- end .panel-heading section -->
+                        <form>
+                            <div class="panel-body bg-light p25">
+                                <div class="section row">
+                                    <p>
+                                        <blockquote class="blockquote-primary" style="font-size: 95%">
+                                            <p>Eu te bani por que eu quis seu maldito otário fdp troxa witch burro idiota traoxaxa sd pwq s amd o wonsa ojwqqd</p>
+                                            <h6>Data/Hora: 13/06/2016 - 13:13<br />
+                                            Banimento Permanente<br />
+                                            Administrador: <a href="user_profile.html" target="_blank">Los</a></h6>
+                                        </blockquote>
+                                    </p>
+                                    <div class="progress" style="margin-bottom: 1%;">
+                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">2 dias restantes</div>
+                                    </div>
+                                    <div class="status" style="margin-top: 1%; font-size: 11px; color: #AAB5BC; font-weight: 600; text-transform: uppercase; display: block;">
+                                        <div class="status-title" style="float: left; display: inline-block;"> tempo restante </div>
+                                        <div class="status-number" style="float: right; display: inline-block;"> 3 de 5 dias </div>
+                                    </div>
+                                </div>
+                                <div class="section-divider mb40" id="spy1">
+                                    <span style="color: #4a89dc;">Contestar</span>
+                                </div>
+                                <div class="section">
+                                    <label for="comment" class="field prepend-icon">
+                                        <textarea class="gui-textarea" id="comment" name="comment" placeholder="Por que estamos errados em te punir?"></textarea>
+                                        <label for="comment" class="field-icon">
+                                            <i class="fa fa-comments"></i>
+                                        </label>
+                                        <span class="input-footer">Seja gentil e prometemos análisar o seu caso.</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- end .form-body section -->
+                            <div class="panel-footer">
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-send"></i> Enviar Contestação</button>
+                            </div>
+                            <!-- end .form-footer section -->
+                        </form>
+                    </div>
+                    <!-- end: .panel -->
+                </div>
+                <!-- End: Modals -->
             </section>
         </div>
         <!-- End: Main -->
@@ -460,6 +529,13 @@
         <!-- jQuery -->
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+        <script src="vendor/plugins/magnific/jquery.magnific-popup.js"></script>
+
+        <!-- Datatables -->
+        <script src="vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+        <script src="vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
+        <script src="vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
 
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
@@ -467,13 +543,32 @@
         <script src="assets/js/main.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function() {
-              "use strict";
-              // Init Theme Core
-              Core.init();
+                "use strict";
+
+                // Init Theme Core
+                Core.init();
+
+                $('.modal-launcher').magnificPopup({ type: 'inline', mainClass: 'mfp-flipInX' });
+
+                // Init DataTables
+                $('#datatable').dataTable({
+                    "sDom": 't<"dt-panelfooter clearfix"ip>',
+                    "scrollY": 150,
+                    "oTableTools": {
+                        "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
+                    },
+                    "language": {
+                        "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
+                        "paginate": {
+                            "first":      "Primeiro",
+                            "previous":   "Anterior",
+                            "next":       "Próximo",
+                            "last":       "Último"
+                        }
+                    }
+                });
             });
         </script>
-        <script src="assets/js/hideseek/jquery.hideseek.min.js"></script>
-        <script src="assets/js/custom_faq.js"></script>
         <!-- END: PAGE SCRIPTS -->
     </body>
 </html>
