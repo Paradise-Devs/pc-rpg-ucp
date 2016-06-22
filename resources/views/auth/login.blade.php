@@ -10,9 +10,9 @@
         </div>
         <div class="col-xs-6 text-right va-b pr5">
             <div class="login-links">
-                <a href="{{ url('/login') }}" class="active" title="Esqueci minha senha">Acessar</a>
+                <a href="{{ url('/password/reset') }}" class="" title="Esqueci minha senha">Esqueci minha senha</a>
                 <span class="text-white"> | </span>
-                <a href="{{ url('/register') }}" class="" title="Registrar">Registrar</a>
+                <a href="{{ url('/register') }}" class="active" title="Registrar">Registrar</a>
             </div>
         </div>
     </div>
