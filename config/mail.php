@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'no-reply@paradisedevs.com.br', 'name' => 'Paradise Devs'],
 
     /*
     |--------------------------------------------------------------------------
