@@ -1,82 +1,135 @@
-@extends('layouts.app')
-
+@extends('layouts.auth')
+@section('title', '- Registro')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-user"></i> Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+    <div class="admin-form theme-info mw700" style="margin-top: 3%;" id="login1">
+        <div class="row mb15 table-layout">
+            <div class="col-xs-6 va-m pln">
+                <a href="dashboard.html" title="Return to Dashboard">
+                <img src="assets/img/logos/logo_white.png" title="AdminDesigns Logo" class="img-responsive w250">
+                </a>
+            </div>
+            <div class="col-xs-6 text-right va-b pr5">
+                <div class="login-links">
+                    <a href="pages_login.html" class="" title="Sign In">Entrar</a>
+                    <span class="text-white"> | </span>
+                    <a href="pages_register.html" class="active" title="Register">Registrar-se</a>
                 </div>
             </div>
         </div>
+        <div class="panel panel-info mt10 br-n">
+            <div class="panel-heading heading-border bg-white">
+                <div class="section row mn">
+                    <div class="col-sm-4">
+                        <a href="#" class="button btn-social facebook span-left mr5 btn-block" disabled>
+                        <span>
+                        <i class="fa fa-facebook"></i>
+                        </span>Facebook</a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="#" class="button btn-social twitter span-left mr5 btn-block" disabled>
+                        <span>
+                        <i class="fa fa-twitter"></i>
+                        </span>Twitter</a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="#" class="button btn-social googleplus span-left btn-block" disabled>
+                        <span>
+                        <i class="fa fa-google-plus"></i>
+                        </span>Google+</a>
+                    </div>
+                </div>
+            </div>
+            <form role="form" method="POST" action="{{ url('/register') }}" id="account2">
+                {{ csrf_field() }}
+                <div class="panel-body p25 bg-light">
+                    <div class="section-divider mt10 mb40">
+                        <span>Registre a sua conta</span>
+                    </div>
+                    <!-- .section-divider -->
+                    <div class="section row">
+                        <div class="col-md-6">
+                            <label for="firstname" class="field prepend-icon {{ $errors->has('firstname') ? 'state-error' : '' }}">
+                                <input type="text" name="firstname" id="firstname" class="gui-input" value="{{ old('firstname') }}" placeholder="Primeiro nome">
+                                <label for="firstname" class="field-icon">
+                                    <i class="fa fa-user"></i>
+                                </label>
+                            </label>
+                            @if ($errors->has('firstname'))
+                                <em for="firstname" class="state-error">{{ $errors->first('firstname') }}</em>
+                            @endif
+                        </div>
+                        <!-- end section -->
+                        <div class="col-md-6">
+                            <label for="lastname" class="field prepend-icon {{ $errors->has('lastname') ? 'state-error' : '' }}">
+                                <input type="text" name="lastname" id="lastname" class="gui-input" value="{{ old('lastname') }}" placeholder="Último nome">
+                                <label for="lastname" class="field-icon">
+                                    <i class="fa fa-user"></i>
+                                </label>
+                            </label>
+                            @if ($errors->has('lastname'))
+                                <em for="lastname" class="state-error">{{ $errors->first('lastname') }}</em>
+                            @endif
+                        </div>
+                        <!-- end section -->
+                    </div>
+                    <!-- end .section row section -->
+                    <div class="section">
+                        <label for="email" class="field prepend-icon {{ $errors->has('email') ? 'state-error' : '' }}">
+                            <input type="email" name="email" id="email" class="gui-input" value="{{ old('email') }}" placeholder="Endereço de e-mail">
+                            <label for="email" class="field-icon">
+                                <i class="fa fa-envelope"></i>
+                            </label>
+                        </label>
+                        @if ($errors->has('email'))
+                            <em for="email" class="state-error">{{ $errors->first('email') }}</em>
+                        @endif
+                    </div>
+                    <!-- end section -->
+                    <div class="section">
+                        <label for="password" class="field prepend-icon {{ $errors->has('password') ? 'state-error' : '' }}">
+                            <input type="password" name="password" id="password" class="gui-input" value="{{ old('password') }}" placeholder="Crie uma senha">
+                            <label for="password" class="field-icon">
+                                <i class="fa fa-unlock-alt"></i>
+                            </label>
+                        </label>
+                        @if ($errors->has('password'))
+                            <em for="password" class="state-error">{{ $errors->first('password') }}</em>
+                        @endif
+                    </div>
+                    <!-- end section -->
+                    <div class="section">
+                        <label for="password-confirm" class="field prepend-icon {{ $errors->has('password_confirmation') ? 'state-error' : '' }}">
+                            <input type="password" name="password_confirmation" id="password-confirm" class="gui-input" placeholder="Repita a sua senha">
+                            <label for="password_confirmation" class="field-icon">
+                                <i class="fa fa-lock"></i>
+                            </label>
+                        </label>
+                        @if ($errors->has('password_confirmation'))
+                            <em for="password_confirmation" class="state-error">{{ $errors->first('password_confirmation') }}</em>
+                        @endif
+                    </div>
+                    <!-- end section -->
+                    <div class="section-divider mv40">
+                        <span>Termos de Serviço</span>
+                    </div>
+                    <!-- .section-divider -->
+                    <div class="section mb15">
+                        <label class="option block mt15 {{ $errors->has('terms') ? 'state-error' : '' }}">
+                            <input type="checkbox" name="terms" id="terms">
+                            <span class="checkbox"></span>Eu aceito os <a href="#" class="theme-link"> termos de uso. </a>
+                        </label>
+                        @if ($errors->has('terms'))
+                            <em for="terms" class="state-error">{{ $errors->first('terms') }}</em>
+                        @endif
+                    </div>
+                    <!-- end section -->
+                </div>
+                <!-- end .form-body section -->
+                <div class="panel-footer clearfix">
+                    <button type="submit" class="button btn-primary pull-right">Criar conta</button>
+                </div>
+                <!-- end .form-footer section -->
+            </form>
+        </div>
     </div>
-</div>
 @endsection
