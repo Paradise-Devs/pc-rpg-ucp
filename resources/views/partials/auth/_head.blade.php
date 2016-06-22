@@ -5,6 +5,6 @@
 <meta name="author" content="AbsoluteAdmin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
-<link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
-<link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
+{{ HTML::style('assets/skin/default_skin/css/theme.css') }}
+{{ HTML::style('assets/admin-tools/admin-forms/css/admin-forms.css') }}
 <link rel="shortcut icon" href="assets/img/favicon.ico">
