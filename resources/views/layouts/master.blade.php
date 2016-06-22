@@ -13,21 +13,17 @@
 
         <section id="content_wrapper">
 
-            @include('partials._topbar-dropdown')
             @include('partials._topbar')
 
             <section id="content" class="table-layout animated fadeIn">
 
                 @yield('content')
-                @include('partials._tray-right')
 
             </section>
 
             @include('partials._footer')
 
         </section>
-
-        @include('partials._sidebar-right')
 
     </div>
 

@@ -1,21 +1,15 @@
 <!-- Meta, title, CSS, favicons, etc. -->
 <meta charset="utf-8">
-<title>PCRPG @yield('title')</title>
-<meta name="keywords" content="Paradise City RPG SAMP User Painel" />
-<meta name="description" content="Painel de Usuario do PCRPG">
-<meta name="author" content="AbsoluteAdmin">
+<title>PC:RPG @yield('title')</title>
+<meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
+<meta name="description" content="Paradise City RPG">
+<meta name="author" content="Paradise Devs">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="‪#009dc7">
 
-<!-- Font CSS (Via CDN) -->
+<!-- Stylesheets -->
 <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
-
-<!-- Theme CSS -->
 <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
-
-<!-- Admin Forms CSS -->
-<link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.min.css">
-
-@yield('stylesheets')
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="assets/img/favicon.ico">
