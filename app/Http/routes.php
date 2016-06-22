@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('pages.dashboard');
 });
 
-Route::get('/testregister', function () {
-    return view('pages.auth.register');
+Route::get('/password', function () {
+    return view('auth.passwords.newmail');
 });
 
 Route::auth();

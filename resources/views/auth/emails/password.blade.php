@@ -3,51 +3,16 @@
 @section('content')
 <table align="center" cellpadding="0" cellspacing="0" class="container-for-gmail-android" width="100%">
     <tr>
-        <td align="left" valign="top" width="100%" style="background:repeat-x url(../../../../../s3.amazonaws.com/swu-filepicker/4E687TRe69Ld95IDWyEg_bg_top_02.jpg) #ffffff;">
+        <td align="center" valign="top" width="100%" style="background-color: #f7f7f7; font-family: 'Oxygen', 'Helvetica Neue', 'Arial', 'sans-serif' !important; padding: 20px 0 30px;" class="content-padding">
             <center>
-                <table cellspacing="0" cellpadding="0" width="100%" bgcolor="#ffffff" background="../../../../../s3.amazonaws.com/swu-filepicker/4E687TRe69Ld95IDWyEg_bg_top_02.jpg" style="background-color:transparent">
+                <table cellspacing="0" cellpadding="0" width="80%" class="w320">
                     <tr>
-                        <td width="100%" height="80" valign="top" style="text-align: center; vertical-align:middle;">
-                            <!--[if gte mso 9]>
-                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;height:80px; v-text-anchor:middle;">
-                                <v:fill type="tile" src="http://s3.amazonaws.com/swu-filepicker/4E687TRe69Ld95IDWyEg_bg_top_02.jpg" color="#ffffff" />
-                                <v:textbox inset="0,0,0,0">
-                                    <![endif]-->
-                                    <center>
-                                        <table cellpadding="0" cellspacing="0" width="600" class="w320">
-                                            <tr>
-                                                <td class="pull-left mobile-header-padding-left" style="vertical-align: middle;">
-                                                    <a href="#"><img width="167" height="35" src="img/logo.png" alt="logo"></a>
-                                                </td>
-                                                <td class="pull-right mobile-header-padding-right" style="color: #4d4d4d;">
-                                                    <a href="#"><img width="40" height="47" src="img/social-twitter.png" alt="twitter" /></a>
-                                                    <a href="#"><img width="40" height="47" src="img/social-fb.png" alt="facebook" /></a>
-                                                    <a href="#"><img width="40" height="47" src="img/social-feed.png" alt="rss" /></a>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </center>
-                                    <!--[if gte mso 9]>
-                                </v:textbox>
-                            </v:rect>
-                            <![endif]-->
-                        </td>
-                    </tr>
-                </table>
-            </center>
-        </td>
-    </tr>
-    <tr>
-        <td align="center" valign="top" width="100%" style="background-color: #f7f7f7;" class="content-padding">
-            <center>
-                <table cellspacing="0" cellpadding="0" width="60%" class="w320">
-                    <tr>
-                        <td class="header-md">
+                        <td class="header-md" style="font-family: 'Oxygen', 'Helvetica Neue', 'Arial', 'sans-serif' !important; font-size: 32px; font-weight: 700; line-height: normal; padding: 35px 0 0; color: #4d4d4d;">
                             Recuperação de Senha
                         </td>
                     </tr>
                     <tr>
-                        <td class="free-text">
+                        <td class="free-text" style="width: 80% !important; padding: 10px 60px 0px;">
                             Esse e-mail está sendo enviado para a redefinição da senha da conta com email {{ $user->getEmailForPasswordReset() }}, se você não é dono desse e-mail ou não solicitou a redefinição de senha, por favor, entre em contato.
                         </td>
                     </tr>
@@ -58,7 +23,7 @@
                                     <td class="mini-block">
                                         <table cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td class="button">
+                                                <td class="button" style="padding: 40px 0px;">
                                                     <div>
                                                         <!--[if mso]>
                                                         <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://" style="height:45px;v-text-anchor:middle;width:155px;" arcsize="15%" strokecolor="#ffffff" fillcolor="#4a89dc">

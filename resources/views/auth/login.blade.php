@@ -71,7 +71,7 @@
                             <label for="email" class="field prepend-icon {{ $errors->has('email') ? ' state-error' : '' }}">
                                 <input type="email" name="email" id="email" class="gui-input" value="{{ old('email') }}" placeholder="Entre com o email">
                                 <label for="email" class="field-icon">
-                                    <i class="fa fa-user"></i>
+                                    <i class="fa fa-envelope-o"></i>
                                 </label>
                             </label>
                             @if ($errors->has('email'))
