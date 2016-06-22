@@ -1,11 +1,11 @@
-@extends('layouts.password')
+@extends('layouts.auth')
 @section('title', '- Redefinição de senha')
 @section('content')
 <div class="admin-form theme-info mw500" style="margin-top: 10%;" id="login">
     <div class="row mb15 table-layout">
         <div class="col-xs-6 pln">
             <a href="dashboard.html" title="Return to Dashboard">
-            <img src="../assets/img/logos/logo-big.png" title="AdminDesigns Logo" class="img-responsive w250">
+            <img src="{{ URL::asset('assets/img/logos/logo-big.png') }}" title="AdminDesigns Logo" class="img-responsive w250">
             </a>
         </div>
         <div class="col-xs-6 va-b">
