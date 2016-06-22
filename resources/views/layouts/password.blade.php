@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @include('partials.auth.password._head')
+        @include('partials.auth._head')
     </head>
     <body class="external-page sb-l-c sb-r-c">
         <div id="main" class="animated fadeIn">
@@ -14,6 +14,6 @@
                 </section>
             </section>
         </div>
-        @include('partials.auth.password._javascript')
+        @include('partials.auth._javascript')
     </body>
 </html>
