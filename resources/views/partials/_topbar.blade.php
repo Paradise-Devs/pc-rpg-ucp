@@ -5,7 +5,7 @@
                 <a href="#">UCP</a>
             </li>
             <li class="crumb-icon">
-                <a href="dashboard.html">
+                <a href="index.html">
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>

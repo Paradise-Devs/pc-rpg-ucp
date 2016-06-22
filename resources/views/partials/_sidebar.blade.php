@@ -21,7 +21,7 @@
                     <span class="input-group-addon">
                         <i class="fa fa-search"></i>
                     </span>
-                    <input type="text" id="sidebar-search" class="form-control" placeholder="Procurar...">
+                    <input type="text" id="sidebar-search" class="form-control" placeholder="Procurar usuários, grupos...">
                 </div>
             </div>
         </header>
