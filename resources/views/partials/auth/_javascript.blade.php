@@ -1,9 +1,9 @@
-{{ HTML::script('vendor/jquery/jquery-1.11.1.min.js') }}
-{{ HTML::script('vendor/jquery/jquery_ui/jquery-ui.min.js') }}
-{{ HTML::script('vendor/plugins/canvasbg/canvasbg.js') }}
-{{ HTML::script('assets/js/utility/utility.js') }}
-{{ HTML::script('assets/js/demo/demo.js') }}
-{{ HTML::script('assets/js/main.js') }}
+<script src="{{ URL::asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/plugins/canvasbg/canvasbg.js') }}"></script>
+<script src="{{ URL::asset('assets/js/utility/utility.js') }}"></script>
+<script src="{{ URL::asset('assets/js/demo/demo.js') }}"></script>
+<script src="{{ URL::asset('assets/js/main.js') }}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
       "use strict";

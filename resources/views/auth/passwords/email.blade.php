@@ -1,4 +1,4 @@
-@extends('layouts.password')
+@extends('layouts.auth')
 @section('title', '- Recuperação de senha')
 @section('content')
 <div class="admin-form theme-info mw500" style="margin-top: 10%;" id="login">
