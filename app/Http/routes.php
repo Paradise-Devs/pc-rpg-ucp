@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('pages.dashboard');
 });
 
+Route::get('/testregister', function () {
+    return view('pages.auth.register');
+});
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

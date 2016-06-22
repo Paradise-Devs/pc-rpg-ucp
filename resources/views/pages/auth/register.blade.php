@@ -1,5 +1,5 @@
-@extends('layouts.alt')
-@section('title', '- Login')
+@extends('layouts.auth')
+@section('title', '- Registro')
 @section('content')
     <div class="admin-form theme-info mw700" style="margin-top: 3%;" id="login1">
         <div class="row mb15 table-layout">
