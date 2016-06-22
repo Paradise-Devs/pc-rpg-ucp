@@ -11,7 +11,7 @@ var Demo = function() {
   var runDemoForms = function() {
 
     // Prevents directory response when submitting a demo form
-    $('.admin-form').on('submit', function(e) {
+    /** $('.admin-form').on('submit', function(e) {
 
       if ($('body.timeline-page').length || $('body.admin-validation-page').length) {
         return;
@@ -19,7 +19,7 @@ var Demo = function() {
       e.preventDefault;
       alert('Your form has submitted!');
       return false;
-    });
+    }); **/
 
     // give file-upload preview onclick functionality
     var fileUpload = $('.fileupload-preview');
@@ -108,7 +108,7 @@ var Demo = function() {
           });
         }, 250);
 
-        // Highlight code text on click     
+        // Highlight code text on click
         $('.btn-clipboard').on('click', function() {
           var selection = $(this).parents('.modal-dialog').find('pre');
           selection.selectText();
@@ -293,7 +293,7 @@ var Demo = function() {
               } else {
                 Breadcrumbs.removeClass('affix');
                 $('#breadcrumb-option').prop('checked', false);
-              }   
+              }
               break;
             case 'breadcrumbHidden':
               if (Breadcrumbs.hasClass('hidden')) {
@@ -434,7 +434,7 @@ var Demo = function() {
         // Save new setting to Settings Key
         settingsObj['sidebarAlign'] = sidebarAlign;
         localStorage.setItem(themeKey, JSON.stringify(settingsObj));
-      });   
+      });
 
       // Fixed Breadcrumb Switcher
       $('#breadcrumb-option').on('click', function() {
@@ -520,7 +520,7 @@ var Demo = function() {
       if (screenCheck) {
         if ($.fullscreen.isFullScreen()) {
           $.fullscreen.exit();
-        } 
+        }
         else {
           selector.fullscreen({
             overflow: 'auto'

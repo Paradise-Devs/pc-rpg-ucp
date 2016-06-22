@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @include('partials._head')
+        @include('partials.master._head')
         @yield('stylesheets')
     </head>
     <body class="sb-l-o sb-r-c onload-check mobile-view tray-rescale">
         <div id="main">
-            @include('partials._header')
-            @include('partials._sidebar')
+            @include('partials.master._header')
+            @include('partials.master._sidebar')
             <section id="content_wrapper">
-                @include('partials._topbar')
+                @include('partials.master._topbar')
                 <section id="content" class="animated fadeIn">
                     @yield('content')
                 </section>
-                @include('partials._footer')
+                @include('partials.master._footer')
             </section>
         </div>
-        @include('partials._javascript')
+        @include('partials.master._javascript')
         @yield('scripts')
     </body>
 </html>
