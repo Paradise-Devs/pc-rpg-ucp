@@ -82,7 +82,7 @@
                     <span class="fa fa-gear"></span> Config. Conta </a>
                 </li>
                 <li class="dropdown-footer">
-                    <a href="#" class="">
+                    <a href="/logout" class="">
                     <span class="fa fa-power-off pr5"></span> Deslogar </a>
                 </li>
             </ul>
