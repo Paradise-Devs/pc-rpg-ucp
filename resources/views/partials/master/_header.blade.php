@@ -25,7 +25,7 @@
                             <div class="tab-content br-n pn">
                                 <div id="nav-tab1" class="tab-pane active" role="tabpanel">
                                     <div class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar"> </a>
+                                        <a class="media-left" href="#"> <img src="{{ URL::asset('assets/img/avatars/5.jpg') }}" class="mw40" alt="avatar"> </a>
                                         <div class="media-body">
                                             <h5 class="media-heading">Article
                                                 <small class="text-muted">- 08/16/22</small>
@@ -35,7 +35,7 @@
                                         </div>
                                     </div>
                                     <div class="media">
-                                        <a class="media-left" href="#"> <img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar"> </a>
+                                        <a class="media-left" href="#"> <img src="{{ URL::asset('assets/img/avatars/5.jpg') }}" class="mw40" alt="avatar"> </a>
                                         <div class="media-body">
                                             <h5 class="media-heading">Article
                                                 <small class="text-muted">- 08/16/22</small>
@@ -62,7 +62,7 @@
         </li>
         <li class="dropdown menu-merge">
             <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-                <img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64" />
+                <img src="{{ URL::asset('assets/img/avatars/1.jpg') }}" alt="avatar" class="mw30 br64" />
                 <span class="hidden-xs pl15"> Los </span>
                 <span class="caret caret-tp hidden-xs"></span>
             </a>

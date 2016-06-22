@@ -13,6 +13,10 @@
 
 Route::auth();
 
+Route::get('/faq/manage', function() { return view('pages.faq_manage'); });
+
+Route::get('/faq', function() { return view('pages.faq'); });
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'HomeController@index');

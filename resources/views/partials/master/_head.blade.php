@@ -9,10 +9,10 @@
 
 <!-- Stylesheets -->
 <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
-<link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/theme.css') }}">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="assets/img/favicon.ico">
+<link rel="shortcut icon" href="{{ URL::asset('assets/img/favicon.ico') }}">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

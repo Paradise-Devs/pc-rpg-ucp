@@ -7,7 +7,7 @@
             <div class="sidebar-widget author-widget">
                 <div class="media">
                     <a class="media-left" href="#">
-                        <img src="assets/img/avatars/3.jpg" class="img-responsive">
+                        <img src="{{ URL::asset('assets/img/avatars/3.jpg') }}" class="img-responsive">
                     </a>
                     <div class="media-body">
                         <div class="media-author">Los</div>
@@ -21,7 +21,7 @@
                     <span class="input-group-addon">
                         <i class="fa fa-search"></i>
                     </span>
-                    <input type="text" id="sidebar-search" class="form-control" placeholder="Procurar usuários, grupos...">
+                    <input type="text" id="sidebar-search" class="form-control" placeholder="Procurar...">
                 </div>
             </div>
         </header>
@@ -30,7 +30,7 @@
         <ul class="nav sidebar-menu">
             <li class="sidebar-label pt20">Início</li>
             <li class="active">
-                <a href="#">
+                <a href="/">
                     <span class="glyphicon glyphicon-home"></span>
                     <span class="sidebar-title">Início</span>
                 </a>
@@ -150,7 +150,7 @@
                 </a>
             </li>
             <li>
-                <a href="faq_index.html">
+                <a href="/faq">
                     <span class="fa fa-info"></span>
                     <span class="sidebar-title">FAQ</span>
                 </a>
