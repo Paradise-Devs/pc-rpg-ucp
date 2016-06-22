@@ -11,14 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.dashboard');
-});
-
-Route::get('/password', function () {
-    return view('auth.passwords.newmail');
-});
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/', 'HomeController@index');
