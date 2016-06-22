@@ -5,14 +5,14 @@
     <div class="row mb15 table-layout">
         <div class="col-xs-6 va-m pln">
             <a href="dashboard.html" title="Return to Dashboard">
-            <img src="assets/img/logos/logo_white.png" title="AdminDesigns Logo" class="img-responsive w250">
+            <img src="assets/img/logos/logo-big.png" title="AdminDesigns Logo" class="img-responsive w250">
             </a>
         </div>
         <div class="col-xs-6 text-right va-b pr5">
             <div class="login-links">
-                <a href="{{ url('/password/reset') }}" class="active" title="Esqueci minha senha">Esqueci minha senha</a>
+                <a href="{{ url('/login') }}" class="active" title="Esqueci minha senha">Acessar</a>
                 <span class="text-white"> | </span>
-                <a href="pages_register.html" class="" title="Registrar">Registrar</a>
+                <a href="{{ url('/register') }}" class="" title="Registrar">Registrar</a>
             </div>
         </div>
     </div>
