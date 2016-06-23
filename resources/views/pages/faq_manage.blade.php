@@ -40,22 +40,26 @@
                     <i class="fa fa-support"></i>Adicionar FAQ</span>
                 </div>
                 <!-- end .panel-heading section -->
-                <form>
+                <form method="POST" action="{{ url('/faq') }}" role="form">
+                    {{ csrf_field() }}
                     <div class="panel-body p25">
                         <div class="section row">
                             <div class="col-md-12">
-                                <label for="title" class="field prepend-icon">
-                                    <input type="text" name="title" id="title" class="gui-input" placeholder="Título..." required>
+                                <label for="title" class="field prepend-icon {{ $errors->has('title') ? 'state-error' : '' }}">
+                                    <input type="text" name="title" id="title" class="gui-input" value="{{ old('title') }}" placeholder="Título...">
                                     <label for="title" class="field-icon">
                                         <i class="fa fa-pencil"></i>
                                     </label>
                                 </label>
+                                @if ($errors->has('title'))
+                                    <em for="password" class="state-error">{{ $errors->first('title') }}</em>
+                                @endif
                             </div>
                         </div>
                         <!-- end section row section -->
                         <div class="section">
-                            <label for="comment" class="field prepend-icon">
-                                <textarea class="gui-textarea" id="comment" name="comment" placeholder="Conteúdo" required></textarea>
+                            <label for="comment" class="field prepend-icon {{ $errors->has('comment') ? 'state-error' : '' }}">
+                                <textarea class="gui-textarea" id="comment" name="comment" placeholder="Conteúdo">{{ old('comment') }}</textarea>
                                 <label for="comment" class="field-icon">
                                     <i class="fa fa-paragraph"></i>
                                 </label>
@@ -63,6 +67,9 @@
                                     Utilize <strong>somente</strong> texto.
                                 </span>
                             </label>
+                            @if ($errors->has('comment'))
+                                <em for="password" class="state-error">{{ $errors->first('comment') }}</em>
+                            @endif
                         </div>
                         <!-- end section -->
                     </div>

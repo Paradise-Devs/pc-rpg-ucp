@@ -9,6 +9,8 @@ use App\Http\Requests;
 use App\FrequentlyAsked;
 
 use Gate;
+use Auth;
+use Validator;
 
 class FrequentlyAskedController extends Controller
 {
@@ -48,4 +50,28 @@ class FrequentlyAskedController extends Controller
             return redirect('faq');
         }
     }
+
+    public function store(Request $request)
+    {
+        if(Gate::allows('developer'))
+        {
+            $this->validate($request, [
+                'title' => 'required|max:120',
+                'comment' => 'required'
+            ]);
+
+            $inputs = [
+                'title' => $request->input('title'),
+                'content' => $request->input('comment'),
+                'creator_id' => Auth::user()->id,
+                'created_at' => time(),
+                'updated_at' => time()
+            ];
+
+            FrequentlyAsked::Create($inputs);
+
+            return redirect('faq/manage')->with('message', 'success');
+        }
+    }
+
 }

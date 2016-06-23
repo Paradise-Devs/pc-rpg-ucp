@@ -14,6 +14,7 @@
 Route::auth();
 
 Route::get('/faq/manage', 'FrequentlyAskedController@manage');
+Route::resource('faq', 'FrequentlyAskedController');
 
 Route::get('/faq', 'FrequentlyAskedController@index');
 
