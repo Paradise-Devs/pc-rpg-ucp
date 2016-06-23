@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\FrequentlyAsked;
 use App\Http\Requests;
 
+use Auth;
+
 class FrequentlyAskedController extends Controller
 {
     /**

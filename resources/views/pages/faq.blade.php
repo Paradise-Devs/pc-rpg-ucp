@@ -21,11 +21,13 @@
             <li class="crumb-trail">FAQ</li>
         </ol>
     </div>
-    <div class="topbar-right">
-        <a href="/faq/manage" type="button" class="btn btn-system btn-gradient dark btn-block">
-            <i class="fa fa-cog"></i> Gerenciar FAQ
-        </a>
-    </div>
+    @can('manage', Auth::user())
+        <div class="topbar-right">
+            <a href="/faq/manage" type="button" class="btn btn-system btn-gradient dark btn-block">
+                <i class="fa fa-cog"></i> Gerenciar FAQ
+            </a>
+        </div>
+    @endcan
 </header>
 @endsection
 <!--                                                                        -->
