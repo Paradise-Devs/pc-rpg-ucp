@@ -21,7 +21,7 @@
             <li class="crumb-trail">FAQ</li>
         </ol>
     </div>
-    @can('manage', Auth::user())
+    @can('developer')
         <div class="topbar-right">
             <a href="/faq/manage" type="button" class="btn btn-system btn-gradient dark btn-block">
                 <i class="fa fa-cog"></i> Gerenciar FAQ

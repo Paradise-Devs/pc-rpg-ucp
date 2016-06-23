@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\FrequentlyAsked;
+use Illuminate\Http\Response;
 use App\Http\Requests;
 
-use Auth;
+use App\FrequentlyAsked;
+
+use Gate;
 
 class FrequentlyAskedController extends Controller
 {
@@ -28,7 +29,7 @@ class FrequentlyAskedController extends Controller
      */
     public function index()
     {
-        return view('pages.faq', ['questions' => FrequentlyAsked::lastQuestions()]);
+        return view('pages.faq', ['questions' => FrequentlyAsked::getQuestions()]);
     }
 
     /**
@@ -38,6 +39,13 @@ class FrequentlyAskedController extends Controller
      */
     public function manage()
     {
-        return view('pages.faq_manage');
+        if(Gate::allows('developer'))
+        {
+            return view('pages.faq_manage', ['questions' => FrequentlyAsked::getQuestions(null)]);
+        }
+        else
+        {
+            return redirect('faq');
+        }
     }
 }
