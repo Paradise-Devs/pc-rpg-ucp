@@ -13,6 +13,7 @@
         <!-- Stylesheets -->
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
 
         <!-- Plugins -->
         <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
@@ -321,112 +322,123 @@
                                 <span class="glyphicon glyphicon-home"></span>
                                 </a>
                             </li>
-                            <li class="crumb-trail">Denúncias</li>
+                            <li class="crumb-trail"><a href="complaint_index.html">Denúncias</a></li>
+                            <li class="crumb-trail"><a href="complaint_manage.html">Gerenciar Denúncias</a></li>
+                            <li class="crumb-trail">Denúncia #12313</li>
                         </ol>
-                    </div>
-                    <div class="topbar-right">
-                        <a href="complaint_manage.html" type="button" class="btn btn-sm btn-system btn-gradient dark">
-                            <i class="fa fa-cog"></i> Gerenciar Denúncias
-                        </a>
                     </div>
                 </header>
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
                 <section id="content" class="animated fadeIn">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel panel-primary mb50 panel-border top">
-                                <div class="panel-heading">
-                                    <span class="panel-title"><i class="fa fa-flag"></i> Denúncia contra jogador</span>
-                                </div>
-                                <div class="panel-body">
-                                    <ul>
-                                        <li>Administradores irão análisar a sua denúncia em até <b>24 horas</b>.</li>
-                                        <li>Administradores são totalmente imparciais quanto a análise.</li>
-                                        <li>Você terá acesso a punição concedida ao membro.</li>
-                                        <li>Seu nick será mantido em sigilo.</li>
-                                        <li>Forneça o máximo de evidências que você possuir.</li>
-                                        <li>Nós reservamos o direito de contestar sua denúncia.</li>
-                                        <li>Você também pode denunciar um jogador pelo próprio jogo.</li>
-                                    </ul>
-                                </div>
-                                <div class="panel-footer">
-                                    <a href="complaint_create_player.html" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Abrir Denúncia</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="panel panel-danger mb50 panel-border top">
-                                <div class="panel-heading">
-                                    <span class="panel-title"><i class="fa fa-flag"></i> Denúncia contra staff</span>
-                                </div>
-                                <div class="panel-body">
-                                    <ul>
-                                        <li>Desenvolvedores irão análisar a sua denúncia em até <b>72 horas</b>.</li>
-                                        <li>Desenvolvedores são totalmente imparciais quanto a análise.</li>
-                                        <li>Você <b>NÃO</b> terá acesso a punição concedida.</li>
-                                        <li>Seu nick será mantido em sigilo.</li>
-                                        <li>Forneça o máximo de evidências que você possuir.</li>
-                                        <li>Nós reservamos o direito de contestar sua denúncia.</li>
-                                        <li>Devs não podem ser denunciados. <span style="color:#fff">(fazemos tudo certinho, oras)</span></li>
-                                    </ul>
-                                </div>
-                                <div class="panel-footer">
-                                    <a href="complaint_create_admin.html" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Abrir Denúncia</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="pading-top: 1%">
                         <div class="col-md-12">
-                            <div class="panel panel-primary panel-border top">
-                                <div class="panel-heading">
-                                    <span class="panel-title">
-                                    <span class="fa fa-eye"></span>Minhas Denúncias</span>
-                                </div>
-                                <div class="panel-body pn">
-                                    <div class="bs-component">
-                                        <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>Status</th>
-                                                    <th>Criação</th>
-                                                    <th>Acusado</th>
-                                                    <th>Categoria</th>
-                                                    <th>Tipo</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-success btn-gradient dark" href="#modal-details" data-effect="mfp-with-fade">deferida</a></td>
-                                                    <td>3 dias atrás</td>
-                                                    <td><a href="">User_Random</a></td>
-                                                    <td>Cheating</td>
-                                                    <td>Jogador</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-default btn-gradient dark" href="#modal-details" data-effect="mfp-with-fade">aberta</a></td>
-                                                    <td>4 dias atrás</td>
-                                                    <td><a href="">User_Random</a></td>
-                                                    <td>Cheating</td>
-                                                    <td>Jogador</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-warning btn-gradient dark" href="#modal-details" data-effect="mfp-with-fade">em análise</a></td>
-                                                    <td>4 dias atrás</td>
-                                                    <td><a href="">User_Random</a></td>
-                                                    <td>Cheating</td>
-                                                    <td>Jogador</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-danger btn-gradient dark" href="#modal-details" data-effect="mfp-with-fade">indeferida</a></td>
-                                                    <td>4 dias atrás</td>
-                                                    <td><a href="">User_Random</a></td>
-                                                    <td>Cheating</td>
-                                                    <td>Jogador</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                            <div class="admin-form theme-primary">
+                                <div class="panel heading-border panel-primary">
+                                    <div class="panel-heading">
+                                        <span class="panel-title"><span class="fa fa-flag"></span>Denúncia #21313213</span></span>
+                                        <div class="widget-menu pull-right mr10">
+                                            <span class="label bg-danger mr10">Cheating</span>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body" style="margin-bottom: 0px; padding-bottom: 0px">
+                                        <form>
+                                            <div class="section row">
+                                                <div class="col-md-12">
+                                                    <p>
+                                                        <h5><span style="color: #A1ACBD">(07/06/2016 - 16:13)</span> <a href="user_profile.html">Lós</a>, acusando <a href="user_profile.html">User_Random</a>, relatou:</h5>
+                                                        <br />
+                                                        <blockquote class="blockquote-primary" style="font-size: 95%;">
+                                                            <p>
+                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat tortor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer purus arcu, viverra quis turpis id, faucibus faucibus turpis. Sed at rhoncus nunc. Aliquam non fringilla purus. Curabitur faucibus tellus et efficitur lacinia. Mauris quis ipsum at dolor venenatis fringilla a dapibus sem. Maecenas pulvinar egestas urna, eu pharetra mauris efficitur sed. Nam et mollis velit. Curabitur at metus sollicitudin turpis elementum aliquam. In blandit, urna at convallis suscipit, tortor dui ultricies magna, eget pretium mi lorem et tortor. Suspendisse potenti. Duis mattis arcu in molestie volutpat. Sed scelerisque tristique nisl, sit amet efficitur diam luctus et. Praesent consectetur, nisi nec sodales dignissim, magna sem varius massa, commodo mollis arcu massa in turpis. Nullam scelerisque libero eu ipsum tempor scelerisque.
+                                                                <br /><br />
+                                                                Suspendisse at augue odio. Nulla pellentesque, tortor et rutrum consequat, leo lectus interdum eros, vel elementum purus mauris at nunc. Sed tristique blandit neque id gravida. Proin velit turpis, dictum ut purus sit amet, scelerisque pretium neque. Morbi a iaculis sapien. Vivamus lacinia scelerisque accumsan. Integer non rhoncus ipsum, at suscipit dui. Aliquam erat volutpat. Proin non ex lacus.
+                                                            </p>
+                                                        </blockquote>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div id="punishmentdiv">
+                                                <div class="section-divider">
+                                                    <span style="color: #4a89dc;">Punição</span>
+                                                </div>
+                                                <h6 class="text-center">
+                                                    A punição escolhida abaixo, vai ser dada automaticamente ao jogador, mesmo se ele estiver jogando.
+                                                    Em caso de punição atribuida incorretamente, vá até o perfil do jogador e remova/edite.
+                                                </h6>
+                                                <div class="section row mt20">
+                                                    <div class="col-md-6">
+                                                        <label class="field select">
+                                                            <select id="punishment">
+                                                                <option selected="" value="null">Selecione...</option>
+                                                                <optgroup label="Conta">
+                                                                    <!-- Nível baixo -->
+                                                                    <option value="notification_id">Notificar</option>
+                                                                    <option value="tempban_id">Banimento Temporário</option>
+                                                                    <!-- Nível médio -->
+                                                                    <option value="permaban_id">Banimento Permanente</option>
+                                                                    <option value="resetacc_id">Resetar Conta</option>
+                                                                    <!-- Nível alto -->
+                                                                    <option value="deleteacc_id">Deletar Conta</option>
+                                                                </optgroup>
+                                                                <optgroup label="Personagem">
+                                                                    <!-- Nível baixo -->
+                                                                    <option value="applyticket_id">Aplicar Multa</option>
+                                                                    <option value="sendtoprision_id">Prisão</option>
+                                                                    <option value="sendtouw_id">Enviar para Underworld</option>
+                                                                    <!-- Nível médio -->
+                                                                    <option value="jobremove_id">Remover do Emprego</option>
+                                                                    <!-- Nível alto -->
+                                                                    <option value="changestats_id">Alterar Stats (Dinheiro/XP/Level)</option>
+                                                                </optgroup>
+                                                                <optgroup label="Grupos &amp; Facções">
+                                                                    <!-- Nível médio -->
+                                                                    <option value="groupremove_id">Remover da Facção/Grupo</option>
+                                                                </optgroup>
+                                                                <optgroup label="Patrimônio">
+                                                                    <!-- Nível médio -->
+                                                                    <option value="sellpatrimony_id">Remover Patrimônio</option>
+                                                                    <!-- Nível alto -->
+                                                                    <option value="resetpatrimony_id">Resetar Patrimônio</option>
+                                                                </optgroup>
+                                                            </select>
+                                                            <i class="arrow"></i>
+                                                        </label>
+                                                        <input type="text" name="reason" id="reason" class="gui-input mt20" placeholder="Motivo..." required>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="punishment-option" id="notification_div">
+                                                            <span class="help-block">
+                                                                <div class="progress" style="clear: both; margin-bottom: 2px">
+                                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                                                                        <span class="sr-only"> 3/5 notificações </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="status mb30" style="top: 35%; font-size: 11px; color: #AAB5BC; font-weight: 600; text-transform: uppercase; display: block;">
+                                                                    <div class="status-title" style="float: left; display: inline-block;"> notificações </div>
+                                                                    <div class="status-number" style="float: right; display: inline-block;"> 3/5 </div>
+                                                                </div>
+                                                                <!-- Mostrar com 4 => notificações -->
+                                                                <div class="alert alert-micro alert-border-left alert-danger text-left mb10 hidden pastel">
+                                                                    <strong>Atenção!</strong> Este usuário já tem 4 notificações, notifica-lo novamente, vai bani-lo por 7 dias automaticamente. Notificações expiram em 30 dias.
+                                                                </div>
+                                                                <!-- Mostrar com <= 3 notificações -->
+                                                                <div class="alert alert-info pastel text-left mb10 fs12">
+                                                                    Com 5 notificações o usuário vai ser automaticamente banido por 7 dias. Notificações expiram em 30 dias.
+                                                                </div>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="panel-footer text-right p7 mt0 pt0">
+                                        <div class="actions btn-group">
+                                            <a class="btn btn-sm btn-success btn-gradient dark" ><i class="fa fa-check"></i> Deferir</a>
+                                            <a class="btn btn-sm btn-danger btn-gradient dark" data-toggle="modal" data-target="#overrulePunishment"><i class="fa fa-times"></i> Indeferir</a>
+                                            <a href="#" class="btn btn-sm btn-gradient dark"><i class="fa fa-refresh "></i> Pendente</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -476,9 +488,28 @@
                 Core.init();
 
                 // Init DataTables
-                $('#datatable').dataTable({
+                $('#datatablePlayer').dataTable({
                     "sDom": 't<"dt-panelfooter clearfix"ip>',
-                    "scrollY": 120,
+                    "scrollY": 265,
+                    "oTableTools": {
+                        "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
+                    },
+                    "language": {
+                        "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
+                        "infoEmpty": "Não há entradas para serem mostradas",
+                        "emptyTable": "Nenhuma denúncia encontrada",
+                        "paginate": {
+                            "first":      "Primeiro",
+                            "previous":   "Anterior",
+                            "next":       "Próximo",
+                            "last":       "Último"
+                        }
+                    }
+                });
+
+                $('#datatableAdmin').dataTable({
+                    "sDom": 't<"dt-panelfooter clearfix"ip>',
+                    "scrollY": 265,
                     "oTableTools": {
                         "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
                     },
