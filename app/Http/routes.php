@@ -13,9 +13,9 @@
 
 Route::auth();
 
-Route::get('/faq/manage', function() { return view('pages.faq_manage'); });
+Route::get('/faq/manage', 'FrequentlyAskedController@manage');
 
-Route::get('/faq', function() { return view('pages.faq'); });
+Route::get('/faq', 'FrequentlyAskedController@index');
 
 Route::get('/home', 'HomeController@index');
 

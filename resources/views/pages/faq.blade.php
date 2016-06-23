@@ -21,11 +21,13 @@
             <li class="crumb-trail">FAQ</li>
         </ol>
     </div>
-    <div class="topbar-right">
-        <a href="/faq/manage" type="button" class="btn btn-system btn-gradient dark btn-block">
-            <i class="fa fa-cog"></i> Gerenciar FAQ
-        </a>
-    </div>
+    @can('developer')
+        <div class="topbar-right">
+            <a href="/faq/manage" type="button" class="btn btn-system btn-gradient dark btn-block">
+                <i class="fa fa-cog"></i> Gerenciar FAQ
+            </a>
+        </div>
+    @endcan
 </header>
 @endsection
 <!--                                                                        -->
@@ -89,40 +91,19 @@
                 <div class="p25 br-t">
                     <h5 class="text-muted mb20 mtn"> Todas as Perguntas </h5>
                     <div class="panel-group accordion accordion-lg" id="accordion2">
-                        <div class="faqItem">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_1">
-                                    Como posso alterar meu nome?
-                                    </a>
-                                </div>
-                                <div id="accord2_1" class="panel-collapse collapse">
-                                    <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="faqItem">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_2">
-                                    Fui banido injustamente, o que eu faço? </a>
-                                </div>
-                                <div id="accord2_2" class="panel-collapse collapse">
-                                    <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
+                        @foreach($questions as $question)
+                            <div class="faqItem">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_{{ $question->id }}">
+                                        {{ $question->title }}</a>
+                                    </div>
+                                    <div id="accord2_{{ $question->id }}" class="panel-collapse collapse">
+                                        <div class="panel-body">{{ $question->content }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="faqItem">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_3">
-                                    Posso ser da equipe? </a>
-                                </div>
-                                <div id="accord2_3" class="panel-collapse collapse">
-                                    <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

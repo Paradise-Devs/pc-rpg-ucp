@@ -94,60 +94,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Quais as vantagens do Paradise Pass?</td>
-                                <td>Los</td>
-                                <td>5 dias atrás</td>
-                                <td>
-                                    <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                    <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Como sei que vai ocorrer um evento?</td>
-                                <td>Los</td>
-                                <td>5 dias atrás</td>
-                                <td>
-                                    <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                    <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Qual a diferença de um grupo para uma facção?</td>
-                                <td>Los</td>
-                                <td>5 dias atrás</td>
-                                <td>
-                                    <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                    <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>O que eu ganho com eventos?</td>
-                                <td>Los</td>
-                                <td>5 dias atrás</td>
-                                <td>
-                                    <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                    <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Como posso alterar meu nome?</td>
-                                <td>Los</td>
-                                <td>5 dias atrás</td>
-                                <td>
-                                    <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                    <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Fui banido injustamente, o que eu faço?</td>
-                                <td>Los</td>
-                                <td>5 dias atrás</td>
-                                <td>
-                                    <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                    <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                </td>
-                            </tr>
+                            @foreach($questions as $question)
+                                <tr>
+                                    <td>{{ $question->title }}</td>
+                                    <td>Los</td>
+                                    <td>{{ App\Utils::timeElapsedString($question->created_at) }}</td>
+                                    <td>
+                                        <a type="button" class="btn btn-xs btn-primary btn-gradient dark" data-id="{{ $question->id }}"><i class="fa fa-pencil"></i> editar</a>
+                                        <a type="button" class="btn btn-xs btn-danger btn-gradient dark" data-id="{{ $question->id }}"><i class="fa fa-trash"></i> deletar</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
