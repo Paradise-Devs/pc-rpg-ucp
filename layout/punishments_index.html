@@ -306,13 +306,6 @@
                         </li>
                     </ul>
                     <!-- End: Sidebar Left Menu -->
-                    <!-- Start: Sidebar Collapse Button -->
-                    <div class="sidebar-toggle-mini">
-                        <a href="#">
-                            <span class="fa fa-sign-out"></span>
-                        </a>
-                    </div>
-                    <!-- End: Sidebar Collapse Button -->
                 </div>
                 <!-- End: Sidebar Left Content -->
             </aside>
@@ -410,28 +403,28 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details-contest" data-effect="mfp-with-fade">#213</a></td>
+                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details-contest">#213</a></td>
                                                     <td>Banimento</td>
                                                     <td>3 dias atrás</td>
                                                     <td>Nunca</td>
                                                     <td>Servidor</td>
                                                 </tr>
                                                 <tr class="text-muted">
-                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details-contest" data-effect="mfp-with-fade">#209</a></td>
+                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details-contest">#209</a></td>
                                                     <td>Banimento</td>
                                                     <td>3 dias atrás</td>
                                                     <td>Expirado</td>
                                                     <td><a href="user_profile.html">Los</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details" data-effect="mfp-with-fade">#200</a></td>
+                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details">#200</a></td>
                                                     <td>Expulsão</td>
                                                     <td>3 dias atrás</td>
                                                     <td>-</td>
                                                     <td><a href="user_profile.html">With</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details" data-effect="mfp-with-fade">#154</a></td>
+                                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details">#154</a></td>
                                                     <td>Remoção de Cargo</td>
                                                     <td>3 dias atrás</td>
                                                     <td>-</td>
@@ -553,12 +546,14 @@
                 // Init DataTables
                 $('#datatable').dataTable({
                     "sDom": 't<"dt-panelfooter clearfix"ip>',
-                    "scrollY": 150,
+                    "scrollY": 120,
                     "oTableTools": {
                         "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
                     },
                     "language": {
                         "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
+                        "infoEmpty": "Não há entradas para serem mostradas",
+                        "emptyTable": "Nenhuma punição encontrada",
                         "paginate": {
                             "first":      "Primeiro",
                             "previous":   "Anterior",

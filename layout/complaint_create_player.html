@@ -3,7 +3,7 @@
     <head>
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
-        <title>PC:RPG | Gerenciar FAQ</title>
+        <title>PC:RPG | Abrir Denúncia</title>
         <meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
         <meta name="description" content="Paradise City RPG">
         <meta name="author" content="Paradise Devs">
@@ -13,11 +13,9 @@
         <!-- Stylesheets -->
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
-        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/faq.css">
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
-        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/Editor/css/dataTables.editor.css">
-        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css">
+        <link rel="stylesheet" href="vendor/plugins/dropzone/css/dropzone.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/magnific/magnific-popup.css">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -46,7 +44,7 @@
                                 <span class="ad ad-radio-tower fs14 va-m"></span>
                                 <span class="badge">5</span>
                             </button>
-                            <div class="dropdown-menu dropdown-persist w350" role="menu">
+                            <div class="dropdown-menu dropdown-persist w350 animated animated-shorter fadeIn" role="menu">
                                 <div class="panel mbn">
                                     <div class="panel-menu">
                                         <div class="btn-group btn-group-justified btn-group-nav" role="tablist">
@@ -138,7 +136,7 @@
                                 </a>
                                 <div class="media-body">
                                     <div class="media-author">Los</div>
-                                    <div class="media-links"><span style="color: #17AE48">Developer<span></div>
+                                    <div class="media-links" style="color: #17AE48">Developer</div>
                                 </div>
                             </div>
                         </div>
@@ -264,13 +262,13 @@
                                 <span class="sidebar-title">Tickets</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="complaint_index.html">
                                 <span class="fa fa-flag"></span>
                                 <span class="sidebar-title">Denúncias</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="faq_index.html">
                                 <span class="fa fa-info"></span>
                                 <span class="sidebar-title">FAQ</span>
@@ -321,8 +319,8 @@
                                 <span class="glyphicon glyphicon-home"></span>
                                 </a>
                             </li>
-                            <li class="crumb-trail"><a href="faq_index.html">FAQ</a></li>
-                            <li class="crumb-trail">Gerenciar FAQ</li>
+                            <li class="crumb-trail"><a href="complaint_index.html">Denúncias</a></li>
+                            <li class="crumb-trail">Abrir Denúncia: Jogador</li>
                         </ol>
                     </div>
                 </header>
@@ -334,124 +332,63 @@
                             <div class="admin-form theme-primary tab-pane active">
                                 <div class="panel panel-primary heading-border">
                                     <div class="panel-heading">
-                                        <span class="panel-title"><i class="fa fa-support"></i>Adicionar FAQ</span>
+                                        <span class="panel-title"><i class="fa fa-flag"></i>Denúnciar Jogador</span>
                                     </div>
                                     <!-- end .panel-heading section -->
-                                    <div class="panel-body">
+                                    <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?"></textarea>
+                                    <div class="section-divider mb40" id="spy1">
+                                        <span style="color: #4a89dc;">Acusado & Motivo</span>
+                                    </div>
+                                    <div class="panel-body" style="padding-top: 1px">
                                         <form>
                                             <div class="section row">
-                                                <div class="col-md-12">
+                                                <div class="col-md-6">
                                                     <label for="title" class="field prepend-icon">
-                                                        <input type="text" name="title" id="title" class="gui-input" placeholder="Título..." required>
+                                                        <input type="text" name="title" id="title" class="gui-input" placeholder="Acusado (Nome_Sobrenome)" required>
                                                         <label for="title" class="field-icon">
-                                                            <i class="fa fa-pencil"></i>
+                                                            <i class="fa fa-user"></i>
                                                         </label>
                                                     </label>
                                                 </div>
-                                            </div>
-                                            <!-- end section row section -->
-                                            <div class="section">
-                                                <label for="comment" class="field prepend-icon">
-                                                    <textarea class="gui-textarea" id="comment" name="comment" placeholder="Conteúdo" required></textarea>
-                                                    <label for="comment" class="field-icon">
-                                                        <i class="fa fa-paragraph"></i>
+                                                <div class="col-md-6">
+                                                    <label class="field select">
+                                                        <select id="category">
+                                                            <option selected>Selecione o motivo...</option>
+                                                            <option>Cheating</option>
+                                                            <option>Glitching</option>
+                                                            <option>Spamming/Flood</option>
+                                                            <option>Abuso Verbal</option>
+                                                            <option>Abuso de Poder</option>
+                                                            <option>Nome Inapropriado/Ofensivo</option>
+                                                            <option>Divulgação</option>
+                                                            <option>Anti-RPG</option>
+                                                            <option>DM abusivo</option>
+                                                            <option>Drive-By</option>
+                                                            <option>Run-Over</option>
+                                                            <option>Outros...</option>
+                                                        </select>
+                                                        <i class="arrow"></i>
                                                     </label>
-                                                    <span class="input-footer">
-                                                        Utilize <strong>somente</strong> texto.
+                                                    <span class="help-block mt5">
+                                                        Caso não saiba o que significa alguma das categorias, verifique <a class="modal-launcher" href="#modal-help">aqui</a>.
                                                     </span>
-                                                </label>
+                                                </div>
                                             </div>
                                             <!-- end section -->
                                         </form>
                                     </div>
                                     <!-- end .form-body section -->
                                     <div class="panel-footer">
-                                        <button type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
-                                            <i class="fa fa-plus"></i> Adicionar
-                                        </button>
+                                        <div class="btn-group">
+                                            <a href="#" type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
+                                                <i class="fa fa-mail-forward"></i> Enviar
+                                            </a>
+                                            <a href="complaint_index.html" type="submit" class="btn btn-default btn-gradient dark btn-blocks">
+                                                <i class="fa fa-close"></i> Cancelar
+                                            </a>
+                                        </div>
                                     </div>
                                     <!-- end .form-footer section -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel panel-primary top">
-                                <div class="panel-heading">
-                                    <span class="panel-title">
-                                        <span class="glyphicon glyphicon-tasks"></span>FAQs
-                                    </span>
-                                </div>
-                                <div class="panel-body pn">
-                                    <div class="bs-component">
-                                        <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>Título</th>
-                                                    <th>Autor</th>
-                                                    <th>Adicionado</th>
-                                                    <th>Ação</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Quais as vantagens do Paradise Pass?</td>
-                                                    <td>Los</td>
-                                                    <td>5 dias atrás</td>
-                                                    <td>
-                                                        <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                                        <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Como sei que vai ocorrer um evento?</td>
-                                                    <td>Los</td>
-                                                    <td>5 dias atrás</td>
-                                                    <td>
-                                                        <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                                        <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Qual a diferença de um grupo para uma facção?</td>
-                                                    <td>Los</td>
-                                                    <td>5 dias atrás</td>
-                                                    <td>
-                                                        <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                                        <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>O que eu ganho com eventos?</td>
-                                                    <td>Los</td>
-                                                    <td>5 dias atrás</td>
-                                                    <td>
-                                                        <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                                        <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Como posso alterar meu nome?</td>
-                                                    <td>Los</td>
-                                                    <td>5 dias atrás</td>
-                                                    <td>
-                                                        <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                                        <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Fui banido injustamente, o que eu faço?</td>
-                                                    <td>Los</td>
-                                                    <td>5 dias atrás</td>
-                                                    <td>
-                                                        <a type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                                        <a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -473,20 +410,38 @@
                     </div>
                 </footer>
                 <!-- End: Page Footer -->
+                <!-- Begin: Modals -->
+                <div id="modal-help" class="popup-basic p25 mfp-with-anim mfp-hide">
+                    <b>Cheating:</b> Utilizar qualquer ferramenta que possa vir a trazer alguma vantagem no jogo em si. Trapacear.<br><br>
+                    <b>Glitching:</b> Utilizar qualquer bug do servidor/jogo para se beneficiar de alguma forma.<br><br>
+                    <b>Spamming/Flood:</b> Repetir uma determinada ação em um intervalo pequeno de tempo.<br><br>
+                    <b>Abuso Verbal:</b> Mensagens/atos de racismo, apologia a violência fora do jogo ou a qualquer outra forma de ofensa a terceiros<br><br>
+                    <b>Abuso de Poder:</b> Utilizar um cargo/comando em sua vantagem para prejudicar terceiros, sem motivo.<br><br>
+                    <b>Nome Inapropriado/Ofensivo:</b> Nomes de jogadores que são ofensivos de alguma forma ou inapropriados<br><br>
+                    <b>Divulgação:</b> Induzir a acessar ou procurar por algo que não seja ligado diretamente ao PC:RPG.<br><br>
+                    <b>Anti-RPG:</b> Cometer atos que você não faria na vida real.<br><br>
+                    <b>DM abusivo:</b> Matar ou atacar outros jogadores sem motivo ou por motivos fúteis.<br><br>
+                    <b>Drive-By:</b> Ato de atirar de dentro do veículo em jogadores fora de veículos, como passageiro/motorista.<br><br>
+                    <b>Run-Over:</b> Atropelar um jogador, deixar o carro em cima e sair do veículo.<br><br>
+                    <b>Outros:</b> Qualquer ato que não se encaixe nas categorias descritas acima.<br><br>
+                </div>
+                <!-- End: Modals -->
             </section>
         </div>
         <!-- End: Main -->
-
         <!-- BEGIN: PAGE SCRIPTS -->
         <!-- jQuery -->
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+        <script src="vendor/plugins/magnific/jquery.magnific-popup.js"></script>
 
-        <!-- Datatables -->
-        <script src="vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
-        <script src="vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
-        <script src="vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
-        <script src="vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+        <!-- MarkDown JS -->
+        <script src="vendor/plugins/markdown/markdown.js"></script>
+        <script src="vendor/plugins/markdown/to-markdown.js"></script>
+        <script src="vendor/plugins/markdown/bootstrap-markdown.js"></script>
+
+        <!-- Dropzone JS -->
+        <script src="vendor/plugins/dropzone/dropzone.min.js"></script>
 
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
@@ -495,25 +450,22 @@
         <script type="text/javascript">
             jQuery(document).ready(function() {
                 "use strict";
+
                 // Init Theme Core
                 Core.init();
 
-                // Init DataTables
-                $('#datatable').dataTable({
-                    "sDom": 't<"dt-panelfooter clearfix"ip>',
-                    "scrollY": 120,
-                    "oTableTools": {
-                        "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
-                    },
-                    "language": {
-                        "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
-                        "infoEmpty": "Não há entradas para serem mostradas",
-                        "emptyTable": "Nenhuma denúncia encontrada",
-                        "paginate": {
-                            "first":      "Primeiro",
-                            "previous":   "Anterior",
-                            "next":       "Próximo",
-                            "last":       "Último"
+                $('.modal-launcher').magnificPopup({ type: 'inline', mainClass: 'mfp-flipInX' });
+
+                // Init MarkDown Editor
+                $("#markdown-editor").markdown({
+                    savable: false,
+                    onChange: function(e) {
+                        var content = e.parseContent(),
+                        content_length = (content.match(/\n/g) || []).length + content.length
+                        if (content == '') {
+                            $('#md-footer').hide()
+                        } else {
+                            $('#md-footer').show().html(content)
                         }
                     }
                 });
