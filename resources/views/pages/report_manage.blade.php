@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <!--                                                                        -->
-@section('title', '| Gerenciar denúncias')
+@section('title', '| Gerenciar denúncia')
 <!--                                                                        -->
 @section('stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/datatables/media/css/dataTables.bootstrap.css') }}">

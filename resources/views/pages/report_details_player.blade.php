@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <!--                                                                        -->
-@section('title', '| Gerenciar denúncias')
+@section('title', '| Gerenciar denúncia')
 <!--                                                                        -->
 @section('stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
