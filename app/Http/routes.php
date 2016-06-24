@@ -16,7 +16,7 @@ Route::auth();
 Route::get('/faq/manage', 'FrequentlyAskedController@manage');
 Route::get('/faq/edit/{id}', 'FrequentlyAskedController@edit');
 
-Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show', 'index', 'manage']]);
+Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show', 'index']]);
 
 Route::get('/faq', 'FrequentlyAskedController@index');
 Route::get('/home', 'HomeController@index');
