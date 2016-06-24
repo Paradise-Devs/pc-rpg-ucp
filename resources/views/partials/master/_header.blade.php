@@ -63,7 +63,7 @@
         <li class="dropdown menu-merge">
             <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
                 <img src="{{ URL::asset('assets/img/avatars/1.jpg') }}" alt="avatar" class="mw30 br64" />
-                <span class="hidden-xs pl15"> Los </span>
+                <span class="hidden-xs pl15"> {{ Auth::user()->name }} </span>
                 <span class="caret caret-tp hidden-xs"></span>
             </a>
             <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">

@@ -10,7 +10,7 @@
                         <img src="{{ URL::asset('assets/img/avatars/3.jpg') }}" class="img-responsive">
                     </a>
                     <div class="media-body">
-                        <div class="media-author">Los</div>
+                        <div class="media-author">{{ Auth::user()->name }}</div>
                         <div class="media-links" style="color: #17AE48">Developer</div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
             <li>
                 <a href="#">
                     <span class="fa fa-laptop"></span>
-                    <span class="sidebar-title">Objetos</span>
+                    <span class="sidebar-title">Mobília</span>
                 </a>
             </li>
             <!-- Sidebar: Social -->
@@ -124,7 +124,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/punicoes">
                     <span class="fa fa-eye"></span>
                     <span class="sidebar-title">Punições</span>
                 </a>
@@ -138,7 +138,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/denuncias">
                     <span class="fa fa-flag"></span>
                     <span class="sidebar-title">Denúncias</span>
                 </a>
