@@ -42,4 +42,10 @@ class Utils extends Model
          return $string ? implode(', ', $string) . ' atrás' : 'agora mesmo';
     }
 
+    public static function getName($id)
+    {
+        $user = User::findOrFail($id);
+        return $user->name;
+    }
+
 }

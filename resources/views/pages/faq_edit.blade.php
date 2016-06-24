@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <!--                                                                        -->
-@section('title', '| Gerenciar FAQ')
+@section('title', '| Editar FAQ')
 <!--                                                                        -->
 @section('stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/faq.css') }}">
@@ -47,16 +47,17 @@
         <div class="admin-form theme-primary tab-pane active">
             <div class="panel panel-primary heading-border">
                 <div class="panel-heading">
-                    <span class="panel-title"><i class="fa fa-support"></i>Adicionar FAQ</span>
+                    <span class="panel-title"><i class="fa fa-pencil"></i>Editar FAQ</span>
                 </div>
                 <!-- end .panel-heading section -->
-                <form method="POST" action="{{ url('/faq') }}" role="form">
+                <form method="POST" action="{{ route('faq.update', $faq_data->id) }}" role="form">
                     <div class="panel-body p25">
                         {{ csrf_field() }}
+                        {{ method_field('PATCH') }}
                             <div class="section row">
                                 <div class="col-md-12">
                                     <label for="title" class="field prepend-icon {{ $errors->has('title') ? 'state-error' : '' }}">
-                                        <input type="text" name="title" id="title" class="gui-input" value="{{ old('title') }}" placeholder="Título...">
+                                        <input type="text" name="title" id="title" class="gui-input" value="{{ $faq_data->title }}" placeholder="Título...">
                                         <label for="title" class="field-icon">
                                             <i class="fa fa-pencil"></i>
                                         </label>
@@ -69,7 +70,7 @@
                             <!-- end section row section -->
                             <div class="section">
                                 <label for="comment" class="field prepend-icon {{ $errors->has('comment') ? 'state-error' : '' }}">
-                                    <textarea class="gui-textarea" id="comment" name="comment" placeholder="Conteúdo">{{ old('comment') }}</textarea>
+                                    <textarea class="gui-textarea" id="comment" name="comment" placeholder="Conteúdo">{{ $faq_data->content }}</textarea>
                                     <label for="comment" class="field-icon">
                                         <i class="fa fa-paragraph"></i>
                                     </label>
@@ -84,49 +85,11 @@
                             <!-- end section -->
                         </div>
                         <div class="panel-footer">
-                             <button type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
-                                 <i class="fa fa-plus"></i> Adicionar
+                             <button type="submit" class="btn btn-success btn-gradient dark btn-blocks">
+                                 <i class="fa fa-check"></i> Salvar
                              </button>
                          </div>
                     </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="panel panel-visible" id="spy1">
-                <div class="panel-heading">
-                    <div class="panel-title hidden-xs">
-                        <span class="glyphicon glyphicon-tasks"></span>FAQs
-                    </div>
-                </div>
-                <div class="panel-body pn">
-                    <table class="table table-striped table-hover" id="datatable" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th>Título</th>
-                                <th>Autor</th>
-                                <th>Adicionado</th>
-                                <th>Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($questions as $question)
-                                <tr>
-                                    <td>{{ $question->title }}</td>
-                                    <td>{{ App\Utils::getName($question->creator_id) }}</td>
-                                    <td>{{ App\Utils::timeElapsedString($question->created_at) }}</td>
-                                    <td>
-                                        <form class="controls form-inline" method="POST" action="{{ route('faq.destroy', $question->id) }}">
-                                            <a href="{{ route('faq.edit', $question->id) }}" class="btn btn-xs btn-primary btn-inline btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
@@ -135,29 +98,4 @@
 @endsection
 <!--                                                                        -->
 @section('scripts')
-<script src="{{ URL::asset('vendor/plugins/datatables/media/js/jquery.dataTables.js') }}"></script>
-<script src="{{ URL::asset('vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js') }}"></script>
-<script src="{{ URL::asset('vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js') }}"></script>
-<script src="{{ URL::asset('vendor/plugins/datatables/media/js/dataTables.bootstrap.js') }}"></script>
-
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-        // Init DataTables
-        $('#datatable').dataTable({
-            "sDom": 't<"dt-panelfooter clearfix"ip>',
-            "oTableTools": {
-                "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
-            },
-            "language": {
-                "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
-                "paginate": {
-                    "first":      "Primeiro",
-                    "previous":   "Anterior",
-                    "next":       "Próximo",
-                    "last":       "Último"
-                }
-            }
-        });
-    });
-</script>
 @endsection
