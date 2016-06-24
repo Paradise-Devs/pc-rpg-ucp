@@ -63,15 +63,23 @@ class FrequentlyAskedController extends Controller
 
     public function update(Request $request, $id)
     {
-        $array = [
-            'title' => $request->input('title'),
-            'content' => $request->input('comment'),
-            'creator_id' => Auth::user()->id
-        ];
+        if(Gate::allows('developer'))
+        {
+            $this->validate($request, [
+                'title' => 'required|max:120',
+                'comment' => 'required'
+            ]);
+            
+            $array = [
+                'title' => $request->input('title'),
+                'content' => $request->input('comment'),
+                'creator_id' => Auth::user()->id
+            ];
 
-        FrequentlyAsked::where('id', $id)
-                        ->update($array);
-        return Redirect::to("faq/edit/$id")->with('success', true);
+            FrequentlyAsked::where('id', $id)
+                            ->update($array);
+            return Redirect::to("faq/edit/$id")->with('success', true);
+        }
     }
 
     public function store(Request $request)
