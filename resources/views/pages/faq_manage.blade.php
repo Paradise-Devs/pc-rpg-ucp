@@ -145,11 +145,14 @@
         // Init DataTables
         $('#datatable').dataTable({
             "sDom": 't<"dt-panelfooter clearfix"ip>',
+            "scrollY": 120,
             "oTableTools": {
                 "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
             },
             "language": {
                 "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
+                "infoEmpty": "Não há entradas para serem mostradas",
+                "emptyTable": "Nenhuma denúncia encontrada",
                 "paginate": {
                     "first":      "Primeiro",
                     "previous":   "Anterior",
