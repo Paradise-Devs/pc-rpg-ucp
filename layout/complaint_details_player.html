@@ -14,11 +14,7 @@
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
-
-        <!-- Plugins -->
-        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/Editor/css/dataTables.editor.css">
-        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/animate/animate.min.css">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -323,7 +319,6 @@
                                 </a>
                             </li>
                             <li class="crumb-trail"><a href="complaint_index.html">Denúncias</a></li>
-                            <li class="crumb-trail"><a href="complaint_manage.html">Gerenciar Denúncias</a></li>
                             <li class="crumb-trail">Denúncia #12313</li>
                         </ol>
                     </div>
@@ -346,7 +341,7 @@
                                             <div class="section row">
                                                 <div class="col-md-12">
                                                     <p>
-                                                        <h5><span style="color: #A1ACBD">(07/06/2016 - 16:13)</span> <a href="user_profile.html">Lós</a>, acusando <a href="user_profile.html">User_Random</a>, relatou:</h5>
+                                                        <h5><span style="color: #A1ACBD">(07/06/2016 - 16:13)</span> Você relatou:</h5>
                                                         <br />
                                                         <blockquote class="blockquote-primary" style="font-size: 95%;">
                                                             <p>
@@ -358,86 +353,35 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                            <div id="punishmentdiv">
+                                            <div id="status_complaint_div" class="animated fadeInUp mt30">
                                                 <div class="section-divider">
-                                                    <span style="color: #4a89dc;">Punição</span>
+                                                    <span style="color: #4a89dc;">Status da Denúncia</span>
                                                 </div>
-                                                <h6 class="text-center">
-                                                    A punição escolhida abaixo, vai ser dada automaticamente ao jogador, mesmo se ele estiver jogando.
-                                                    Em caso de punição atribuida incorretamente, vá até o perfil do jogador e remova/edite.
-                                                </h6>
-                                                <div class="section row mt20">
-                                                    <div class="col-md-6">
-                                                        <label class="field select">
-                                                            <select id="punishment">
-                                                                <option selected="" value="null">Selecione...</option>
-                                                                <optgroup label="Conta">
-                                                                    <!-- Nível baixo -->
-                                                                    <option value="notification_id">Notificar</option>
-                                                                    <option value="tempban_id">Banimento Temporário</option>
-                                                                    <!-- Nível médio -->
-                                                                    <option value="permaban_id">Banimento Permanente</option>
-                                                                    <option value="resetacc_id">Resetar Conta</option>
-                                                                    <!-- Nível alto -->
-                                                                    <option value="deleteacc_id">Deletar Conta</option>
-                                                                </optgroup>
-                                                                <optgroup label="Personagem">
-                                                                    <!-- Nível baixo -->
-                                                                    <option value="applyticket_id">Aplicar Multa</option>
-                                                                    <option value="sendtoprision_id">Prisão</option>
-                                                                    <option value="sendtouw_id">Enviar para Underworld</option>
-                                                                    <!-- Nível médio -->
-                                                                    <option value="jobremove_id">Remover do Emprego</option>
-                                                                    <!-- Nível alto -->
-                                                                    <option value="changestats_id">Alterar Stats (Dinheiro/XP/Level)</option>
-                                                                </optgroup>
-                                                                <optgroup label="Grupos &amp; Facções">
-                                                                    <!-- Nível médio -->
-                                                                    <option value="groupremove_id">Remover da Facção/Grupo</option>
-                                                                </optgroup>
-                                                                <optgroup label="Patrimônio">
-                                                                    <!-- Nível médio -->
-                                                                    <option value="sellpatrimony_id">Remover Patrimônio</option>
-                                                                    <!-- Nível alto -->
-                                                                    <option value="resetpatrimony_id">Resetar Patrimônio</option>
-                                                                </optgroup>
-                                                            </select>
-                                                            <i class="arrow"></i>
-                                                        </label>
-                                                        <input type="text" name="reason" id="reason" class="gui-input mt20" placeholder="Motivo..." required>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="punishment-option" id="notification_div">
-                                                            <span class="help-block">
-                                                                <div class="progress" style="clear: both; margin-bottom: 2px">
-                                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
-                                                                        <span class="sr-only"> 3/5 notificações </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="status mb30" style="top: 35%; font-size: 11px; color: #AAB5BC; font-weight: 600; text-transform: uppercase; display: block;">
-                                                                    <div class="status-title" style="float: left; display: inline-block;"> notificações </div>
-                                                                    <div class="status-number" style="float: right; display: inline-block;"> 3/5 </div>
-                                                                </div>
-                                                                <!-- Mostrar com 4 => notificações -->
-                                                                <div class="alert alert-micro alert-border-left alert-danger text-left mb10 hidden pastel">
-                                                                    <strong>Atenção!</strong> Este usuário já tem 4 notificações, notifica-lo novamente, vai bani-lo por 7 dias automaticamente. Notificações expiram em 30 dias.
-                                                                </div>
-                                                                <!-- Mostrar com <= 3 notificações -->
-                                                                <div class="alert alert-info pastel text-left mb10 fs12">
-                                                                    Com 5 notificações o usuário vai ser automaticamente banido por 7 dias. Notificações expiram em 30 dias.
-                                                                </div>
-                                                            </span>
-                                                        </div>
-                                                    </div>
+                                                <div id="opened_info" class="alert alert-micro alert-border-left alert-info">
+                                                    <i class="fa fa-info pr10"></i>
+                                                    Sua denúncia ainda consta como aberta, sendo assim, aguarde a nossa análise que deve acontecer em até 24 horas após abertura da denúncia. Você vai receber uma notificação quando a denúncia for atualizada.
+                                                </div>
+                                                <div id="pending_info" class="alert alert-micro alert-border-left alert-warning">
+                                                    <i class="fa fa-info pr10"></i>
+                                                    Sua denúncia está em análise, sendo assim, aguarde a conclusão da nossa análise que deve acontecer em até 24 horas após abertura da denúncia. Você vai receber uma notificação quando a denúncia for atualizada.
+                                                </div>
+                                                <div id="accepted_info" class="alert alert-micro alert-border-left alert-success">
+                                                    <i class="fa fa-check pr10"></i>
+                                                    Sua denúncia foi deferida.<br /><br />
+                                                    <b>Punição aplicada:</b> Banimento Temporário (6 dias)<br />
+                                                    <b>Motivo:</b> Jogador cometeu Drive-by conforme evidenciado.<br />
+                                                </div>
+                                                <div id="denied_info" class="alert alert-micro alert-border-left alert-danger">
+                                                    <i class="fa fa-close pr10"></i>
+                                                    Sua denúncia foi indeferida.<br /><br />
+                                                    <b>Motivo:</b> Evidências insuficiente. Reabra a denúncia e insira novas/mais evidências.<br />
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="panel-footer text-right p7 mt0 pt0">
+                                    <div class="panel-footer p7 mt0 pt0">
                                         <div class="actions btn-group">
-                                            <a class="btn btn-sm btn-success btn-gradient dark" ><i class="fa fa-check"></i> Deferir</a>
-                                            <a class="btn btn-sm btn-danger btn-gradient dark" data-toggle="modal" data-target="#overrulePunishment"><i class="fa fa-times"></i> Indeferir</a>
-                                            <a href="#" class="btn btn-sm btn-gradient dark"><i class="fa fa-refresh "></i> Pendente</a>
+                                            <a href="complaint_index.html" class="btn btn-sm btn-primary btn-gradient dark"><i class="fa fa-arrow-left"></i> Voltar</a>
                                         </div>
                                     </div>
                                 </div>
@@ -469,12 +413,7 @@
         <!-- jQuery -->
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
-
-        <!-- Datatables -->
-        <script src="vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
-        <script src="vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
-        <script src="vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
-        <script src="vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+        <script src="vendor/plugins/maxlength/bootstrap-maxlength.min.js"></script>
 
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
@@ -486,45 +425,6 @@
 
                 // Init Theme Core
                 Core.init();
-
-                // Init DataTables
-                $('#datatablePlayer').dataTable({
-                    "sDom": 't<"dt-panelfooter clearfix"ip>',
-                    "scrollY": 265,
-                    "oTableTools": {
-                        "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
-                    },
-                    "language": {
-                        "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
-                        "infoEmpty": "Não há entradas para serem mostradas",
-                        "emptyTable": "Nenhuma denúncia encontrada",
-                        "paginate": {
-                            "first":      "Primeiro",
-                            "previous":   "Anterior",
-                            "next":       "Próximo",
-                            "last":       "Último"
-                        }
-                    }
-                });
-
-                $('#datatableAdmin').dataTable({
-                    "sDom": 't<"dt-panelfooter clearfix"ip>',
-                    "scrollY": 265,
-                    "oTableTools": {
-                        "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
-                    },
-                    "language": {
-                        "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
-                        "infoEmpty": "Não há entradas para serem mostradas",
-                        "emptyTable": "Nenhuma denúncia encontrada",
-                        "paginate": {
-                            "first":      "Primeiro",
-                            "previous":   "Anterior",
-                            "next":       "Próximo",
-                            "last":       "Último"
-                        }
-                    }
-                });
             });
         </script>
         <!-- END: PAGE SCRIPTS -->
