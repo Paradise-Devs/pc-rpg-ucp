@@ -29,7 +29,7 @@
         <!-- Start: Sidebar Menu -->
         <ul class="nav sidebar-menu">
             <li class="sidebar-label pt20">Início</li>
-            <li class="active">
+            <li>
                 <a href="/">
                     <span class="glyphicon glyphicon-home"></span>
                     <span class="sidebar-title">Início</span>
@@ -144,12 +144,6 @@
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <span class="fa fa-ban"></span>
-                    <span class="sidebar-title">Banimento</span>
-                </a>
-            </li>
-            <li>
                 <a href="/faq">
                     <span class="fa fa-info"></span>
                     <span class="sidebar-title">FAQ</span>
@@ -183,13 +177,6 @@
             </li>
         </ul>
         <!-- End: Sidebar Left Menu -->
-        <!-- Start: Sidebar Collapse Button -->
-        <div class="sidebar-toggle-mini">
-            <a href="#">
-                <span class="fa fa-sign-out"></span>
-            </a>
-        </div>
-        <!-- End: Sidebar Collapse Button -->
     </div>
     <!-- End: Sidebar Left Content -->
 </aside>

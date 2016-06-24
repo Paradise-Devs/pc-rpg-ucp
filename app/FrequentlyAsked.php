@@ -16,6 +16,7 @@ class FrequentlyAsked extends Model
     {
         $frequentlyAsked = DB::table('frequently_askeds')
                             ->limit($limit)
+                            ->orderBy('id', 'desc')
                             ->get();
         return $frequentlyAsked;
     }
