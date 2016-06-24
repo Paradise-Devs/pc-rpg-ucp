@@ -53,38 +53,16 @@
                     <div class="col-xs-9 br-l">
                         <h5 class="text-muted pl5 mt20 mb20"> Respondidas Recentemente </h5>
                         <ul class="fs15 list-divide-items mb30">
-                            <li>
-                                <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_1">
-                                    <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> Quais as vantagens do Paradise Pass?</a>
-                                </a>
-                                <div id="accord1_1" class="panel-collapse collapse">
-                                    <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                </div>
-                            </li>
-                            <li>
-                                <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_2">
-                                    <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> Como sei que vai ocorrer um evento?</a>
-                                </a>
-                                <div id="accord1_2" class="panel-collapse collapse">
-                                    <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                </div>
-                            </li>
-                            <li>
-                                <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_3">
-                                    <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> Qual a diferença de um grupo para uma facção?</a>
-                                </a>
-                                <div id="accord1_3" class="panel-collapse collapse">
-                                    <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                </div>
-                            </li>
-                            <li>
-                                <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_4">
-                                    <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> O que eu ganho com eventos?</a>
-                                </a>
-                                <div id="accord1_4" class="panel-collapse collapse">
-                                    <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-                                </div>
-                            </li>
+                            @foreach($recent as $question)
+                                <li>
+                                    <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_{{ $question->id }}">
+                                        <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> {{ $question->title }}</a>
+                                    </a>
+                                    <div id="accord1_{{ $question->id }}" class="panel-collapse collapse">
+                                        <div class="panel-body">{{ $question->content }}</div>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
