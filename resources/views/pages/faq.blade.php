@@ -23,7 +23,7 @@
     </div>
     @can('developer')
         <div class="topbar-right">
-            <a href="/faq/manage" type="button" class="btn btn-system btn-gradient dark btn-block">
+            <a href="/faq/gerenciar" type="button" class="btn btn-system btn-gradient dark btn-block">
                 <i class="fa fa-cog"></i> Gerenciar FAQ
             </a>
         </div>

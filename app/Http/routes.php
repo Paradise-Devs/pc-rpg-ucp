@@ -13,8 +13,8 @@
 
 Route::auth();
 
-Route::get('/faq/manage', 'FrequentlyAskedController@manage');
-Route::get('/faq/edit/{id}', 'FrequentlyAskedController@edit');
+Route::get('/faq/gerenciar', 'FrequentlyAskedController@manage');
+Route::get('/faq/editar/{id}', 'FrequentlyAskedController@edit');
 
 Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show', 'index']]);
 

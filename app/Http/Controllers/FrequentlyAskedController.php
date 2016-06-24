@@ -69,7 +69,7 @@ class FrequentlyAskedController extends Controller
                 'title' => 'required|max:120',
                 'comment' => 'required'
             ]);
-            
+
             $array = [
                 'title' => $request->input('title'),
                 'content' => $request->input('comment'),
@@ -98,7 +98,7 @@ class FrequentlyAskedController extends Controller
             ];
 
             FrequentlyAsked::Create($inputs);
-            return Redirect::to('faq/manage')->with('success', true);
+            return Redirect::to('faq/gerenciar')->with('success', true);
         }
     }
 
@@ -109,7 +109,7 @@ class FrequentlyAskedController extends Controller
             $question = FrequentlyAsked::findOrFail($id);
             FrequentlyAsked::Destroy($id);
 
-            return Redirect::to('faq/manage')->with('success', true);
+            return Redirect::to('faq/gerenciar')->with('success', true);
         }
     }
 
