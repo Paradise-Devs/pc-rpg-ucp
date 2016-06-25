@@ -20,5 +20,6 @@ Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show', 'index
 
 Route::get('/faq', 'FrequentlyAskedController@index');
 Route::get('/punicoes', 'PunishmentsController@index');
+Route::get('/denuncias', 'ReportsController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');
