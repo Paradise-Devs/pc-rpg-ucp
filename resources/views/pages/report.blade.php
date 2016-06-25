@@ -35,6 +35,16 @@
 <!--                                                                        -->
 @section('content')
 <div class="row">
+    @if(Session::get('success'))
+        <div class="col-md-12">
+            <div class="special-alerts">
+                <div class="alert alert-success pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-check pr10"></i>Operação realizada com sucesso!
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="col-md-6">
         <div class="panel panel-primary mb50 panel-border top"> <!-- animated slideInLeft -->
             <div class="panel-heading">
