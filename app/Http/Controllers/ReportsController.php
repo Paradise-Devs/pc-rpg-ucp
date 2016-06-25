@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Gate;
+
 class ReportsController extends Controller
 {
 
@@ -22,5 +24,17 @@ class ReportsController extends Controller
     public function create_admin()
     {
         return view('pages.report_create_admin');
+    }
+
+    public function manage()
+    {
+        if(Gate::allows('developer'))
+        {
+            return view('pages.report_manage');
+        }
+        else
+        {
+            return Redirect::to('denuncias');
+        }
     }
 }
