@@ -78,7 +78,7 @@ class FrequentlyAskedController extends Controller
 
             FrequentlyAsked::where('id', $id)
                             ->update($array);
-            return Redirect::to("faq/edit/$id")->with('success', true);
+            return Redirect::to("faq/$id/edit")->with('success', true);
         }
     }
 
