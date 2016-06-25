@@ -13,7 +13,7 @@
 
 Route::auth();
 
-Route::get('/denuncia/create/admin', 'FrequentlyAskedController@create_admin');
+Route::get('/denuncia/create/admin', 'ReportsController@create_admin');
 
 Route::get('/faq/gerenciar', 'FrequentlyAskedController@manage');
 Route::get('/faq/editar/{id}', 'FrequentlyAskedController@edit');
