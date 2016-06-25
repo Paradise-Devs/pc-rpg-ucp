@@ -13,7 +13,8 @@ class ReportsController extends Controller
 
     public function index()
     {
-        return view('pages.report');
+        $reports = Report::where('user_id', Auth::user()->id)->get();
+        return view('pages.report', ['reports' => $reports]);
     }
 
     public function create()

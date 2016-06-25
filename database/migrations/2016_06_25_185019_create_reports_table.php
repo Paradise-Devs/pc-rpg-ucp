@@ -14,7 +14,9 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('accused_id')->unsigned();
             $table->foreign('accused_id')->references('id')->on('users');
             $table->text('content');
             $table->string('reason', 35);
