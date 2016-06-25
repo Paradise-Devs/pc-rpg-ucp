@@ -3,7 +3,7 @@
     <head>
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
-        <title>PC:RPG | Abrir Denúncia</title>
+        <title>PC:RPG | Criando Ticket</title>
         <meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
         <meta name="description" content="Paradise City RPG">
         <meta name="author" content="Paradise Devs">
@@ -14,8 +14,6 @@
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
-        <link rel="stylesheet" href="vendor/plugins/dropzone/css/dropzone.css">
-        <link rel="stylesheet" type="text/css" href="vendor/plugins/magnific/magnific-popup.css">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -256,13 +254,13 @@
                         </li>
                         <!-- Sidebar: Suporte -->
                         <li class="sidebar-label pt20">Suporte</li>
-                        <li>
+                        <li class="active">
                             <a href="ticket_index.html">
                                 <span class="fa fa-question"></span>
                                 <span class="sidebar-title">Tickets</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="complaint_index.html">
                                 <span class="fa fa-flag"></span>
                                 <span class="sidebar-title">Denúncias</span>
@@ -319,8 +317,8 @@
                                 <span class="glyphicon glyphicon-home"></span>
                                 </a>
                             </li>
-                            <li class="crumb-trail"><a href="complaint_index.html">Denúncias</a></li>
-                            <li class="crumb-trail">Abrir Denúncia: Administrador</li>
+                            <li class="crumb-trail"><a href="ticket_index.html">Tickets</a></li>
+                            <li class="crumb-trail">Criar Ticket</li>
                         </ol>
                     </div>
                 </header>
@@ -329,87 +327,132 @@
                 <section id="content" class="animated fadeIn">
                     <div class="row">
                         <div class="col-md-12">
-                            <form>
-                                <div class="admin-form theme-primary tab-pane active">
-                                    <div class="panel panel-primary heading-border">
-                                        <div class="panel-heading">
-                                            <span class="panel-title"><i class="fa fa-flag"></i>Denúnciar Staff</span>
-                                        </div>
-                                        <!-- end .panel-heading section -->
-                                        <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?"></textarea>
-                                        <div class="section-divider mb40" id="spy1">
-                                            <span style="color: #4a89dc;">Acusado & Motivo</span>
-                                        </div>
-                                        <div class="panel-body" style="padding-top: 1px">
+                            <div class="admin-form theme-primary">
+                                <div class="panel panel-primary heading-border">
+                                    <div class="panel-heading">
+                                        <span class="panel-title"><i class="fa fa-support"></i>Criando Ticket</span>
+                                    </div>
+                                    <!-- end .panel-heading section -->
+                                    <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Diga-nos, qual o problema que estas enfrentando?"></textarea>
+                                    <div class="section-divider mb40" id="spy1">
+                                        <span style="color: #4a89dc;">Título & Categoria</span>
+                                    </div>
+                                    <div class="panel-body" style="padding-top: 1px">
+                                        <form>
                                             <div class="section row">
                                                 <div class="col-md-6">
-                                                    <label class="field select">
-                                                        <select id="admins">
-                                                            <option selected>Selecione o staffer...</option>
-                                                            <optgroup label="Administradores">
-                                                                <option>ReDKiiL</option>
-                                                                <option>Admin_Random1</option>
-                                                                <option>Admin_Random2</option>
-                                                                <option>Admin_Random3</option>
-                                                                <option>Admin_Random4</option>
-                                                            </optgroup>
-                                                            <optgroup label="Supervisores">
-                                                                <option>Super_Random1</option>
-                                                                <option>Super_Random2</option>
-                                                                <option>Super_Random3</option>
-                                                                <option>Super_Random4</option>
-                                                            </optgroup>
-                                                            <optgroup label="Moderadores">
-                                                                <option>Moderator_Random1</option>
-                                                                <option>Moderator_Random2</option>
-                                                                <option>Moderator_Random3</option>
-                                                                <option>Moderator_Random4</option>
-                                                            </optgroup>
-                                                        </select>
-                                                        <i class="arrow"></i>
+                                                    <label for="title" class="field">
+                                                        <input type="text" name="title" id="title" class="gui-input" maxlength="70" placeholder="Título" required>
                                                     </label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label class="field select">
                                                         <select id="category">
-                                                            <option selected>Selecione o motivo...</option>
-                                                            <option>Cheating</option>
-                                                            <option>Glitching</option>
-                                                            <option>Spamming/Flood</option>
-                                                            <option>Abuso Verbal</option>
-                                                            <option>Abuso de Poder</option>
-                                                            <option>Nome Inapropriado/Ofensivo</option>
-                                                            <option>Divulgação</option>
-                                                            <option>Anti-RPG</option>
-                                                            <option>DM abusivo</option>
-                                                            <option>Drive-By</option>
-                                                            <option>Run-Over</option>
-                                                            <option>Outros...</option>
+                                                            <option value="default" selected>Selecione a Categoria...
+                                                            </option><optgroup label="Conta">
+                                                                <!-- Grupo 1 -->
+                                                                <option>Roubaram minha conta</option>
+                                                                <option>Problemas com propriedades</option>
+                                                                <!-- Grupo 2 -->
+                                                                <option>Solicitação de reset de conta</option>
+                                                                <!-- Grupo 3 -->
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Grupos &amp; Facções">
+                                                                <!-- Grupo 1 -->
+                                                                <!-- Grupo 2 -->
+                                                                <option>Líder inativo</option>
+                                                                <option>Abuso de poder</option>
+                                                                <!-- Grupo 3 -->
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Painel de Controle">
+                                                                <!-- Grupo 1 -->
+                                                                <option>Encontrei um bug/glitch/falha</option>
+                                                                <!-- Grupo 2 -->
+                                                                <option>Tenho uma sugestão</option>
+                                                                <!-- Grupo 3 -->
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Fórum">
+                                                                <!-- Grupo 1 -->
+                                                                <!-- Grupo 2 -->
+                                                                <option>Problemas com a conta</option>
+                                                                <option>Página inválida</option>
+                                                                <!-- Grupo 3 -->
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Loja">
+                                                                <!-- Grupo 1 -->
+                                                                <option>Não recebi minha compra</option>
+                                                                <option>Solicitação de estorno</option>
+                                                                <!-- Grupo 2 -->
+                                                                <option>Valor abusivo</option>
+                                                                <!-- Grupo 3 -->
+                                                                <option>Métodos de pagamento</option>
+
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Servidor">
+                                                                <!-- Grupo 1 -->
+                                                                <option>Encontrei um bug/glitch/falha</option>
+                                                                <!-- Grupo 2 -->
+                                                                <!-- Grupo 3 -->
+                                                                <option>Dúvidas sobre PP (Paradise Pass)</option>
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Eventos">
+                                                                <!-- Grupo 1 -->
+                                                                <option>Evento programado não aconteceu</option>
+                                                                <!-- Grupo 2 -->
+                                                                <option>Não recebi minha recompensa</option>
+                                                                <!-- Grupo 3 -->
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Suporte">
+                                                                <!-- Grupo 1 -->
+                                                                <!-- Grupo 2 -->
+                                                                <!-- Grupo 3 -->
+                                                                <option>Dúvidas sobre o jogo</option>
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Administração">
+                                                                <!-- Grupo 1 -->
+                                                                <!-- Grupo 2 -->
+                                                                <!-- Grupo 3 -->
+                                                                <option>Outro...</option>
+                                                            </optgroup>
+                                                            <optgroup label="Outro...">
+                                                                <!-- Grupo 1 -->
+                                                                <!-- Grupo 2 -->
+                                                                <!-- Grupo 3 -->
+                                                                <option>Outro</option>
+                                                            </optgroup>
                                                         </select>
                                                         <i class="arrow"></i>
                                                     </label>
                                                     <span class="help-block mt5">
-                                                        Caso não saiba o que significa alguma das categorias, verifique <a class="modal-launcher" href="#modal-help">aqui</a>.
+                                                        Caso não encontre a categoria que gostaria, utilize a opção "Outro".
                                                     </span>
                                                 </div>
                                             </div>
                                             <!-- end section -->
-                                        </div>
-                                        <!-- end .form-body section -->
-                                        <div class="panel-footer">
-                                            <div class="btn-group">
-                                                <a href="#" type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
-                                                    <i class="fa fa-mail-forward"></i> Enviar
-                                                </a>
-                                                <a href="complaint_index.html" type="submit" class="btn btn-default btn-gradient dark btn-blocks">
-                                                    <i class="fa fa-close"></i> Cancelar
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <!-- end .form-footer section -->
+                                        </form>
                                     </div>
+                                    <!-- end .form-body section -->
+                                    <div class="panel-footer">
+                                        <div class="btn-group">
+                                            <a href="#" id="submit_ticket" type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
+                                                <i class="fa fa-mail-forward"></i> Enviar
+                                            </a>
+                                            <a href="ticket_index.html" class="btn btn-default btn-gradient dark btn-blocks">
+                                                <i class="fa fa-close"></i> Cancelar
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- end .form-footer section -->
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -429,65 +472,51 @@
                     </div>
                 </footer>
                 <!-- End: Page Footer -->
-                <!-- Begin: Modals -->
-                <div id="modal-help" class="popup-basic p25 mfp-with-anim mfp-hide">
-                    <b>Cheating:</b> Utilizar qualquer ferramenta que possa vir a trazer alguma vantagem no jogo em si. Trapacear.<br><br>
-                    <b>Glitching:</b> Utilizar qualquer bug do servidor/jogo para se beneficiar de alguma forma.<br><br>
-                    <b>Spamming/Flood:</b> Repetir uma determinada ação em um intervalo pequeno de tempo.<br><br>
-                    <b>Abuso Verbal:</b> Mensagens/atos de racismo, apologia a violência fora do jogo ou a qualquer outra forma de ofensa a terceiros<br><br>
-                    <b>Abuso de Poder:</b> Utilizar um cargo/comando em sua vantagem para prejudicar terceiros, sem motivo.<br><br>
-                    <b>Nome Inapropriado/Ofensivo:</b> Nomes de jogadores que são ofensivos de alguma forma ou inapropriados<br><br>
-                    <b>Divulgação:</b> Induzir a acessar ou procurar por algo que não seja ligado diretamente ao PC:RPG.<br><br>
-                    <b>Anti-RPG:</b> Cometer atos que você não faria na vida real.<br><br>
-                    <b>DM abusivo:</b> Matar ou atacar outros jogadores sem motivo ou por motivos fúteis.<br><br>
-                    <b>Drive-By:</b> Ato de atirar de dentro do veículo em jogadores fora de veículos, como passageiro/motorista.<br><br>
-                    <b>Run-Over:</b> Atropelar um jogador, deixar o carro em cima e sair do veículo.<br><br>
-                    <b>Outros:</b> Qualquer ato que não se encaixe nas categorias descritas acima.<br><br>
-                </div>
-                <!-- End: Modals -->
             </section>
         </div>
         <!-- End: Main -->
+
         <!-- BEGIN: PAGE SCRIPTS -->
         <!-- jQuery -->
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
-        <script src="vendor/plugins/magnific/jquery.magnific-popup.js"></script>
+        <script src="vendor/plugins/maxlength/bootstrap-maxlength.min.js"></script>
 
         <!-- MarkDown JS -->
         <script src="vendor/plugins/markdown/markdown.js"></script>
         <script src="vendor/plugins/markdown/to-markdown.js"></script>
         <script src="vendor/plugins/markdown/bootstrap-markdown.js"></script>
 
-        <!-- Dropzone JS -->
-        <script src="vendor/plugins/dropzone/dropzone.min.js"></script>
-
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
         <script src="assets/js/demo/demo.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="assets/js/custom_tickets.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function() {
-                "use strict";
+              "use strict";
+              // Init Theme Core
+              Core.init();
 
-                // Init Theme Core
-                Core.init();
+              // Init MarkDown Editor
+              $("#markdown-editor").markdown({
+                  savable: false,
+                  onChange: function(e) {
+                      var content = e.parseContent(),
+                      content_length = (content.match(/\n/g) || []).length + content.length
+                      if (content == '') {
+                          $('#md-footer').hide()
+                      } else {
+                          $('#md-footer').show().html(content)
+                      }
+                  }
+              });
+            });
 
-                $('.modal-launcher').magnificPopup({ type: 'inline', mainClass: 'mfp-flipInX' });
-
-                // Init MarkDown Editor
-                $("#markdown-editor").markdown({
-                    savable: false,
-                    onChange: function(e) {
-                        var content = e.parseContent(),
-                        content_length = (content.match(/\n/g) || []).length + content.length
-                        if (content == '') {
-                            $('#md-footer').hide()
-                        } else {
-                            $('#md-footer').show().html(content)
-                        }
-                    }
-                });
+            // Init Bootstrap Maxlength Plugin
+            $('input[maxlength]').maxlength({
+                threshold: 70,
+                placement: "bottom"
             });
         </script>
         <!-- END: PAGE SCRIPTS -->
