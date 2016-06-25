@@ -36,7 +36,7 @@
                     <span class="panel-title"><i class="fa fa-flag"></i>Denúnciar Jogador</span>
                 </div>
                 <!-- end .panel-heading section -->
-                <form method="POST" action="{{ url('denuncia/store') }}">
+                <form method="POST" action="{{ url('denuncia') }}">
                     <textarea id="markdown-editor" class="{{ $errors->has('content') ? 'state-error' : '' }}" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?">{{ old('content') }}</textarea>
                     @if ($errors->has('content'))
                         <em for="content" class="state-error">{{ $errors->first('content') }}</em>

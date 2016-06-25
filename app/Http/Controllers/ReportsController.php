@@ -3,20 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 use App\Report;
-
 use App\Utils;
 
 use Gate;
-
 use Auth;
 
 class ReportsController extends Controller
 {
-
     public function index()
     {
         $reports = Report::where('user_id', Auth::user()->id)->get();
