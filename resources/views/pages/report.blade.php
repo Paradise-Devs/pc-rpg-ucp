@@ -36,7 +36,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-6">
-        <div class="panel panel-primary mb50 panel-border top animated slideInLeft">
+        <div class="panel panel-primary mb50 panel-border top"> <!-- animated slideInLeft -->
             <div class="panel-heading">
                 <span class="panel-title"><i class="fa fa-flag"></i> Denúncia contra jogador</span>
             </div>
@@ -52,12 +52,12 @@
                 </ul>
             </div>
             <div class="panel-footer">
-                <a href="complaint_create_player.html" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
+                <a href="{{ url('denuncia/create') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="panel panel-danger mb50 panel-border top animated slideInRight">
+        <div class="panel panel-danger mb50 panel-border top"> <!-- animated slideInRight -->
             <div class="panel-heading">
                 <span class="panel-title"><i class="fa fa-flag"></i> Denúncia contra staff</span>
             </div>
@@ -73,14 +73,14 @@
                 </ul>
             </div>
             <div class="panel-footer">
-                <a href="complaint_create_admin.html" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
+                <a href="{{ url('denuncia/create/admin') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
             </div>
         </div>
     </div>
 </div>
 <div class="row" style="pading-top: 1%">
     <div class="col-md-12">
-        <div class="panel panel-primary panel-border top animated fadeInUp">
+        <div class="panel panel-primary panel-border top"> <!-- animated fadeInUp -->
             <div class="panel-heading">
                 <span class="panel-title">
                 <span class="fa fa-eye"></span>Minhas Denúncias</span>
