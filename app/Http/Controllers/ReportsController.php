@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Report;
+
 use Gate;
+
+use Auth;
+
 
 class ReportsController extends Controller
 {
