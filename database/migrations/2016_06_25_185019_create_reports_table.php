@@ -20,6 +20,7 @@ class CreateReportsTable extends Migration
             $table->foreign('accused_id')->references('id')->on('users');
             $table->text('content');
             $table->string('reason', 35);
+            $table->string('reject_reason', 70)->nullable();
             $table->integer('status');
             $table->integer('type');
             $table->timestamps();

@@ -15,11 +15,11 @@
                 <a href="#">UCP</a>
             </li>
             <li class="crumb-icon">
-                <a href="index.html">
+                <a href="/">
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
-            <li class="crumb-trail"><a href="complaint_index.html">Denúncias</a></li>
+            <li class="crumb-trail"><a href="{{ url('denuncias') }}">Denúncias</a></li>
             <li class="crumb-trail">Denúncia #{{ $report->id }}</li>
         </ol>
     </div>
