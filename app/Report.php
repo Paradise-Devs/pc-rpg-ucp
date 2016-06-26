@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
-    protected $fillable =  ['content', 'reason', 'accused_id', 'user_id', 'created_at', 'updated_at'];
+    protected $fillable =  ['content', 'reason', 'accused_id', 'user_id', 'type', 'created_at', 'updated_at'];
     public $timestamps = true;
 
     /**

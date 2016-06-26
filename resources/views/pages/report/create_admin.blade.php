@@ -30,20 +30,22 @@
 @section('content')
 <div class="row mt30">
     <div class="col-md-12">
+        @if ($errors->has('content'))
+            <div class="state-error alert alert-danger pastel">
+              <strong>Erro!</strong> {{ $errors->first('content') }}
+            </div>
+        @endif
         <div class="admin-form theme-primary tab-pane active">
             <div class="panel panel-primary heading-border">
                 <div class="panel-heading">
                     <span class="panel-title"><i class="fa fa-flag"></i>Denúnciar Administração</span>
                 </div>
+                <form method="POST" action="{{ url('denuncia') }}">
                 <!-- end .panel-heading section -->
                 <textarea id="markdown-editor" class="{{ $errors->has('content') ? 'state-error' : '' }}" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?">{{ old('content') }}</textarea>
-                @if ($errors->has('content'))
-                    <em for="content" class="state-error">{{ $errors->first('content') }}</em>
-                @endif
                 <div class="section-divider mb40" id="spy1">
                     <span style="color: #4a89dc;">Acusado & Motivo</span>
                 </div>
-                <form method="POST" action="{{ url('denuncia') }}">
                     <div class="panel-body" style="padding-top: 1px">
                         {{ csrf_field() }}
                         <div class="section row">
