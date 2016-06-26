@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Report;
 use App\Utils;
+use App\User;
 
 use Gate;
 use Auth;
@@ -27,7 +28,8 @@ class ReportsController extends Controller
 
     public function create_admin()
     {
-        return view('pages.report.create_admin');
+        $admins = User::where('admin', '>', 2)->where('admin', '<', 6)->get();
+        return view('pages.report.create_admin', ['admins' => $admins]);
     }
 
     public function manage()
@@ -53,6 +55,7 @@ class ReportsController extends Controller
         $inputs = [
             'content' => $request->input('content'),
             'reason' => $request->input('reason'),
+            'type' => $request->input('type'),
             'accused_id' => Utils::getUserID($request->input('accused_name')),
             'user_id' => Auth::user()->id
         ];

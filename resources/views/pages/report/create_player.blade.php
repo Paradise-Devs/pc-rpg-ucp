@@ -90,6 +90,7 @@
                     <!-- end .form-body section -->
                     <div class="panel-footer">
                         <div class="btn-group">
+                            <input type="hidden" name="type" value="0">
                             <button type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
                                 <i class="fa fa-mail-forward"></i> Enviar
                             </button>
