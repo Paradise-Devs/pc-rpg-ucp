@@ -115,13 +115,13 @@
                                     <td>{{ $report->reason }}</td>
                                     <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
                                     <td>
-                                        @if($report->status === 0)
+                                        @if($report->status == 0)
                                             <a href="#" type="button" class="btn btn-xs btn-default btn-gradient dark">aberto</a>
-                                        @elseif($report->status === 1)
+                                        @elseif($report->status == 1)
                                             <a href="#" type="button" class="btn btn-xs btn-warning btn-gradient dark">em análise</a>
-                                        @elseif($report->status === 2)
+                                        @elseif($report->status == 2)
                                             <a href="#" type="button" class="btn btn-xs btn-success btn-gradient dark">deferida</a>
-                                        @elseif($report->status === 3)
+                                        @elseif($report->status == 3)
                                             <a href="#" type="button" class="btn btn-xs btn-danger btn-gradient dark">não deferida</a>
                                         @endif
                                     </td>
