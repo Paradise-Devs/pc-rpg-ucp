@@ -5,6 +5,7 @@
 @section('stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/animate/animate.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/sweetalert/sweetalert.css') }}">
 @endsection
 <!--                                                                        -->
 @section('topbar')
@@ -362,6 +363,8 @@
 <script src="{{ URL::asset('vendor/plugins/markdown/to-markdown.js') }}"></script>
 <script src="{{ URL::asset('vendor/plugins/markdown/bootstrap-markdown.js') }}"></script>
 
+<script src="{{ URL::asset('vendor/plugins/sweetalert/sweetalert.min.js') }}"></script>
+
 <script type="text/javascript">
     jQuery(document).ready(function() {
         var html = $('#report-content').html();
@@ -369,7 +372,15 @@
         $('#report-content').html(preview);
 
         $('#delete').on('click', function(e) {
-            $('#delete-form').submit();
+            swal({
+                title: "Você tem certeza?",
+                text: "Deseja mesmo deletar essa denúncia? Essa ação não tem volta.",
+                showCancelButton: true,
+                confirmButtonText: "Sim, delete!",
+                type: "warning"
+            }, function() {
+                $('#delete-form').submit();
+            });
             e.preventDefault();
         });
 

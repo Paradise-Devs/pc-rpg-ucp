@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/datatables/media/css/dataTables.bootstrap.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/datatables/extensions/Editor/css/dataTables.editor.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/sweetalert/sweetalert.css') }}">
 @endsection
 <!--                                                                        -->
 @section('topbar')
@@ -116,11 +117,11 @@
                                     <td>{{ App\Utils::getName($question->creator_id) }}</td>
                                     <td>{{ App\Utils::timeElapsedString($question->created_at) }}</td>
                                     <td>
-                                        <form class="controls form-inline" method="POST" action="{{ route('faq.destroy', $question->id) }}">
+                                        <form class="controls form-inline form-delete" method="POST" action="{{ route('faq.destroy', $question->id) }}">
                                             <a href="{{ route('faq.edit', $question->id) }}" class="btn btn-xs btn-primary btn-inline btn-gradient dark"><i class="fa fa-pencil"></i> editar</a>
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i> deletar</button>
+                                            <button type="" class="btn btn-xs btn-danger btn-gradient dark btn-delete"><i class="fa fa-trash"></i> deletar</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -139,9 +140,23 @@
 <script src="{{ URL::asset('vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/plugins/datatables/media/js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ URL::asset('vendor/plugins/sweetalert/sweetalert.min.js') }}"></script>
 
 <script type="text/javascript">
     jQuery(document).ready(function() {
+        $('.btn-delete').on('click', function(e) {
+            var btn = $(this);
+            swal({
+                title: "Você tem certeza?",
+                text: "Deseja mesmo deletar essa pergunta? Essa ação não tem volta.",
+                showCancelButton: true,
+                confirmButtonText: "Sim, delete!",
+                type: "warning"
+            }, function() {
+                btn.parents('form').submit();
+            });
+            e.preventDefault();
+        });
         // Init DataTables
         $('#datatable').dataTable({
             "sDom": 't<"dt-panelfooter clearfix"ip>',
