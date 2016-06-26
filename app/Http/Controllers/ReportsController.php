@@ -42,6 +42,28 @@ class ReportsController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        $report = Report::findOrFail($id);
+        if(Gate::allows('developer', $report))
+        {
+            if($report->status == 0)
+            {
+                $field = ['status' => 1];
+                Report::where('id', $report->id)->update($field);
+            }
+            return view('pages.report.details_admin', ['report' => $report]);
+        }
+        elseif(Gate::allows('creator', $report))
+        {
+            return view('pages.report.details_player', ['report' => $report]);
+        }
+        else
+        {
+            return Redirect::to('denuncias');
+        }
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

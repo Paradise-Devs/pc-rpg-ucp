@@ -27,7 +27,11 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies($gate);
 
         $gate->define('developer', function($user) {
-            return intval($user->admin) === 6;
+            return $user->admin == 6;
+        });
+
+        $gate->define('creator', function($user, $report) {
+            return $user->id == $report->user_id;
         });
     }
 }

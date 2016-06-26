@@ -14,14 +14,13 @@
 Route::auth();
 
 Route::get('/denuncia/create/admin', 'ReportsController@create_admin');
-
 Route::get('/denuncias/gerenciar', 'ReportsController@manage');
 
 Route::get('/faq/gerenciar', 'FrequentlyAskedController@manage');
 Route::get('/faq/editar/{id}', 'FrequentlyAskedController@edit');
 
 Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show']]);
-Route::resource('denuncia', 'ReportsController', ['except' => ['show', 'index']]);
+Route::resource('denuncia', 'ReportsController');
 
 Route::get('/punicoes', 'PunishmentsController@index');
 Route::get('/denuncias', 'ReportsController@index');
