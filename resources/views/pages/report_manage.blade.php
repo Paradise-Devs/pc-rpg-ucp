@@ -28,7 +28,7 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="row">
+<div class="row mt30">
     <div class="col-md-12">
         <div class="panel">
             <div class="panel-heading">

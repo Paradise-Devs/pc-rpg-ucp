@@ -28,7 +28,7 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="row">
+<div class="row mt30">
     <div class="col-md-12">
         <div class="admin-form theme-primary tab-pane active">
             <div class="panel panel-primary heading-border">

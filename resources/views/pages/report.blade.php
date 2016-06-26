@@ -25,7 +25,7 @@
     </div>
     @can('developer')
     <div class="topbar-right">
-        <a href="/denuncias/gerenciar" type="button" class="btn btn-sm btn-system btn-gradient dark">
+        <a href="{{ url('denuncias/gerenciar') }}" type="button" class="btn btn-sm btn-system btn-gradient dark">
             <i class="fa fa-cog"></i> Gerenciar Denúncias
         </a>
     </div>
@@ -34,7 +34,7 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="row">
+<div class="row mt30">
     @if(Session::get('success'))
         <div class="col-md-12">
             <div class="special-alerts">
@@ -100,42 +100,33 @@
                     <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Status</th>
-                                <th>Criação</th>
+                                <th>ID</th>
                                 <th>Acusado</th>
                                 <th>Categoria</th>
-                                <th>Tipo</th>
+                                <th>Criação</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><a href="complaint_details_player.html" type="button" class="btn btn-xs btn-success btn-gradient dark">deferida</a></td>
-                                <td>3 dias atrás</td>
-                                <td><a href="">User_Random</a></td>
-                                <td>Cheating</td>
-                                <td>Jogador</td>
-                            </tr>
-                            <tr>
-                                <td><a href="complaint_details_player.html" type="button" class="btn btn-xs btn-default btn-gradient dark">aberta</a></td>
-                                <td>4 dias atrás</td>
-                                <td><a href="">User_Random</a></td>
-                                <td>Cheating</td>
-                                <td>Jogador</td>
-                            </tr>
-                            <tr>
-                                <td><a href="complaint_details_player.html" type="button" class="btn btn-xs btn-warning btn-gradient dark">em análise</a></td>
-                                <td>4 dias atrás</td>
-                                <td><a href="">User_Random</a></td>
-                                <td>Cheating</td>
-                                <td>Jogador</td>
-                            </tr>
-                            <tr>
-                                <td><a href="complaint_details_player.html" type="button" class="btn btn-xs btn-danger btn-gradient dark">indeferida</a></td>
-                                <td>4 dias atrás</td>
-                                <td><a href="">User_Random</a></td>
-                                <td>Cheating</td>
-                                <td>Jogador</td>
-                            </tr>
+                            @foreach($reports as $report)
+                                <tr>
+                                    <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#">#{{ $report->id }}</a></td>
+                                    <td><a href="">{{ App\Utils::getName($report->accused_id) }}</a></td>
+                                    <td>{{ $report->reason }}</td>
+                                    <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
+                                    <td>
+                                        @if($report->status === 0)
+                                            <a href="#" type="button" class="btn btn-xs btn-default btn-gradient dark">aberto</a>
+                                        @elseif($report->status === 1)
+                                            <a href="#" type="button" class="btn btn-xs btn-warning btn-gradient dark">em análise</a>
+                                        @elseif($report->status === 2)
+                                            <a href="#" type="button" class="btn btn-xs btn-success btn-gradient dark">deferida</a>
+                                        @elseif($report->status === 3)
+                                            <a href="#" type="button" class="btn btn-xs btn-danger btn-gradient dark">não deferida</a>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

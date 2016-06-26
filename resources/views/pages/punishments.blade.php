@@ -33,7 +33,7 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="row">
+<div class="row mt30">
     <div class="col-md-6">
         <div class="panel panel-primary mb50 panel-border top">
             <div class="panel-heading">
