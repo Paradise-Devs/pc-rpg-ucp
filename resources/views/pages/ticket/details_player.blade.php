@@ -68,8 +68,7 @@
                             </div>
                             @foreach($ticket->answers as $answer)
                                 @if($answer->user->admin > 2)
-                                    <div id="admin_response">
-                                        <hr class="short alt" />
+                                    <div id="admin_response" style="background-color: #F7F7F7; padding-right: 20px; padding-left: 20px; padding-top: 10px; padding-bottom: 10px; margin-bottom: 20px">
                                         <p class="text-right">
                                             <h5 class="text-right">Resposta da Administração:</h5>
                                             <br />
@@ -79,10 +78,9 @@
                                         </p>
                                     </div>
                                 @else
-                                    <div id="original_message">
+                                    <div id="player_response">
                                         <p>
-                                            <h5>às <span class="text-muted">{{ $answer->created_at->format('d/m/Y H:m:s') }}</span> Você respondeu:</h5>
-                                            <br />
+                                            <h5><span class="text-muted">{{ $answer->created_at->format('d/m/Y H:m:s') }}</span> Você respondeu:</h5>
                                             <blockquote class="blockquote-primary" style="font-size: 95%;">
                                                 {{ $answer->content }}
                                             </blockquote>
