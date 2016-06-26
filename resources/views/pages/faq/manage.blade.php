@@ -150,6 +150,7 @@
                 title: "Você tem certeza?",
                 text: "Deseja mesmo deletar essa pergunta? Essa ação não tem volta.",
                 showCancelButton: true,
+                cancelButtonText: "Cancelar",
                 confirmButtonText: "Sim, delete!",
                 type: "error"
             }, function() {

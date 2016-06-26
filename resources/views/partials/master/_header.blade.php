@@ -62,7 +62,7 @@
         </li>
         <li class="dropdown menu-merge">
             <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-                <img src="{{ URL::asset('assets/img/avatars/1.jpg') }}" alt="avatar" class="mw30 br64" />
+                <img src="{{ URL::asset('uploads/avatars/' . Auth::user()->avatar_url) }}" alt="avatar" class="mw30 br64" />
                 <span class="hidden-xs pl15"> {{ Auth::user()->name }} </span>
                 <span class="caret caret-tp hidden-xs"></span>
             </a>
@@ -78,7 +78,7 @@
                     <span class="fa fa-user"></span> Meu Perfil </a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#">
+                    <a href="{{ url('perfil/configuracoes') }}">
                     <span class="fa fa-gear"></span> Config. Conta </a>
                 </li>
                 <li class="dropdown-footer">

@@ -13,13 +13,18 @@
 
 Route::auth();
 
-Route::get('/denuncia/create/admin', 'ReportsController@create_admin');
+Route::post('/perfil/save/info', 'ProfileController@info');
+Route::post('/perfil/save/avatar', 'ProfileController@avatar');
+
 Route::post('/denuncia/deny/{id}', 'ReportsController@deny');
+Route::get('/denuncia/create/admin', 'ReportsController@create_admin');
 Route::get('/denuncia/admin/{id}', 'ReportsController@show_admin');
 Route::get('/denuncias/gerenciar', 'ReportsController@manage');
 
 Route::get('/faq/gerenciar', 'FrequentlyAskedController@manage');
 Route::get('/faq/editar/{id}', 'FrequentlyAskedController@edit');
+
+Route::get('/perfil/configuracoes', 'ProfileController@config');
 
 Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show']]);
 Route::resource('denuncia', 'ReportsController');

@@ -7,7 +7,7 @@
             <div class="sidebar-widget author-widget">
                 <div class="media">
                     <a class="media-left" href="#">
-                        <img src="{{ URL::asset('assets/img/avatars/3.jpg') }}" class="img-responsive">
+                        <img src="{{ URL::asset('uploads/avatars/' . Auth::user()->avatar_url) }}" class="img-responsive">
                     </a>
                     <div class="media-body">
                         <div class="media-author">{{ Auth::user()->name }}</div>
