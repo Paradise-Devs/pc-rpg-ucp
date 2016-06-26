@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * Tickets:
+ *          0 - Aberto
+ *          1 - Pendente
+ *          2 - Respondido
+ *          3 - Fechado
+ */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,11 +18,16 @@ use App\Ticket;
 
 use Gate;
 
+use Auth;
+
+use Redirect;
+
 class TicketController extends Controller
 {
     public function index()
     {
-        return view('pages.ticket.show');
+        $ticket = Ticket::where('user_id', Auth::user()->id)->get();
+        return view('pages.ticket.show', ['tickets' => $ticket]);
     }
 
     public function show($id)
@@ -37,6 +50,11 @@ class TicketController extends Controller
     public function create()
     {
         return view('pages.ticket.create');
+    }
+
+    public function edit()
+    {
+        return view('pages.ticket.edit');
     }
 
     public function destroy(Request $request, $id)

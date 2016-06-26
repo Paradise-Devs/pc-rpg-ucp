@@ -57,30 +57,22 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($tickets as $ticket)
                         <tr>
-                            <td><a href="ticket_details_player.html">Meu pinto bugou, o que eu faço?</a></td>
-                            <td>3 dias atrás</td>
-                            <td>Bug</td>
-                            <td><span class="label label-danger">fechado</span></td>
+                            <td><a href="/ticket/{{ $ticket->id }}">{{ $ticket->content }}</a></td>
+                            <td>{{ App\Utils::timeElapsedString($ticket->created_at) }}</td>
+                            <td>{{ $ticket->category }}</td>
+                            @if($ticket->status == 1)
+                                <td><span class="label label-alert">pendente</span></td>
+                            @elseif($ticket->status == 2)
+                                <td><span class="label label-success">respondido</span></td>
+                            @elseif($ticket->status == 3)
+                                <td><span class="label label-danger">fechado</span></td>
+                            @else
+                                <td><span class="label label-primary">aberto</span></td>
+                            @endif
                         </tr>
-                        <tr>
-                            <td><a href="ticket_details_player.html">Meu pinto bugou de novo, o que eu faço?</a></td>
-                            <td>3 dias atrás</td>
-                            <td>Bug</td>
-                            <td><span class="label label-alert">pendente</span></td>
-                        </tr>
-                        <tr>
-                            <td><a href="ticket_details_player.html">Meu pinto bugou de novo e de novo, to cansado, o que eu faço?</a></td>
-                            <td>3 dias atrás</td>
-                            <td>Bug</td>
-                            <td><span class="label label-primary">aberto</span></td>
-                        </tr>
-                        <tr class="warning">
-                            <td><a href="ticket_details_player.html">Se bugar de novo, eu tiro ele fora</a></td>
-                            <td>3 dias atrás</td>
-                            <td>Bug</td>
-                            <td><span class="label label-success">respondido</span></td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
