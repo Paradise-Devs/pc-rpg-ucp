@@ -15,6 +15,7 @@ Route::auth();
 
 Route::post('/perfil/save/info', 'ProfileController@info');
 Route::post('/perfil/save/avatar', 'ProfileController@avatar');
+Route::post('/perfil/save/email', 'ProfileController@email');
 
 Route::post('/denuncia/deny/{id}', 'ReportsController@deny');
 Route::get('/denuncia/create/admin', 'ReportsController@create_admin');

@@ -25,7 +25,7 @@
     </div>
     @can('developer')
     <div class="topbar-right">
-        <a href="{{ url('denuncias/gerenciar') }}" type="button" class="btn btn-sm btn-system btn-gradient dark">
+        <a href="{{ url('/denuncias/gerenciar') }}" type="button" class="btn btn-sm btn-system btn-gradient dark">
             <i class="fa fa-cog"></i> Gerenciar Denúncias
         </a>
     </div>
@@ -62,7 +62,7 @@
                 </ul>
             </div>
             <div class="panel-footer">
-                <a href="{{ url('denuncia/create') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
+                <a href="{{ url('/denuncia/create') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
             </div>
         </div>
     </div>
@@ -83,7 +83,7 @@
                 </ul>
             </div>
             <div class="panel-footer">
-                <a href="{{ url('denuncia/create/admin') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
+                <a href="{{ url('/denuncia/create/admin') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
             </div>
         </div>
     </div>

@@ -11,6 +11,7 @@ use App\Utils;
 use Auth;
 use Redirect;
 use Image;
+use Hash;
 
 class ProfileController extends Controller
 {
@@ -57,6 +58,25 @@ class ProfileController extends Controller
 
             User::where('id', Auth::user()->id)->update(['avatar_url' => $fname]);
             return Redirect::to('perfil/configuracoes')->with('success', true);
+        }
+    }
+
+    public function email(Request $request)
+    {
+        $this->validate($request, [
+            'password' => 'required|min:6',
+            'email' => 'required|email|max:255|unique:users|confirmed',
+            'email_confirmation' => 'required|email'
+        ]);
+
+        if(Hash::check($request->input('password'), Auth::user()->password))
+        {
+            User::where('id', Auth::user()->id)->update(['email' => $request->input('email')]);
+            return Redirect::to('perfil/configuracoes')->with('success', true);
+        }
+        else
+        {
+            return Redirect::to('perfil/configuracoes')->with('error', true);
         }
     }
 

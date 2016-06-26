@@ -15,7 +15,7 @@
                 <a href="#">UCP</a>
             </li>
             <li class="crumb-icon">
-                <a href="index.html">
+                <a href="{{ url('/') }}">
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
@@ -45,28 +45,28 @@
                 </div>
                 <div class="media-body va-m">
                     <h2 class="media-heading">{{ $profile->name }}</h2>
-                    <a href="" class="btn btn-xs btn-success">Desenvolvedor</a>
+                    <button type="button" class="btn btn-xs btn-success">Desenvolvedor</button>
 
                     <p class="lead mt15" style="font-size: 14pt;">{{ $profile->bio }}</p>
                     <div class="media-links">
                         <ul class="list-inline list-unstyled">
                             <li>
-                                <a href="http://fb.com/{{ $profile->facebook_url }}" title="facebook link" target="_blank">
+                                <a href="http://fb.com/{{ $profile->facebook_url }}" title="Facebook" target="_blank">
                                     <span class="fa fa-facebook-square fs35 text-primary" style="color: #3B5998"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://twitter.com/{{ $profile->twitter_url }}" title="twitter link" target="_blank">
+                                <a href="http://twitter.com/{{ $profile->twitter_url }}" title="Twitter" target="_blank">
                                     <span class="fa fa-twitter-square fs35 text-info"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://github.com/{{ $profile->github_url }}" title="github link" target="_blank">
+                                <a href="http://github.com/{{ $profile->github_url }}" title="GitHub" target="_blank">
                                     <span class="fa fa-github-square fs35 text-dark"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:{{ $profile->email }}" title="email link">
+                                <a href="mailto:{{ $profile->email }}" title="Email">
                                     <span class="fa fa-envelope-square fs35 text-muted"></span>
                                 </a>
                             </li>
@@ -80,6 +80,14 @@
                 <div class="alert alert-success pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <i class="fa fa-check pr10"></i>Operação realizada com sucesso!
+                </div>
+            </div>
+        @endif
+        @if(Session::get('error'))
+            <div class="special-alerts">
+                <div class="alert alert-danger pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-times pr10"></i>Ocorreu um erro ao realizar a operação.
                 </div>
             </div>
         @endif
@@ -110,7 +118,7 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div id="tab1" class="tab-pane active">
-                            <form role="form" method="POST" id="form-info" action="{{ url('perfil/save/info') }}">
+                            <form role="form" method="POST" id="form-info" action="{{ url('perfil/save/info') }}" autocomplete="off">
                                 {{ csrf_field() }}
                                 <div class="section row">
                                     <div class="col-md-6 {{ $errors->has('fullname') ? 'state-error' : '' }}">
@@ -202,44 +210,56 @@
                             </div>
                         </div>
                         <div id="tab3" class="tab-pane">
-                            <div class="col-md-6">
-                                <div class="section row">
-                                    <label for="email" style="margin-bottom:10px">E-mail Atual</label>
-                                    <div class="input-group col-xs-10">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
-                                        </span>
-                                        <input id="email" class="form-control" type="text" placeholder="E-mail" value="{{ $profile->email }}" readonly>
+                            <form method="POST" action="{{ url('perfil/save/email') }}" id="form-email">
+                                {{ csrf_field() }}
+                                <div class="col-md-6">
+                                    <div class="section row">
+                                        <label for="acemail" style="margin-bottom:10px">E-mail Atual</label>
+                                        <div class="input-group col-xs-10">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope-o"></i>
+                                            </span>
+                                            <input class="form-control" type="text" placeholder="E-mail" value="{{ $profile->email }}" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="section row {{ $errors->has('password') ? 'has-error' : '' }}">
+                                        <div class="input-group col-xs-10">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-lock"></i>
+                                            </span>
+                                            <input name="password" class="form-control" type="password" placeholder="Senha atual">
+                                        </div>
+                                        @if($errors->has('password'))
+                                            <div class="help-block with-errors"><ul class="list-unstyled"><li>{{ $errors->first('password') }}</li></ul></div>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="section row">
-                                    <div class="input-group col-xs-10">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-lock"></i>
-                                        </span>
-                                        <input id="email" class="form-control" type="password" placeholder="Senha atual">
+                                <div class="col-md-6">
+                                    <div class="section row {{ $errors->has('email') ? 'has-error' : '' }}">
+                                        <label for="email" style="margin-bottom:10px">E-mail Desejado</label>
+                                        <div class="input-group col-xs-10">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope-o"></i>
+                                            </span>
+                                            <input name="email" class="form-control" type="text" placeholder="E-mail desejado">
+                                        </div>
+                                        @if($errors->has('email'))
+                                            <div class="help-block with-errors"><ul class="list-unstyled"><li>{{ $errors->first('email') }}</li></ul></div>
+                                        @endif
+                                    </div>
+                                    <div class="section row {{ $errors->has('email_confirmation') ? 'has-error' : '' }}">
+                                        <div class="input-group col-xs-10">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-envelope-o"></i>
+                                            </span>
+                                            <input name="email_confirmation" class="form-control" type="text" placeholder="Confirme o e-mail">
+                                        </div>
+                                        @if($errors->has('email_confirmation'))
+                                            <div class="help-block with-errors"><ul class="list-unstyled"><li>{{ $errors->first('email_confirmation') }}</li></ul></div>
+                                        @endif
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="section row">
-                                    <label for="emailrequested" style="margin-bottom:10px">E-mail Desejado</label>
-                                    <div class="input-group col-xs-10">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
-                                        </span>
-                                        <input id="emailrequested" class="form-control" type="text" placeholder="E-mail desejado">
-                                    </div>
-                                </div>
-                                <div class="section row">
-                                    <div class="input-group col-xs-10">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-envelope-o"></i>
-                                        </span>
-                                        <input id="emailconfirm" class="form-control" type="text" placeholder="Confirme o e-mail">
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         <div id="tab4" class="tab-pane">
                             <div class="col-md-6">

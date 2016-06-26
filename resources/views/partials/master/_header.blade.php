@@ -78,11 +78,11 @@
                     <span class="fa fa-user"></span> Meu Perfil </a>
                 </li>
                 <li class="list-group-item">
-                    <a href="{{ url('perfil/configuracoes') }}">
+                    <a href="{{ url('/perfil/configuracoes') }}">
                     <span class="fa fa-gear"></span> Config. Conta </a>
                 </li>
                 <li class="dropdown-footer">
-                    <a href="/logout" class="">
+                    <a href="{{ url('/logout') }}" class="">
                     <span class="fa fa-power-off pr5"></span> Deslogar </a>
                 </li>
             </ul>

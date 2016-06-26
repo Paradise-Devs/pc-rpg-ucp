@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('admin')->default(1);
             $table->string('bio', 200)->default('Não definido.');
-            $table->string('avatar_url', 150)->nullable();
+            $table->string('avatar_url', 150)->default('default.png');
             $table->string('facebook_url', 150)->nullable();
             $table->string('twitter_url', 150)->nullable();
             $table->string('github_url', 150)->nullable();
