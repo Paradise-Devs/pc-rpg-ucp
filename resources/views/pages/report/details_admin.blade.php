@@ -347,7 +347,7 @@
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
                 </form>
-                    <form method="POST" action="{{ url("denuncia/$report->id") }}" id="indeferir-form">
+                <form method="POST" action="{{ url("denuncia/$report->id") }}" id="indeferir-form">
                     {{ csrf_field() }}
                 </form>
             </div>
