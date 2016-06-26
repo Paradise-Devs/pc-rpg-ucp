@@ -19,8 +19,8 @@
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
-            <li class="crumb-trail"><a href="/tickets">Tickets</a></li>
-            <li class="crumb-trail"><a href="/tickets/gerenciar">Gerenciar Tickets</a></li>
+            <li class="crumb-trail"><a href="/ticket">Tickets</a></li>
+            <li class="crumb-trail"><a href="/ticket/gerenciar">Gerenciar Tickets</a></li>
             <li class="crumb-trail">Ticket #12313213</li>
         </ol>
     </div>

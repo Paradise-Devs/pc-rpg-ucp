@@ -20,7 +20,7 @@
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
-            <li class="crumb-trail"><a href="/tickets">Tickets</a></li>
+            <li class="crumb-trail"><a href="/ticket">Tickets</a></li>
             <li class="crumb-trail">Gerenciar Tickets</li>
         </ol>
     </div>

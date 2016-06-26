@@ -30,6 +30,9 @@ Route::get('/perfil/configuracoes', 'ProfileController@config');
 Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show']]);
 Route::resource('denuncia', 'ReportsController');
 
+Route::get('ticket/manage', 'TicketController@manage');
+Route::resource('ticket', 'TicketController');
+
 Route::get('/punicoes', 'PunishmentsController@index');
 Route::get('/denuncias', 'ReportsController@index');
 Route::get('/home', 'HomeController@index');

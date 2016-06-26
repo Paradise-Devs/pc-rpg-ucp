@@ -152,7 +152,7 @@
         </div>
         <div class="panel-footer text-right">
             <div class="btn-group">
-                <a href="ticket_create.html" class="btn btn-sm btn-primary btn-gradient dark"><i class="fa fa-check"></i> Continuar</a>
+                <a href="/ticket/create" class="btn btn-sm btn-primary btn-gradient dark"><i class="fa fa-check"></i> Continuar</a>
                 <a class="btn btn-sm btn-default btn-gradient dark modal-dismiss"><i class="fa fa-close"></i> Cancelar</a>
             </div>
         </div>

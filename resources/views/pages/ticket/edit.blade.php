@@ -18,8 +18,8 @@
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
-            <li class="crumb-trail"><a href="/tickets">Tickets</a></li>
-            <li class="crumb-trail"><a href="/tickets/gerenciar">Gerenciar Tickets</a></li>
+            <li class="crumb-trail"><a href="/ticket">Tickets</a></li>
+            <li class="crumb-trail"><a href="/ticket/gerenciar">Gerenciar Tickets</a></li>
             <li class="crumb-trail"><a href="#">Ticket #12313213</a></li>
             <li class="crumb-trail">Editar Ticket</li>
         </ol>
@@ -150,7 +150,7 @@ Suspendisse at augue odio. Nulla pellentesque, tortor et rutrum consequat, leo l
                             <a href="#" id="save_ticket" type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
                                 <i class="fa fa-save"></i> Salvar
                             </a>
-                            <a href="ticket_index.html" class="btn btn-default btn-gradient dark btn-blocks">
+                            <a href="/ticket" class="btn btn-default btn-gradient dark btn-blocks">
                                 <i class="fa fa-close"></i> Cancelar
                             </a>
                         </div>

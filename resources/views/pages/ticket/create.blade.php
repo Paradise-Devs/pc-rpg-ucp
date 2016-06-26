@@ -18,7 +18,7 @@
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
-            <li class="crumb-trail"><a href="/tickets">Tickets</a></li>
+            <li class="crumb-trail"><a href="/ticket">Tickets</a></li>
             <li class="crumb-trail">Criar Ticket</li>
         </ol>
     </div>
@@ -145,7 +145,7 @@
                             <a href="#" id="submit_ticket" type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
                                 <i class="fa fa-mail-forward"></i> Enviar
                             </a>
-                            <a href="ticket_index.html" class="btn btn-default btn-gradient dark btn-blocks">
+                            <a href="/ticket" class="btn btn-default btn-gradient dark btn-blocks">
                                 <i class="fa fa-close"></i> Cancelar
                             </a>
                         </div>

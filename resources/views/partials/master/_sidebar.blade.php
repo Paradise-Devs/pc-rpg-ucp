@@ -132,7 +132,7 @@
             <!-- Sidebar: Suporte -->
             <li class="sidebar-label pt20">Suporte</li>
             <li>
-                <a href="/tickets">
+                <a href="/ticket">
                     <span class="fa fa-question"></span>
                     <span class="sidebar-title">Tickets</span>
                 </a>
