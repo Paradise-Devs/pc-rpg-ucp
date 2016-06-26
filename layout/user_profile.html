@@ -324,9 +324,6 @@
                         <a href="ticket_manage.html" type="button" class="btn btn-sm btn-system btn-gradient dark">
                             <i class="fa fa-cog"></i> Gerenciar Jogador
                         </a>
-                        <a href="#ticket-create" class="modal-launcher btn btn-sm btn-primary btn-gradient dark">
-                            <i class="fa fa-cog"></i> Configuração da Conta
-                        </a>
                     </div>
                 </header>
                 <!-- End: Topbar -->
@@ -485,9 +482,84 @@
                                         </div>
                                         <div id="tab3" class="tab-pane">
                                             <div class="col-md-6">
+                                                <div class="section row">
+                                                    <label for="email" style="margin-bottom:10px">E-mail Atual</label>
+                                                    <div class="input-group col-xs-10">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-envelope-o"></i>
+                                                        </span>
+                                                        <input id="email" class="form-control" type="text" placeholder="E-mail" value="los@pc-rpg.com" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="section row">
+                                                    <div class="input-group col-xs-10">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-lock"></i>
+                                                        </span>
+                                                        <input id="email" class="form-control" type="password" placeholder="Senha atual">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="section row">
+                                                    <label for="emailrequested" style="margin-bottom:10px">E-mail Desejado</label>
+                                                    <div class="input-group col-xs-10">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-envelope-o"></i>
+                                                        </span>
+                                                        <input id="emailrequested" class="form-control" type="text" placeholder="E-mail desejado">
+                                                    </div>
+                                                </div>
+                                                <div class="section row">
+                                                    <div class="input-group col-xs-10">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-envelope-o"></i>
+                                                        </span>
+                                                        <input id="emailconfirm" class="form-control" type="text" placeholder="Confirme o e-mail">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div id="tab4" class="tab-pane"></div>
+                                        <div id="tab4" class="tab-pane">
+                                            <div class="col-md-6">
+                                                <div class="section row">
+                                                    <label for="email" style="margin-bottom:10px">Senha Atual</label>
+                                                    <div class="input-group col-xs-10">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-lock"></i>
+                                                        </span>
+                                                        <input id="email" class="form-control" type="password" value="testess" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="section row">
+                                                    <div class="input-group col-xs-10">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-lock"></i>
+                                                        </span>
+                                                        <input id="email" class="form-control" type="password" placeholder="Confirme a senha atual">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="section row">
+                                                    <label for="passrequested" style="margin-bottom:10px">Senha Desejada</label>
+                                                    <div class="input-group col-xs-10">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-lock"></i>
+                                                        </span>
+                                                        <input id="passrequested" class="form-control" type="password" placeholder="Nova senha desejada">
+                                                    </div>
+                                                </div>
+                                                <div class="section row">
+                                                    <div class="input-group col-xs-10">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-lock"></i>
+                                                        </span>
+                                                        <input id="passconfirm" class="form-control" type="password" placeholder="Confirme a nova senha">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div id="tab5" class="tab-pane"></div>
                                     </div>
                                 </div>
@@ -514,6 +586,9 @@
         <!-- jQuery -->
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+
+        <script src="assets/admin-tools/admin-forms/js/jquery.validate.min.js"></script>
+        <script src="assets/admin-tools/admin-forms/js/additional-methods.min.js"></script>
 
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
