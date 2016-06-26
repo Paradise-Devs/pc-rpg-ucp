@@ -30,85 +30,100 @@
 @section('content')
 <div class="row mt30">
     <div class="col-md-12">
+        @if ($errors->has('content'))
+            <div class="state-error alert alert-danger pastel">
+              <strong>Erro!</strong> {{ $errors->first('content') }}
+            </div>
+        @endif
         <div class="admin-form theme-primary tab-pane active">
             <div class="panel panel-primary heading-border">
                 <div class="panel-heading">
                     <span class="panel-title"><i class="fa fa-flag"></i>Denúnciar Administração</span>
                 </div>
+                <form method="POST" action="{{ url('denuncia') }}">
                 <!-- end .panel-heading section -->
-                <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?"></textarea>
+                <textarea id="markdown-editor" class="{{ $errors->has('content') ? 'state-error' : '' }}" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?">{{ old('content') }}</textarea>
                 <div class="section-divider mb40" id="spy1">
                     <span style="color: #4a89dc;">Acusado & Motivo</span>
                 </div>
-                <div class="panel-body" style="padding-top: 1px">
-                    <form>
+                    <div class="panel-body" style="padding-top: 1px">
+                        {{ csrf_field() }}
                         <div class="section row">
                             <div class="col-md-6">
-                                <label class="field select">
-                                    <select id="admins">
+                                <label class="field select {{ $errors->has('accused_name') ? 'state-error' : '' }}">
+                                    <select id="accused_name" name="accused_name">
                                         <option selected>Selecione o staffer...</option>
-                                        <optgroup label="Administradores">
-                                            <option>ReDKiiL</option>
-                                            <option>Admin_Random1</option>
-                                            <option>Admin_Random2</option>
-                                            <option>Admin_Random3</option>
-                                            <option>Admin_Random4</option>
+                                        <optgroup label="Moderadores">
+                                        @foreach($admins as $admin)
+                                            @if($admin->admin == 3)
+                                                    <option value="{{ $admin->name }}">{{ $admin->name }}</option>
+                                            @endif
+                                        @endforeach
                                         </optgroup>
                                         <optgroup label="Supervisores">
-                                            <option>Super_Random1</option>
-                                            <option>Super_Random2</option>
-                                            <option>Super_Random3</option>
-                                            <option>Super_Random4</option>
+                                        @foreach($admins as $admin)
+                                            @if($admin->admin == 4)
+                                                    <option value="{{ $admin->name }}">{{ $admin->name }}</option>
+                                            @endif
+                                        @endforeach
                                         </optgroup>
-                                        <optgroup label="Moderadores">
-                                            <option>Moderator_Random1</option>
-                                            <option>Moderator_Random2</option>
-                                            <option>Moderator_Random3</option>
-                                            <option>Moderator_Random4</option>
+                                        <optgroup label="Administradores">
+                                        @foreach($admins as $admin)
+                                            @if($admin->admin == 5)
+                                                    <option value="{{ $admin->name }}">{{ $admin->name }}</option>
+                                            @endif
+                                        @endforeach
                                         </optgroup>
                                     </select>
                                     <i class="arrow"></i>
                                 </label>
+                                @if ($errors->has('accused_name'))
+                                    <em for="accused_name" class="state-error">{{ $errors->first('accused_name') }}</em>
+                                @endif
                             </div>
                             <div class="col-md-6">
-                                <label class="field select">
-                                    <select id="category">
-                                        <option selected>Selecione o motivo...</option>
-                                        <option>Cheating</option>
-                                        <option>Glitching</option>
-                                        <option>Spamming/Flood</option>
-                                        <option>Abuso Verbal</option>
-                                        <option>Abuso de Poder</option>
-                                        <option>Nome Inapropriado/Ofensivo</option>
-                                        <option>Divulgação</option>
-                                        <option>Anti-RPG</option>
-                                        <option>DM abusivo</option>
-                                        <option>Drive-By</option>
-                                        <option>Run-Over</option>
-                                        <option>Outros...</option>
+                                <label class="field select {{ $errors->has('reason') ? 'state-error' : '' }}">
+                                    <select id="reason" name="reason">
+                                        <option value="" selected>Selecione o motivo...</option>
+                                        <option value="Cheating">Cheating</option>
+                                        <option value="Glitching">Glitching</option>
+                                        <option value="Spamming/Flood">Spamming/Flood</option>
+                                        <option value="Abuso Verbal">Abuso Verbal</option>
+                                        <option value="Abuso de Poder">Abuso de Poder</option>
+                                        <option value="Nome Inapropriado/Ofensivo">Nome Inapropriado/Ofensivo</option>
+                                        <option value="Divulgação">Divulgação</option>
+                                        <option value="Anti-RPG">Anti-RPG</option>
+                                        <option value="DM abusivo">DM abusivo</option>
+                                        <option value="Drive-By">Drive-By</option>
+                                        <option value="Run-Over">Run-Over</option>
+                                        <option value="Outros...">Outros...</option>
                                     </select>
                                     <i class="arrow"></i>
                                 </label>
+                                @if ($errors->has('reason'))
+                                    <em for="reason" class="state-error">{{ $errors->first('reason') }}</em>
+                                @endif
                                 <span class="help-block mt5">
                                     Caso não saiba o que significa alguma das categorias, verifique <a class="modal-launcher" href="#modal-help">aqui</a>.
                                 </span>
                             </div>
                         </div>
                         <!-- end section -->
-                    </form>
-                </div>
-                <!-- end .form-body section -->
-                <div class="panel-footer">
-                    <div class="btn-group">
-                        <a href="#" type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
-                            <i class="fa fa-mail-forward"></i> Enviar
-                        </a>
-                        <a href="/denuncias" type="submit" class="btn btn-default btn-gradient dark btn-blocks">
-                            <i class="fa fa-close"></i> Cancelar
-                        </a>
                     </div>
-                </div>
-                <!-- end .form-footer section -->
+                    <!-- end .form-body section -->
+                    <div class="panel-footer">
+                        <div class="btn-group">
+                            <input type="hidden" name="type" value="1">
+                            <button type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
+                                <i class="fa fa-mail-forward"></i> Enviar
+                            </button>
+                            <a href="/denuncias" type="submit" class="btn btn-default btn-gradient dark btn-blocks">
+                                <i class="fa fa-close"></i> Cancelar
+                            </a>
+                        </div>
+                    </div>
+                    <!-- end .form-footer section -->
+                </form>
             </div>
         </div>
     </div>

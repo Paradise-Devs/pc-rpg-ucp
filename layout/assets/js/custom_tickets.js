@@ -6,6 +6,21 @@ $(document).ready(function(){
 	$("#ticket_panel").addClass("theme-primary");
 	$("#ticket_panel_heading").addClass("panel-primary");
 	$(".closed_ticket").hide();
+	$("#edit_answer_div").hide();
+
+	$("#edit_answer_btn").click(function() {
+		$("#block_answer").hide(500);
+		$("#edit_answer_div").show(500);
+	});
+
+	$("#save_edit_answer_btn").click(function() {
+		$("#block_answer").show(500);
+		$("#edit_answer_div").hide(500);
+	});
+
+	$("#remove_answer_btn").click(function() {
+		$("#admin_response").hide(500);
+	});
 
 	$("#category").on('change', function() {
 		if($(this).val() == 'default') {

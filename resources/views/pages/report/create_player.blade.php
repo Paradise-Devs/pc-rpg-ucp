@@ -30,6 +30,11 @@
 @section('content')
 <div class="row mt30">
     <div class="col-md-12">
+        @if ($errors->has('content'))
+            <div class="state-error alert alert-danger pastel">
+              <strong>Erro!</strong> {{ $errors->first('content') }}
+            </div>
+        @endif
         <div class="admin-form theme-primary tab-pane active">
             <div class="panel panel-primary heading-border">
                 <div class="panel-heading">
@@ -38,9 +43,6 @@
                 <!-- end .panel-heading section -->
                 <form method="POST" action="{{ url('denuncia') }}">
                     <textarea id="markdown-editor" class="{{ $errors->has('content') ? 'state-error' : '' }}" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?">{{ old('content') }}</textarea>
-                    @if ($errors->has('content'))
-                        <em for="content" class="state-error">{{ $errors->first('content') }}</em>
-                    @endif
                     <div class="section-divider mb40" id="spy1">
                         <span style="color: #4a89dc;">Acusado & Motivo</span>
                     </div>
@@ -90,6 +92,7 @@
                     <!-- end .form-body section -->
                     <div class="panel-footer">
                         <div class="btn-group">
+                            <input type="hidden" name="type" value="0">
                             <button type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
                                 <i class="fa fa-mail-forward"></i> Enviar
                             </button>
