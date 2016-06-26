@@ -21,7 +21,7 @@
             </li>
             <li class="crumb-trail"><a href="/denuncias">Denúncias</a></li>
             <li class="crumb-trail"><a href="/denuncias/gerenciar">Gerenciar Denúncias</a></li>
-            <li class="crumb-trail">Denúncia #12313</li>
+            <li class="crumb-trail">Denúncia #{{ $report->id }}</li>
         </ol>
     </div>
 </header>
@@ -33,9 +33,9 @@
         <div class="admin-form theme-primary">
             <div class="panel heading-border panel-primary">
                 <div class="panel-heading">
-                    <span class="panel-title"><span class="fa fa-flag"></span>Denúncia #21313213</span></span>
+                    <span class="panel-title"><span class="fa fa-flag"></span>Denúncia #{{ $report->id }}</span></span>
                     <div class="widget-menu pull-right mr10">
-                        <span class="label bg-danger mr10">Cheating</span>
+                        <span class="label bg-danger mr10">{{ $report->reason }}</span>
                     </div>
                 </div>
                 <div class="panel-body" style="margin-bottom: 0px; padding-bottom: 0px">
@@ -43,14 +43,10 @@
                         <div class="section row">
                             <div class="col-md-12">
                                 <p>
-                                    <h5><span style="color: #A1ACBD">(07/06/2016 - 16:13)</span> <a href="user_profile.html">Lós</a>, acusando <a href="user_profile.html">User_Random</a>, relatou:</h5>
+                                    <h5><span style="color: #A1ACBD">({{ App\Utils::timeElapsedString($report->created_at) }})</span> <a href="user_profile.html">{{ $report->user->name }}</a>, acusando <a href="#">{{ $report->accused->name }}</a>, relatou:</h5>
                                     <br />
                                     <blockquote class="blockquote-primary" style="font-size: 95%;">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat tortor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer purus arcu, viverra quis turpis id, faucibus faucibus turpis. Sed at rhoncus nunc. Aliquam non fringilla purus. Curabitur faucibus tellus et efficitur lacinia. Mauris quis ipsum at dolor venenatis fringilla a dapibus sem. Maecenas pulvinar egestas urna, eu pharetra mauris efficitur sed. Nam et mollis velit. Curabitur at metus sollicitudin turpis elementum aliquam. In blandit, urna at convallis suscipit, tortor dui ultricies magna, eget pretium mi lorem et tortor. Suspendisse potenti. Duis mattis arcu in molestie volutpat. Sed scelerisque tristique nisl, sit amet efficitur diam luctus et. Praesent consectetur, nisi nec sodales dignissim, magna sem varius massa, commodo mollis arcu massa in turpis. Nullam scelerisque libero eu ipsum tempor scelerisque.
-                                            <br /><br />
-                                            Suspendisse at augue odio. Nulla pellentesque, tortor et rutrum consequat, leo lectus interdum eros, vel elementum purus mauris at nunc. Sed tristique blandit neque id gravida. Proin velit turpis, dictum ut purus sit amet, scelerisque pretium neque. Morbi a iaculis sapien. Vivamus lacinia scelerisque accumsan. Integer non rhoncus ipsum, at suscipit dui. Aliquam erat volutpat. Proin non ex lacus.
-                                        </p>
+                                        <p id="report-content">{{ $report->content }}</p>
                                     </blockquote>
                                 </p>
                             </div>
@@ -357,8 +353,16 @@
 <script src="{{ URL::asset('vendor/plugins/maxlength/bootstrap-maxlength.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/custom_complaint.js') }}"></script>
 
+<script src="{{ URL::asset('vendor/plugins/markdown/markdown.js') }}"></script>
+<script src="{{ URL::asset('vendor/plugins/markdown/to-markdown.js') }}"></script>
+<script src="{{ URL::asset('vendor/plugins/markdown/bootstrap-markdown.js') }}"></script>
+
 <script type="text/javascript">
     jQuery(document).ready(function() {
+        var html = $('#report-content').html();
+        var preview = markdown.toHTML(html);
+        $('#report-content').html(preview);
+
         $("#playerMoney").spinner({
             min: 100,
             max: 43500,
