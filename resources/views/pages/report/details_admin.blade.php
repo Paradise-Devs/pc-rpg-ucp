@@ -337,16 +337,19 @@
                     </form>
                 </div>
                 <div class="panel-footer text-right p7 mt0 pt0">
-                    <form method="POST" action="{{ url("denuncia/$report->id") }}" id="delete-form">
-                        {{ method_field('DELETE') }}
-                        {{ csrf_field() }}
-                        <div class="actions btn-group">
-                            <a href="#" id="accept-button" class="btn btn-sm btn-success btn-gradient dark"><i class="fa fa-check"></i> Deferir</a>
-                            <a href="#" id="deny-button" class="btn btn-sm btn-danger btn-gradient dark"><i class="fa fa-times"></i> Indeferir</a>
-                            <a href="#" id="delete" class="btn btn-sm btn-gradient dark"><i class="fa fa-trash"></i> Deletar</a>
-                        </div>
-                    </form>
+                    <div class="actions btn-group">
+                        <a href="#" id="accept-button" class="btn btn-sm btn-success btn-gradient dark"><i class="fa fa-check"></i> Deferir</a>
+                        <a href="#" id="deny-button" class="btn btn-sm btn-danger btn-gradient dark"><i class="fa fa-times"></i> Indeferir</a>
+                        <a href="#" id="delete" class="btn btn-sm btn-gradient dark"><i class="fa fa-trash"></i> Deletar</a>
+                    </div>
                 </div>
+                <form method="POST" action="{{ url("denuncia/$report->id") }}" id="delete-form">
+                    {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
+                </form>
+                    <form method="POST" action="{{ url("denuncia/$report->id") }}" id="indeferir-form">
+                    {{ csrf_field() }}
+                </form>
             </div>
         </div>
     </div>
@@ -371,6 +374,12 @@
             $('#delete-form').submit();
             e.preventDefault();
         });
+
+        $('#deny-button').on('click', function(e) {
+            $('#indeferir-form').submit();
+            e.preventDefault();
+        });
+
         $("#playerMoney").spinner({
             min: 100,
             max: 43500,
