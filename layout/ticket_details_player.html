@@ -391,31 +391,39 @@
                         </div>
                     </div>
                     <div id="ticket_responseform" class="opened_ticket col-md-12">
-                        <div class="admin-form theme-primary">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <span class="panel-title"><span class="fa fa-support"></span>Resposta ao ticket</span></span>
-                                </div>
-                                <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Escreva aqui a resposta ao ticket..."></textarea>
-                                <div class="section-divider mb40" id="spy1" style="padding-bottom: 0px">
-                                    <span style="color: #4a89dc;">Anexo</span>
-                                </div>
-                                <div class="panel-body" style="padding-top: 1px">
-                                    <div class="col-md-12">
-                                        <div class="section" style="margin-top: 1px; margin-bottom: 0px">
-                                            <label class="field prepend-icon file">
-                                                <span class="button btn-primary">Selecionar arquivo...</span>
-                                                <input type="file" class="gui-file" name="file2" id="file2" onchange="document.getElementById('uploader2').value = this.value;" multiple>
-                                                <input type="text" class="gui-input" id="uploader2" placeholder="Por favor, selecione o(s) arquivo(s)" multiple>
-                                                <label class="field-icon">
-                                                    <i class="fa fa-upload"></i>
+                        <form>
+                            <div class="admin-form theme-primary">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <span class="panel-title"><span class="fa fa-support"></span>Resposta ao ticket</span></span>
+                                    </div>
+                                    <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Escreva aqui a resposta ao ticket..." required></textarea>
+                                    <div class="section-divider mb40" id="spy1" style="padding-bottom: 0px">
+                                        <span style="color: #4a89dc;">Anexo</span>
+                                    </div>
+                                    <div class="panel-body" style="padding-top: 1px">
+                                        <div class="col-md-12">
+                                            <div class="section" style="margin-top: 1px; margin-bottom: 0px">
+                                                <label class="field prepend-icon file">
+                                                    <span class="button btn-primary">Selecionar arquivo...</span>
+                                                    <input type="file" class="gui-file" name="file2" id="file2" onchange="document.getElementById('uploader2').value = this.value;" multiple>
+                                                    <input type="text" class="gui-input" id="uploader2" placeholder="Por favor, selecione o(s) arquivo(s)" multiple>
+                                                    <label class="field-icon">
+                                                        <i class="fa fa-upload"></i>
+                                                    </label>
                                                 </label>
-                                            </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer p7 mt0 pt0 text-right">
+                                        <div class="actions btn-group">
+                                            <button href="ticket_manage.html" class="btn btn-sm btn-default btn-gradient dark"><i class="fa fa-arrow-left"></i> Voltar</button>
+                                            <button type="submit" class="btn btn-sm btn-primary btn-gradient dark"><i class="fa fa-mail-forward"></i> Enviar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </section>
                 <!-- End: Content -->
