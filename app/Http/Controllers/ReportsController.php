@@ -10,6 +10,7 @@ use App\Utils;
 
 use Gate;
 use Auth;
+use Redirect;
 
 class ReportsController extends Controller
 {
