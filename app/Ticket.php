@@ -13,4 +13,12 @@ class Ticket extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * Get the answers for the ticket.
+     */
+    public function answers()
+    {
+        return $this->hasMany('App\TicketAnswer');
+    }
 }

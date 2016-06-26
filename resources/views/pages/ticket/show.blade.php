@@ -59,7 +59,7 @@
                     <tbody>
                         @foreach($tickets as $ticket)
                         <tr>
-                            <td><a href="/ticket/{{ $ticket->id }}">{{ $ticket->content }}</a></td>
+                            <td><a href="/ticket/{{ $ticket->id }}">{{ $ticket->title }}</a></td>
                             <td>{{ App\Utils::timeElapsedString($ticket->created_at) }}</td>
                             <td>{{ $ticket->category }}</td>
                             @if($ticket->status == 1)

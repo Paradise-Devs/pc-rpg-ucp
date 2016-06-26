@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li class="crumb-trail"><a href="/ticket">Tickets</a></li>
-            <li class="crumb-trail"><a href="/ticket/gerenciar">Gerenciar Tickets</a></li>
+            <li class="crumb-trail"><a href="/ticket/manage">Gerenciar Tickets</a></li>
             <li class="crumb-trail"><a href="#">Ticket #12313213</a></li>
             <li class="crumb-trail">Editar Ticket</li>
         </ol>

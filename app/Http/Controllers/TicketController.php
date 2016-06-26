@@ -77,7 +77,8 @@ class TicketController extends Controller
     {
         if(Gate::allows('developer'))
         {
-            return view('pages.ticket.manage');
+            $ticket = Ticket::orderBy('id', 'desc')->get();
+            return view('pages.ticket.manage', ['tickets' => $ticket]);
         }
         else
         {

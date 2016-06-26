@@ -1,6 +1,6 @@
 @extends('layouts.master')
 <!--                                                                        -->
-@section('title', '| Ticket #29831931')
+@section('title', '| Visualizar Ticket')
 <!--                                                                        -->
 @section('stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
@@ -20,8 +20,8 @@
                 </a>
             </li>
             <li class="crumb-trail"><a href="/ticket">Tickets</a></li>
-            <li class="crumb-trail"><a href="/ticket/gerenciar">Gerenciar Tickets</a></li>
-            <li class="crumb-trail">Ticket #12313213</li>
+            <li class="crumb-trail"><a href="/ticket/manage">Gerenciar Tickets</a></li>
+            <li class="crumb-trail">Ticket #{{ $ticket->id }}</li>
         </ol>
     </div>
     <div class="topbar-right">
@@ -60,7 +60,7 @@
     <div id="ticket_panel" class="admin-form">
         <div id="ticket_panel_heading" class="panel heading-border">
             <div class="panel-heading">
-                <span class="panel-title"><i class="fa fa-support"></i>Se bugar de novo, eu tiro ele fora</span>
+                <span class="panel-title"><i class="fa fa-support"></i>Ticket #{{ $ticket->id }} - {{ $ticket->title }}</span>
             </div>
             <div class="panel-body" style="margin-bottom: 0px; padding-bottom: 0px">
                 <form>
@@ -68,39 +68,45 @@
                         <div class="col-md-12">
                             <div id="original_message">
                                 <p>
-                                    <h5><span class="text-muted">(07/06/2016 - 16:13)</span> <a href="user_profile.html">Los</a> relatou:</h5>
+                                    <h5>às <span class="text-muted">{{ $ticket->created_at->format('d/m/Y H:m:s') }}</span> <a href="user_profile.html">{{ $ticket->user->name }}</a> relatou:</h5>
                                     <blockquote class="blockquote-primary" style="font-size: 95%;">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat tortor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer purus arcu, viverra quis turpis id, faucibus faucibus turpis. Sed at rhoncus nunc. Aliquam non fringilla purus. Curabitur faucibus tellus et efficitur lacinia. Mauris quis ipsum at dolor venenatis fringilla a dapibus sem. Maecenas pulvinar egestas urna, eu pharetra mauris efficitur sed. Nam et mollis velit. Curabitur at metus sollicitudin turpis elementum aliquam. In blandit, urna at convallis suscipit, tortor dui ultricies magna, eget pretium mi lorem et tortor. Suspendisse potenti. Duis mattis arcu in molestie volutpat. Sed scelerisque tristique nisl, sit amet efficitur diam luctus et. Praesent consectetur, nisi nec sodales dignissim, magna sem varius massa, commodo mollis arcu massa in turpis. Nullam scelerisque libero eu ipsum tempor scelerisque.
-                                            <br /><br />
-                                            Suspendisse at augue odio. Nulla pellentesque, tortor et rutrum consequat, leo lectus interdum eros, vel elementum purus mauris at nunc. Sed tristique blandit neque id gravida. Proin velit turpis, dictum ut purus sit amet, scelerisque pretium neque. Morbi a iaculis sapien. Vivamus lacinia scelerisque accumsan. Integer non rhoncus ipsum, at suscipit dui. Aliquam erat volutpat. Proin non ex lacus.
-                                        </p>
+                                        {{ $ticket->content }}
                                     </blockquote>
                                 </p>
                             </div>
-                            <div id="admin_response">
-                                <hr class="short alt" />
-                                <p class="text-right">
-                                    <h5 class="text-right">Respondido por <a href="user_profile.html">Los</a>:</h5>
-                                    <blockquote id="block_answer" class="blockquote-system blockquote-reverse" style="font-size: 95%; margin-bottom: 0px">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat tortor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer purus arcu, viverra quis turpis id, faucibus faucibus turpis. Sed at rhoncus nunc. Aliquam non fringilla purus. Curabitur faucibus tellus et efficitur lacinia. Mauris quis ipsum at dolor venenatis fringilla a dapibus sem. Maecenas pulvinar egestas urna, eu pharetra mauris efficitur sed. Nam et mollis velit. Curabitur at metus sollicitudin turpis elementum aliquam. In blandit, urna at convallis suscipit, tortor dui ultricies magna, eget pretium mi lorem et tortor. Suspendisse potenti. Duis mattis arcu in molestie volutpat. Sed scelerisque tristique nisl, sit amet efficitur diam luctus et. Praesent consectetur, nisi nec sodales dignissim, magna sem varius massa, commodo mollis arcu massa in turpis. Nullam scelerisque libero eu ipsum tempor scelerisque.
-                                            <br /><br />
-                                            Suspendisse at augue odio. Nulla pellentesque, tortor et rutrum consequat, leo lectus interdum eros, vel elementum purus mauris at nunc. Sed tristique blandit neque id gravida. Proin velit turpis, dictum ut purus sit amet, scelerisque pretium neque. Morbi a iaculis sapien. Vivamus lacinia scelerisque accumsan. Integer non rhoncus ipsum, at suscipit dui. Aliquam erat volutpat. Proin non ex lacus.
+                            @foreach($ticket->answers as $answer)
+                                @if($answer->user->admin > 2)
+                                    <div id="admin_response">
+                                        <hr class="short alt" />
+                                        <p class="text-right">
+                                            <h5 class="text-right">Respondido por <a href="user_profile.html">{{ $answer->user->name }}</a>:</h5>
+                                            <blockquote id="block_answer" class="blockquote-system blockquote-reverse" style="font-size: 95%; margin-bottom: 0px">
+                                                {{ $answer->content }}
+                                                <br/><br/>
+                                                <div class="btn-group">
+                                                    <a id="edit_answer_btn" type="button" class="btn btn-xs btn-primary btn-gradient dark" style="margin-top: 0px"><i class="fa fa-pencil"></i> editar</a>
+                                                    <a id="remove_answer_btn" type="button" class="btn btn-xs btn-danger btn-gradient dark" style="margin-top: 0px"><i class="fa fa-trash"></i> deletar</a>
+                                                </div>
+                                            </blockquote>
+                                            <!--<div id="edit_answer_div" class="text-right">
+                                                <textarea id="edit_answer" name="content" data-language="pt" rows="10" style="margin-bottom: 10px">
+                                                    {{ $answer->content }}
+                                                </textarea>
+                                                <a id="save_edit_answer_btn" type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-save"></i> salvar</a>
+                                            </div>-->
                                         </p>
-                                        <div class="btn-group">
-                                            <a id="edit_answer_btn" type="button" class="btn btn-xs btn-primary btn-gradient dark" style="margin-top: 0px"><i class="fa fa-pencil"></i> editar</a>
-                                            <a id="remove_answer_btn" type="button" class="btn btn-xs btn-danger btn-gradient dark" style="margin-top: 0px"><i class="fa fa-trash"></i> deletar</a>
-                                        </div>
-                                    </blockquote>
-                                    <div id="edit_answer_div" class="text-right">
-                                        <textarea id="edit_answer" name="content" data-language="pt" rows="10" style="margin-bottom: 10px">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat tortor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer purus arcu, viverra quis turpis id, faucibus faucibus turpis. Sed at rhoncus nunc. Aliquam non fringilla purus. Curabitur faucibus tellus et efficitur lacinia. Mauris quis ipsum at dolor venenatis fringilla a dapibus sem. Maecenas pulvinar egestas urna, eu pharetra mauris efficitur sed. Nam et mollis velit. Curabitur at metus sollicitudin turpis elementum aliquam. In blandit, urna at convallis suscipit, tortor dui ultricies magna, eget pretium mi lorem et tortor. Suspendisse potenti. Duis mattis arcu in molestie volutpat. Sed scelerisque tristique nisl, sit amet efficitur diam luctus et. Praesent consectetur, nisi nec sodales dignissim, magna sem varius massa, commodo mollis arcu massa in turpis. Nullam scelerisque libero eu ipsum tempor scelerisque.
-                                            Suspendisse at augue odio. Nulla pellentesque, tortor et rutrum consequat, leo lectus interdum eros, vel elementum purus mauris at nunc. Sed tristique blandit neque id gravida. Proin velit turpis, dictum ut purus sit amet, scelerisque pretium neque. Morbi a iaculis sapien. Vivamus lacinia scelerisque accumsan. Integer non rhoncus ipsum, at suscipit dui. Aliquam erat volutpat. Proin non ex lacus.
-                                        </textarea>
-                                        <a id="save_edit_answer_btn" type="button" class="btn btn-xs btn-primary btn-gradient dark"><i class="fa fa-save"></i> salvar</a>
                                     </div>
-                                </p>
-                            </div>
+                                @else
+                                    <div id="original_message">
+                                        <p>
+                                            <h5>às <span class="text-muted">{{ $answer->created_at->format('d/m/Y H:m:s') }}</span> <a href="user_profile.html">{{ $answer->user->name }}</a> respondeu:</h5>
+                                            <blockquote class="blockquote-primary" style="font-size: 95%;">
+                                                {{ $answer->content }}
+                                            </blockquote>
+                                        </p>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </form>
@@ -112,7 +118,7 @@
     <div class="admin-form theme-primary">
         <div class="panel">
             <div class="panel-heading">
-                <span class="panel-title"><span class="fa fa-support"></span>Resposta ao ticket</span></span>
+                <span class="panel-title"><span class="fa fa-support"></span>Responder ticket</span></span>
             </div>
             <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Escreva aqui a resposta ao ticket..."></textarea>
             <div class="section-divider mb40" id="spy1" style="padding-bottom: 0px">

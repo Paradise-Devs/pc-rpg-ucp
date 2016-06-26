@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="crumb-trail"><a href="/ticket">Tickets</a></li>
-            <li class="crumb-trail">Ticket #12313213</li>
+            <li class="crumb-trail">Ticket #{{ $ticket->id }}</li>
         </ol>
     </div>
     <div class="topbar-right">
@@ -48,9 +48,9 @@
     <div id="ticket_panel" class="admin-form">
         <div id="ticket_panel_heading" class="panel heading-border">
             <div class="panel-heading">
-                <span class="panel-title"><span class="fa fa-support"></span>Ticket #21313213</span></span>
+                <span class="panel-title"><span class="fa fa-support"></span>Ticket #{{ $ticket->id }} - {{ $ticket->title }}</span></span>
                 <div class="widget-menu pull-right mr10">
-                    <span class="label bg-info mr10">Solicitação de reset de conta</span>
+                    <span class="label bg-info mr10">{{ $ticket->category }}</span>
                 </div>
             </div>
             <div class="panel-body" style="margin-bottom: 0px; padding-bottom: 0px">
@@ -59,31 +59,37 @@
                         <div class="col-md-12">
                             <div id="original_message">
                                 <p>
-                                    <h5><span class="text-muted">(07/06/2016 - 16:13)</span> Você relatou:</h5>
+                                    <h5>às <span class="text-muted">{{ $ticket->created_at->format('d/m/Y H:m:s') }}</span> Você relatou:</h5>
                                     <br />
                                     <blockquote class="blockquote-primary" style="font-size: 95%;">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat tortor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer purus arcu, viverra quis turpis id, faucibus faucibus turpis. Sed at rhoncus nunc. Aliquam non fringilla purus. Curabitur faucibus tellus et efficitur lacinia. Mauris quis ipsum at dolor venenatis fringilla a dapibus sem. Maecenas pulvinar egestas urna, eu pharetra mauris efficitur sed. Nam et mollis velit. Curabitur at metus sollicitudin turpis elementum aliquam. In blandit, urna at convallis suscipit, tortor dui ultricies magna, eget pretium mi lorem et tortor. Suspendisse potenti. Duis mattis arcu in molestie volutpat. Sed scelerisque tristique nisl, sit amet efficitur diam luctus et. Praesent consectetur, nisi nec sodales dignissim, magna sem varius massa, commodo mollis arcu massa in turpis. Nullam scelerisque libero eu ipsum tempor scelerisque.
-                                            <br /><br />
-                                            Suspendisse at augue odio. Nulla pellentesque, tortor et rutrum consequat, leo lectus interdum eros, vel elementum purus mauris at nunc. Sed tristique blandit neque id gravida. Proin velit turpis, dictum ut purus sit amet, scelerisque pretium neque. Morbi a iaculis sapien. Vivamus lacinia scelerisque accumsan. Integer non rhoncus ipsum, at suscipit dui. Aliquam erat volutpat. Proin non ex lacus.
-                                        </p>
+                                        {{ $ticket->content }}
                                     </blockquote>
                                 </p>
                             </div>
-                            <div id="admin_response">
-                                <hr class="short alt" />
-                                <p class="text-right">
-                                    <h5 class="text-right">Resposta da Administração:</h5>
-                                    <br />
-                                    <blockquote class="blockquote-system blockquote-reverse" style="font-size: 95%;">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat tortor ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer purus arcu, viverra quis turpis id, faucibus faucibus turpis. Sed at rhoncus nunc. Aliquam non fringilla purus. Curabitur faucibus tellus et efficitur lacinia. Mauris quis ipsum at dolor venenatis fringilla a dapibus sem. Maecenas pulvinar egestas urna, eu pharetra mauris efficitur sed. Nam et mollis velit. Curabitur at metus sollicitudin turpis elementum aliquam. In blandit, urna at convallis suscipit, tortor dui ultricies magna, eget pretium mi lorem et tortor. Suspendisse potenti. Duis mattis arcu in molestie volutpat. Sed scelerisque tristique nisl, sit amet efficitur diam luctus et. Praesent consectetur, nisi nec sodales dignissim, magna sem varius massa, commodo mollis arcu massa in turpis. Nullam scelerisque libero eu ipsum tempor scelerisque.
-                                            <br /><br />
-                                            Suspendisse at augue odio. Nulla pellentesque, tortor et rutrum consequat, leo lectus interdum eros, vel elementum purus mauris at nunc. Sed tristique blandit neque id gravida. Proin velit turpis, dictum ut purus sit amet, scelerisque pretium neque. Morbi a iaculis sapien. Vivamus lacinia scelerisque accumsan. Integer non rhoncus ipsum, at suscipit dui. Aliquam erat volutpat. Proin non ex lacus.
+                            @foreach($ticket->answers as $answer)
+                                @if($answer->user->admin > 2)
+                                    <div id="admin_response">
+                                        <hr class="short alt" />
+                                        <p class="text-right">
+                                            <h5 class="text-right">Resposta da Administração:</h5>
+                                            <br />
+                                            <blockquote class="blockquote-system blockquote-reverse" style="font-size: 95%;">
+                                                {{ $answer->content }}
+                                            </blockquote>
                                         </p>
-                                    </blockquote>
-                                </p>
-                            </div>
+                                    </div>
+                                @else
+                                    <div id="original_message">
+                                        <p>
+                                            <h5>às <span class="text-muted">{{ $answer->created_at->format('d/m/Y H:m:s') }}</span> Você respondeu:</h5>
+                                            <br />
+                                            <blockquote class="blockquote-primary" style="font-size: 95%;">
+                                                {{ $answer->content }}
+                                            </blockquote>
+                                        </p>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </form>
@@ -95,7 +101,7 @@
     <div class="admin-form theme-primary">
         <div class="panel">
             <div class="panel-heading">
-                <span class="panel-title"><span class="fa fa-support"></span>Resposta ao ticket</span></span>
+                <span class="panel-title"><span class="fa fa-support"></span>Responder ticket</span></span>
             </div>
             <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Escreva aqui a resposta ao ticket..."></textarea>
             <div class="section-divider mb40" id="spy1" style="padding-bottom: 0px">
