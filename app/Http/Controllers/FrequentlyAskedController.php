@@ -32,7 +32,7 @@ class FrequentlyAskedController extends Controller
      */
     public function index()
     {
-        return view('pages.faq', ['questions' => FrequentlyAsked::getQuestions(null), 'recent' => FrequentlyAsked::getQuestions(4)]);
+        return view('pages.faq.show', ['questions' => FrequentlyAsked::getQuestions(null), 'recent' => FrequentlyAsked::getQuestions(4)]);
     }
 
     /**
@@ -44,7 +44,7 @@ class FrequentlyAskedController extends Controller
     {
         if(Gate::allows('developer'))
         {
-            return view('pages.faq_manage', ['questions' => FrequentlyAsked::getQuestions(null)]);
+            return view('pages.faq.manage', ['questions' => FrequentlyAsked::getQuestions(null)]);
         }
         else
         {
@@ -57,7 +57,7 @@ class FrequentlyAskedController extends Controller
         if(Gate::allows('developer'))
         {
             $data = FrequentlyAsked::findOrFail($id);
-            return view('pages.faq_edit', ['faq_data' => $data]);
+            return view('pages.faq.edit', ['faq_data' => $data]);
         }
     }
 

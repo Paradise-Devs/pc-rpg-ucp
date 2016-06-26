@@ -17,24 +17,24 @@ class ReportsController extends Controller
     public function index()
     {
         $reports = Report::where('user_id', Auth::user()->id)->get();
-        return view('pages.report', ['reports' => $reports]);
+        return view('pages.report.show', ['reports' => $reports]);
     }
 
     public function create()
     {
-        return view('pages.report_create_player');
+        return view('pages.report.create_player');
     }
 
     public function create_admin()
     {
-        return view('pages.report_create_admin');
+        return view('pages.report.create_admin');
     }
 
     public function manage()
     {
         if(Gate::allows('developer'))
         {
-            return view('pages.report_manage');
+            return view('pages.report.manage');
         }
         else
         {
