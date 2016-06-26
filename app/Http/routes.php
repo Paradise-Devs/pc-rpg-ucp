@@ -14,6 +14,7 @@
 Route::auth();
 
 Route::get('/denuncia/create/admin', 'ReportsController@create_admin');
+Route::post('/denuncia/deny/{id}', 'ReportsController@deny');
 Route::get('/denuncia/admin/{id}', 'ReportsController@show_admin');
 Route::get('/denuncias/gerenciar', 'ReportsController@manage');
 

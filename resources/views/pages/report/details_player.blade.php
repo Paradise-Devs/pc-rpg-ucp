@@ -75,7 +75,7 @@
                                 <div id="denied_info" class="alert light pastel alert-danger">
                                     <i class="fa fa-close pr10"></i>
                                     Sua denúncia foi indeferida.<br /><br />
-                                    <b>Motivo:</b> Evidências insuficiente. Reabra a denúncia e insira novas/mais evidências.<br />
+                                    <b>Motivo:</b> {{ $report->reject_reason }}<br />
                                 </div>
                             @endif
                         </div>

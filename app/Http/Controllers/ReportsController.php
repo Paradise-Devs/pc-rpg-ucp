@@ -114,4 +114,29 @@ class ReportsController extends Controller
         Report::Create($inputs);
         return Redirect::to('denuncias')->with('success', true);
     }
+
+    public function deny(Request $request, $id)
+    {
+        $this->validate($request, [ 'select_reason' => 'required' ]);
+
+        if($request->input('select_reason') == 'other')
+        {
+            $this->validate($request, [ 'text_reason' => 'min:4|max:70' ]);
+
+            $inputs = [
+                'reject_reason' => $request->input('text_reason'),
+                'status' => 3
+            ];
+        }
+        else
+        {
+            if($request->input('select_reason') == 'no_evidence')
+                $inputs = [ 'reject_reason' => 'Evidências insuficientes', 'status' => 3 ];
+            else
+                $inputs = [ 'reject_reason' => 'Usuário já punido', 'status' => 3 ];
+        }
+
+        Report::where('id', $id)->Update($inputs);
+        return Redirect::to('denuncias')->with('success', true);
+    }
 }
