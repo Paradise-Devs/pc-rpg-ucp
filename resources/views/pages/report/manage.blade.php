@@ -49,10 +49,10 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Criação</th>
-                                    <th>Denunciante</th>
-                                    <th>Denunciado</th>
                                     <th>Categoria</th>
+                                    <th>Denunciado</th>
+                                    <th>Denunciante</th>
+                                    <th>Criação</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,26 +67,26 @@
                                         @else
                                         <tr>
                                         @endif
-                                            <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/{{ $report->id }}">#{{ $report->id }}</a></td>
-                                            <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
-                                            <td><a href="#">{{ $report->user->name }}</a></td>
-                                            <td><a href="#">{{ $report->accused->name }}</a></td>
+                                            <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/admin/{{ $report->id }}">#{{ $report->id }}</a></td>
                                             <td>{{ $report->reason }}</td>
+                                            <td><a href="#">{{ $report->accused->name }}</a></td>
+                                            <td><a href="#">{{ $report->user->name }}</a></td>
+                                            <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
                                         </tr>
                                     @endif
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-                    <div id="tabStaff" class="tab-pane" style="width:100%">
-                        <table class="table table-hover" id="datatableAdmin" cellspacing="0" style="width:100%">
+                    <div id="tabStaff" class="tab-pane">
+                        <table class="table table-hover" id="datatableAdmin" cellspacing="0">
                             <thead>
-                                <tr style="width:100%">
+                                <tr>
                                     <th>ID</th>
-                                    <th>Criação</th>
-                                    <th>Denunciante</th>
-                                    <th>Denunciado</th>
                                     <th>Categoria</th>
+                                    <th>Denunciado</th>
+                                    <th>Denunciante</th>
+                                    <th>Criação</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -101,11 +101,11 @@
                                         @else
                                         <tr>
                                         @endif
-                                            <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/{{ $report->id }}">#{{ $report->id }}</a></td>
-                                            <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
-                                            <td><a href="#">{{ $report->user->name }}</a></td>
-                                            <td><a href="#">{{ $report->accused->name }}</a></td>
+                                            <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/admin/{{ $report->id }}">#{{ $report->id }}</a></td>
                                             <td>{{ $report->reason }}</td>
+                                            <td><a href="#">{{ $report->accused->name }}</a></td>
+                                            <td><a href="#">{{ $report->user->name }}</a></td>
+                                            <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
                                         </tr>
                                     @endif
                                 @endforeach

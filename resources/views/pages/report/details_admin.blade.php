@@ -337,11 +337,15 @@
                     </form>
                 </div>
                 <div class="panel-footer text-right p7 mt0 pt0">
-                    <div class="actions btn-group">
-                        <a id="accept-button" class="btn btn-sm btn-success btn-gradient dark"><i class="fa fa-check"></i> Deferir</a>
-                        <a id="deny-button" class="btn btn-sm btn-danger btn-gradient dark"><i class="fa fa-times"></i> Indeferir</a>
-                        <a href="#" class="btn btn-sm btn-gradient dark"><i class="fa fa-trash "></i> Deletar</a>
-                    </div>
+                    <form method="POST" action="{{ url("denuncia/$report->id") }}" id="delete-form">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <div class="actions btn-group">
+                            <a href="#" id="accept-button" class="btn btn-sm btn-success btn-gradient dark"><i class="fa fa-check"></i> Deferir</a>
+                            <a href="#" id="deny-button" class="btn btn-sm btn-danger btn-gradient dark"><i class="fa fa-times"></i> Indeferir</a>
+                            <a href="#" id="delete" class="btn btn-sm btn-gradient dark"><i class="fa fa-trash"></i> Deletar</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -363,6 +367,10 @@
         var preview = markdown.toHTML(html);
         $('#report-content').html(preview);
 
+        $('#delete').on('click', function(e) {
+            $('#delete-form').submit();
+            e.preventDefault();
+        });
         $("#playerMoney").spinner({
             min: 100,
             max: 43500,

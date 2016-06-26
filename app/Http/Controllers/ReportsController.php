@@ -44,7 +44,7 @@ class ReportsController extends Controller
     {
         if(Gate::allows('developer'))
         {
-            $reports = Report::all();
+            $reports = Report::orderBy('id', 'desc')->get();
             return view('pages.report.manage', ['reports' => $reports]);
         }
         else
@@ -56,7 +56,20 @@ class ReportsController extends Controller
     public function show($id)
     {
         $report = Report::findOrFail($id);
-        if(Gate::allows('developer', $report))
+        if(Gate::allows('creator', $report))
+        {
+            return view('pages.report.details_player', ['report' => $report]);
+        }
+        else
+        {
+            return Redirect::to('denuncias');
+        }
+    }
+
+    public function show_admin($id)
+    {
+        $report = Report::findOrFail($id);
+        if(Gate::allows('developer'))
         {
             if($report->status == 0)
             {
@@ -65,13 +78,20 @@ class ReportsController extends Controller
             }
             return view('pages.report.details_admin', ['report' => $report]);
         }
-        elseif(Gate::allows('creator', $report))
-        {
-            return view('pages.report.details_player', ['report' => $report]);
-        }
         else
         {
             return Redirect::to('denuncias');
+        }
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        if(Gate::allows('developer'))
+        {
+            $report = Report::findOrFail($id);
+            Report::Destroy($id);
+
+            return Redirect::to('denuncias/gerenciar')->with('success', true);
         }
     }
 
