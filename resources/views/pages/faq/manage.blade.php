@@ -151,7 +151,7 @@
                 text: "Deseja mesmo deletar essa pergunta? Essa ação não tem volta.",
                 showCancelButton: true,
                 confirmButtonText: "Sim, delete!",
-                type: "warning"
+                type: "error"
             }, function() {
                 btn.parents('form').submit();
             });

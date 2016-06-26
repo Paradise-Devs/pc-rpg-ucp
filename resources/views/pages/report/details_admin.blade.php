@@ -377,7 +377,7 @@
                 text: "Deseja mesmo deletar essa denúncia? Essa ação não tem volta.",
                 showCancelButton: true,
                 confirmButtonText: "Sim, delete!",
-                type: "warning"
+                type: "error"
             }, function() {
                 $('#delete-form').submit();
             });
