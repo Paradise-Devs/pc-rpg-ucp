@@ -13,6 +13,7 @@
         <!-- Stylesheets -->
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
 
         <!-- Plugins -->
         <link rel="stylesheet" type="text/css" href="vendor/plugins/magnific/magnific-popup.css">
@@ -326,7 +327,7 @@
                         </ol>
                     </div>
                     <div class="topbar-right">
-                        <a href="ticket_create.html" class="modal-launcher btn btn-sm btn-primary btn-gradient dark" href="#ticket-create">
+                        <a href="#ticket-create" class="modal-launcher btn btn-sm btn-primary btn-gradient dark">
                             <i class="fa fa-plus"></i> Abrir Ticket
                         </a>
                         <a href="ticket_manage.html" type="button" class="btn btn-sm btn-system btn-gradient dark">
@@ -439,13 +440,39 @@
                 </footer>
                 <!-- End: Page Footer -->
                 <!-- Begin: Modals -->
-                <div id="ticket-create" class="popup-basic p25 mfp-with-anim mfp-hide">
-                    <blockquote class="blockquote-primary" style="font-size: 95%; margin-bottom: 2px">
-                        <p>Eu te kickei por que eu quis seu maldito otário fdp troxa witch burro idiota traoxaxa sd pwq s amd o wonsa ojwqqd</p>
-                        <h6>Data/Hora: 13/06/2016 - 13:13<br />
-                        Expulsão<br />
-                        Administrador: <a href="user_profile.html" target="_blank">Los</a></h6>
-                    </blockquote>
+                <div id="ticket-create" class="popup-basic admin-form mfp-with-anim mfp-hide">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <span class="panel-title"><i class="fa fa-rocket"></i>Leia antes de abrir um ticket</span>
+                        </div>
+                        <div class="panel-body panel-scroller scroller-sm pn">
+                            <p>Espere no mínimo 24 horas antes de enviar uma "cobrança" de resposta.</p>
+                            <hr class="short alt">
+                            <p>Não crie 2 tickets para o mesmo assunto, caso necessário, reabra o anterior.</p>
+                            <hr class="short alt">
+                            <p>Caso você resolva seu problema antes de uma resposta ao ticket, feche-o e informe a solução.</p>
+                            <hr class="short alt">
+                            <p>Em caso de tickets abertos indevidamente, você será notificado, ou até mesmo punido.</p>
+                            <hr class="short alt">
+                            <p>Caso a resposta do ticket contenha no FAQ, será lhe enviado uma resposta padrão, seu ticket será fechado e você notificado.</p>
+                            <hr class="short alt">
+                            <p>Precisamos de evidências para análisar sua solicitação, ou seja, prints, links, imagens e etc...</p>
+                            <hr class="short alt">
+                            <p>Denúncias, aplicações à cargos e solicitações de desbanimento <b>NÃO</b> devem ser realizadas por ticket. Elas possuem seções para isto.</p>
+                            <hr class="short alt">
+                            <p>Tickets apesar de ser a principal forma de suporte, não é a única. O PC também conta com um canal no Discord para suporte, assim como o Fórum e no servidor.</p>
+                            <hr class="short alt">
+                            <p>Mantenha sua solicitação organizada.</p>
+                            <hr class="short alt">
+                            <p>Caso sua solicitação tenha sido resolvida com a resposta de um administrador, feche sua solicitação. Solicitações com mais de 24 horas sem resposta por parte do usuário, são fechadas automaticamente.</p>
+                        </div>
+                        <div class="panel-footer text-right">
+                            <div class="btn-group">
+                                <a href="ticket_create.html" class="btn btn-sm btn-primary btn-gradient dark"><i class="fa fa-check"></i> Continuar</a>
+                                <a class="btn btn-sm btn-default btn-gradient dark modal-dismiss"><i class="fa fa-close"></i> Cancelar</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- End: Modals -->
             </section>
@@ -470,32 +497,40 @@
         <script src="assets/js/main.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function() {
-              "use strict";
-              // Init Theme Core
-              Core.init();
+                "use strict";
+                // Init Theme Core
+                Core.init();
 
-              $('.modal-launcher').magnificPopup({ type: 'inline', mainClass: 'mfp-flipInX' });
+                $('.modal-launcher').magnificPopup({
+                    type: 'inline',
+                    mainClass: 'mfp-flipInX'
+                });
 
-              // Init DataTables
-              $('#datatable').dataTable({
-                  "sDom": 't<"dt-panelfooter clearfix"ip>',
-                  "scrollY": 270,
-                  "oTableTools": {
-                      "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
-                  },
-                  "language": {
-                      "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
-                      "infoEmpty": "Não há entradas para serem mostradas",
-                      "emptyTable": "Nenhuma denúncia encontrada",
-                      "paginate": {
-                          "first":      "Primeiro",
-                          "previous":   "Anterior",
-                          "next":       "Próximo",
-                          "last":       "Último"
-                      }
-                  }
-              });
-            });
+                $(document).on('click', '.modal-dismiss', function (e) {
+                    e.preventDefault();
+                    $.magnificPopup.close();
+                });
+
+                // Init DataTables
+                $('#datatable').dataTable({
+                    "sDom": 't<"dt-panelfooter clearfix"ip>',
+                    "scrollY": 270,
+                    "oTableTools": {
+                        "sSwfPath": "vendor/plugins/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf"
+                    },
+                    "language": {
+                        "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
+                        "infoEmpty": "Não há entradas para serem mostradas",
+                        "emptyTable": "Nenhuma denúncia encontrada",
+                        "paginate": {
+                            "first":      "Primeiro",
+                            "previous":   "Anterior",
+                            "next":       "Próximo",
+                            "last":       "Último"
+                        }
+                    }
+                });
+        });
         </script>
         <!-- END: PAGE SCRIPTS -->
     </body>
