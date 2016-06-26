@@ -44,7 +44,7 @@ class ReportsController extends Controller
     {
         if(Gate::allows('developer'))
         {
-            $reports = Report::where('status', '!=', 2)->where('status', '!=', 3)->get();
+            $reports = Report::all();
             return view('pages.report.manage', ['reports' => $reports]);
         }
         else

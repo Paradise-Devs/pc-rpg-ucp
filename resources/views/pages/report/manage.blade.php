@@ -58,13 +58,21 @@
                             <tbody>
                                 @foreach($reports as $report)
                                     @if($report->type != 1)
-                                    <tr>
-                                        <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/{{ $report->id }}">#{{ $report->id }}</a></td>
-                                        <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
-                                        <td><a href="#">{{ $report->user->name }}</a></td>
-                                        <td><a href="#">{{ $report->accused->name }}</a></td>
-                                        <td>{{ $report->reason }}</td>
-                                    </tr>
+                                        @if($report->status == 1)
+                                        <tr class="warning">
+                                        @elseif($report->status == 2)
+                                        <tr class="success">
+                                        @elseif($report->status == 3)
+                                        <tr class="danger">
+                                        @else
+                                        <tr>
+                                        @endif
+                                            <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/{{ $report->id }}">#{{ $report->id }}</a></td>
+                                            <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
+                                            <td><a href="#">{{ $report->user->name }}</a></td>
+                                            <td><a href="#">{{ $report->accused->name }}</a></td>
+                                            <td>{{ $report->reason }}</td>
+                                        </tr>
                                     @endif
                                 @endforeach
                             </tbody>
@@ -84,13 +92,21 @@
                             <tbody>
                                 @foreach($reports as $report)
                                     @if($report->type == 1)
-                                    <tr>
-                                        <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/{{ $report->id }}">#{{ $report->id }}</a></td>
-                                        <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
-                                        <td><a href="#">{{ $report->user->name }}</a></td>
-                                        <td><a href="#">{{ $report->accused->name }}</a></td>
-                                        <td>{{ $report->reason }}</td>
-                                    </tr>
+                                        @if($report->status == 1)
+                                        <tr class="warning">
+                                        @elseif($report->status == 2)
+                                        <tr class="success">
+                                        @elseif($report->status == 3)
+                                        <tr class="danger">
+                                        @else
+                                        <tr>
+                                        @endif
+                                            <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/{{ $report->id }}">#{{ $report->id }}</a></td>
+                                            <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
+                                            <td><a href="#">{{ $report->user->name }}</a></td>
+                                            <td><a href="#">{{ $report->accused->name }}</a></td>
+                                            <td>{{ $report->reason }}</td>
+                                        </tr>
                                     @endif
                                 @endforeach
                             </tbody>
