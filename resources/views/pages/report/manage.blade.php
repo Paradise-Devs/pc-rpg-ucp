@@ -56,34 +56,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="complaint_details_admin.html">#200</a></td>
-                                    <td>3 dias atrás</td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td>Cheating</td>
-                                </tr>
-                                <tr class="success">
-                                    <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="complaint_details_admin.html">#201</a></td>
-                                    <td>3 dias atrás</td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td>Cheating</td>
-                                </tr>
-                                <tr class="success">
-                                    <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="complaint_details_admin.html">#202</a></td>
-                                    <td>3 dias atrás</td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td>Cheating</td>
-                                </tr>
-                                <tr class="danger">
-                                    <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="complaint_details_admin.html">#203</a></td>
-                                    <td>3 dias atrás</td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td>Cheating</td>
-                                </tr>
+                                @foreach($reports as $report)
+                                    @if($report->type != 1)
+                                    <tr>
+                                        <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/{{ $report->id }}">#{{ $report->id }}</a></td>
+                                        <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
+                                        <td><a href="#">{{ $report->user->name }}</a></td>
+                                        <td><a href="#">{{ $report->accused->name }}</a></td>
+                                        <td>{{ $report->reason }}</td>
+                                    </tr>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -99,13 +82,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="complaint_details_admin.html">#204</a></td>
-                                    <td>3 dias atrás</td>
-                                    <td><a href="">User_Random</a></td>
-                                    <td><a href="">ReyMysterio</a></td>
-                                    <td>Cheating</td>
-                                </tr>
+                                @foreach($reports as $report)
+                                    @if($report->type == 1)
+                                    <tr>
+                                        <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/{{ $report->id }}">#{{ $report->id }}</a></td>
+                                        <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
+                                        <td><a href="#">{{ $report->user->name }}</a></td>
+                                        <td><a href="#">{{ $report->accused->name }}</a></td>
+                                        <td>{{ $report->reason }}</td>
+                                    </tr>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

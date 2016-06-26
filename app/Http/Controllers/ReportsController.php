@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * Reports:
+ *          0 - Aberta
+ *          1 - Em análise
+ *          2 - Deferida
+ *          3 - Indeferida
+ */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -36,7 +44,8 @@ class ReportsController extends Controller
     {
         if(Gate::allows('developer'))
         {
-            return view('pages.report.manage');
+            $reports = Report::where('status', '!=', 2)->where('status', '!=', 3)->get();
+            return view('pages.report.manage', ['reports' => $reports]);
         }
         else
         {
