@@ -372,124 +372,132 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <span class="panel-title"><i class="fa fa-cog"></i> Configurações da Conta</span>
-                                <ul class="nav panel-tabs">
-                                    <li class="active">
-                                        <a href="#tab1" data-toggle="tab" aria-expanded="true">Informações Pessoais</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="#tab2" data-toggle="tab" aria-expanded="false">Avatar</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="#tab3" data-toggle="tab" aria-expanded="false">Email</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="#tab4" data-toggle="tab" aria-expanded="false">Senha</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="#tab5" data-toggle="tab" aria-expanded="false">Privacidade</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="panel-body">
-                                <div class="tab-content">
-                                    <div id="tab1" class="tab-pane active admin-form theme-primary">
-                                        <form role="form" action="#">
-                                            <div class="section row">
-                                                <div class="col-md-6">
-                                                    <label for="fullname" class="field-label">Nome Completo</label>
-                                                    <input id="fullname" type="text" value="Lucas Souza" class="gui-input">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label for="bio" class="field-label">Bio</label>
-                                                    <input id="bio" type="text" class="gui-input" value="Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt" />
-                                                </div>
-                                            </div>
-                                            <div class="section row">
-                                                <div class="col-md-3">
-                                                    <label for="twitter" style="margin-bottom:10px">Twitter</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-twitter font-blue"></i> twitter.com/
-                                                        </span>
-                                                        <input id="twitter" type="text" class="form-control" placeholder="Twitter" value="los799">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label for="facebook" style="margin-bottom:10px">Facebook</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-facebook font-blue"></i> fb.com/
-                                                        </span>
-                                                        <input id="facebook" type="text" class="form-control" placeholder="Facebook" value="lucasosouza">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label for="github" style="margin-bottom:10px">GitHub</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-github"></i> github.com/
-                                                        </span>
-                                                        <input id="github" class="form-control" type="text" placeholder="GitHub" value="Los799">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <label for="email" style="margin-bottom:10px">E-mail</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-envelope-o"></i>
-                                                        </span>
-                                                        <input id="email" class="form-control" type="text" placeholder="E-mail" value="los@pc-rpg.com" readonly>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div id="tab2" class="tab-pane">
-                                        <div class="col-md-3">
-                                            <div class="media-left pr30">
-                                                <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-9 admin-form theme-primary">
-                                            <ul class="list-unstyled mt40">
-                                                <li>Dimensões Máximas:
-                                                    <strong class="text-dark"> 165x165</strong>
-                                                </li>
-                                                <li>Tamanho Máximo:
-                                                    <strong class="text-dark"> 100kb</strong>
-                                                </li>
-                                                <li>Formatos Aceitos:
-                                                    <strong class="text-dark">.jpg, .jpeg, .bmp, .png</strong>
-                                                </li>
-                                            </ul>
-                                            <div class="section" style="margin-top: 1px; margin-bottom: 0px">
-                                                <label class="field prepend-icon file">
-                                                    <span class="button btn-primary">Selecionar arquivo...</span>
-                                                    <input type="file" class="gui-file" name="file2" id="file2" onchange="document.getElementById('uploader2').value = this.value;">
-                                                    <input type="text" class="gui-input" id="uploader2" placeholder="Por favor, selecione o arquivo">
-                                                    <label class="field-icon">
-                                                        <i class="fa fa-upload"></i>
-                                                    </label>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="tab3" class="tab-pane"></div>
-                                    <div id="tab4" class="tab-pane"></div>
-                                    <div id="tab5" class="tab-pane"></div>
+                        <div class="admin-form theme-primary">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="panel-title"><i class="fa fa-cog"></i> Configurações da Conta</span>
+                                    <ul class="nav panel-tabs">
+                                        <li class="active">
+                                            <a href="#tab1" data-toggle="tab" aria-expanded="true">Informações Pessoais</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#tab2" data-toggle="tab" aria-expanded="false">Avatar</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#tab3" data-toggle="tab" aria-expanded="false">Email</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#tab4" data-toggle="tab" aria-expanded="false">Senha</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#tab5" data-toggle="tab" aria-expanded="false">Privacidade</a>
+                                        </li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="panel-footer text-right">
-                                <div class="btn-group">
-                                    <a href="#" id="save_ticket" type="submit" class="btn btn-sm btn-primary btn-gradient dark btn-blocks">
-                                        <i class="fa fa-save"></i> Salvar
-                                    </a>
-                                    <a href="ticket_index.html" class="btn btn-sm btn-default btn-gradient dark btn-blocks">
-                                        <i class="fa fa-close"></i> Cancelar
-                                    </a>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div id="tab1" class="tab-pane active">
+                                            <form role="form" action="#">
+                                                <div class="section row">
+                                                    <div class="col-md-6">
+                                                        <label for="fullname" class="field-label">Nome Completo</label>
+                                                        <input id="fullname" type="text" value="Lucas Souza" class="gui-input">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="bio" class="field-label">Bio</label>
+                                                        <input id="bio" type="text" class="gui-input" value="Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt" />
+                                                    </div>
+                                                </div>
+                                                <div class="section-divider" style="margin-top: 4%; margin-bottom: 4%">
+                                                    <span style="color: #4a89dc;">Social</span>
+                                                </div>
+                                                <div class="section row">
+                                                    <div class="col-md-3">
+                                                        <label for="twitter" style="margin-bottom:10px">Twitter</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-twitter font-blue"></i> twitter.com/
+                                                            </span>
+                                                            <input id="twitter" type="text" class="form-control" placeholder="Twitter" value="los799">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="facebook" style="margin-bottom:10px">Facebook</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-facebook font-blue"></i> fb.com/
+                                                            </span>
+                                                            <input id="facebook" type="text" class="form-control" placeholder="Facebook" value="lucasosouza">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="github" style="margin-bottom:10px">GitHub</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-github"></i> github.com/
+                                                            </span>
+                                                            <input id="github" class="form-control" type="text" placeholder="GitHub" value="Los799">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="email" style="margin-bottom:10px">E-mail</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-envelope-o"></i>
+                                                            </span>
+                                                            <input id="email" class="form-control" type="text" placeholder="E-mail" value="los@pc-rpg.com" readonly>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div id="tab2" class="tab-pane">
+                                            <div class="col-md-3">
+                                                <div class="media-left pr30">
+                                                    <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" alt="...">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-9 admin-form theme-primary">
+                                                <ul class="list-unstyled mt40">
+                                                    <li>Dimensões Máximas:
+                                                        <strong class="text-dark"> 165x165</strong>
+                                                    </li>
+                                                    <li>Tamanho Máximo:
+                                                        <strong class="text-dark"> 100kb</strong>
+                                                    </li>
+                                                    <li>Formatos Aceitos:
+                                                        <strong class="text-dark">.jpg, .jpeg, .bmp, .png</strong>
+                                                    </li>
+                                                </ul>
+                                                <div class="section" style="margin-top: 1px; margin-bottom: 0px">
+                                                    <label class="field prepend-icon file">
+                                                        <span class="button btn-primary">Selecionar arquivo...</span>
+                                                        <input type="file" class="gui-file" name="file2" id="file2" onchange="document.getElementById('uploader2').value = this.value;">
+                                                        <input type="text" class="gui-input" id="uploader2" placeholder="Por favor, selecione o arquivo">
+                                                        <label class="field-icon">
+                                                            <i class="fa fa-upload"></i>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="tab3" class="tab-pane">
+                                            <div class="col-md-6">
+                                            </div>
+                                        </div>
+                                        <div id="tab4" class="tab-pane"></div>
+                                        <div id="tab5" class="tab-pane"></div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer text-right">
+                                    <div class="btn-group">
+                                        <a href="#" id="save_ticket" type="submit" class="btn btn-sm btn-primary btn-gradient dark btn-blocks">
+                                            <i class="fa fa-save"></i> Salvar
+                                        </a>
+                                        <a href="ticket_index.html" class="btn btn-sm btn-default btn-gradient dark btn-blocks">
+                                            <i class="fa fa-close"></i> Cancelar
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
