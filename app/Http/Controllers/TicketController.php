@@ -70,6 +70,21 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|min:4|max:70',
+            'content' => 'required|min:4',
+            'category' => 'required'
+        ]);
+
+        $inputs = [
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'category' => $request->input('category'),
+            'user_id' => Auth::user()->id,
+            'status' => 0
+        ];
+
+        Ticket::Create($inputs);
         return Redirect::to('ticket')->with('success', true);
     }
 

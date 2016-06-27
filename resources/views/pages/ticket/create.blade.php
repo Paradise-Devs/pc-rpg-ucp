@@ -28,110 +28,122 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <form>
+        @if ($errors->has('content'))
+            <div class="state-error alert alert-danger pastel">
+              <strong>Erro!</strong> {{ $errors->first('content') }}
+            </div>
+        @endif
+        <form method="POST" action="{{ url('ticket') }}" id="submit_form">
+            {{ csrf_field() }}
             <div class="admin-form theme-primary">
                 <div class="panel panel-primary heading-border">
                     <div class="panel-heading">
                         <span class="panel-title"><i class="fa fa-support"></i>Criando Ticket</span>
                     </div>
                     <!-- end .panel-heading section -->
-                    <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Diga-nos, qual o problema que estas enfrentando?"></textarea>
+                    <textarea id="markdown-editor" class="{{ $errors->has('content') ? 'state-error' : '' }}" name="content" data-language="pt" rows="10" placeholder="Diga-nos, qual o problema que estas enfrentando?">{{ old('content') }}</textarea>
                     <div class="section-divider mb40" id="spy1">
                         <span style="color: #4a89dc;">Título & Categoria</span>
                     </div>
                     <div class="panel-body" style="padding-top: 1px">
                         <div class="section row">
                             <div class="col-md-6">
-                                <label for="title" class="field">
-                                    <input type="text" name="title" id="title" class="gui-input" maxlength="70" placeholder="Título" required>
+                                <label for="title" class="field {{ $errors->has('title') ? 'state-error' : '' }}">
+                                    <input type="text" name="title" id="title" value="{{ old('title') }}" class="gui-input" maxlength="70" placeholder="Título" required>
                                 </label>
+                                @if ($errors->has('title'))
+                                    <em for="title" class="state-error">{{ $errors->first('title') }}</em>
+                                @endif
                             </div>
                             <div class="col-md-6">
-                                <label class="field select">
-                                    <select id="category">
-                                        <option value="default" selected>Selecione a Categoria...
+                                <label class="field select {{ $errors->has('category') ? 'state-error' : '' }}">
+                                    <select id="category" name="category">
+                                        <option value="" selected>Selecione a Categoria...
                                         </option><optgroup label="Conta">
                                             <!-- Grupo 1 -->
-                                            <option>Roubaram minha conta</option>
-                                            <option>Problemas com propriedades</option>
+                                            <option value="Roubaram minha conta">Roubaram minha conta</option>
+                                            <option value="Problemas com propriedades">Problemas com propriedades</option>
                                             <!-- Grupo 2 -->
-                                            <option>Solicitação de reset de conta</option>
+                                            <option value="Solicitação de reset de conta">Solicitação de reset de conta</option>
                                             <!-- Grupo 3 -->
-                                            <option>Outro...</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Grupos &amp; Facções">
                                             <!-- Grupo 1 -->
                                             <!-- Grupo 2 -->
-                                            <option>Líder inativo</option>
-                                            <option>Abuso de poder</option>
+                                            <option value="Líder inativo">Líder inativo</option>
+                                            <option value="Abuso de poder">Abuso de poder</option>
                                             <!-- Grupo 3 -->
-                                            <option>Outro...</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Painel de Controle">
                                             <!-- Grupo 1 -->
-                                            <option>Encontrei um bug/glitch/falha</option>
+                                            <option value="Encontrei um bug/glitch/falha">Encontrei um bug/glitch/falha</option>
                                             <!-- Grupo 2 -->
-                                            <option>Tenho uma sugestão</option>
+                                            <option value="Tenho uma sugestão">Tenho uma sugestão</option>
                                             <!-- Grupo 3 -->
-                                            <option>Outro...</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Fórum">
                                             <!-- Grupo 1 -->
                                             <!-- Grupo 2 -->
-                                            <option>Problemas com a conta</option>
-                                            <option>Página inválida</option>
+                                            <option value="Problemas com a conta">Problemas com a conta</option>
+                                            <option value="Página inválida">Página inválida</option>
                                             <!-- Grupo 3 -->
-                                            <option>Outro...</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Loja">
                                             <!-- Grupo 1 -->
-                                            <option>Não recebi minha compra</option>
-                                            <option>Solicitação de estorno</option>
+                                            <option value="Não recebi minha compra">Não recebi minha compra</option>
+                                            <option value="Solicitação de estorno">Solicitação de estorno</option>
                                             <!-- Grupo 2 -->
-                                            <option>Valor incorreto</option>
+                                            <option value="Valor incorreto">Valor incorreto</option>
                                             <!-- Grupo 3 -->
-                                            <option>Métodos de pagamento</option>
+                                            <option value="Métodos de pagamento">Métodos de pagamento</option>
 
-                                            <option>Outro...</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Servidor">
                                             <!-- Grupo 1 -->
-                                            <option>Encontrei um bug/glitch/falha</option>
+                                            <option value="Encontrei um bug/glitch/falha">Encontrei um bug/glitch/falha</option>
                                             <!-- Grupo 2 -->
                                             <!-- Grupo 3 -->
-                                            <option>Dúvidas sobre PP (Paradise Pass)</option>
-                                            <option>Outro...</option>
+                                            <option value="Dúvidas sobre PP (Paradise Pass)">Dúvidas sobre PP (Paradise Pass)</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Eventos">
                                             <!-- Grupo 1 -->
-                                            <option>Evento programado não aconteceu</option>
+                                            <option value="Evento programado não aconteceu">Evento programado não aconteceu</option>
                                             <!-- Grupo 2 -->
-                                            <option>Não recebi minha recompensa</option>
+                                            <option value="Não recebi minha recompensa">Não recebi minha recompensa</option>
                                             <!-- Grupo 3 -->
-                                            <option>Outro...</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Suporte">
                                             <!-- Grupo 1 -->
                                             <!-- Grupo 2 -->
                                             <!-- Grupo 3 -->
-                                            <option>Dúvidas sobre o jogo</option>
-                                            <option>Outro...</option>
+                                            <option value="Dúvidas sobre o jogo">Dúvidas sobre o jogo</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Administração">
                                             <!-- Grupo 1 -->
                                             <!-- Grupo 2 -->
                                             <!-- Grupo 3 -->
-                                            <option>Outro...</option>
+                                            <option value="Outro">Outro...</option>
                                         </optgroup>
                                         <optgroup label="Outro...">
                                             <!-- Grupo 1 -->
                                             <!-- Grupo 2 -->
                                             <!-- Grupo 3 -->
-                                            <option>Outro</option>
+                                            <option value="Outro">Outro</option>
                                         </optgroup>
                                     </select>
                                     <i class="arrow"></i>
                                 </label>
+                                @if ($errors->has('category'))
+                                    <em for="category" class="state-error">{{ $errors->first('category') }}</em>
+                                @endif
                                 <span class="help-block mt5">
                                     Caso não encontre a categoria que gostaria, utilize a opção "Outro".
                                 </span>
@@ -181,6 +193,11 @@
                 }
             }
         });
+      });
+
+      $('#submit_ticket').on('click', function(e) {
+          $('#submit_form').submit();
+          e.preventDefault();
       });
 
       // Init Bootstrap Maxlength Plugin
