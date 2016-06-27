@@ -31,6 +31,9 @@ Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show']]);
 Route::resource('denuncia', 'ReportsController');
 
 Route::get('ticket/manage', 'TicketController@manage');
+Route::post('ticket/open/{id}', 'TicketController@open');
+Route::post('ticket/close/{id}', 'TicketController@close');
+Route::post('ticket/answer/{id}', 'TicketController@answer');
 Route::resource('ticket', 'TicketController');
 
 Route::get('/punicoes', 'PunishmentsController@index');

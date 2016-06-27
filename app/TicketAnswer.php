@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class TicketAnswer extends Model
 {
     protected $table = "tickets_answers";
-    
+    protected $fillable = ['user_id', 'ticket_id', 'content'];
+
     /**
     * Get the ticket that owns the answer.
     */

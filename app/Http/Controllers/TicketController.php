@@ -16,6 +16,8 @@ use App\Http\Requests;
 
 use App\Ticket;
 
+use App\TicketAnswer;
+
 use Gate;
 
 use Auth;
@@ -86,6 +88,46 @@ class TicketController extends Controller
 
         Ticket::Create($inputs);
         return Redirect::to('ticket')->with('success', true);
+    }
+
+    public function answer(Request $request, $id)
+    {
+        $this->validate($request, [
+            'content' => 'required|min:4',
+        ]);
+
+        $inputs = [
+            'content' => $request->input('content'),
+            'user_id' => Auth::user()->id,
+            'ticket_id' => $id
+        ];
+
+        TicketAnswer::Create($inputs);
+        return Redirect::to('ticket/'.$id)->with('success', true);
+    }
+
+    public function open($id)
+    {
+        $ticket = Ticket::findOrFail($id);
+        if(Gate::allows('creator', $ticket) || Gate::allows('developer', $ticket))
+        {
+            $ticket->status = 0;
+            $ticket->save();
+            return Redirect::to('ticket/'.$id)->with('success', true);
+        }
+        return Redirect::to('ticket');
+    }
+
+    public function close($id)
+    {
+        $ticket = Ticket::findOrFail($id);
+        if(Gate::allows('creator', $ticket) || Gate::allows('developer', $ticket))
+        {
+            $ticket->status = 3;
+            $ticket->save();
+            return Redirect::to('ticket/'.$id)->with('success', true);
+        }
+        return Redirect::to('ticket');
     }
 
     public function manage()
