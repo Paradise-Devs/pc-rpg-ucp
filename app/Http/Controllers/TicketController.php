@@ -35,7 +35,11 @@ class TicketController extends Controller
     public function show($id)
     {
         $ticket = Ticket::findOrFail($id);
-        if(Gate::allows('developer', $ticket))
+        if(Gate::allows('creator', $ticket))
+        {
+            return view('pages.ticket.details_player', ['ticket' => $ticket]);
+        }
+        else if(Gate::allows('developer', $ticket))
         {
             return view('pages.ticket.details_admin', ['ticket' => $ticket]);
         }
@@ -99,6 +103,11 @@ class TicketController extends Controller
         ];
 
         TicketAnswer::Create($inputs);
+
+        $ticket = Ticket::findOrFail($id);
+        $ticket->status = (Auth::user()->admin > 2) ? 2 : 1;
+        $ticket->save();
+
         return Redirect::to('ticket/'.$id)->with('success', true);
     }
 
