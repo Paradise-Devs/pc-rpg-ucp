@@ -25,27 +25,36 @@
         </ol>
     </div>
     <div class="topbar-right">
-        <select id="status_select">
-            <option value="opened" selected><i class="fa fa-eye-slash"></i> Aberto</option>
-            <option value="closed"><i class="fa fa-eye-slash"></i> Fechado</option>
+        <select id="status_select" data-status="{{ $ticket->status }}">
+            @if($ticket->status != 3)
+                <option value="opened" selected><i class="fa fa-eye-slash"></i> Aberto</option>
+                <option value="closed" disabled><i class="fa fa-eye-slash"></i> Fechado</option>
+            @else
+                <option value="opened" disabled><i class="fa fa-eye-slash"></i> Aberto</option>
+                <option value="closed" selected><i class="fa fa-eye-slash"></i> Fechado</option>
+            @endif
         </select>
         <div class="btn-group">
-            <a href="#" type="button" class="opened_ticket btn btn-sm btn-danger btn-gradient dark">
+            <a href="#" id="close_ticket" type="button" class="opened_ticket btn btn-sm btn-danger btn-gradient dark">
                 <i class="fa fa-lock"></i> Fechar
             </a>
-            <a href="#" type="button" class="closed_ticket btn btn-sm btn-danger btn-gradient dark">
+            <a href="#" id="open_ticket" type="button" class="closed_ticket btn btn-sm btn-danger btn-gradient dark">
                 <i class="fa fa-unlock-alt"></i> Reabrir
             </a>
-            <a href="ticket_edit.html" type="button" class="btn btn-sm btn-primary btn-gradient dark">
-                <i class="fa fa-pencil"></i> Editar
-            </a>
-            <a href="#" type="button" class="btn btn-sm btn-primary btn-gradient dark">
+            <a href="#" id="delete_ticket" type="button" class="btn btn-sm btn-primary btn-gradient dark">
                 <i class="fa fa-trash"></i> Deletar
             </a>
-            <a href="#" type="button" class="opened_ticket btn btn-sm btn-primary btn-gradient dark">
-                <i class="fa fa-share"></i> Transferir
-            </a>
         </div>
+        <form method="post" action="/ticket/open/{{ $ticket->id }}" id="open_form">
+            {{ csrf_field() }}
+        </form>
+        <form method="post" action="/ticket/close/{{ $ticket->id }}" id="close_form">
+            {{ csrf_field() }}
+        </form>
+        <form method="post" action="/ticket/{{ $ticket->id }}" id="delete_form">
+            {{ method_field('DELETE') }}
+            {{ csrf_field() }}
+        </form>
     </div>
 </header>
 @endsection
@@ -113,33 +122,42 @@
         </div>
     </div>
 </div>
-<div id="ticket_responseform" class="opened_ticket col-md-12">
-    <div class="admin-form theme-primary">
-        <div class="panel">
-            <div class="panel-heading">
-                <span class="panel-title"><span class="fa fa-support"></span>Responder ticket</span></span>
-            </div>
-            <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Escreva aqui a resposta ao ticket..."></textarea>
-            <div class="section-divider mb40" id="spy1" style="padding-bottom: 0px">
-                <span style="color: #4a89dc;">Anexo</span>
-            </div>
-            <div class="panel-body" style="padding-top: 1px">
-                <div class="col-md-12">
-                    <div class="section" style="margin-top: 1px; margin-bottom: 0px">
-                        <label class="field prepend-icon file">
-                            <span class="button btn-primary">Selecionar arquivo...</span>
-                            <input type="file" class="gui-file" name="file2" id="file2" onchange="document.getElementById('uploader2').value = this.value;" multiple>
-                            <input type="text" class="gui-input" id="uploader2" placeholder="Por favor, selecione o(s) arquivo(s)" multiple>
-                            <label class="field-icon">
-                                <i class="fa fa-upload"></i>
+<form method="POST" action="{{ url("ticket/answer/$ticket->id") }}">
+    {{ csrf_field() }}
+    <div id="ticket_responseform" class="opened_ticket col-md-12">
+        <div class="admin-form theme-primary">
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title"><span class="fa fa-support"></span>Responder ticket</span></span>
+                </div>
+                <textarea id="markdown-editor" class="{{ $errors->has('content') ? 'state-error' : '' }}" name="content" data-language="pt" rows="10" placeholder="Escreva aqui a resposta ao ticket..."></textarea>
+                <div class="section-divider mb40" id="spy1" style="padding-bottom: 0px">
+                    <span style="color: #4a89dc;">Anexo</span>
+                </div>
+                <div class="panel-body" style="padding-top: 1px">
+                    <div class="col-md-12">
+                        <div class="section" style="margin-top: 1px; margin-bottom: 0px">
+                            <label class="field prepend-icon file">
+                                <span class="button btn-primary">Selecionar arquivo...</span>
+                                <input type="file" class="gui-file" name="file2" id="file2" onchange="document.getElementById('uploader2').value = this.value;" multiple>
+                                <input type="text" class="gui-input" id="uploader2" placeholder="Por favor, selecione o(s) arquivo(s)" multiple>
+                                <label class="field-icon">
+                                    <i class="fa fa-upload"></i>
+                                </label>
                             </label>
-                        </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer p7 mt0 pt0 text-right">
+                    <div class="actions btn-group">
+                        <button href="/ticket" class="btn btn-sm btn-default btn-gradient dark"><i class="fa fa-arrow-left"></i> Voltar</button>
+                        <button type="submit" class="btn btn-sm btn-primary btn-gradient dark"><i class="fa fa-mail-forward"></i> Enviar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 @endsection
 <!--                                                                        -->
 @section('scripts')
@@ -166,6 +184,21 @@
                     $('#md-footer').show().html(content)
                 }
             }
+        });
+
+        $('#open_ticket').on('click', function(e) {
+            $('#open_form').submit();
+            e.preventDefault();
+        });
+
+        $('#close_ticket').on('click', function(e) {
+            $('#close_form').submit();
+            e.preventDefault();
+        });
+
+        $('#delete_ticket').on('click', function(e) {
+            $('#delete_form').submit();
+            e.preventDefault();
         });
     });
 </script>

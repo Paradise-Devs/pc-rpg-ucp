@@ -35,11 +35,7 @@ class TicketController extends Controller
     public function show($id)
     {
         $ticket = Ticket::findOrFail($id);
-        if(Gate::allows('creator', $ticket))
-        {
-            return view('pages.ticket.details_player', ['ticket' => $ticket]);
-        }
-        else if(Gate::allows('developer', $ticket))
+        if(Gate::allows('developer', $ticket))
         {
             return view('pages.ticket.details_admin', ['ticket' => $ticket]);
         }
