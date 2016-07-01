@@ -496,6 +496,12 @@
                         }
                     }
                 });
+                $("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
+                    console.log( 'show tab' );
+                    $($.fn.dataTable.tables(true)).DataTable()
+                        .columns.adjust()
+                        .responsive.recalc();
+                });
             });
         </script>
         <!-- END: PAGE SCRIPTS -->

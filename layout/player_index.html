@@ -684,7 +684,6 @@
                                                     <th>Usuário</th>
                                                     <th>Tags</th>
                                                     <th>Membro Desde</th>
-                                                    <th>Ação</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -696,9 +695,6 @@
                                                         <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
                                                     </td>
                                                     <td>13/09/2013</td>
-                                                    <td>
-
-                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center"><span class="label label-rounded label-dark fs12">150+</span></td>
@@ -708,9 +704,6 @@
                                                         <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
                                                     </td>
                                                     <td>13/09/2013</td>
-                                                    <td>
-
-                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center"><span class="label label-rounded label-dark fs12">150+</span></td>
@@ -720,9 +713,6 @@
                                                         <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
                                                     </td>
                                                     <td>13/09/2013</td>
-                                                    <td>
-
-                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center"><span class="label label-rounded label-dark fs12">150+</span></td>
@@ -732,9 +722,6 @@
                                                         <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
                                                     </td>
                                                     <td>13/09/2013</td>
-                                                    <td>
-
-                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center"><span class="label label-rounded label-dark fs12">150+</span></td>
@@ -744,9 +731,6 @@
                                                         <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
                                                     </td>
                                                     <td>13/09/2013</td>
-                                                    <td>
-
-                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center"><span class="label label-rounded label-dark fs12">150+</span></td>
@@ -756,9 +740,6 @@
                                                         <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
                                                     </td>
                                                     <td>13/09/2013</td>
-                                                    <td>
-
-                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -891,19 +872,19 @@
                   }
               });
 
-              $('#player_search').keyup(function() {
-                  tableActive.fnFilter($(this).val());
-                  tableStaff.fnFilter($(this).val());
-                  tableBanned.fnFilter($(this).val());
-              });
+                $('#player_search').keyup(function() {
+                    tableActive.fnFilter($(this).val());
+                    tableStaff.fnFilter($(this).val());
+                    tableBanned.fnFilter($(this).val());
+                });
 
-              $('#datatable_filter').css('display', 'none');
+                $('#datatable_filter').css('display', 'none');
 
-              $("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
-                  console.log( 'show tab' );
+                $("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
+                    console.log( 'show tab' );
                     $($.fn.dataTable.tables(true)).DataTable()
-                      .columns.adjust()
-                      .responsive.recalc();
+                        .columns.adjust()
+                        .responsive.recalc();
                 });
             });
         </script>
