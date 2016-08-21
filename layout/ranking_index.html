@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <title>PC:RPG | Ranking</title>
+        <meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
+        <meta name="description" content="Paradise City RPG">
+        <meta name="author" content="Paradise Devs">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="‪#009dc7">
+
+        <!-- Stylesheets -->
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/faq.css">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/icomoon/icomoon.css">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/glyphicons-pro/glyphicons-pro.css">
+
+        <!-- Plugins -->
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/Editor/css/dataTables.editor.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/img/favicon.ico">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="sb-l-o sb-r-c onload-check mobile-view tray-rescale">
+        <!-- Start: Main -->
+        <div id="main">
+            <!-- Start: Header -->
+            <header class="navbar navbar-fixed-top navbar-shadow bg-primary">
+                <div class="navbar-branding dark bg-primary">
+                    <a class="navbar-brand" href="dashboard.html">
+                    <b>PC</b>RPG
+                    </a>
+                    <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown menu-merge">
+                        <div class="navbar-btn btn-group">
+                            <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
+                                <span class="fa fa-bell-o fs14 va-m"></span>
+                                <span class="badge">5</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-persist w350" role="menu">
+                                <div class="panel mbn">
+                                    <div class="panel-menu">
+                                        <div class="btn-group btn-group-justified btn-group-nav" role="tablist">
+                                            <a href="#nav-tab1" data-toggle="tab" class="btn btn-default btn-sm active">Notificações</a>
+                                            <a href="#nav-tab2" data-toggle="tab" class="btn btn-default btn-sm br-l-n br-r-n">Mensagens</a>
+                                            <a href="#nav-tab3" data-toggle="tab" class="btn btn-default btn-sm">Atividade</a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body panel-scroller scroller-navbar pn">
+                                        <div class="tab-content br-n pn">
+                                            <div id="nav-tab1" class="tab-pane active" role="tabpanel">
+                                                <div class="media">
+                                                    <a class="media-left" href="#"> <img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar"> </a>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading">Article
+                                                            <small class="text-muted">- 08/16/22</small>
+                                                        </h5>
+                                                        Last Updated 36 days ago by
+                                                        <a class="text-system" href="#"> Max </a>
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <a class="media-left" href="#"> <img src="assets/img/avatars/5.jpg" class="mw40" alt="avatar"> </a>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading">Article
+                                                            <small class="text-muted">- 08/16/22</small>
+                                                        </h5>
+                                                        Last Updated 36 days ago by
+                                                        <a class="text-system" href="#"> Max </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="nav-tab3" class="tab-pane" role="tabpanel">
+                                                <h2> Tab 3...</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer text-center p7">
+                                        <a href="#" class="link-unstyled"> Ver todas </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-divider hidden-xs">
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li class="dropdown menu-merge">
+                        <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
+                            <img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64" />
+                            <span class="hidden-xs pl15"> Los </span>
+                            <span class="caret caret-tp hidden-xs"></span>
+                        </a>
+                        <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
+                            <li class="list-group-item">
+                                <a href="#">
+                                <span class="fa fa-envelope"></span> Mensagens
+                                <span class="label label-warning">2</span>
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">
+                                <span class="fa fa-user"></span> Meu Perfil </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">
+                                <span class="fa fa-gear"></span> Config. Conta </a>
+                            </li>
+                            <li class="dropdown-footer">
+                                <a href="#" class="">
+                                <span class="fa fa-power-off pr5"></span> Deslogar </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </header>
+            <!-- End: Header -->
+            <!-- Start: Sidebar -->
+            <aside id="sidebar_left" class="nano nano-light affix sidebar-light">
+                <!-- Start: Sidebar Left Content -->
+                <div class="sidebar-left-content nano-content">
+                    <!-- Start: Sidebar Header -->
+                    <header class="sidebar-header">
+                        <!-- Sidebar Widget - Author -->
+                        <div class="sidebar-widget author-widget">
+                            <div class="media">
+                                <a class="media-left" href="#">
+                                    <img src="assets/img/avatars/3.jpg" class="img-responsive">
+                                </a>
+                                <div class="media-body">
+                                    <div class="media-author">Los</div>
+                                    <div class="media-links"><span style="color: #17AE48">Developer<span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Sidebar Widget - Search -->
+                        <div class="sidebar-widget search-widget">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                                <input type="text" id="sidebar-search" class="form-control" placeholder="Procurar usuários, grupos...">
+                            </div>
+                        </div>
+                    </header>
+                    <!-- End: Sidebar Header -->
+                    <!-- Start: Sidebar Menu -->
+                    <ul class="nav sidebar-menu">
+                        <li class="sidebar-label pt20">Início</li>
+                        <li>
+                            <a href="index.html">
+                                <span class="glyphicon glyphicon-home"></span>
+                                <span class="sidebar-title">Início</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="market_index.html">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                <span class="sidebar-title">Loja</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar: Patrimônio -->
+                        <li class="sidebar-label pt15">Patrimônio</li>
+                        <li>
+                            <a class="accordion-toggle">
+                                <span class="glyphicon glyphicon-plane"></span>
+                                <span class="sidebar-title">Transporte</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="nav sub-nav">
+                                <li>
+                                    <a href="vehicles_index.html">
+                                        <span class="fa fa-car"></span>
+                                        Terrestre <span class="label label-xs bg-primary">0/6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="airplanes_index.html">
+                                        <span class="fa fa-fighter-jet"></span>
+                                        Aéreo <span class="label label-xs bg-primary">0/1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ships_index.html">
+                                        <span class="fa fa-ship"></span>
+                                        Marítimo <span class="label label-xs bg-primary">0/1</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="accordion-toggle">
+                                <span class="fa fa-building"></span>
+                                <span class="sidebar-title">Propriedades</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="nav sub-nav">
+                                <li>
+                                    <a href="home_index.html">
+                                        <span class="fa fa-home"></span>
+                                        Moradia <span class="label label-xs bg-primary">0/1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="buzz_index.html">
+                                        <span class="fa fa-briefcase"></span>
+                                        Empresa <span class="label label-xs bg-primary">0/0</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="objects_index.html">
+                                <span class="fa fa-laptop"></span>
+                                <span class="sidebar-title">Objetos</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar: Social -->
+                        <li class="sidebar-label pt15">Social</li>
+                        <li>
+                            <a href="player_index.html">
+                                <span class="fa fa-gamepad"></span>
+                                <span class="sidebar-title">Jogadores</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="job_index.html">
+                                <span class="fa fa-institution"></span>
+                                <span class="sidebar-title">Emprego</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="groups_index.html">
+                                <span class="fa fa-group"></span>
+                                <span class="sidebar-title">Grupos</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="ranking_index.html">
+                                <span class="fa fa-list"></span>
+                                <span class="sidebar-title">Ranking</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="punishments_index.html">
+                                <span class="fa fa-eye"></span>
+                                <span class="sidebar-title">Punições</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar: Suporte -->
+                        <li class="sidebar-label pt20">Suporte</li>
+                        <li>
+                            <a href="ticket_index.html">
+                                <span class="fa fa-question"></span>
+                                <span class="sidebar-title">Tickets</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="complaint_index.html">
+                                <span class="fa fa-flag"></span>
+                                <span class="sidebar-title">Denúncias</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="faq_index.html">
+                                <span class="fa fa-info"></span>
+                                <span class="sidebar-title">FAQ</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar: Char Status -->
+                        <li class="sidebar-label pt25 pb10">Status</li>
+                        <li class="sidebar-stat">
+                            <a href="#projectOne" class="fs11">
+                                <span class="fa fa-inbox text-info"></span>
+                                <span class="sidebar-title text-muted">XP (Personagem)</span>
+                                <span class="pull-right mr20 text-muted">35%</span>
+                                <div class="progress progress-bar-xs mh20 mb10">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                        <span class="sr-only">35% completo</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="sidebar-stat">
+                            <a href="#projectOne" class="fs11">
+                                <span class="fa fa-dropbox text-warning"></span>
+                                <span class="sidebar-title text-muted">XP (Emprego)</span>
+                                <span class="pull-right mr20 text-muted">62%</span>
+                                <div class="progress progress-bar-xs mh20">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 62%">
+                                        <span class="sr-only">62% completo</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- End: Sidebar Left Menu -->
+                </div>
+                <!-- End: Sidebar Left Content -->
+            </aside>
+            <!-- Start: Content-Wrapper -->
+            <section id="content_wrapper">
+                <!-- Start: Topbar -->
+                <header id="topbar" class="alt affix">
+                    <div class="topbar-left">
+                        <ol class="breadcrumb">
+                            <li class="crumb-active">
+                                <a href="#">UCP</a>
+                            </li>
+                            <li class="crumb-icon">
+                                <a href="index.html">
+                                <span class="glyphicon glyphicon-home"></span>
+                                </a>
+                            </li>
+                            <li class="crumb-trail">Ranking</li>
+                        </ol>
+                    </div>
+                    <div class="topbar-right">
+                        <div class="input-group" style="position: absolute; left: 58%; top: 20%">
+                            <span class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            <input type="text" id="player_search" class="form-control" style="width: 40%" placeholder="Procurar jogadores...">
+                        </div>
+                    </div>
+                </header>
+                <!-- End: Topbar -->
+                <!-- Begin: Content -->
+                <section id="content" class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <i class="fa fa-angle-double-up"></i>Level
+                                    </span>
+                                </div>
+                                <div class="panel-body pn">
+                                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="level_tbl" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="mw30 text-center" style="width: 5%">#</th>
+                                                <th style="width: 2%">Level</th>
+                                                <th style="width: 40%">Usuário</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><strong>#1</strong></td>
+                                                <td class="text-center"><span class="label label-rounded label-dark fs12">185</span></td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">Lucassssssssssssssssssss</span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><strong>#2</strong></td>
+                                                <td class="text-center"><span class="label label-rounded label-alert fs12">140</span></td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">With</span></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <i class="fa fa-clock-o"></i>Tempo Jogado
+                                    </span>
+                                </div>
+                                <div class="panel-body pn">
+                                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="playedTime_tbl" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="mw30 text-center" style="width: 5%">#</th>
+                                                <th style="width: 2%">Horas</th>
+                                                <th style="width: 40%">Usuário</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><strong>#1</strong></td>
+                                                <td class="text-center">1534<span class="text-info">h</span></td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">Lucassssssssssssssssssss</span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><strong>#2</strong></td>
+                                                <td class="text-center">1333<span class="text-info">h</span></td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">With</span></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <i class="fa fa-level-up"></i>XP/hora
+                                    </span>
+                                </div>
+                                <div class="panel-body pn">
+                                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="money_tbl" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="mw30 text-center" style="width: 5%">#</th>
+                                                <th style="width: 2%">XP/h</th>
+                                                <th style="width: 40%">Usuário</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><strong>#1</strong></td>
+                                                <td class="text-center">5232<span class="text-info">xp</span></td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">Lucassssssssssssssssssss</span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><strong>#2</strong></td>
+                                                <td class="text-center">5000<span class="text-info">xp</span></td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">With</span></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <i class="fa fa-usd"></i>Dinheiro
+                                    </span>
+                                </div>
+                                <div class="panel-body pn">
+                                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="rateXP_tbl" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="mw30 text-center" style="width: 5%">#</th>
+                                                <th class="text-center" style="width: 6%">$</th>
+                                                <th style="width: 40%">Usuário</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><strong>#1</strong></td>
+                                                <td class="text-center"><i class="fa fa-usd text-info"></i> 1.392.234,00</td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">Lucassssssssssssssssssss</span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><strong>#2</strong></td>
+                                                <td class="text-center"><i class="fa fa-usd text-info"></i> 1.000.234,00</td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">With</span></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <i class="fa fa-usd"></i>Avaliação de Patrimônio
+                                    </span>
+                                </div>
+                                <div class="panel-body pn">
+                                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="pat_tbl" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="mw30 text-center" style="width: 5%">#</th>
+                                                <th class="text-center" style="width: 6%">$</th>
+                                                <th style="width: 40%">Usuário</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><strong>#1</strong></td>
+                                                <td class="text-center"><i class="fa fa-usd text-info"></i> 1.354.392.234,00</td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">Lucassssssssssssssssssss</span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><strong>#2</strong></td>
+                                                <td class="text-center"><i class="fa fa-usd text-info"></i> 1.111.000.234,00</td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">With</span></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <i class="fa fa-trophy"></i>Eventos
+                                    </span>
+                                </div>
+                                <div class="panel-body pn">
+                                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="events_tbl" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th class="mw30 text-center" style="width: 5%">#</th>
+                                                <th class="text-center" style="width: 6%">Troféus</th>
+                                                <th style="width: 40%">Usuário</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><strong>#1</strong></td>
+                                                <td class="text-center">23 <i class="fa fa-trophy text-info"></i></td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">Lucassssssssssssssssssss</span></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><strong>#2</strong></td>
+                                                <td class="text-center">19 <i class="fa fa-trophy text-info"></i></td>
+                                                <td class="text-left">
+                                                    <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 30px;">
+                                                    <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">With</span></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End: Content -->
+                <!-- Begin: Page Footer -->
+                <footer id="content-footer" class="affix">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span class="footer-legal">© 2012-2016 Paradise City</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <span class="footer-meta">Paradise<b>Devs</b></span>
+                            <a href="#content" class="footer-return-top">
+                                <span class="fa fa-arrow-up"></span>
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End: Page Footer -->
+            </section>
+        </div>
+        <!-- End: Main -->
+
+        <!-- BEGIN: PAGE SCRIPTS -->
+        <!-- jQuery -->
+        <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
+        <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+
+        <!-- Datatables -->
+        <script src="vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+        <script src="vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
+        <script src="vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+
+        <!-- Theme Javascript -->
+        <script src="assets/js/utility/utility.js"></script>
+        <script src="assets/js/demo/demo.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+              "use strict";
+              // Init Theme Core
+              Core.init();
+
+              // Init DataTables
+              var tableLevel = $('#level_tbl').dataTable({
+                  "sDom": 't<"dt-panelfooter clearfix"ip>',
+                  "language": {
+                        "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                        "sInfoFiltered": "",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "_MENU_ resultados por página",
+                        "sLoadingRecords": "Carregando...",
+                        "sProcessing": "Processando...",
+                        "sZeroRecords": "Nenhum jogador encontrado",
+                        "sSearch": "Pesquisar",
+                        "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                  }
+              });
+
+              var tablePlayedTime = $('#playedTime_tbl').dataTable({
+                  "sDom": 't<"dt-panelfooter clearfix"ip>',
+                  "language": {
+                        "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                        "sInfoFiltered": "",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "_MENU_ resultados por página",
+                        "sLoadingRecords": "Carregando...",
+                        "sProcessing": "Processando...",
+                        "sZeroRecords": "Nenhum jogador encontrado",
+                        "sSearch": "Pesquisar",
+                        "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                  }
+              });
+
+              var tableXPrate = $('#rateXP_tbl').dataTable({
+                  "sDom": 't<"dt-panelfooter clearfix"ip>',
+                  "language": {
+                        "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                        "sInfoFiltered": "",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "_MENU_ resultados por página",
+                        "sLoadingRecords": "Carregando...",
+                        "sProcessing": "Processando...",
+                        "sZeroRecords": "Nenhum jogador encontrado",
+                        "sSearch": "Pesquisar",
+                        "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                  }
+              });
+              var tableMoney = $('#money_tbl').dataTable({
+                  "sDom": 't<"dt-panelfooter clearfix"ip>',
+                  "language": {
+                        "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                        "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "_MENU_ resultados por página",
+                        "sLoadingRecords": "Carregando...",
+                        "sProcessing": "Processando...",
+                        "sZeroRecords": "Nenhum jogador encontrado",
+                        "sSearch": "Pesquisar",
+                        "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                  }
+              });
+              var tablePatr = $('#pat_tbl').dataTable({
+                  "sDom": 't<"dt-panelfooter clearfix"ip>',
+                  "language": {
+                        "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                        "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "_MENU_ resultados por página",
+                        "sLoadingRecords": "Carregando...",
+                        "sProcessing": "Processando...",
+                        "sZeroRecords": "Nenhum jogador encontrado",
+                        "sSearch": "Pesquisar",
+                        "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                  }
+              });
+              var tableEvents = $('#events_tbl').dataTable({
+                  "sDom": 't<"dt-panelfooter clearfix"ip>',
+                  "language": {
+                        "sEmptyTable": "Nenhum registro encontrado",
+                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                        "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                        "sInfoPostFix": "",
+                        "sInfoThousands": ".",
+                        "sLengthMenu": "_MENU_ resultados por página",
+                        "sLoadingRecords": "Carregando...",
+                        "sProcessing": "Processando...",
+                        "sZeroRecords": "Nenhum jogador encontrado",
+                        "sSearch": "Pesquisar",
+                        "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                  }
+              });
+
+                $('#player_search').keyup(function() {
+                    tableLevel.fnFilter($(this).val());
+                    tablePlayedTime.fnFilter($(this).val());
+                    tableXPrate.fnFilter($(this).val());
+                    tableMoney.fnFilter($(this).val());
+                    tablePatr.fnFilter($(this).val());
+                    tableEvents.fnFilter($(this).val());
+                });
+
+                $('#datatable_filter').css('display', 'none');
+
+                $("a[data-toggle=\"tab\"]").on("shown.bs.tab", function (e) {
+                    console.log( 'show tab' );
+                    $($.fn.dataTable.tables(true)).DataTable()
+                        .columns.adjust()
+                        .responsive.recalc();
+                });
+            });
+        </script>
+        <script src="assets/js/hideseek/jquery.hideseek.min.js"></script>
+        <script src="assets/js/custom_faq.js"></script>
+        <!-- END: PAGE SCRIPTS -->
+    </body>
+</html>

@@ -15,15 +15,10 @@
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
         <link rel="stylesheet" type="text/css" href="assets/fonts/icomoon/icomoon.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/select2/css/core.css">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="assets/img/favicon.ico">
-
-        <style>
-        .panel-scroller .scroller-content {
-            padding: 0px;
-        }
-        </style>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -327,10 +322,43 @@
                             <li class="crumb-trail">Meu Perfil</li>
                         </ol>
                     </div>
+
                     <div class="topbar-right">
+                        <!-- ESSE BOTÃO É SÓ PRA VER COMO MUDA A PÁGINAS EM DIVERSOS TIPOS DE JOGADORES, REMOVA -->
+                        <select id="player_select">
+                            <option value="guest" selected><i class="fa fa-eye-slash"></i> Visitante</option>
+                            <option value="friend"><i class="fa fa-eye-slash"></i> Amigo</option>
+                            <option value="owner"><i class="fa fa-eye-slash"></i> Dono do Perfil</option>
+                            <option value="banned"><i class="fa fa-eye-slash"></i> Banido</option>
+                            <option value="blocked"><i class="fa fa-eye-slash"></i> Bloqueado</option>
+                        </select>
+
                         <a href="ticket_manage.html" type="button" class="btn btn-sm btn-system btn-gradient dark">
                             <i class="fa fa-cog"></i> Gerenciar Jogador
                         </a>
+                        <div class="btn-group">
+                            <a id="unfriend_btn" href="#" type="button" class="btn btn-sm btn-danger btn-gradient dark">
+                                <i class="fa fa-user-times"></i> Desfazer amizade
+                            </a>
+                            <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-primary btn-gradient dark">
+                                <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
+                            </a>
+                            <a id="message_btn" href="#" type="button" class="btn btn-sm btn-info btn-gradient dark">
+                                <i class="fa fa-envelope-o"></i> Enviar mensagem
+                            </a>
+                            <a id="accconfig_btn" href="ticket_edit.html" type="button" class="owner_player btn btn-sm btn-info btn-gradient dark">
+                                <i class="fa fa-cog"></i> Configuração da conta
+                            </a>
+                            <a id="block_btn" href="#" type="button" class="btn btn-sm btn-info btn-gradient dark">
+                                <i class="fa fa-bell-slash"></i> Bloquear
+                            </a>
+                            <a id="unblock_btn" href="#" type="button" class="btn btn-sm btn-success btn-gradient dark">
+                                <i class="fa fa-bell"></i> Desbloquear
+                            </a>
+                            <a id="report_btn" href="#" type="button" class="btn btn-sm btn-warning btn-gradient dark">
+                                <i class="fa fa-warning"></i> Denúnciar
+                            </a>
+                        </div>
                     </div>
                 </header>
                 <!-- End: Topbar -->
@@ -338,6 +366,11 @@
                 <section id="content" class="animated fadeIn">
                     <div class="page-heading">
                         <div class="media clearfix">
+                            <div id="blocked_info" class="alert alert-micro alert-border-left alert-danger">
+                                <i class="fa fa-ban pr10"></i>
+                                Usuário bloqueado.<br />
+                                Usuários bloqueados por você são impossibilitados de ter qualquer contato com você. Não conseguem visualizar seu perfil ou lhe enviar mensagens privadas.
+                            </div>
                             <div class="media-left pr30">
                                 <a href="#">
                                     <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" alt="...">
@@ -467,16 +500,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-body panel-scroller pn" style="max-height: 261px;">
+                            <div class="panel-body panel-scroller scroller-overlay pn" style="max-height: 261px;">
                                 <div class="friend_item mt20">
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
-                                            <div class="media">
-                                                <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
-                                                <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
-                                            </div>
+                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
                                             <div class="caption">
-                                                <h4 class="text-system fs10" style="margin-top: 3px">Sync</h4>
+                                                <h4 class="text-system fs10" style="margin-top: 3px">
+                                                    Sync
+                                                </h4>
                                             </div>
                                         </a>
                                     </div>
@@ -484,10 +516,7 @@
                                 <div class="friend_item mt20">
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
-                                            <div class="media">
-                                                <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 134px;">
-                                                <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
-                                            </div>
+                                            <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 134px;">
                                             <div class="caption">
                                                 <h4 class="text-system fs10" style="margin-top: 3px">With</h4>
                                             </div>
@@ -497,10 +526,7 @@
                                 <div class="friend_item mt20">
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
-                                            <div class="media">
-                                                <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
-                                                <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
-                                            </div>
+                                            <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
                                             <div class="caption">
                                                 <h4 class="fs10" style="margin-top: 3px">Userrrrrrrrr</h4>
                                             </div>
@@ -511,7 +537,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="text-danger fs10" style="margin-top: 3px">ReDKiiL</h4>
                                             </div>
@@ -522,7 +547,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="fs10" style="margin-top: 3px">Userraandommmm</h4>
                                             </div>
@@ -533,7 +557,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="text-danger fs10" style="margin-top: 3px">ReDKiiL</h4>
                                             </div>
@@ -544,7 +567,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="text-system fs10" style="margin-top: 3px">Sync</h4>
                                             </div>
@@ -555,7 +577,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="text-system fs10" style="margin-top: 3px">With</h4>
                                             </div>
@@ -566,7 +587,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="fs10" style="margin-top: 3px">User Random</h4>
                                             </div>
@@ -577,7 +597,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="text-danger fs10" style="margin-top: 3px">ReDKiiL</h4>
                                             </div>
@@ -588,7 +607,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="fs10" style="margin-top: 3px">Userraandommmm</h4>
                                             </div>
@@ -599,7 +617,6 @@
                                     <div class="col-md-2">
                                         <a href="user_profile.html" class="link-unstyled">
                                             <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
-                                            <span class="badge badge-system fs10" style="position: absolute; top: 68px; right: 15px">9999</span>
                                             <div class="caption">
                                                 <h4 class="text-danger fs10" style="margin-top: 3px">Ola</h4>
                                             </div>
@@ -609,116 +626,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8 hidden">
+                    <div class="col-md-12">
                         <div class="panel panel-primary panel-border top">
                             <div class="panel-heading">
-                                <span class="panel-title">
-                                <span class="fa fa-group"></span>Amigos</span>
+                                <span class="panel-title"><i class="fa fa"</span>
                             </div>
-                            <div class="panel-menu">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-search"></i>
-                                    </span>
-                                    <input id="friend_search" type="text" class="form-control" placeholder="Procurar amigo...">
-                                </div>
-                            </div>
-                            <div class="panel-body list-group panel-scroller scroller-sm pn">
-                                <div class="friend_item">
-                                    <a class="list-group-item" href="user_profile.html" style="padding-left: 10px;">
-                                        <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
-                                            <thead>
-                                                <tr class="hidden">
-                                                    <th>avatar</th>
-                                                    <th>stats</th>
-                                                    <th>level</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr style="margin-left: 0px; vertical-align: top">
-                                                    <td style="width: 25%; padding-left: 0px; padding-top: 0px; padding-bottom: 0px;">
-                                                        <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 70px;">
-                                                    </td>
-                                                    <td class="text-left" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px;">
-                                                        <ul class="list-unstyled" style="padding-bottom: 0px;">
-                                                            <li><h4 class="text-system" style="margin-bottom: 5px">Sync</h5></li>
-                                                            <li>
-                                                                <span class="label label-success fs10"><i class="fa fa-code"></i> desenvolvedor</span>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-rounded label-dark fs12">150+</span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </a>
-                                </div>
-                                <div class="friend_item">
-                                    <a class="list-group-item" href="user_profile.html" style="padding-left: 10px;">
-                                        <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
-                                            <thead>
-                                                <tr class="hidden">
-                                                    <th>avatar</th>
-                                                    <th>stats</th>
-                                                    <th>level</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr style="margin-left: 0px; vertical-align: top">
-                                                    <td style="width: 25%; padding-left: 0px; padding-top: 0px; padding-bottom: 0px;">
-                                                        <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 70px;">
-                                                    </td>
-                                                    <td class="text-left" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px;">
-                                                        <ul class="list-unstyled" style="padding-bottom: 0px;">
-                                                            <li><h5 style="margin-bottom: 5px">Usererwwrwrwewqee</h5></li>
-                                                            <li>
-                                                                <span class="label label-default fs10"><i class="fa fa-briefcase"></i> caminhoneiro</span>
-                                                                <span class="label label-alert fs10"><i class="imoon imoon-target"></i> ballas</span>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-rounded label-dark fs12">150+</span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </a>
-                                </a>
-                                <div class="friend_item">
-                                    <a class="list-group-item" href="user_profile.html" style="padding-left: 10px;">
-                                        <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
-                                            <thead>
-                                                <tr class="hidden">
-                                                    <th>avatar</th>
-                                                    <th>stats</th>
-                                                    <th>level</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr style="margin-left: 0px; vertical-align: top">
-                                                    <td style="width: 25%; padding-left: 0px; padding-top: 0px; padding-bottom: 0px;">
-                                                        <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 70px;">
-                                                    </td>
-                                                    <td class="text-left" style="padding-left: 0px; padding-top: 0px; padding-bottom: 0px;">
-                                                        <ul class="list-unstyled" style="padding-bottom: 0px;">
-                                                            <li><h4 class="text-system" style="margin-bottom: 5px">ReDKiiL</h5></li>
-                                                            <li>
-                                                                <span class="label label-default fs10"><i class="fa fa-briefcase"></i> caminhoneiro</span>
-                                                                <span class="label label-alert fs10"><i class="imoon imoon-target"></i> ballas</span>
-                                                            </li>
-                                                        </ul>
-                                                    </td>
-                                                    <td>
-                                                        <span class="label label-rounded label-dark fs12">150+</span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </a>
-                                </div>
+                            <div class="panel-body">
                             </div>
                         </div>
                     </div>
@@ -732,6 +645,9 @@
         <!-- jQuery -->
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+
+        <!-- Select2 Plugin Plugin -->
+        <script src="vendor/plugins/select2/select2.min.js"></script>
 
         <script src="assets/admin-tools/admin-forms/js/jquery.validate.min.js"></script>
         <script src="assets/admin-tools/admin-forms/js/additional-methods.min.js"></script>
