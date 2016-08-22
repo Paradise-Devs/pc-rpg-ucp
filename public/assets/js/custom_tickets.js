@@ -5,7 +5,14 @@ $(document).ready(function(){
 	$("#submit_ticket").addClass("disabled");
 	$("#ticket_panel").addClass("theme-primary");
 	$("#ticket_panel_heading").addClass("panel-primary");
-	$(".closed_ticket").hide();
+
+	if($("#status_select").data("status") != 3) {
+		$(".closed_ticket").hide();
+    }
+	else {
+		$(".opened_ticket").hide();
+    }
+
 	$("#edit_answer_div").hide();
 
 	$("#edit_answer_btn").click(function() {
