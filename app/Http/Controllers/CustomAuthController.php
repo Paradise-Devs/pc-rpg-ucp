@@ -19,12 +19,13 @@ class CustomAuthController extends Controller
 
         $email = $request->input('email');
         $password = $request->input('password');
+        $remember = $request->input('remember');
 
         $count = User::where('email', $email)->where('password', $password)->count();
         if($count > 0)
         {
             $user = User::where('email', $email)->where('password', $password)->first();
-            Auth::loginUsingId($user->id);
+            Auth::loginUsingId($user->id, $remember);
         }
         return Redirect::to('home');
     }
