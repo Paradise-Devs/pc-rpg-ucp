@@ -67,6 +67,11 @@
                             </div>
                         </div>
                         <div class="section">
+                            @if(Session::has('fail'))
+                                <div class="alert alert-danger">
+                                    <strong>Erro!</strong> {{ Session::pull('fail') }}
+                                </div>
+                            @endif
                             <label for="username" class="field-label text-muted fs18 mb10">E-mail</label>
                             <label for="email" class="field prepend-icon {{ $errors->has('email') ? ' state-error' : '' }}">
                                 <input type="email" name="email" id="email" class="gui-input" value="{{ old('email') }}" placeholder="Entre com o email">

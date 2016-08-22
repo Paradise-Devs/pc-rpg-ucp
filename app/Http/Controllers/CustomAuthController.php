@@ -26,7 +26,8 @@ class CustomAuthController extends Controller
         {
             $user = User::where('email', $email)->where('password', $password)->first();
             Auth::loginUsingId($user->id, $remember);
+            return Redirect::to('home');
         }
-        return Redirect::to('home');
+        return Redirect::to('login')->with('fail', 'Usuário ou senha incorreta.');
     }
 }
