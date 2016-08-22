@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+        <form class="form-horizontal" role="form" method="POST" action="{{ url('/customlogin') }}">
             {{ csrf_field() }}
             <div class="panel-body bg-light p30">
                 <div class="row">
