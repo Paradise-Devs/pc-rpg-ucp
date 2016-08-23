@@ -64,17 +64,43 @@
                                 @foreach($players as $player)
                                     <tr>
                                         <td class="text-center"><span class="label label-rounded label-dark fs12">{{ $player->level }}</span></td>
-                                        <td class="text-center"><img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;"></td>
-                                        <td><a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">{{ $player->username }}</span></a></td>
+                                        <td class="text-center"><img src="{{ URL::asset('uploads/avatars/' . $player->avatar_url) }}" class="user-avatar" style="width: 30px;"></td>
+                                        <td><a href="#" class="link-unstyled">
+                                            @if($player->admin == 1)
+                                                <span class="text-warning" style="font-weight: bold;">{{ $player->username }}</span>
+                                            @elseif($player->admin == 2)
+                                                <span class="text-info" style="font-weight: bold;">{{ $player->username }}</span>
+                                            @elseif($player->admin == 3)
+                                                <span class="text-primary" style="font-weight: bold;">{{ $player->username }}</span>
+                                            @elseif($player->admin == 4)
+                                                <span class="text-danger" style="font-weight: bold;">{{ $player->username }}</span>
+                                            @elseif($player->admin > 4)
+                                                <span class="text-system" style="font-weight: bold;">{{ $player->username }}</span>
+                                            @else
+                                                <span class="text-unstyled" style="font-weight: bold;">{{ $player->username }}</span>
+                                            @endif
+                                        </a></td>
                                         <td>
-                                            <span class="label label-success"><i class="fa fa-code"></i> desenvolvedor</span>
+                                            @if($player->admin == 1)
+                                                <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>
+                                            @elseif($player->admin == 2)
+                                                <span class="label label-info"><i class="fa fa-fire"></i> moderador</span>
+                                            @elseif($player->admin == 3)
+                                                <span class="label label-primary"><i class="imoon imoon-user3"></i> supervisor</span>
+                                            @elseif($player->admin == 4)
+                                                <span class="label label-danger"><i class="imoon imoon-user3"></i> administrador</span>
+                                            @elseif($player->admin > 4)
+                                                <span class="label label-success"><i class="fa fa-code"></i> desenvolvedor</span>
+                                            @else
+                                                <span class="label label-default"><i class="fa fa-briefcase"></i> Jogador</span>
+                                            @endif
                                         </td>
-                                        <td>13/09/2013</td>
+                                        <td>{{ $player->created_at->format("d/m/Y") }}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a type="button" class="btn btn-xs btn-success btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Adicionar como amigo"><i class="glyphicons glyphicons-user_add"></i></a>
-                                                <a type="button" class="btn btn-xs btn-info btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Enviar mensagem"><i class="fa fa-envelope"></i></a>
-                                                <a type="button" class="btn btn-xs btn-default btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Bloquear"><i class="fa fa-ban"></i></a>
+                                                <a type="button" class="btn btn-xs btn-success btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Adicionar como amigo" disabled><i class="glyphicons glyphicons-user_add"></i></a>
+                                                <a type="button" class="btn btn-xs btn-info btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Enviar mensagem" disabled><i class="fa fa-envelope"></i></a>
+                                                <a type="button" class="btn btn-xs btn-default btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Bloquear" disabled><i class="fa fa-ban"></i></a>
                                             </div>
                                         </td>
                                     </tr>

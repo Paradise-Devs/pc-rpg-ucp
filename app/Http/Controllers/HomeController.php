@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use DB;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -35,8 +35,7 @@ class HomeController extends Controller
      */
     public function players()
     {
-        $players = DB::table('users')
-        ->select('username', 'level')
+        $players = User::select('username', 'level', 'admin', 'created_at', 'avatar_url')
         ->join('players', 'users.id', '=', 'players.user_id')
         ->get();
         return view('pages.playerlist', ['players' => $players]);

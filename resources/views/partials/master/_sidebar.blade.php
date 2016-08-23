@@ -100,7 +100,7 @@
             <!-- Sidebar: Social -->
             <li class="sidebar-label pt15">Social</li>
             <li>
-                <a href="#">
+                <a href="{{ url('/jogadores') }}">
                     <span class="fa fa-gamepad"></span>
                     <span class="sidebar-title">Jogadores</span>
                 </a>
