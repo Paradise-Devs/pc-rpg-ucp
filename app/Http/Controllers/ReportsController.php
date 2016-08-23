@@ -100,7 +100,7 @@ class ReportsController extends Controller
         $this->validate($request, [
             'content' => 'required|min:32',
             'reason' => 'required',
-            'accused_name' => 'required|min:4|exists:users,name'
+            'accused_name' => 'required|min:4|exists:users,username'
         ]);
 
         $inputs = [

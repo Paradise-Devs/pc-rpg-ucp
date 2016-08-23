@@ -50,7 +50,7 @@ class Utils extends Model
 
     public static function getUserID($name)
     {
-        $user = User::where('name', $name)->first();
+        $user = User::where('username', $name)->first();
         return $user->id;
     }
 
