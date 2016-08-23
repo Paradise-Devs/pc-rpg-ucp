@@ -28,7 +28,7 @@
     </div>
 
     <div class="topbar-right">
-        @can('developer')
+        @can('admin')
             <a href="#" type="button" class="btn btn-sm btn-system btn-gradient dark">
                 <i class="fa fa-cog"></i> Gerenciar Jogador
             </a>

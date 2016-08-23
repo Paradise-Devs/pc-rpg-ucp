@@ -61,7 +61,7 @@ class TicketController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             $ticket = Ticket::findOrFail($id);
             Ticket::Destroy($id);
@@ -137,7 +137,7 @@ class TicketController extends Controller
 
     public function manage()
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             $ticket = Ticket::orderBy('id', 'desc')->get();
             return view('pages.ticket.manage', ['tickets' => $ticket]);

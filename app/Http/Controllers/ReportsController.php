@@ -42,7 +42,7 @@ class ReportsController extends Controller
 
     public function manage()
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             $reports = Report::orderBy('id', 'desc')->get();
             return view('pages.report.manage', ['reports' => $reports]);
@@ -69,7 +69,7 @@ class ReportsController extends Controller
     public function show_admin($id)
     {
         $report = Report::findOrFail($id);
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             if($report->status == 0)
             {
@@ -86,7 +86,7 @@ class ReportsController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             $report = Report::findOrFail($id);
             Report::Destroy($id);

@@ -23,7 +23,7 @@
             <li class="crumb-trail">Denúncias</li>
         </ol>
     </div>
-    @can('developer')
+    @can('admin')
     <div class="topbar-right">
         <a href="{{ url('/denuncias/gerenciar') }}" type="button" class="btn btn-sm btn-system btn-gradient dark">
             <i class="fa fa-cog"></i> Gerenciar Denúncias

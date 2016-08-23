@@ -42,7 +42,7 @@ class FrequentlyAskedController extends Controller
      */
     public function manage()
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             return view('pages.faq.manage', ['questions' => FrequentlyAsked::getQuestions(null)]);
         }
@@ -54,7 +54,7 @@ class FrequentlyAskedController extends Controller
 
     public function edit($id)
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             $data = FrequentlyAsked::findOrFail($id);
             return view('pages.faq.edit', ['faq_data' => $data]);
@@ -63,7 +63,7 @@ class FrequentlyAskedController extends Controller
 
     public function update(Request $request, $id)
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             $this->validate($request, [
                 'title' => 'required|max:120',
@@ -84,7 +84,7 @@ class FrequentlyAskedController extends Controller
 
     public function store(Request $request)
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             $this->validate($request, [
                 'title' => 'required|max:120',
@@ -104,7 +104,7 @@ class FrequentlyAskedController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        if(Gate::allows('developer'))
+        if(Gate::allows('admin'))
         {
             $question = FrequentlyAsked::findOrFail($id);
             FrequentlyAsked::Destroy($id);

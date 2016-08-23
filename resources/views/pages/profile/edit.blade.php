@@ -23,7 +23,7 @@
             <li class="crumb-trail">Configurar Conta</li>
         </ol>
     </div>
-    @can('developer')
+    @can('admin')
         <div class="topbar-right">
             <a href="ticket_manage.html" type="button" class="btn btn-sm btn-system btn-gradient dark">
                 <i class="fa fa-cog"></i> Gerenciar Jogador

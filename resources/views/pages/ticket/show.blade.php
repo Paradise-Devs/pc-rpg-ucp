@@ -29,7 +29,7 @@
         <a href="#ticket-create" class="modal-launcher btn btn-sm btn-primary btn-gradient dark">
             <i class="fa fa-plus"></i> Abrir Ticket
         </a>
-        @can('developer')
+        @can('admin')
         <a href="/ticket/manage" type="button" class="btn btn-sm btn-system btn-gradient dark">
             <i class="fa fa-cog"></i> Gerenciar Tickets
         </a>
