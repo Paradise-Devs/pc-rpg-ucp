@@ -121,11 +121,15 @@
                             <form role="form" method="POST" id="form-info" action="{{ url('perfil/save/info') }}" autocomplete="off">
                                 {{ csrf_field() }}
                                 <div class="section row">
-                                    <div class="col-md-6 {{ $errors->has('fullname') ? 'state-error' : '' }}">
+                                    <div class="col-md-4 {{ $errors->has('fullname') ? 'state-error' : '' }}">
                                         <label for="name" class="field-label">Nome Completo</label>
                                         <input name="name" type="text" value="{{ $profile->name }}" class="gui-input">
                                     </div>
-                                    <div class="col-md-6 {{ $errors->has('bio') ? 'state-error' : '' }}">
+                                    <div class="col-md-4 {{ $errors->has('username') ? 'state-error' : '' }}">
+                                        <label for="username" class="field-label">Usuário</label>
+                                        <input name="username" type="text" class="form-control" value="{{ $profile->username }}" readonly />
+                                    </div>
+                                    <div class="col-md-4 {{ $errors->has('bio') ? 'state-error' : '' }}">
                                         <label for="bio" class="field-label">Bio</label>
                                         <input name="bio" type="text" class="gui-input" value="{{ $profile->bio }}" />
                                     </div>
