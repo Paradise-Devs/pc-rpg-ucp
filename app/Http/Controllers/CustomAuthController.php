@@ -13,18 +13,18 @@ class CustomAuthController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required'
         ]);
 
-        $email = $request->input('email');
+        $username = $request->input('username');
         $password = $request->input('password');
         $remember = $request->input('remember');
 
-        $count = User::where('email', $email)->where('password', $password)->count();
+        $count = User::where('username', $username)->where('password', $password)->count();
         if($count > 0)
         {
-            $user = User::where('email', $email)->where('password', $password)->first();
+            $user = User::where('username', $username)->where('password', $password)->first();
             Auth::loginUsingId($user->id, $remember);
             return Redirect::to('home');
         }

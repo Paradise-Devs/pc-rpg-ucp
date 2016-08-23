@@ -74,6 +74,19 @@
                     </div>
                     <!-- end .section row section -->
                     <div class="section">
+                        <label for="username" class="field prepend-icon {{ $errors->has('username') ? 'state-error' : '' }}">
+                            <input type="username" name="username" id="username" class="gui-input" value="{{ old('username') }}" placeholder="Nome de usuário">
+                            <label for="username" class="field-icon">
+                                <i class="fa fa-user"></i>
+                            </label>
+                        </label>
+                        @if ($errors->has('username'))
+                            <em for="username" class="state-error">{{ $errors->first('username') }}</em>
+                        @endif
+                    </div>
+                    <!-- end section -->
+                    <!-- end .section row section -->
+                    <div class="section">
                         <label for="email" class="field prepend-icon {{ $errors->has('email') ? 'state-error' : '' }}">
                             <input type="email" name="email" id="email" class="gui-input" value="{{ old('email') }}" placeholder="Endereço de e-mail">
                             <label for="email" class="field-icon">

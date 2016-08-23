@@ -35,7 +35,10 @@ class HomeController extends Controller
      */
     public function players()
     {
-        $players = DB::table('players')->select('username', 'level')->get();
+        $players = DB::table('users')
+        ->select('username', 'level')
+        ->join('players', 'users.id', '=', 'players.user_id')
+        ->get();
         return view('pages.playerlist', ['players' => $players]);
     }
 }

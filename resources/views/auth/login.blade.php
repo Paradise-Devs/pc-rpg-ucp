@@ -72,15 +72,15 @@
                                     <strong>Erro!</strong> {{ Session::pull('fail') }}
                                 </div>
                             @endif
-                            <label for="username" class="field-label text-muted fs18 mb10">E-mail</label>
-                            <label for="email" class="field prepend-icon {{ $errors->has('email') ? ' state-error' : '' }}">
-                                <input type="email" name="email" id="email" class="gui-input" value="{{ old('email') }}" placeholder="Entre com o email">
-                                <label for="email" class="field-icon">
+                            <label for="username" class="field-label text-muted fs18 mb10">Usuário</label>
+                            <label for="username" class="field prepend-icon {{ $errors->has('username') ? ' state-error' : '' }}">
+                                <input type="username" name="username" id="username" class="gui-input" value="{{ old('username') }}" placeholder="Entre com seu usuário">
+                                <label for="username" class="field-icon">
                                     <i class="fa fa-envelope-o"></i>
                                 </label>
                             </label>
-                            @if ($errors->has('email'))
-                                <em for="email" class="state-error">{{ $errors->first('email') }}</em>
+                            @if ($errors->has('username'))
+                                <em for="username" class="state-error">{{ $errors->first('username') }}</em>
                             @endif
                         </div>
                         <div class="section">
