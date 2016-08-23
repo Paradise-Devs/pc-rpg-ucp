@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-shadow bg-primary">
     <div class="navbar-branding dark bg-primary">
-        <a class="navbar-brand" href="dashboard.html">
+        <a class="navbar-brand" href="{{ url('/') }}">
         <b>PC</b>RPG
         </a>
         <span id="toggle_sidemenu_l" class="ad ad-lines"></span>

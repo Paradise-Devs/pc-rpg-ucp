@@ -325,7 +325,7 @@
                         <a href="#" id="sub_forms" type="submit" class="btn btn-sm btn-primary btn-gradient dark btn-blocks">
                             <i class="fa fa-save"></i> Salvar
                         </a>
-                        <a href="ticket_index.html" class="btn btn-sm btn-default btn-gradient dark btn-blocks">
+                        <a href="#" class="btn btn-sm btn-default btn-gradient dark btn-blocks">
                             <i class="fa fa-close"></i> Cancelar
                         </a>
                     </div>

@@ -22,7 +22,7 @@
                 <a href="#">UCP</a>
             </li>
             <li class="crumb-icon">
-                <a href="index.html">
+                <a href="{{ url('/') }}">
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
