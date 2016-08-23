@@ -35,7 +35,7 @@ class HomeController extends Controller
      */
     public function players()
     {
-        $players = User::select('username', 'level', 'admin', 'created_at', 'avatar_url')
+        $players = User::select('users.id', 'username', 'level', 'admin', 'created_at', 'avatar_url')
         ->join('players', 'users.id', '=', 'players.user_id')
         ->get();
         return view('pages.playerlist', ['players' => $players]);

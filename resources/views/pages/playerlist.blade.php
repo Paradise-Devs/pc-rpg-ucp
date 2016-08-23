@@ -65,7 +65,7 @@
                                     <tr>
                                         <td class="text-center"><span class="label label-rounded label-dark fs12">{{ $player->level }}</span></td>
                                         <td class="text-center"><img src="{{ URL::asset('uploads/avatars/' . $player->avatar_url) }}" class="user-avatar" style="width: 30px;"></td>
-                                        <td><a href="#" class="link-unstyled">
+                                        <td><a href="{{ url('/perfil/'.$player->id) }}" class="link-unstyled">
                                             @if($player->admin == 1)
                                                 <span class="text-warning" style="font-weight: bold;">{{ $player->username }}</span>
                                             @elseif($player->admin == 2)

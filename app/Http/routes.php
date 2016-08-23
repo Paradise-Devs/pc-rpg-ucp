@@ -13,6 +13,7 @@
 
 Route::auth();
 
+
 Route::post('/perfil/save/info', 'ProfileController@info');
 Route::post('/perfil/save/avatar', 'ProfileController@avatar');
 Route::post('/perfil/save/email', 'ProfileController@email');
@@ -28,6 +29,7 @@ Route::get('/faq/gerenciar', 'FrequentlyAskedController@manage');
 Route::get('/faq/editar/{id}', 'FrequentlyAskedController@edit');
 
 Route::get('/perfil/configuracoes', 'ProfileController@config');
+Route::get('/perfil/{id}', 'UserController@show');
 
 Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show']]);
 Route::resource('denuncia', 'ReportsController');

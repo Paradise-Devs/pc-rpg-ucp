@@ -74,7 +74,7 @@
                     </a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#">
+                    <a href="{{ url('/perfil/'.Auth::user()->id) }}">
                     <span class="fa fa-user"></span> Meu Perfil </a>
                 </li>
                 <li class="list-group-item">

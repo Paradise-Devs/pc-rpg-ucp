@@ -19,7 +19,7 @@
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
-            <li class="crumb-trail"><a href="user_profile.html">Meu Perfil</a></li>
+            <li class="crumb-trail"><a href="{{ url('/perfil/'.$profile->id) }}">Meu Perfil</a></li>
             <li class="crumb-trail">Configurar Conta</li>
         </ol>
     </div>
