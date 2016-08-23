@@ -111,7 +111,7 @@
                             @foreach($reports as $report)
                                 <tr>
                                     <td><a href="{{ url("denuncia/$report->id") }}" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#">#{{ $report->id }}</a></td>
-                                    <td><a href="">{{ $report->accused->name }}</a></td>
+                                    <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
                                     <td>{{ $report->reason }}</td>
                                     <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
                                     <td>

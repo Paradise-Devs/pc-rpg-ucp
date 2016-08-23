@@ -79,8 +79,8 @@
                                         @endif
                                             <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/admin/{{ $report->id }}">#{{ $report->id }}</a></td>
                                             <td>{{ $report->reason }}</td>
-                                            <td><a href="#">{{ $report->accused->name }}</a></td>
-                                            <td><a href="#">{{ $report->user->name }}</a></td>
+                                            <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
+                                            <td><a href="{{ url('/perfil/'.$report->user->id) }}">{{ $report->user->username }}</a></td>
                                             <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
                                         </tr>
                                     @endif
@@ -113,8 +113,8 @@
                                         @endif
                                             <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/admin/{{ $report->id }}">#{{ $report->id }}</a></td>
                                             <td>{{ $report->reason }}</td>
-                                            <td><a href="#">{{ $report->accused->name }}</a></td>
-                                            <td><a href="#">{{ $report->user->name }}</a></td>
+                                            <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
+                                            <td><a href="{{ url('/perfil/'.$report->user->id) }}">{{ $report->user->username }}</a></td>
                                             <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
                                         </tr>
                                     @endif

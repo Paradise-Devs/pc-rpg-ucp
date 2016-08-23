@@ -51,7 +51,7 @@
                         <tr>
                             <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/ticket/{{ $ticket->id }}">#{{ $ticket->id }}</a></td>
                             <td><a href="/ticket/{{ $ticket->id }}">{{ $ticket->title }}</a></td>
-                            <td><a href="user_profile.html">{{ $ticket->user->name }}</a></td>
+                            <td><a href="{{ url('/perfil/'.$ticket->user->id) }}">{{ $ticket->user->name }}</a></td>
                             <td>{{ $ticket->category }}</td>
                             @if($ticket->status == 1)
                                 <td><span class="label label-alert">pendente</span></td>
