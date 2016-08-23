@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 25)->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('admin')->default(1);
+            $table->integer('admin')->default(0);
             $table->string('bio', 200)->default('Não definido.');
             $table->string('avatar_url', 150)->default('default.png');
             $table->string('facebook_url', 150)->nullable();
