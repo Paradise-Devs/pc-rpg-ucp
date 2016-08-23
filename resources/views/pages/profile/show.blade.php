@@ -167,11 +167,7 @@
                     <tr>
                         <td><strong>#</strong></td>
                         <td>+ Tempo Jogado</td>
-                        @if($player->played_time < 3600)
-                            <td>0 horas <i class="fa fa-clock-o text-info pl5"></i></td>
-                        @else
-                            <td>{{ ($player->played_time / 60) / 60 }} horas <i class="fa fa-clock-o text-info pl5"></i></td>
-                        @endif
+                        <td>{{ gmdate("H:i:s", $player->played_time) }} horas <i class="fa fa-clock-o text-info pl5"></i></td>
                     </tr>
                     <tr>
                         <td><strong>#</strong></td>
