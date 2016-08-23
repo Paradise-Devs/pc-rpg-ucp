@@ -11,7 +11,19 @@
                     </a>
                     <div class="media-body">
                         <div class="media-author">{{ Auth::user()->name }}</div>
-                        <div class="media-links" style="color: #17AE48">Developer</div>
+                        @if(Auth::user()->admin == 1)
+                            <div class="media-links" style="color: #f6bb42">Paradiser</div>
+                        @elseif(Auth::user()->admin == 2)
+                            <div class="media-links" style="color: #3bafda">Moderador</div>
+                        @elseif(Auth::user()->admin == 3)
+                            <div class="media-links" style="color: #3498db">Supervisor</div>
+                        @elseif(Auth::user()->admin == 4)
+                            <div class="media-links" style="color: #df5640">Administrador</div>
+                        @elseif(Auth::user()->admin > 4)
+                            <div class="media-links" style="color: #17AE48">Developer</div>
+                        @else
+                            <div class="media-links" style="color: #777777">Jogador</div>
+                        @endif
                     </div>
                 </div>
             </div>
