@@ -130,7 +130,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ url('/ranking') }}">
                     <span class="fa fa-list"></span>
                     <span class="sidebar-title">Ranking</span>
                 </a>
