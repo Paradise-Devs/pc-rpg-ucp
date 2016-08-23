@@ -149,9 +149,9 @@
             <span class="panel-icon">
                 <i class="fa fa-list"></i>
             </span>
-            <span class="panel-title"> Ranking</span>
+            <span class="panel-title"> Estatísticas</span>
             <div class="widget-menu pull-right">
-                <a href="#" style="color: #fff">Ver todos</a>
+                <a href="{{ url('/ranking') }}" style="color: #fff">Ver ranking</a>
             </div>
         </div>
         <div class="panel-body pn">
