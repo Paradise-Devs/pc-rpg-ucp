@@ -30,6 +30,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->admin == 6;
         });
 
+        $gate->define('admin', function($user) {
+            return $user->admin > 1;
+        });
+
         $gate->define('creator', function($user, $report) {
             return $user->id == $report->user_id;
         });

@@ -10,49 +10,57 @@
             <div class="navbar-btn btn-group">
                 <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
                     <span class="fa fa-bell-o fs14 va-m"></span>
-                    <span class="badge">5</span>
                 </button>
-                <div class="dropdown-menu dropdown-persist w350 animated animated-shorter fadeIn" role="menu">
+                <div class="dropdown-menu dropdown-persist w350" role="menu">
                     <div class="panel mbn">
                         <div class="panel-menu">
                             <div class="btn-group btn-group-justified btn-group-nav" role="tablist">
                                 <a href="#nav-tab1" data-toggle="tab" class="btn btn-default btn-sm active">Notificações</a>
-                                <a href="#nav-tab2" data-toggle="tab" class="btn btn-default btn-sm br-l-n br-r-n">Mensagens</a>
-                                <a href="#nav-tab3" data-toggle="tab" class="btn btn-default btn-sm">Atividade</a>
+                                <a href="#nav-tab2" data-toggle="tab" class="btn btn-default btn-sm">Mensagens</a>
+                                @can('admin')
+                                    <a href="#nav-tab3" data-toggle="tab" class="btn btn-default btn-sm">Admin</a>
+                                @endcan
                             </div>
                         </div>
                         <div class="panel-body panel-scroller scroller-navbar pn">
                             <div class="tab-content br-n pn">
-                                <div id="nav-tab1" class="tab-pane active" role="tabpanel">
+                                <div id="nav-tab1" class="tab-pane alerts-widget active" role="tabpanel">
                                     <div class="media">
-                                        <a class="media-left" href="#"> <img src="{{ URL::asset('assets/img/avatars/5.jpg') }}" class="mw40" alt="avatar"> </a>
-                                        <div class="media-body">
-                                            <h5 class="media-heading">Article
-                                                <small class="text-muted">- 08/16/22</small>
-                                            </h5>
-                                            Last Updated 36 days ago by
-                                            <a class="text-system" href="#"> Max </a>
+                                        <div class="media-left">
+                                            <span class="fa fa-support text-success"></span>
                                         </div>
-                                    </div>
-                                    <div class="media">
-                                        <a class="media-left" href="#"> <img src="{{ URL::asset('assets/img/avatars/5.jpg') }}" class="mw40" alt="avatar"> </a>
                                         <div class="media-body">
-                                            <h5 class="media-heading">Article
-                                                <small class="text-muted">- 08/16/22</small>
-                                            </h5>
-                                            Last Updated 36 days ago by
-                                            <a class="text-system" href="#"> Max </a>
+                                            <h5 class="media-heading"><a href="#">Você não possui notificações.</a></h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="nav-tab3" class="tab-pane" role="tabpanel">
-                                    <h2> Tab 3...</h2>
+                                <div id="nav-tab2" class="tab-pane alerts-widget" role="tabpanel">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <span class="fa fa-support text-success"></span>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5 class="media-heading"><a href="#">Você não possui mensagens.</a></h5>
+                                        </div>
+                                    </div>
                                 </div>
+                                @can('admin')
+                                <div id="nav-tab3" class="tab-pane alerts-widget" role="tabpanel">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <span class="fa fa-support text-success"></span>
+                                        </div>
+                                        <div class="media-body">
+                                            <h5 class="media-heading"><a href="#">Não há notificações pendentes.</a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endcan
                             </div>
                         </div>
-                        <div class="panel-footer text-center p7">
-                            <a href="#" class="link-unstyled"> Ver todas </a>
-                        </div>
+                        {{--<div class="panel-footer text-center p7">
+                            <a href="#" class="link-unstyled"> Limpar </a>
+                        </div>--}}
                     </div>
                 </div>
             </div>
