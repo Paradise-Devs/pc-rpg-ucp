@@ -1,7 +1,7 @@
 @extends('layouts.master')
 <!--                                                                        -->
 @section('title')
-    | Perfil de {{ $user->username }}
+    | Perfil de {{ $profile->username }}
 @endsection
 <!--                                                                        -->
 @section('stylesheets')
@@ -23,7 +23,7 @@
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
-            <li class="crumb-trail">{{ $user->username }}</li>
+            <li class="crumb-trail">{{ $profile->username }}</li>
         </ol>
     </div>
 
@@ -36,11 +36,11 @@
         {{--<a id="unfriend_btn" href="#" type="button" class="btn btn-sm btn-danger btn-gradient dark">
             <i class="fa fa-user-times"></i> Desfazer amizade
         </a>--}}
-        @if($user->id != $authuser->id)
+        @if($profile->id != $user->id)
             <a id="message_btn" href="#" type="button" class="btn btn-sm btn-info btn-gradient dark">
                 <i class="fa fa-envelope-o"></i> Enviar mensagem
             </a>
-            @if($user->admin < 1)
+            @if($profile->admin < 1)
                 <a id="report_btn" href="{{ url('/denuncia/create') }}" type="button" class="btn btn-sm btn-warning btn-gradient dark">
                     <i class="fa fa-warning"></i> Denúnciar
                 </a>
@@ -49,7 +49,7 @@
                 <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
             </a>
         @endif
-        @if($user->id == $authuser->id)
+        @if($profile->id == $user->id)
             <a id="accconfig_btn" href="{{ url('/perfil/configuracoes') }}" type="button" class="owner_player btn btn-sm btn-info btn-gradient dark">
                 <i class="fa fa-cog"></i> Configurar da conta
             </a>
@@ -77,11 +77,11 @@
           --}}
           <div class="media-left pr30">
               <a href="#">
-                  <img class="media-object mw150" src="{{ URL::asset("uploads/avatars/$user->avatar_url") }}" alt="...">
+                  <img class="media-object mw150" src="{{ URL::asset("uploads/avatars/$profile->avatar_url") }}" alt="...">
               </a>
           </div>
           <div class="media-body va-m">
-              <h3 class="media-heading">{{ $user->username }}
+              <h3 class="media-heading">{{ $profile->username }}
                   @if($player->level < 15)
                       <span class="label label-rounded label-default fs12">{{ $player->level }}</span>
                   @elseif($player->level < 30)
@@ -102,40 +102,40 @@
                       <span class="label label-rounded label-dark fs12">{{ $player->level }}</span>
                   @endif
               </h3>
-              @if($user->admin == 1)
+              @if($profile->admin == 1)
                   <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>
-              @elseif($user->admin == 2)
+              @elseif($profile->admin == 2)
                   <span class="label label-info"><i class="fa fa-fire"></i> moderador</span>
-              @elseif($user->admin == 3)
+              @elseif($profile->admin == 3)
                   <span class="label label-primary"><i class="imoon imoon-user3"></i> supervisor</span>
-              @elseif($user->admin == 4)
+              @elseif($profile->admin == 4)
                   <span class="label label-danger"><i class="imoon imoon-user3"></i> administrador</span>
-              @elseif($user->admin > 4)
+              @elseif($profile->admin > 4)
                   <span class="label label-success"><i class="fa fa-code"></i> desenvolvedor</span>
               @else
                   <span class="label label-default"><i class="fa fa-briefcase"></i> Jogador</span>
               @endif
 
-              <p class="lead mt10">{{ $user->bio }}</p>
+              <p class="lead mt10">{{ $profile->bio }}</p>
               <div class="media-links">
                   <ul class="list-inline list-unstyled">
                       <li>
-                          <a href="http://fb.com/{{ $user->facebook_url }}" title="facebook link">
+                          <a href="http://fb.com/{{ $profile->facebook_url }}" title="facebook link">
                               <span class="fa fa-facebook-square fs35 text-primary"></span>
                           </a>
                       </li>
                       <li>
-                          <a href="http://twitter.com/{{ $user->twitter_url }}" title="twitter link">
+                          <a href="http://twitter.com/{{ $profile->twitter_url }}" title="twitter link">
                               <span class="fa fa-twitter-square fs35 text-info"></span>
                           </a>
                       </li>
                       <li>
-                          <a href="http://github.com/{{ $user->github_url }}" title="github link">
+                          <a href="http://github.com/{{ $profile->github_url }}" title="github link">
                               <span class="fa fa-github-square fs35 text-dark"></span>
                           </a>
                       </li>
                       <li>
-                          <a href="mailto:{{ $user->email }}" title="email link">
+                          <a href="mailto:{{ $profile->email }}" title="email link">
                               <span class="fa fa-envelope-square fs35 text-muted"></span>
                           </a>
                       </li>

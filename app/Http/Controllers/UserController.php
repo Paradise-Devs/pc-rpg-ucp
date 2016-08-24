@@ -53,10 +53,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $profile = User::findOrFail($id);
         $player = DB::table('players')->where('user_id', '=', $id)->first();
-        $authuser = Auth::user();
-        return view('pages.profile.show', ['user' => $user, 'player' => $player, 'authuser' => $authuser]);
+        return view('pages.profile.show', ['profile' => $profile, 'player' => $player]);
     }
 
     /**
