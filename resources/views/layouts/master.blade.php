@@ -10,9 +10,7 @@
             @include('partials.master._sidebar')
             <section id="content_wrapper">
                 @yield('topbar')
-                <section id="content" class="animated fadeIn">
-                    @yield('content')
-                </section>
+                @yield('content')
                 @include('partials.master._footer')
             </section>
         </div>

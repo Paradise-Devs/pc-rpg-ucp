@@ -29,6 +29,7 @@
 @endsection
 <!--                                                                        -->
 @section('content')
+<section id="content" class="animated fadeIn">
     <div class="row">
         <div class="col-md-4">
             <div class="panel">
@@ -195,6 +196,7 @@
             </div>
         </div>
     </div>--}}
+</section>
 @endsection
 <!--                                                                        -->
 @section('scripts')

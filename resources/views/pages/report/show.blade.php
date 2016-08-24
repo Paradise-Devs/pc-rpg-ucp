@@ -34,106 +34,108 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="row mt30">
-    @if(Session::get('success'))
-        <div class="col-md-12">
-            <div class="special-alerts">
-                <div class="alert alert-success pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-check pr10"></i>Operação realizada com sucesso!
-                </div>
-            </div>
-        </div>
-    @endif
-    <div class="col-md-6">
-        <div class="panel panel-primary mb50 panel-border top"> <!-- animated slideInLeft -->
-            <div class="panel-heading">
-                <span class="panel-title"><i class="fa fa-flag"></i> Denúncia contra jogador</span>
-            </div>
-            <div class="panel-body">
-                <ul>
-                    <li>Administradores irão análisar a sua denúncia em até <b>24 horas</b>.</li>
-                    <li>Administradores são totalmente imparciais quanto a análise.</li>
-                    <li>Você terá acesso a punição concedida ao membro.</li>
-                    <li>Seu nick será mantido em sigilo.</li>
-                    <li>Forneça o máximo de evidências que você possuir.</li>
-                    <li>Nós reservamos o direito de contestar sua denúncia.</li>
-                    <li>Você também pode denunciar um jogador pelo próprio jogo.</li>
-                </ul>
-            </div>
-            <div class="panel-footer">
-                <a href="{{ url('/denuncia/create') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="panel panel-danger mb50 panel-border top"> <!-- animated slideInRight -->
-            <div class="panel-heading">
-                <span class="panel-title"><i class="fa fa-flag"></i> Denúncia contra staff</span>
-            </div>
-            <div class="panel-body">
-                <ul>
-                    <li>Desenvolvedores irão análisar a sua denúncia em até <b>72 horas</b>.</li>
-                    <li>Desenvolvedores são totalmente imparciais quanto a análise.</li>
-                    <li>Você <b>NÃO</b> terá acesso a punição concedida.</li>
-                    <li>Seu nick será mantido em sigilo.</li>
-                    <li>Forneça o máximo de evidências que você possuir.</li>
-                    <li>Nós reservamos o direito de contestar sua denúncia.</li>
-                    <li>Devs não podem ser denunciados. <span style="color:#fff">(fazemos tudo certinho, oras)</span></li>
-                </ul>
-            </div>
-            <div class="panel-footer">
-                <a href="{{ url('/denuncia/create/admin') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row" style="pading-top: 1%">
-    <div class="col-md-12">
-        <div class="panel panel-primary panel-border top"> <!-- animated fadeInUp -->
-            <div class="panel-heading">
-                <span class="panel-title">
-                <span class="fa fa-eye"></span>Minhas Denúncias</span>
-            </div>
-            <div class="panel-body pn">
-                <div class="bs-component">
-                    <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Acusado</th>
-                                <th>Categoria</th>
-                                <th>Criação</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($reports as $report)
-                                <tr>
-                                    <td><a href="{{ url("denuncia/$report->id") }}" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#">#{{ $report->id }}</a></td>
-                                    <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
-                                    <td>{{ $report->reason }}</td>
-                                    <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
-                                    <td>
-                                        @if($report->status == 0)
-                                            <a href="#" type="button" class="btn btn-xs btn-default btn-gradient dark">aberto</a>
-                                        @elseif($report->status == 1)
-                                            <a href="#" type="button" class="btn btn-xs btn-warning btn-gradient dark">em análise</a>
-                                        @elseif($report->status == 2)
-                                            <a href="#" type="button" class="btn btn-xs btn-success btn-gradient dark">deferida</a>
-                                        @elseif($report->status == 3)
-                                            <a href="#" type="button" class="btn btn-xs btn-danger btn-gradient dark">não deferida</a>
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="content" class="animated fadeIn">
+  <div class="row mt30">
+      @if(Session::get('success'))
+          <div class="col-md-12">
+              <div class="special-alerts">
+                  <div class="alert alert-success pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <i class="fa fa-check pr10"></i>Operação realizada com sucesso!
+                  </div>
+              </div>
+          </div>
+      @endif
+      <div class="col-md-6">
+          <div class="panel panel-primary mb50 panel-border top"> <!-- animated slideInLeft -->
+              <div class="panel-heading">
+                  <span class="panel-title"><i class="fa fa-flag"></i> Denúncia contra jogador</span>
+              </div>
+              <div class="panel-body">
+                  <ul>
+                      <li>Administradores irão análisar a sua denúncia em até <b>24 horas</b>.</li>
+                      <li>Administradores são totalmente imparciais quanto a análise.</li>
+                      <li>Você terá acesso a punição concedida ao membro.</li>
+                      <li>Seu nick será mantido em sigilo.</li>
+                      <li>Forneça o máximo de evidências que você possuir.</li>
+                      <li>Nós reservamos o direito de contestar sua denúncia.</li>
+                      <li>Você também pode denunciar um jogador pelo próprio jogo.</li>
+                  </ul>
+              </div>
+              <div class="panel-footer">
+                  <a href="{{ url('/denuncia/create') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="panel panel-danger mb50 panel-border top"> <!-- animated slideInRight -->
+              <div class="panel-heading">
+                  <span class="panel-title"><i class="fa fa-flag"></i> Denúncia contra staff</span>
+              </div>
+              <div class="panel-body">
+                  <ul>
+                      <li>Desenvolvedores irão análisar a sua denúncia em até <b>72 horas</b>.</li>
+                      <li>Desenvolvedores são totalmente imparciais quanto a análise.</li>
+                      <li>Você <b>NÃO</b> terá acesso a punição concedida.</li>
+                      <li>Seu nick será mantido em sigilo.</li>
+                      <li>Forneça o máximo de evidências que você possuir.</li>
+                      <li>Nós reservamos o direito de contestar sua denúncia.</li>
+                      <li>Devs não podem ser denunciados. <span style="color:#fff">(fazemos tudo certinho, oras)</span></li>
+                  </ul>
+              </div>
+              <div class="panel-footer">
+                  <a href="{{ url('/denuncia/create/admin') }}" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-flag"></i> Denúnciar</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="row" style="pading-top: 1%">
+      <div class="col-md-12">
+          <div class="panel panel-primary panel-border top"> <!-- animated fadeInUp -->
+              <div class="panel-heading">
+                  <span class="panel-title">
+                  <span class="fa fa-eye"></span>Minhas Denúncias</span>
+              </div>
+              <div class="panel-body pn">
+                  <div class="bs-component">
+                      <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
+                          <thead>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Acusado</th>
+                                  <th>Categoria</th>
+                                  <th>Criação</th>
+                                  <th>Status</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              @foreach($reports as $report)
+                                  <tr>
+                                      <td><a href="{{ url("denuncia/$report->id") }}" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#">#{{ $report->id }}</a></td>
+                                      <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
+                                      <td>{{ $report->reason }}</td>
+                                      <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
+                                      <td>
+                                          @if($report->status == 0)
+                                              <a href="#" type="button" class="btn btn-xs btn-default btn-gradient dark">aberto</a>
+                                          @elseif($report->status == 1)
+                                              <a href="#" type="button" class="btn btn-xs btn-warning btn-gradient dark">em análise</a>
+                                          @elseif($report->status == 2)
+                                              <a href="#" type="button" class="btn btn-xs btn-success btn-gradient dark">deferida</a>
+                                          @elseif($report->status == 3)
+                                              <a href="#" type="button" class="btn btn-xs btn-danger btn-gradient dark">não deferida</a>
+                                          @endif
+                                      </td>
+                                  </tr>
+                              @endforeach
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 @endsection
 <!--                                                                        -->
 @section('scripts')

@@ -65,174 +65,176 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="page-heading">
-    <div class="media clearfix">
-        {{--
-        <div id="blocked_info" class="alert alert-micro alert-border-left alert-danger">
-            <i class="fa fa-ban pr10"></i>
-            Usuário bloqueado.<br />
-            Usuários bloqueados por você são impossibilitados de ter qualquer contato com você. Não conseguem visualizar seu perfil ou lhe enviar mensagens privadas.
-        </div>
-        --}}
-        <div class="media-left pr30">
-            <a href="#">
-                <img class="media-object mw150" src="{{ URL::asset("uploads/avatars/$user->avatar_url") }}" alt="...">
-            </a>
-        </div>
-        <div class="media-body va-m">
-            <h3 class="media-heading">{{ $user->username }}
-                @if($player->level < 15)
-                    <span class="label label-rounded label-default fs12">{{ $player->level }}</span>
-                @elseif($player->level < 30)
-                    <span class="label label-rounded label-primary fs12">{{ $player->level }}</span>
-                @elseif($player->level < 45)
-                    <span class="label label-rounded label-info fs12">{{ $player->level }}</span>
-                @elseif($player->level < 60)
-                    <span class="label label-rounded label-system fs12">{{ $player->level }}</span>
-                @elseif($player->level < 75)
-                    <span class="label label-rounded label-success fs12">{{ $player->level }}</span>
-                @elseif($player->level < 100)
-                    <span class="label label-rounded label-warning fs12">{{ $player->level }}</span>
-                @elseif($player->level < 115)
-                    <span class="label label-rounded label-danger fs12">{{ $player->level }}</span>
-                @elseif($player->level < 150)
-                    <span class="label label-rounded label-alert fs12">{{ $player->level }}</span>
-                @else
-                    <span class="label label-rounded label-dark fs12">{{ $player->level }}</span>
-                @endif
-            </h3>
-            @if($user->admin == 1)
-                <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>
-            @elseif($user->admin == 2)
-                <span class="label label-info"><i class="fa fa-fire"></i> moderador</span>
-            @elseif($user->admin == 3)
-                <span class="label label-primary"><i class="imoon imoon-user3"></i> supervisor</span>
-            @elseif($user->admin == 4)
-                <span class="label label-danger"><i class="imoon imoon-user3"></i> administrador</span>
-            @elseif($user->admin > 4)
-                <span class="label label-success"><i class="fa fa-code"></i> desenvolvedor</span>
-            @else
-                <span class="label label-default"><i class="fa fa-briefcase"></i> Jogador</span>
-            @endif
+<section id="content" class="animated fadeIn">
+  <div class="page-heading">
+      <div class="media clearfix">
+          {{--
+          <div id="blocked_info" class="alert alert-micro alert-border-left alert-danger">
+              <i class="fa fa-ban pr10"></i>
+              Usuário bloqueado.<br />
+              Usuários bloqueados por você são impossibilitados de ter qualquer contato com você. Não conseguem visualizar seu perfil ou lhe enviar mensagens privadas.
+          </div>
+          --}}
+          <div class="media-left pr30">
+              <a href="#">
+                  <img class="media-object mw150" src="{{ URL::asset("uploads/avatars/$user->avatar_url") }}" alt="...">
+              </a>
+          </div>
+          <div class="media-body va-m">
+              <h3 class="media-heading">{{ $user->username }}
+                  @if($player->level < 15)
+                      <span class="label label-rounded label-default fs12">{{ $player->level }}</span>
+                  @elseif($player->level < 30)
+                      <span class="label label-rounded label-primary fs12">{{ $player->level }}</span>
+                  @elseif($player->level < 45)
+                      <span class="label label-rounded label-info fs12">{{ $player->level }}</span>
+                  @elseif($player->level < 60)
+                      <span class="label label-rounded label-system fs12">{{ $player->level }}</span>
+                  @elseif($player->level < 75)
+                      <span class="label label-rounded label-success fs12">{{ $player->level }}</span>
+                  @elseif($player->level < 100)
+                      <span class="label label-rounded label-warning fs12">{{ $player->level }}</span>
+                  @elseif($player->level < 115)
+                      <span class="label label-rounded label-danger fs12">{{ $player->level }}</span>
+                  @elseif($player->level < 150)
+                      <span class="label label-rounded label-alert fs12">{{ $player->level }}</span>
+                  @else
+                      <span class="label label-rounded label-dark fs12">{{ $player->level }}</span>
+                  @endif
+              </h3>
+              @if($user->admin == 1)
+                  <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>
+              @elseif($user->admin == 2)
+                  <span class="label label-info"><i class="fa fa-fire"></i> moderador</span>
+              @elseif($user->admin == 3)
+                  <span class="label label-primary"><i class="imoon imoon-user3"></i> supervisor</span>
+              @elseif($user->admin == 4)
+                  <span class="label label-danger"><i class="imoon imoon-user3"></i> administrador</span>
+              @elseif($user->admin > 4)
+                  <span class="label label-success"><i class="fa fa-code"></i> desenvolvedor</span>
+              @else
+                  <span class="label label-default"><i class="fa fa-briefcase"></i> Jogador</span>
+              @endif
 
-            <p class="lead mt10">{{ $user->bio }}</p>
-            <div class="media-links">
-                <ul class="list-inline list-unstyled">
-                    <li>
-                        <a href="http://fb.com/{{ $user->facebook_url }}" title="facebook link">
-                            <span class="fa fa-facebook-square fs35 text-primary"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://twitter.com/{{ $user->twitter_url }}" title="twitter link">
-                            <span class="fa fa-twitter-square fs35 text-info"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://github.com/{{ $user->github_url }}" title="github link">
-                            <span class="fa fa-github-square fs35 text-dark"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:{{ $user->email }}" title="email link">
-                            <span class="fa fa-envelope-square fs35 text-muted"></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-4">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span class="panel-icon">
-                <i class="fa fa-list"></i>
-            </span>
-            <span class="panel-title"> Estatísticas</span>
-            <div class="widget-menu pull-right">
-                <a href="{{ url('/ranking') }}" style="color: #fff">Ver ranking</a>
-            </div>
-        </div>
-        <div class="panel-body pn">
-            <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
-                <thead>
-                    <tr class="hidden">
-                        <th class="mw30">#</th>
-                        <th>First Name</th>
-                        <th>Revenue</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>#</strong></td>
-                        <td>+ Tempo Jogado</td>
-                        <td>{{ gmdate("H:i:s", $player->played_time) }} horas <i class="fa fa-clock-o text-info pl5"></i></td>
-                    </tr>
-                    <tr>
-                        <td><strong>#</strong></td>
-                        <td>+ Level</td>
-                        <td>{{ $player->level }} <i class="fa fa-angle-double-up text-info pl5"></i></td>
-                    </tr>
-                    <tr>
-                        <td><strong>#</strong></td>
-                        <td>+ Dinheiro</td>
-                        <td>{{ $player->money + $player->bank }} <i class="fa fa-usd text-info pl5"></i></td>
-                    </tr>
-                    <tr>
-                        <td><strong>#</strong></td>
-                        <td>+ Eventos Ganhos</td>
-                        <td>0 <i class="fa fa-trophy text-info pl5"></i></td>
-                    </tr>
-                    <tr>
-                        <td><strong>#</strong></td>
-                        <td>+</td>
-                        <td><span class="text-info"></span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>#</strong></td>
-                        <td>+</td>
-                        <td><span class="text-info"></span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<div class="col-md-8">
-    <div class="panel user-group-widget admin-form theme-primary panel-primary panel-border top">
-        <div class="panel-heading" style="height: 55px; padding-bottom: 5px; padding-top: 0px; padding-right: 8px">
-            <span class="panel-icon">
-                <i class="fa fa-users"></i>
-            </span>
-            <span class="panel-title fs20 pl5"> Amigos (0)</span>
-            <div class="widget-menu pull-right" style="padding-top: 5px">
-                <div class="input-group">
-                    <label class="field prepend-icon">
-                    <input id="friend_search" type="text" class="gui-input input-sm" placeholder="Procurar amigo...">
-                        <label for="website" class="field-icon">
-                          <i class="fa fa-search"></i>
-                        </label>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="panel-body panel-scroller scroller-overlay pn" style="max-height: 261px;">
-            {{--<div class="friend_item mt20">
-                <div class="col-md-2">
-                    <a href="user_profile.html" class="link-unstyled">
-                        <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
-                        <div class="caption">
-                            <h4 class="text-system fs10" style="margin-top: 3px">
-                                Sync
-                            </h4>
-                        </div>
-                    </a>
-                </div>
-            </div>--}}
-        </div>
-    </div>
-</div>
+              <p class="lead mt10">{{ $user->bio }}</p>
+              <div class="media-links">
+                  <ul class="list-inline list-unstyled">
+                      <li>
+                          <a href="http://fb.com/{{ $user->facebook_url }}" title="facebook link">
+                              <span class="fa fa-facebook-square fs35 text-primary"></span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="http://twitter.com/{{ $user->twitter_url }}" title="twitter link">
+                              <span class="fa fa-twitter-square fs35 text-info"></span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="http://github.com/{{ $user->github_url }}" title="github link">
+                              <span class="fa fa-github-square fs35 text-dark"></span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="mailto:{{ $user->email }}" title="email link">
+                              <span class="fa fa-envelope-square fs35 text-muted"></span>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <span class="panel-icon">
+                  <i class="fa fa-list"></i>
+              </span>
+              <span class="panel-title"> Estatísticas</span>
+              <div class="widget-menu pull-right">
+                  <a href="{{ url('/ranking') }}" style="color: #fff">Ver ranking</a>
+              </div>
+          </div>
+          <div class="panel-body pn">
+              <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
+                  <thead>
+                      <tr class="hidden">
+                          <th class="mw30">#</th>
+                          <th>First Name</th>
+                          <th>Revenue</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td><strong>#</strong></td>
+                          <td>+ Tempo Jogado</td>
+                          <td>{{ gmdate("H:i:s", $player->played_time) }} horas <i class="fa fa-clock-o text-info pl5"></i></td>
+                      </tr>
+                      <tr>
+                          <td><strong>#</strong></td>
+                          <td>+ Level</td>
+                          <td>{{ $player->level }} <i class="fa fa-angle-double-up text-info pl5"></i></td>
+                      </tr>
+                      <tr>
+                          <td><strong>#</strong></td>
+                          <td>+ Dinheiro</td>
+                          <td>{{ $player->money + $player->bank }} <i class="fa fa-usd text-info pl5"></i></td>
+                      </tr>
+                      <tr>
+                          <td><strong>#</strong></td>
+                          <td>+ Eventos Ganhos</td>
+                          <td>0 <i class="fa fa-trophy text-info pl5"></i></td>
+                      </tr>
+                      <tr>
+                          <td><strong>#</strong></td>
+                          <td>+</td>
+                          <td><span class="text-info"></span></td>
+                      </tr>
+                      <tr>
+                          <td><strong>#</strong></td>
+                          <td>+</td>
+                          <td><span class="text-info"></span></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-8">
+      <div class="panel user-group-widget admin-form theme-primary panel-primary panel-border top">
+          <div class="panel-heading" style="height: 55px; padding-bottom: 5px; padding-top: 0px; padding-right: 8px">
+              <span class="panel-icon">
+                  <i class="fa fa-users"></i>
+              </span>
+              <span class="panel-title fs20 pl5"> Amigos (0)</span>
+              <div class="widget-menu pull-right" style="padding-top: 5px">
+                  <div class="input-group">
+                      <label class="field prepend-icon">
+                      <input id="friend_search" type="text" class="gui-input input-sm" placeholder="Procurar amigo...">
+                          <label for="website" class="field-icon">
+                            <i class="fa fa-search"></i>
+                          </label>
+                      </label>
+                  </div>
+              </div>
+          </div>
+          <div class="panel-body panel-scroller scroller-overlay pn" style="max-height: 261px;">
+              {{--<div class="friend_item mt20">
+                  <div class="col-md-2">
+                      <a href="user_profile.html" class="link-unstyled">
+                          <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
+                          <div class="caption">
+                              <h4 class="text-system fs10" style="margin-top: 3px">
+                                  Sync
+                              </h4>
+                          </div>
+                      </a>
+                  </div>
+              </div>--}}
+          </div>
+      </div>
+  </div>
+</section>
 @endsection
 <!--                                                                        -->
 @section('scripts')

@@ -39,92 +39,94 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-@if(Session::get('success'))
-    <div class="col-md-12">
-        <div class="special-alerts">
-            <div class="alert alert-success pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <i class="fa fa-check pr10"></i>Operação realizada com sucesso!
-            </div>
-        </div>
-    </div>
-@endif
-<div class="col-md-9">
-    <div class="panel panel-primary panel-border top animated fadeInUp">
-        <div class="panel-heading">
-            <span class="panel-title">
-            <span class="fa fa-support"></span>Meus Tickets</span>
-        </div>
-        <div class="panel-body pn">
-            <div class="bs-component">
-                <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Título</th>
-                            <th>Atualizado</th>
-                            <th>Categoria</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($tickets as $ticket)
-                        <tr>
-                            <td><a href="/ticket/{{ $ticket->id }}">{{ $ticket->title }}</a></td>
-                            <td>{{ App\Utils::timeElapsedString($ticket->created_at) }}</td>
-                            <td>{{ $ticket->category }}</td>
-                            @if($ticket->status == 1)
-                                <td><span class="label label-alert">pendente</span></td>
-                            @elseif($ticket->status == 2)
-                                <td><span class="label label-success">respondido</span></td>
-                            @elseif($ticket->status == 3)
-                                <td><span class="label label-danger">fechado</span></td>
-                            @else
-                                <td><span class="label label-primary">aberto</span></td>
-                            @endif
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-md-3 mb30 animated slideInRight">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span class="panel-icon">
-            <i class="fa fa-life-ring"></i>
-            </span>
-            <span class="panel-title"> Suporte PC:RPG</span>
-        </div>
-        <div class="panel-body text-muted p10">
-            <p>
-                Este é o principal meio que você possui para conseguir
-                suporte sobre o PC:RPG.
-                <br><br>
-                Você também pode procurar ajuda dentro do jogo, ou através de um dos nossos canais
-                oficiais.
-            </p>
-            <div class="list-group fs14 fw600" style="margin-bottom: 3px" target="_blank">
-                <a class="list-group-item" href="https://discord.gg/01395UXNDXeJyw2i1">
-                    <i class="fa fa-comments-o fa-fw text-primary"></i>&nbsp; Discord
-                </a>
-                <a class="list-group-item" href="#" target="_blank">
-                    <i class="fa fa-envelope-o fa-fw text-primary"></i>&nbsp; Email
-                </a>
-                <a class="list-group-item" href="https://www.youtube.com/channel/UCGo6hd688I7PS3NzRa01yiw" target="_blank">
-                    <i class="fa fa-youtube-play fa-fw text-primary"></i>&nbsp; YouTube
-                </a>
-                <a class="list-group-item" href="https://twitter.com/paradisecityrpg" target="_blank">
-                    <i class="fa fa-twitter fa-fw text-primary"></i>&nbsp; <span class="text-muted">@<span class="text-primary">paradisecityrpg</span>
-                </a>
-                <a class="list-group-item" href="https://fb.com/paradisecityrpg" target="_blank">
-                    <i class="fa fa-facebook fa-fw"></i>&nbsp; <span class="text-muted">/<span class="text-primary">paradisecityrpg</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="content" class="animated fadeIn">
+  @if(Session::get('success'))
+      <div class="col-md-12">
+          <div class="special-alerts">
+              <div class="alert alert-success pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <i class="fa fa-check pr10"></i>Operação realizada com sucesso!
+              </div>
+          </div>
+      </div>
+  @endif
+  <div class="col-md-9">
+      <div class="panel panel-primary panel-border top animated fadeInUp">
+          <div class="panel-heading">
+              <span class="panel-title">
+              <span class="fa fa-support"></span>Meus Tickets</span>
+          </div>
+          <div class="panel-body pn">
+              <div class="bs-component">
+                  <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>
+                              <th>Título</th>
+                              <th>Atualizado</th>
+                              <th>Categoria</th>
+                              <th>Status</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach($tickets as $ticket)
+                          <tr>
+                              <td><a href="/ticket/{{ $ticket->id }}">{{ $ticket->title }}</a></td>
+                              <td>{{ App\Utils::timeElapsedString($ticket->created_at) }}</td>
+                              <td>{{ $ticket->category }}</td>
+                              @if($ticket->status == 1)
+                                  <td><span class="label label-alert">pendente</span></td>
+                              @elseif($ticket->status == 2)
+                                  <td><span class="label label-success">respondido</span></td>
+                              @elseif($ticket->status == 3)
+                                  <td><span class="label label-danger">fechado</span></td>
+                              @else
+                                  <td><span class="label label-primary">aberto</span></td>
+                              @endif
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-3 mb30 animated slideInRight">
+      <div class="panel panel-info">
+          <div class="panel-heading">
+              <span class="panel-icon">
+              <i class="fa fa-life-ring"></i>
+              </span>
+              <span class="panel-title"> Suporte PC:RPG</span>
+          </div>
+          <div class="panel-body text-muted p10">
+              <p>
+                  Este é o principal meio que você possui para conseguir
+                  suporte sobre o PC:RPG.
+                  <br><br>
+                  Você também pode procurar ajuda dentro do jogo, ou através de um dos nossos canais
+                  oficiais.
+              </p>
+              <div class="list-group fs14 fw600" style="margin-bottom: 3px" target="_blank">
+                  <a class="list-group-item" href="https://discord.gg/01395UXNDXeJyw2i1">
+                      <i class="fa fa-comments-o fa-fw text-primary"></i>&nbsp; Discord
+                  </a>
+                  <a class="list-group-item" href="#" target="_blank">
+                      <i class="fa fa-envelope-o fa-fw text-primary"></i>&nbsp; Email
+                  </a>
+                  <a class="list-group-item" href="https://www.youtube.com/channel/UCGo6hd688I7PS3NzRa01yiw" target="_blank">
+                      <i class="fa fa-youtube-play fa-fw text-primary"></i>&nbsp; YouTube
+                  </a>
+                  <a class="list-group-item" href="https://twitter.com/paradisecityrpg" target="_blank">
+                      <i class="fa fa-twitter fa-fw text-primary"></i>&nbsp; <span class="text-muted">@<span class="text-primary">paradisecityrpg</span>
+                  </a>
+                  <a class="list-group-item" href="https://fb.com/paradisecityrpg" target="_blank">
+                      <i class="fa fa-facebook fa-fw"></i>&nbsp; <span class="text-muted">/<span class="text-primary">paradisecityrpg</span>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 <!-- Begin: Modals -->
 <div id="ticket-create" class="popup-basic admin-form mfp-with-anim mfp-hide">
     <div class="panel">

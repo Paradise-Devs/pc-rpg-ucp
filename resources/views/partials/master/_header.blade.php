@@ -76,7 +76,7 @@
             </a>
             <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
                 <li class="list-group-item">
-                    <a href="#">
+                    <a href="{{ url('/message') }}">
                     <span class="fa fa-envelope"></span> Mensagens
                     <span class="label label-warning">2</span>
                     </a>

@@ -28,6 +28,7 @@
 @endsection
 <!--                                                                        -->
 @section('content')
+<section id="content" class="animated fadeIn">
     <div class="input-group input-hero mb20">
         <span class="input-group-addon">
             <i class="fa fa-search"></i>
@@ -112,6 +113,7 @@
             </div>
         </div>
     </div>
+</section>
 @endsection
 <!--                                                                        -->
 @section('scripts')

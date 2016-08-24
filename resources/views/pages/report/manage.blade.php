@@ -28,109 +28,111 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="row mt30">
-    @if(Session::get('success'))
-        <div class="col-md-12">
-            <div class="special-alerts">
-                <div class="alert alert-success pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-check pr10"></i>Operação realizada com sucesso!
-                </div>
-            </div>
-        </div>
-    @endif
-    <div class="col-md-12">
-        <div class="panel">
-            <div class="panel-heading">
-                <span class="panel-title"><span class="fa fa-flag"></span>Denúncias</span></span>
-                <ul class="nav panel-tabs">
-                    <li class="active">
-                        <a href="#tabPlayer" data-toggle="tab">Jogadores</a>
-                    </li>
-                    @can('developer')
-                        <li class="">
-                            <a href="#tabStaff" data-toggle="tab">Staff</a>
-                        </li>
-                    @endcan
-                </ul>
-            </div>
-            <div class="panel-body pn">
-                <div class="tab-content">
-                    <div id="tabPlayer" class="tab-pane active">
-                        <table class="table table-hover" id="datatablePlayer" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Categoria</th>
-                                    <th>Denunciado</th>
-                                    <th>Denunciante</th>
-                                    <th>Criação</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($reports as $report)
-                                    @if($report->type != 1)
-                                        @if($report->status == 1)
-                                        <tr class="warning">
-                                        @elseif($report->status == 2)
-                                        <tr class="success">
-                                        @elseif($report->status == 3)
-                                        <tr class="danger">
-                                        @else
-                                        <tr>
-                                        @endif
-                                            <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/admin/{{ $report->id }}">#{{ $report->id }}</a></td>
-                                            <td>{{ $report->reason }}</td>
-                                            <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
-                                            <td><a href="{{ url('/perfil/'.$report->user->id) }}">{{ $report->user->username }}</a></td>
-                                            <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
-                                        </tr>
-                                    @endif
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    @can('developer')
-                        <div id="tabStaff" class="tab-pane">
-                            <table class="table table-hover" id="datatableAdmin" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Categoria</th>
-                                        <th>Denunciado</th>
-                                        <th>Denunciante</th>
-                                        <th>Criação</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($reports as $report)
-                                        @if($report->type == 1)
-                                            @if($report->status == 1)
-                                            <tr class="warning">
-                                            @elseif($report->status == 2)
-                                            <tr class="success">
-                                            @elseif($report->status == 3)
-                                            <tr class="danger">
-                                            @else
-                                            <tr>
-                                            @endif
-                                                <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/admin/{{ $report->id }}">#{{ $report->id }}</a></td>
-                                                <td>{{ $report->reason }}</td>
-                                                <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
-                                                <td><a href="{{ url('/perfil/'.$report->user->id) }}">{{ $report->user->username }}</a></td>
-                                                <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
-                                            </tr>
-                                        @endif
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    @endcan
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="content" class="animated fadeIn">
+  <div class="row mt30">
+      @if(Session::get('success'))
+          <div class="col-md-12">
+              <div class="special-alerts">
+                  <div class="alert alert-success pastel light alert-dismissable" id="alert-demo-1" style="display: block;">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <i class="fa fa-check pr10"></i>Operação realizada com sucesso!
+                  </div>
+              </div>
+          </div>
+      @endif
+      <div class="col-md-12">
+          <div class="panel">
+              <div class="panel-heading">
+                  <span class="panel-title"><span class="fa fa-flag"></span>Denúncias</span></span>
+                  <ul class="nav panel-tabs">
+                      <li class="active">
+                          <a href="#tabPlayer" data-toggle="tab">Jogadores</a>
+                      </li>
+                      @can('developer')
+                          <li class="">
+                              <a href="#tabStaff" data-toggle="tab">Staff</a>
+                          </li>
+                      @endcan
+                  </ul>
+              </div>
+              <div class="panel-body pn">
+                  <div class="tab-content">
+                      <div id="tabPlayer" class="tab-pane active">
+                          <table class="table table-hover" id="datatablePlayer" cellspacing="0">
+                              <thead>
+                                  <tr>
+                                      <th>ID</th>
+                                      <th>Categoria</th>
+                                      <th>Denunciado</th>
+                                      <th>Denunciante</th>
+                                      <th>Criação</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  @foreach($reports as $report)
+                                      @if($report->type != 1)
+                                          @if($report->status == 1)
+                                          <tr class="warning">
+                                          @elseif($report->status == 2)
+                                          <tr class="success">
+                                          @elseif($report->status == 3)
+                                          <tr class="danger">
+                                          @else
+                                          <tr>
+                                          @endif
+                                              <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/admin/{{ $report->id }}">#{{ $report->id }}</a></td>
+                                              <td>{{ $report->reason }}</td>
+                                              <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
+                                              <td><a href="{{ url('/perfil/'.$report->user->id) }}">{{ $report->user->username }}</a></td>
+                                              <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
+                                          </tr>
+                                      @endif
+                                  @endforeach
+                              </tbody>
+                          </table>
+                      </div>
+                      @can('developer')
+                          <div id="tabStaff" class="tab-pane">
+                              <table class="table table-hover" id="datatableAdmin" cellspacing="0">
+                                  <thead>
+                                      <tr>
+                                          <th>ID</th>
+                                          <th>Categoria</th>
+                                          <th>Denunciado</th>
+                                          <th>Denunciante</th>
+                                          <th>Criação</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      @foreach($reports as $report)
+                                          @if($report->type == 1)
+                                              @if($report->status == 1)
+                                              <tr class="warning">
+                                              @elseif($report->status == 2)
+                                              <tr class="success">
+                                              @elseif($report->status == 3)
+                                              <tr class="danger">
+                                              @else
+                                              <tr>
+                                              @endif
+                                                  <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/denuncia/admin/{{ $report->id }}">#{{ $report->id }}</a></td>
+                                                  <td>{{ $report->reason }}</td>
+                                                  <td><a href="{{ url('/perfil/'.$report->accused->id) }}">{{ $report->accused->username }}</a></td>
+                                                  <td><a href="{{ url('/perfil/'.$report->user->id) }}">{{ $report->user->username }}</a></td>
+                                                  <td>{{ App\Utils::timeElapsedString($report->created_at) }}</td>
+                                              </tr>
+                                          @endif
+                                      @endforeach
+                                  </tbody>
+                              </table>
+                          </div>
+                      @endcan
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 @endsection
 <!--                                                                        -->
 @section('scripts')

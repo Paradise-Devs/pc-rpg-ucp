@@ -28,85 +28,87 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="row mt30">
-    <div class="col-md-12">
-        @if ($errors->has('content'))
-            <div class="state-error alert alert-danger pastel">
-              <strong>Erro!</strong> {{ $errors->first('content') }}
-            </div>
-        @endif
-        <div class="admin-form theme-primary tab-pane active">
-            <div class="panel panel-primary heading-border">
-                <div class="panel-heading">
-                    <span class="panel-title"><i class="fa fa-flag"></i>Denúnciar Jogador</span>
-                </div>
-                <!-- end .panel-heading section -->
-                <form method="POST" action="{{ url('denuncia') }}">
-                    <textarea id="markdown-editor" class="{{ $errors->has('content') ? 'state-error' : '' }}" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?">{{ old('content') }}</textarea>
-                    <div class="section-divider mb40" id="spy1">
-                        <span style="color: #4a89dc;">Acusado & Motivo</span>
-                    </div>
-                    <div class="panel-body" style="padding-top: 1px">
-                        {{ csrf_field() }}
-                        <div class="section row">
-                            <div class="col-md-6">
-                                <label for="title" class="field prepend-icon {{ $errors->has('accused_name') ? 'state-error' : '' }}">
-                                    <input type="text" name="accused_name" value="{{ old('accused_name') }}" id="accused_name" class="gui-input" placeholder="Acusado (Nome_Sobrenome)">
-                                    <label for="title" class="field-icon">
-                                        <i class="fa fa-user"></i>
-                                    </label>
-                                </label>
-                                @if ($errors->has('accused_name'))
-                                    <em for="accused_name" class="state-error">{{ $errors->first('accused_name') }}</em>
-                                @endif
-                            </div>
-                            <div class="col-md-6">
-                                <label class="field select {{ $errors->has('reason') ? 'state-error' : '' }}">
-                                    <select id="reason" name="reason">
-                                        <option value="" selected>Selecione o motivo...</option>
-                                        <option value="Cheating">Cheating</option>
-                                        <option value="Glitching">Glitching</option>
-                                        <option value="Spamming/Flood">Spamming/Flood</option>
-                                        <option value="Abuso Verbal">Abuso Verbal</option>
-                                        <option value="Abuso de Poder">Abuso de Poder</option>
-                                        <option value="Nome Inapropriado/Ofensivo">Nome Inapropriado/Ofensivo</option>
-                                        <option value="Divulgação">Divulgação</option>
-                                        <option value="Anti-RPG">Anti-RPG</option>
-                                        <option value="DM abusivo">DM abusivo</option>
-                                        <option value="Drive-By">Drive-By</option>
-                                        <option value="Run-Over">Run-Over</option>
-                                        <option value="Outros...">Outros...</option>
-                                    </select>
-                                    <i class="arrow"></i>
-                                </label>
-                                @if ($errors->has('reason'))
-                                    <em for="reason" class="state-error">{{ $errors->first('reason') }}</em>
-                                @endif
-                                <span class="help-block mt5">
-                                    Caso não saiba o que significa alguma das categorias, verifique <a class="modal-launcher" href="#modal-help">aqui</a>.
-                                </span>
-                            </div>
-                        </div>
-                        <!-- end section -->
-                    </div>
-                    <!-- end .form-body section -->
-                    <div class="panel-footer">
-                        <div class="btn-group">
-                            <input type="hidden" name="type" value="0">
-                            <button type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
-                                <i class="fa fa-mail-forward"></i> Enviar
-                            </button>
-                            <a href="/denuncias" type="submit" class="btn btn-default btn-gradient dark btn-blocks">
-                                <i class="fa fa-close"></i> Cancelar
-                            </a>
-                        </div>
-                    </div>
-                    <!-- end .form-footer section -->
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="content" class="animated fadeIn">
+  <div class="row mt30">
+      <div class="col-md-12">
+          @if ($errors->has('content'))
+              <div class="state-error alert alert-danger pastel">
+                <strong>Erro!</strong> {{ $errors->first('content') }}
+              </div>
+          @endif
+          <div class="admin-form theme-primary tab-pane active">
+              <div class="panel panel-primary heading-border">
+                  <div class="panel-heading">
+                      <span class="panel-title"><i class="fa fa-flag"></i>Denúnciar Jogador</span>
+                  </div>
+                  <!-- end .panel-heading section -->
+                  <form method="POST" action="{{ url('denuncia') }}">
+                      <textarea id="markdown-editor" class="{{ $errors->has('content') ? 'state-error' : '' }}" name="content" data-language="pt" rows="10" placeholder="Diga-nos, o que aconteceu?">{{ old('content') }}</textarea>
+                      <div class="section-divider mb40" id="spy1">
+                          <span style="color: #4a89dc;">Acusado & Motivo</span>
+                      </div>
+                      <div class="panel-body" style="padding-top: 1px">
+                          {{ csrf_field() }}
+                          <div class="section row">
+                              <div class="col-md-6">
+                                  <label for="title" class="field prepend-icon {{ $errors->has('accused_name') ? 'state-error' : '' }}">
+                                      <input type="text" name="accused_name" value="{{ old('accused_name') }}" id="accused_name" class="gui-input" placeholder="Acusado (Nome_Sobrenome)">
+                                      <label for="title" class="field-icon">
+                                          <i class="fa fa-user"></i>
+                                      </label>
+                                  </label>
+                                  @if ($errors->has('accused_name'))
+                                      <em for="accused_name" class="state-error">{{ $errors->first('accused_name') }}</em>
+                                  @endif
+                              </div>
+                              <div class="col-md-6">
+                                  <label class="field select {{ $errors->has('reason') ? 'state-error' : '' }}">
+                                      <select id="reason" name="reason">
+                                          <option value="" selected>Selecione o motivo...</option>
+                                          <option value="Cheating">Cheating</option>
+                                          <option value="Glitching">Glitching</option>
+                                          <option value="Spamming/Flood">Spamming/Flood</option>
+                                          <option value="Abuso Verbal">Abuso Verbal</option>
+                                          <option value="Abuso de Poder">Abuso de Poder</option>
+                                          <option value="Nome Inapropriado/Ofensivo">Nome Inapropriado/Ofensivo</option>
+                                          <option value="Divulgação">Divulgação</option>
+                                          <option value="Anti-RPG">Anti-RPG</option>
+                                          <option value="DM abusivo">DM abusivo</option>
+                                          <option value="Drive-By">Drive-By</option>
+                                          <option value="Run-Over">Run-Over</option>
+                                          <option value="Outros...">Outros...</option>
+                                      </select>
+                                      <i class="arrow"></i>
+                                  </label>
+                                  @if ($errors->has('reason'))
+                                      <em for="reason" class="state-error">{{ $errors->first('reason') }}</em>
+                                  @endif
+                                  <span class="help-block mt5">
+                                      Caso não saiba o que significa alguma das categorias, verifique <a class="modal-launcher" href="#modal-help">aqui</a>.
+                                  </span>
+                              </div>
+                          </div>
+                          <!-- end section -->
+                      </div>
+                      <!-- end .form-body section -->
+                      <div class="panel-footer">
+                          <div class="btn-group">
+                              <input type="hidden" name="type" value="0">
+                              <button type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
+                                  <i class="fa fa-mail-forward"></i> Enviar
+                              </button>
+                              <a href="/denuncias" type="submit" class="btn btn-default btn-gradient dark btn-blocks">
+                                  <i class="fa fa-close"></i> Cancelar
+                              </a>
+                          </div>
+                      </div>
+                      <!-- end .form-footer section -->
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 <div id="modal-help" class="popup-basic p25 mfp-with-anim mfp-hide">
     <b>Cheating:</b> Utilizar qualquer ferramenta que possa vir a trazer alguma vantagem no jogo em si. Trapacear.<br><br>
     <b>Glitching:</b> Utilizar qualquer bug do servidor/jogo para se beneficiar de alguma forma.<br><br>

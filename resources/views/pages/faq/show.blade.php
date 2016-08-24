@@ -32,62 +32,64 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="row mt30">
-    <!-- FAQ Left Column -->
-    <div class="col-md-12">
-        <div class="panel br-t bw5 br-grey">
-            <div class="panel-body pn">
-                <div class="p25 br-b">
-                    <h2 class="fw200 mb20 mt10">Precisa de Suporte? Estamos aqui para ajudar!</h2>
-                    <div class="input-group input-hero mb30">
-                        <span class="input-group-addon">
-                        <i class="fa fa-search"></i>
-                        </span>
-                        <input type="text" id="faqSearch" class="form-control" placeholder="Procurar respostas..." data-list=".faqItem">
-                    </div>
-                </div>
-                <div id="recentAnswered" class="table-layout bg-light">
-                    <div class="col-xs-3 text-center va-m">
-                        <span class="fa fa-user-md fs80 text-info"></span>
-                    </div>
-                    <div class="col-xs-9 br-l">
-                        <h5 class="text-muted pl5 mt20 mb20"> Respondidas Recentemente </h5>
-                        <ul class="fs15 list-divide-items mb30">
-                            @foreach($recent as $question)
-                                <li>
-                                    <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_{{ $question->id }}">
-                                        <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> {{ $question->title }}</a>
-                                    </a>
-                                    <div id="accord1_{{ $question->id }}" class="panel-collapse collapse">
-                                        <div class="panel-body">{{ $question->content }}</div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="p25 br-t">
-                    <h5 class="text-muted mb20 mtn"> Todas as Perguntas </h5>
-                    <div class="panel-group accordion accordion-lg" id="accordion2">
-                        @foreach($questions as $question)
-                            <div class="faqItem">
-                                <div class="panel">
-                                    <div class="panel-heading">
-                                        <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_{{ $question->id }}">
-                                        {{ $question->title }}</a>
-                                    </div>
-                                    <div id="accord2_{{ $question->id }}" class="panel-collapse collapse">
-                                        <div class="panel-body">{{ $question->content }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="content" class="animated fadeIn">
+  <div class="row mt30">
+      <!-- FAQ Left Column -->
+      <div class="col-md-12">
+          <div class="panel br-t bw5 br-grey">
+              <div class="panel-body pn">
+                  <div class="p25 br-b">
+                      <h2 class="fw200 mb20 mt10">Precisa de Suporte? Estamos aqui para ajudar!</h2>
+                      <div class="input-group input-hero mb30">
+                          <span class="input-group-addon">
+                          <i class="fa fa-search"></i>
+                          </span>
+                          <input type="text" id="faqSearch" class="form-control" placeholder="Procurar respostas..." data-list=".faqItem">
+                      </div>
+                  </div>
+                  <div id="recentAnswered" class="table-layout bg-light">
+                      <div class="col-xs-3 text-center va-m">
+                          <span class="fa fa-user-md fs80 text-info"></span>
+                      </div>
+                      <div class="col-xs-9 br-l">
+                          <h5 class="text-muted pl5 mt20 mb20"> Respondidas Recentemente </h5>
+                          <ul class="fs15 list-divide-items mb30">
+                              @foreach($recent as $question)
+                                  <li>
+                                      <a class="accordion-toggle link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accord1_{{ $question->id }}">
+                                          <i class="fa fa-exclamation-circle text-primary fa-lg pr10"></i> {{ $question->title }}</a>
+                                      </a>
+                                      <div id="accord1_{{ $question->id }}" class="panel-collapse collapse">
+                                          <div class="panel-body">{{ $question->content }}</div>
+                                      </div>
+                                  </li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="p25 br-t">
+                      <h5 class="text-muted mb20 mtn"> Todas as Perguntas </h5>
+                      <div class="panel-group accordion accordion-lg" id="accordion2">
+                          @foreach($questions as $question)
+                              <div class="faqItem">
+                                  <div class="panel">
+                                      <div class="panel-heading">
+                                          <a class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#accord2_{{ $question->id }}">
+                                          {{ $question->title }}</a>
+                                      </div>
+                                      <div id="accord2_{{ $question->id }}" class="panel-collapse collapse">
+                                          <div class="panel-body">{{ $question->content }}</div>
+                                      </div>
+                                  </div>
+                              </div>
+                          @endforeach
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 @endsection
 <!--                                                                        -->
 @section('scripts')

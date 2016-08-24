@@ -28,48 +28,50 @@
 @endsection
 <!--                                                                        -->
 @section('content')
-<div class="col-md-12">
-    <div class="panel panel-primary panel-border top animated fadeInUp">
-        <div class="panel-heading">
-            <span class="panel-title">
-            <span class="fa fa-support"></span>Tickets</span>
-        </div>
-        <div class="panel-body pn">
-            <div class="bs-component">
-                <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Título</th>
-                            <th>Autor</th>
-                            <th>Categoria</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($tickets as $ticket)
-                        <tr>
-                            <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/ticket/{{ $ticket->id }}">#{{ $ticket->id }}</a></td>
-                            <td><a href="/ticket/{{ $ticket->id }}">{{ $ticket->title }}</a></td>
-                            <td><a href="{{ url('/perfil/'.$ticket->user->id) }}">{{ $ticket->user->name }}</a></td>
-                            <td>{{ $ticket->category }}</td>
-                            @if($ticket->status == 1)
-                                <td><span class="label label-alert">pendente</span></td>
-                            @elseif($ticket->status == 2)
-                                <td><span class="label label-success">respondido</span></td>
-                            @elseif($ticket->status == 3)
-                                <td><span class="label label-danger">fechado</span></td>
-                            @else
-                                <td><span class="label label-primary">aberto</span></td>
-                            @endif
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+<section id="content" class="animated fadeIn">
+  <div class="col-md-12">
+      <div class="panel panel-primary panel-border top animated fadeInUp">
+          <div class="panel-heading">
+              <span class="panel-title">
+              <span class="fa fa-support"></span>Tickets</span>
+          </div>
+          <div class="panel-body pn">
+              <div class="bs-component">
+                  <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
+                      <thead>
+                          <tr>
+                              <th>ID</th>
+                              <th>Título</th>
+                              <th>Autor</th>
+                              <th>Categoria</th>
+                              <th>Status</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach($tickets as $ticket)
+                          <tr>
+                              <td><a type="button" class="btn btn-xs btn-primary btn-gradient dark" href="/ticket/{{ $ticket->id }}">#{{ $ticket->id }}</a></td>
+                              <td><a href="/ticket/{{ $ticket->id }}">{{ $ticket->title }}</a></td>
+                              <td><a href="{{ url('/perfil/'.$ticket->user->id) }}">{{ $ticket->user->name }}</a></td>
+                              <td>{{ $ticket->category }}</td>
+                              @if($ticket->status == 1)
+                                  <td><span class="label label-alert">pendente</span></td>
+                              @elseif($ticket->status == 2)
+                                  <td><span class="label label-success">respondido</span></td>
+                              @elseif($ticket->status == 3)
+                                  <td><span class="label label-danger">fechado</span></td>
+                              @else
+                                  <td><span class="label label-primary">aberto</span></td>
+                              @endif
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 @endsection
 <!--                                                                        -->
 @section('scripts')
