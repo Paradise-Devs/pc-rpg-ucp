@@ -43,7 +43,7 @@
           <a href="{{ url('/message/outbox') }}" class="list-group-item">
               <i class="fa fa-mail-forward"></i>Caixa de Saída
           </a>
-          <a href="#" class="list-group-item">
+          <a href="{{ url('/message/lixeira') }}" class="list-group-item">
               <i class="fa fa-trash"></i>Excluídos
           </a>
           <a href="#" class="list-group-item">

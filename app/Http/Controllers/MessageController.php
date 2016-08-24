@@ -49,6 +49,19 @@ class MessageController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function trash()
+    {
+        $user = Auth::user();
+        $messages = Message::onlyTrashed()->where('user_id', $user->id)->orderBy('read', 'asc')->orderBy('id', 'desc')->paginate(30);
+        $new_msg_count = Message::where('user_id', $user->id)->where('receiver_id', $user->id)->where('read', false)->count();
+        return view('pages.message.trash', ['messages' => $messages, 'new_msg_count' => $new_msg_count]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

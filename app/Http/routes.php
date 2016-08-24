@@ -13,7 +13,6 @@
 
 Route::auth();
 
-
 Route::post('/perfil/save/info', 'ProfileController@info');
 Route::post('/perfil/save/avatar', 'ProfileController@avatar');
 Route::post('/perfil/save/email', 'ProfileController@email');
@@ -31,6 +30,7 @@ Route::get('/faq/editar/{id}', 'FrequentlyAskedController@edit');
 Route::get('/perfil/configuracoes', 'ProfileController@config');
 Route::get('/perfil/{id}', 'UserController@show');
 
+Route::get('/message/lixeira', 'MessageController@trash');
 Route::get('/message/outbox', 'MessageController@outbox');
 Route::resource('message', 'MessageController', ['only' => ['index']]);
 

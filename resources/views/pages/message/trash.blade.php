@@ -19,7 +19,7 @@
                   <span class="glyphicon glyphicon-home"></span>
                   </a>
               </li>
-              <li class="crumb-trail">Caixa de Entrada</li>
+              <li class="crumb-trail">Lixeira</li>
           </ol>
       </div>
   </header>
