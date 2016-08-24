@@ -19,7 +19,7 @@
                   <span class="glyphicon glyphicon-home"></span>
                   </a>
               </li>
-              <li class="crumb-trail">Caixa de Entrada</li>
+              <li class="crumb-trail">Caixa de Saída</li>
           </ol>
       </div>
   </header>
@@ -128,7 +128,7 @@
               <thead>
                   <tr class="">
                       <th class="text-center hidden-xs">Selecionar</th>
-                      <th>Autor</th>
+                      <th>Destinário</th>
                       <th class="hidden-xs text-center">Categoria</th>
                       <th>Assunto</th>
                       <th class="hidden-xs"></th>
@@ -144,19 +144,19 @@
                                   <span class="checkbox mn"></span>
                               </label>
                           </td>
-                          <td><a href="{{ url('/perfil/'.$message->creator->id) }}" class="link-unstyled">
-                              @if($message->creator->admin == 1)
-                                  <span class="text-warning" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @elseif($message->creator->admin == 2)
-                                  <span class="text-info" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @elseif($message->creator->admin == 3)
-                                  <span class="text-primary" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @elseif($message->creator->admin == 4)
-                                  <span class="text-danger" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @elseif($message->creator->admin > 4)
-                                  <span class="text-system" style="font-weight: bold;">{{ $message->creator->username }}</span>
+                          <td><a href="{{ url('/perfil/'.$message->receiver->id) }}" class="link-unstyled">
+                              @if($message->receiver->admin == 1)
+                                  <span class="text-warning" style="font-weight: bold;">{{ $message->receiver->username }}</span>
+                              @elseif($message->receiver->admin == 2)
+                                  <span class="text-info" style="font-weight: bold;">{{ $message->receiver->username }}</span>
+                              @elseif($message->receiver->admin == 3)
+                                  <span class="text-primary" style="font-weight: bold;">{{ $message->receiver->username }}</span>
+                              @elseif($message->receiver->admin == 4)
+                                  <span class="text-danger" style="font-weight: bold;">{{ $message->receiver->username }}</span>
+                              @elseif($message->receiver->admin > 4)
+                                  <span class="text-system" style="font-weight: bold;">{{ $message->receiver->username }}</span>
                               @else
-                                  <span class="text-unstyled" style="font-weight: bold;">{{ $message->creator->username }}</span>
+                                  <span class="text-unstyled" style="font-weight: bold;">{{ $message->receiver->username }}</span>
                               @endif
                           </a></td>
                           <td class="hidden-xs text-center">

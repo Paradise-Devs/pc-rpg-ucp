@@ -31,6 +31,7 @@ Route::get('/faq/editar/{id}', 'FrequentlyAskedController@edit');
 Route::get('/perfil/configuracoes', 'ProfileController@config');
 Route::get('/perfil/{id}', 'UserController@show');
 
+Route::get('/message/outbox', 'MessageController@outbox');
 Route::resource('message', 'MessageController', ['only' => ['index']]);
 
 Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show']]);
