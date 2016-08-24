@@ -16,7 +16,12 @@
                         <div class="panel-menu">
                             <div class="btn-group btn-group-justified btn-group-nav" role="tablist">
                                 <a href="#nav-tab1" data-toggle="tab" class="btn btn-default btn-sm active">Notificações</a>
-                                <a href="#nav-tab2" data-toggle="tab" class="btn btn-default btn-sm">Mensagens</a>
+                                <a href="#nav-tab2" data-toggle="tab" class="btn btn-default btn-sm">
+                                    Mensagens
+                                    @if($new_msg_count > 0)
+                                        <span class="label badge-default">{{ $new_msg_count }}</span>
+                                    @endif
+                                </a>
                                 @can('admin')
                                     <a href="#nav-tab3" data-toggle="tab" class="btn btn-default btn-sm">Admin</a>
                                 @endcan
@@ -34,16 +39,38 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="nav-tab2" class="tab-pane alerts-widget" role="tabpanel">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <span class="fa fa-support text-success"></span>
-                                        </div>
-                                        <div class="media-body">
-                                            <h5 class="media-heading"><a href="#">Você não possui mensagens.</a></h5>
+                                @if($new_msg_count > 0)
+                                    <div id="nav-tab2" class="tab-pane chat-widget" role="tabpanel">
+                                        @foreach($new_messages as $message)
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <a href="{{ url('/perfil/'.$message->creator->id) }}">
+                                                        <img class="media-object" alt="64x64" src="{{ URL::asset('uploads/avatars/' . $message->creator->avatar_url) }}">
+                                                    </a>
+                                                </div>
+                                                <a href="{{ url('/message/'.$message->id) }}" class="media-body link-unstyled">
+                                                    <span class="media-status online"></span>
+                                                    <h5 class="media-heading">
+                                                        {{ $message->creator->username }}
+                                                        <small> - {{ App\Utils::timeElapsedString($message->created_at) }}</small>
+                                                    </h5>
+                                                    <span class="text-muted" style="color: #999">{{ substr($message->content,  80, strlen($message->content)) }}...</span>
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <div id="nav-tab2" class="tab-pane alerts-widget" role="tabpanel">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <span class="fa fa-support text-success"></span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="media-heading"><a href="#">Você não possui mensagens.</a></h5>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                                 @can('admin')
                                 <div id="nav-tab3" class="tab-pane alerts-widget" role="tabpanel">
                                     <div class="media">
@@ -78,7 +105,9 @@
                 <li class="list-group-item">
                     <a href="{{ url('/message') }}">
                     <span class="fa fa-envelope"></span> Mensagens
-                    <span class="label label-warning">2</span>
+                    @if($new_msg_count > 0)
+                        <span class="label badge-warning">{{ $new_msg_count }}</span>
+                    @endif
                     </a>
                 </li>
                 <li class="list-group-item">

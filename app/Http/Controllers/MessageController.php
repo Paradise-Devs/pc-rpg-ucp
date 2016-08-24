@@ -31,8 +31,7 @@ class MessageController extends Controller
     {
         $user = Auth::user();
         $messages = Message::where('user_id', $user->id)->where('receiver_id', $user->id)->orderBy('read', 'asc')->orderBy('id', 'desc')->paginate(30);
-        $new_msg_count = Message::where('user_id', $user->id)->where('receiver_id', $user->id)->where('read', false)->count();
-        return view('pages.message.inbox', ['messages' => $messages, 'new_msg_count' => $new_msg_count]);
+        return view('pages.message.inbox', ['messages' => $messages]);
     }
 
     /**
@@ -44,8 +43,7 @@ class MessageController extends Controller
     {
         $user = Auth::user();
         $messages = Message::where('user_id', $user->id)->where('creator_id', $user->id)->orderBy('read', 'asc')->orderBy('id', 'desc')->paginate(30);
-        $new_msg_count = Message::where('user_id', $user->id)->where('receiver_id', $user->id)->where('read', false)->count();
-        return view('pages.message.outbox', ['messages' => $messages, 'new_msg_count' => $new_msg_count]);
+        return view('pages.message.outbox', ['messages' => $messages]);
     }
 
     /**
@@ -57,8 +55,7 @@ class MessageController extends Controller
     {
         $user = Auth::user();
         $messages = Message::onlyTrashed()->where('user_id', $user->id)->orderBy('read', 'asc')->orderBy('id', 'desc')->paginate(30);
-        $new_msg_count = Message::where('user_id', $user->id)->where('receiver_id', $user->id)->where('read', false)->count();
-        return view('pages.message.trash', ['messages' => $messages, 'new_msg_count' => $new_msg_count]);
+        return view('pages.message.trash', ['messages' => $messages]);
     }
 
     /**
