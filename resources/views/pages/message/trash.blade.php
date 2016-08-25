@@ -46,10 +46,6 @@
           <a href="{{ url('/message/lixeira') }}" class="list-group-item">
               <i class="fa fa-trash text-info"></i>Excluídos
           </a>
-          <a href="#" class="list-group-item">
-              <i class="fa fa-gear"></i>
-              Config. de Mensagens
-          </a>
       </div>
 
       <!-- Tags Menu -->
@@ -220,7 +216,7 @@ jQuery(document).ready(function() {
     e.preventDefault();
 
     // Redirect to message compose page if clicked item is not a checkbox
-    window.location = "messages_details.html";
+    window.location = '{!! url('/message') !!}' + '/' + $(this).data("id");
   });
 
   // On button click display quick compose message form

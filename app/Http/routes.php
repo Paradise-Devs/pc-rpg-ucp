@@ -32,7 +32,7 @@ Route::get('/perfil/{id}', 'UserController@show');
 
 Route::get('/message/lixeira', 'MessageController@trash');
 Route::get('/message/outbox', 'MessageController@outbox');
-Route::resource('message', 'MessageController', ['only' => ['index', 'store']]);
+Route::resource('message', 'MessageController', ['only' => ['index', 'store', 'show']]);
 
 Route::resource('faq', 'FrequentlyAskedController', ['except' => ['show']]);
 Route::resource('denuncia', 'ReportsController');

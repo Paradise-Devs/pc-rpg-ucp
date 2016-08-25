@@ -46,10 +46,6 @@
           <a href="{{ url('/message/lixeira') }}" class="list-group-item">
               <i class="fa fa-trash"></i>Excluídos
           </a>
-          <a href="#" class="list-group-item">
-              <i class="fa fa-gear"></i>
-              Config. de Mensagens
-          </a>
       </div>
 
       <!-- Tags Menu -->
@@ -168,13 +164,13 @@
               <tbody>
                   @foreach($messages as $message)
                       <tr class="message-{{ ($message->read) ? 'read' : 'unread' }}">
-                          <td class="hidden-xs">
+                          <td class="hidden-xs" data-id="{{ $message->id }}">
                               <label class="option block mn">
                                   <input type="checkbox" name="mobileos" value="FR">
                                   <span class="checkbox mn"></span>
                               </label>
                           </td>
-                          <td><a href="{{ url('/perfil/'.$message->receiver->id) }}" class="link-unstyled">
+                          <td data-id="{{ $message->id }}"><a href="{{ url('/perfil/'.$message->receiver->id) }}" class="link-unstyled">
                               @if($message->receiver->admin == 1)
                                   <span class="text-warning" style="font-weight: bold;">{{ $message->receiver->username }}</span>
                               @elseif($message->receiver->admin == 2)
@@ -189,14 +185,14 @@
                                   <span class="text-unstyled" style="font-weight: bold;">{{ $message->receiver->username }}</span>
                               @endif
                           </a></td>
-                          <td class="hidden-xs text-center">
+                          <td class="hidden-xs text-center" data-id="{{ $message->id }}">
                               <span class="badge badge-system mr10 fs11">Administração</span>
                           </td>
-                          <td class=""><a href="{{ url('/message/'.$message->id) }}">{{ $message->subject }}</a></td>
-                          <td class="hidden-xs">
+                          <td class="" data-id="{{ $message->id }}">{{ $message->subject }}</td>
+                          <td class="hidden-xs" data-id="{{ $message->id }}">
                               <i class="fa fa-paperclip fs15 text-muted va-b"></i>
                           </td>
-                          <td class="text-center">{{ $message->created_at->format('d/M/Y - H:i') }}</td>
+                          <td class="text-center" data-id="{{ $message->id }}">{{ $message->created_at->format('d/M/Y - H:i') }}</td>
                       </tr>
                   @endforeach
               </tbody>
@@ -234,7 +230,7 @@ jQuery(document).ready(function() {
     e.preventDefault();
 
     // Redirect to message compose page if clicked item is not a checkbox
-    window.location = "messages_details.html";
+    window.location = '{!! url('/message') !!}' + '/' + $(this).data("id");
   });
 
   // On button click display quick compose message form
