@@ -135,12 +135,16 @@
                           </div>
                       </div>
                       <div class="btn-group">
-                          <a href="{{ $messages->previousPageUrl() }}" class="btn btn-default light">
-                              <i class="fa fa-chevron-left"></i>
-                          </a>
-                          <a href="{{ $messages->nextPageUrl() }}" class="btn btn-default light">
-                              <i class="fa fa-chevron-right"></i>
-                          </a>
+                          @if($messages->currentPage() > 1)
+                              <a href="{{ $messages->previousPageUrl() }}" class="btn btn-default light">
+                                  <i class="fa fa-chevron-left"></i>
+                              </a>
+                          @endif
+                          @if($messages->hasMorePages())
+                              <a href="{{ $messages->nextPageUrl() }}" class="btn btn-default light">
+                                  <i class="fa fa-chevron-right"></i>
+                              </a>
+                          @endif
                       </div>
                   </div>
               </div>
