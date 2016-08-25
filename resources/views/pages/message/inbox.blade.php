@@ -3,8 +3,8 @@
 @section('title', '| Mensagens')
 <!--                                                                        -->
 @section('stylesheets')
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/summernote/summernote.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 @endsection
 <!--                                                                        -->
 @section('topbar')
@@ -35,7 +35,7 @@
       <div class="list-group list-group-links mt20">
           <div class="list-group-header"> Menu </div>
           <a href="{{ url('/message') }}" class="list-group-item">
-              <i class="fa fa-inbox"></i>Caixa de Entrada
+              <i class="fa fa-inbox text-info"></i>Caixa de Entrada
               @if($new_msg_count > 0)
                   <span class="label badge-warning">{{ $new_msg_count }}</span>
               @endif
