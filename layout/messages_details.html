@@ -411,7 +411,7 @@
                         <!-- Message Menu -->
                         <div class="list-group list-group-links mt20">
                             <div class="list-group-header"> Menu </div>
-                            <a href="#" class="list-group-item">
+                            <a href="messages_inbox.html" class="list-group-item">
                                 <i class="fa fa-inbox text-info"></i><strong>Caixa de Entrada</strong>
                                 <span class="label badge-warning">2</span>
                             </a>
@@ -450,135 +450,59 @@
                     <!-- begin: .tray-center -->
                     <div class="tray tray-center pn bg-light">
                         <div class="panel">
-                            <!-- message toolbar header -->
-                            <div class="panel-menu br-n">
-                                <div class="row">
-                                    <div class="hidden-xs hidden-sm col-md-3">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default light">
-                                                <i class="fa fa-refresh"></i>
-                                            </button>
-                                        </div>
-                                        <span class="hidden-xs va-m text-muted mr15"> Mostrando
-                                            <strong>15</strong> de
-                                            <strong>253</strong> mensagens.
-                                        </span>
-                                    </div>
-                                    <div class="col-xs-12 col-md-9 text-right">
-                                        <div class="btn-group mr10">
+                            <!-- message view -->
+                            <div class="message-view">
 
-                                        </div>
-                                        <div class="btn-group mr10">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-default light dropdown-toggle ph8" data-toggle="dropdown">
-                                                    <span class="fa fa-tags"></span>
-                                                    <span class="caret ml5"></span>
-                                                </button>
-                                                <ul class="dropdown-menu pull-right" role="menu">
-                                                    <li><a href="#">Servidor</a></li>
-                                                    <li><a href="#">Administração</a></li>
-                                                    <li><a href="#">Amigos</a></li>
-                                                    <li><a href="#">Financeiro</a></li>
-                                                </ul>
-                                                <button type="button" class="btn btn-default light">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default light">
-                                                <i class="fa fa-chevron-left"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-default light">
-                                                <i class="fa fa-chevron-right"></i>
-                                            </button>
-                                        </div>
+                                <!-- message meta info -->
+                                <div class="message-meta">
+                                    <span class="pull-right text-muted">24/08/2016 - 23:00</span>
+                                    <h3 class="subject">Colé safado, você me deve</h3>
+                                    <hr class="mt20 mb15">
+                                </div>
+
+                                <!-- message header -->
+                                <div class="message-header">
+                                    <img src="assets/img/avatars/1.jpg" class="img-responsive mw40 pull-left mr20">
+                                    <div class="pull-right mt5 clearfix">
+                                        <span class="label label-success"><i class="fa fa-code"></i> desenvolvedor</span>
+                                        <span class="label label-system">Administração</span>
                                     </div>
+                                    <h4 class="mt15 mb5">De: <a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">Los</span></a></h4>
+                                    <small class="text-muted clearfix">Visto por último: 3 horas atrás.</small>
+                                </div>
+
+                                <hr class="mb15 mt15">
+
+                                <!-- message body -->
+                                <div class="message-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, ipsam, in, consectetur,
+                                    <b>ecusandae qui</b> ducimus fugit nam sint officia expedita illo voluptatem consequuntur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, fugit, laboriosam, ipsam, doloribus iste officiiseveniet nisi maxime minima deserunt
+                                    <b>cumque amet eos quos! Provident, natus, officia, </b> fuga eum harum ut quisquam in consequatur tempore tempora unde a consequuntur nisi sequi enim repellat delectus obcaecati laborum dignissimos quam quibusdam perferendis? distinctio tempora officiis adipisci impedit similique. Obcaecati.</p>
+
+                                    <p>Lboriosam,
+                                    <b>ipsam, doloribus iste</b> officiis eveniet nisi maxime minima deserunt cumque amet eos quos! Provident, natus, officia, fuga eum harum ut quisquam in consequatur tempore tempora unde a consequuntur nisi sequi enim repellat delectus obcaecati laborum dignissimos quam quibusdam perferendis? adipisicing elit. Laudantium, fugit, laboriosam, ipsam, doloribus iste officiis eveniet nisi maxime minima deserunt cumque amet eos quos! Provident, natus, officia, fuga eum harum ut quisquam in consequatur tempore tempora unde a consequuntur nisi sequi enim repellat delectus obcaecati laborum dignissimos quam quibusdam.</p>
+
+                                    <p>Lorem ipsum dolor sit amet,
+                                    <b>consectetur</b> adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, fugit, laboriosam, ipsam, doloribus iste officiis eveniet nisi maxime minima deser Laudantium, fugit, laboriosam, ipsam, doloribus iste officiis eveniet nisi maxime minima deserunt cumque amet eos quos! Provident, natus, officia, fuga eum harum ut quisquam in consequatur tempore tempora unde a consequuntur nisi sequi enim repellat delectus obcaecati laborum dignissimos quam quibusdam perferendis?</p>
+                                </div>
+
+                                <hr class="mb15 mt15">
+
+                                <!-- message footer -->
+                                <div class="message-footer">
+                                    <span class="text-center text-muted">
+                                        Visto que todos os pedidos de ajuda devem estar visível a todos
+                                        (outras pessoas podem ter o mesmo problema que você),
+                                        eu não dou suporte via mensagem privada ou
+                                        qualquer outro meio de contato.
+                                    </span>
                                 </div>
                             </div>
-                            <!-- message listings table -->
-                            <table id="message-table" class="table tc-checkbox-1 admin-form theme-warning br-t">
-                                <thead>
-                                    <tr class="">
-                                        <th class="text-center hidden-xs">Selecionar</th>
-                                        <th>Autor</th>
-                                        <th class="hidden-xs text-center">Categoria</th>
-                                        <th>Assunto</th>
-                                        <th class="hidden-xs"></th>
-                                        <th class="text-center">Data</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="message-unread">
-                                        <td class="hidden-xs">
-                                            <label class="option block mn">
-                                                <input type="checkbox" name="mobileos" value="FR">
-                                                <span class="checkbox mn"></span>
-                                            </label>
-                                        </td>
-                                        <td><a href="user_profile.html" class="link-unstyled"><span class="text-system" style="font-weight: bold;">Los</span></a></td>
-                                        <td class="hidden-xs text-center">
-                                            <span class="badge badge-system mr10 fs11">Administração</span>
-                                        </td>
-                                        <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                        <td class="hidden-xs">
-                                            <i class="fa fa-paperclip fs15 text-muted va-b"></i>
-                                        </td>
-                                        <td class="text-center">23/08/2016 - 23:13</td>
-                                    </tr>
-                                    <tr class="message-unread">
-                                        <td class="hidden-xs">
-                                            <label class="option block mn">
-                                                <input type="checkbox" name="mobileos" value="FR">
-                                                <span class="checkbox mn"></span>
-                                            </label>
-                                        </td>
-                                        <td><a href="user_profile.html" class="link-unstyled"><span class="text-danger" style="font-weight: bold;">ReDKiiL</span></a></td>
-                                        <td class="hidden-xs text-center">
-                                            <span class="badge badge-system mr10 fs11">Administração</span>
-                                        </td>
-                                        <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                        <td class="hidden-xs">
-                                            <i class="fa fa-paperclip fs15 text-muted va-b"></i>
-                                        </td>
-                                        <td class="text-center">23/08/2016 - 23:13</td>
-                                    </tr>
-                                    <tr class="message-read">
-                                        <td class="hidden-xs">
-                                            <label class="option block mn">
-                                                <input type="checkbox" name="mobileos" value="FR">
-                                                <span class="checkbox mn"></span>
-                                            </label>
-                                        </td>
-                                        <td><a href="user_profile.html" class="link-unstyled">User Random</a></td>
-                                        <td class="hidden-xs">
 
-                                        </td>
-                                        <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                        <td class="hidden-xs">
-                                            <i class="fa fa-paperclip fs15 text-muted va-b"></i>
-                                        </td>
-                                        <td class="text-center">23/08/2016 - 23:13</td>
-                                    </tr>
-                                    <tr class="message-read">
-                                        <td class="hidden-xs">
-                                            <label class="option block mn">
-                                                <input type="checkbox" name="mobileos" value="FR">
-                                                <span class="checkbox mn"></span>
-                                            </label>
-                                        </td>
-                                        <td><a href="user_profile.html" class="link-unstyled">User Random2</a></td>
-                                        <td class="hidden-xs text-center">
-                                            <span class="badge badge-primary mr10 fs11">Amigos</span>
-                                        </td>
-                                        <td class="">Lorem ipsum dolor sit amet, adipiscing eli</td>
-                                        <td class="hidden-xs">
-                                            <i class="fa fa-paperclip fs15 text-muted va-b"></i>
-                                        </td>
-                                        <td class="text-center">23/08/2016 - 23:13</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <!-- message reply form -->
+                            <div class="message-reply">
+                                <div class="summernote">Resposta...</div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -629,60 +553,12 @@
               // Init Theme Core
               Core.init();
 
-              var msgListing = $('#message-table > tbody > tr > td');
-              var msgCheckbox = $('#message-table > tbody > tr input[type=checkbox]');
-
-              // on message table checkbox click, toggle highlighted class
-              msgCheckbox.on('click', function() {
-                $(this).parents('tr').toggleClass('highlight');
-              });
-
-              // on message table row click, redirect page. Unless target was a checkbox
-              msgListing.not(":first-child").on('click', function(e) {
-
-                // stop event bubble if clicked item is not a checkbox
-                e.stopPropagation();
-                e.preventDefault();
-
-                // Redirect to message compose page if clicked item is not a checkbox
-                window.location = "messages_details.html";
-              });
-
-              // On button click display quick compose message form
-              $('#quick-compose').on('click', function() {
-
-                // Admin Dock Plugin
-                $('.quick-compose-form').dockmodal({
-                  minimizedWidth: 260,
-                  width: 470,
-                  height: 480,
-                  title: 'Nova Mensagem',
-                  initialState: "docked",
-                  buttons: [{
-                    html: "Enviar",
-                    buttonClass: "btn btn-primary btn-sm",
-                    click: function(e, dialog) {
-                      // do something when the button is clicked
-                      dialog.dockmodal("close");
-
-                      // after dialog closes fire a success notification
-                      setTimeout(function() {
-                        msgCallback();
-                      }, 500);
-                    }
-                  }]
-                });
-              });
-
               // Init Summernote
-              $('.summernote-quick').summernote({
-                height: 275, //set editable area's height
+              $('.summernote').summernote({
+                height: 342, //set editable area's height
                 focus: false, //set focus editable area after Initialize summernote
-                toolbar: [
-                  ['style', ['bold', 'italic', 'underline', ]],
-                  ['para', ['ul', 'ol', 'paragraph']],
-                  ['height', ['height']],
-                ]
+                oninit: function() {},
+                onChange: function(contents, $editable) {},
               });
             });
         </script>
