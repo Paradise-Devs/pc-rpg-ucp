@@ -119,26 +119,34 @@
               <p class="lead mt10">{{ $profile->bio }}</p>
               <div class="media-links">
                   <ul class="list-inline list-unstyled">
-                      <li>
-                          <a href="http://fb.com/{{ $profile->facebook_url }}" title="facebook link">
-                              <span class="fa fa-facebook-square fs35 text-primary"></span>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="http://twitter.com/{{ $profile->twitter_url }}" title="twitter link">
-                              <span class="fa fa-twitter-square fs35 text-info"></span>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="http://github.com/{{ $profile->github_url }}" title="github link">
-                              <span class="fa fa-github-square fs35 text-dark"></span>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="mailto:{{ $profile->email }}" title="email link">
-                              <span class="fa fa-envelope-square fs35 text-muted"></span>
-                          </a>
-                      </li>
+                      @if($profile->facebook_url)
+                          <li>
+                              <a href="http://fb.com/{{ $profile->facebook_url }}" title="{{ $profile->facebook_url }}">
+                                  <span class="fa fa-facebook-square fs35 text-primary"></span>
+                              </a>
+                          </li>
+                      @endif
+                      @if($profile->twitter_url)
+                          <li>
+                              <a href="http://twitter.com/{{ $profile->twitter_url }}" title="{{ $profile->twitter_url }}">
+                                  <span class="fa fa-twitter-square fs35 text-info"></span>
+                              </a>
+                          </li>
+                      @endif
+                      @if($profile->github_url)
+                          <li>
+                              <a href="http://github.com/{{ $profile->github_url }}" title="{{ $profile->github_url }}">
+                                  <span class="fa fa-github-square fs35 text-dark"></span>
+                              </a>
+                          </li>
+                      @endif
+                      @if($profile->email)
+                          <li>
+                              <a href="mailto:{{ $profile->email }}" title="{{ $profile->email }}">
+                                  <span class="fa fa-envelope-square fs35 text-muted"></span>
+                              </a>
+                          </li>
+                      @endif
                   </ul>
               </div>
           </div>
