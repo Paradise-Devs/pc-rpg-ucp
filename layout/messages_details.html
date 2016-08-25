@@ -448,7 +448,7 @@
                     </aside>
                     <!-- end: .tray-left -->
                     <!-- begin: .tray-center -->
-                    <div class="tray tray-center pn bg-light">
+                    <div class="tray tray-center pn bg-light" style="height: 100px">
                         <div class="panel">
                             <!-- message view -->
                             <div class="message-view">
@@ -500,8 +500,14 @@
                             </div>
 
                             <!-- message reply form -->
-                            <div class="message-reply">
+                            <div class="message-reply pt0 pb0 mt0 mb0">
                                 <div class="summernote">Resposta...</div>
+                                <div class="panel-footer p7 mt0 pt0 text-right">
+                                    <div class="actions btn-group">
+                                        <button href="messages_inbox.html" class="btn btn-sm btn-default"><i class="fa fa-arrow-left"></i> Voltar</button>
+                                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-mail-forward"></i> Enviar</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -555,7 +561,7 @@
 
               // Init Summernote
               $('.summernote').summernote({
-                height: 342, //set editable area's height
+                height: 297, //set editable area's height
                 focus: false, //set focus editable area after Initialize summernote
                 oninit: function() {},
                 onChange: function(contents, $editable) {},
