@@ -20,7 +20,7 @@
                         @elseif($user->admin == 4)
                             <div class="media-links" style="color: #df5640">Administrador</div>
                         @elseif($user->admin > 4)
-                            <div class="media-links" style="color: #17AE48">Developer</div>
+                            <div class="media-links" style="color: #17AE48">Desenvolvedor</div>
                         @else
                             <div class="media-links" style="color: #777777">Jogador</div>
                         @endif

@@ -92,11 +92,7 @@
           <div class="panel" style="margin-bottom: 0px;">
               <div class="panel-menu br-n">
                   <div class="alert alert-success light ml10" style="width: 99%; margin-bottom: 0px;">
-                      <ul>
-                          <li>
-                              <i class="fa fa-info"></i> Operação realizada com sucesso.
-                          </li>
-                      </ul>
+                      <i class="fa fa-info"></i> Operação realizada com sucesso.
                   </div>
               </div>
           </div>

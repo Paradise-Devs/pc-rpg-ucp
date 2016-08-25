@@ -26,6 +26,16 @@ use Redirect;
 
 class TicketController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $ticket = Ticket::where('user_id', Auth::user()->id)->get();

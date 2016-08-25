@@ -10,6 +10,9 @@
             <div class="navbar-btn btn-group">
                 <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
                     <span class="fa fa-bell-o fs14 va-m"></span>
+                    @if($new_msg_count > 0)
+                        <span class="badge">{{ $new_msg_count }}</span>
+                    @endif
                 </button>
                 <div class="dropdown-menu dropdown-persist w350" role="menu">
                     <div class="panel mbn">
@@ -30,14 +33,7 @@
                         <div class="panel-body panel-scroller scroller-navbar pn">
                             <div class="tab-content br-n pn">
                                 <div id="nav-tab1" class="tab-pane alerts-widget active" role="tabpanel">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <span class="fa fa-support text-success"></span>
-                                        </div>
-                                        <div class="media-body">
-                                            <h5 class="media-heading"><a href="#">Você não possui notificações.</a></h5>
-                                        </div>
-                                    </div>
+                                    <div class="media text-center">Nenhuma notificação no momento</div>
                                 </div>
                                 @if($new_msg_count > 0)
                                     <div id="nav-tab2" class="tab-pane chat-widget" role="tabpanel">
@@ -54,33 +50,25 @@
                                                         {{ $message->creator->username }}
                                                         <small> - {{ App\Utils::timeElapsedString($message->created_at) }}</small>
                                                     </h5>
-                                                    <span class="text-muted" style="color: #999">{{ substr($message->content,  80, strlen($message->content)) }}...</span>
+                                                    <span class="text-muted" style="color: #999">
+                                                        @if(strlen(strip_tags($message->content)) > 70)
+                                                            {{ substr(strip_tags($message->content), 70, strlen(strip_tags($message->content))) }}...
+                                                        @else
+                                                            {{ strip_tags($message->content) }}
+                                                        @endif
+                                                    </span>
                                                 </a>
                                             </div>
                                         @endforeach
                                     </div>
                                 @else
                                     <div id="nav-tab2" class="tab-pane alerts-widget" role="tabpanel">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <span class="fa fa-support text-success"></span>
-                                            </div>
-                                            <div class="media-body">
-                                                <h5 class="media-heading"><a href="#">Você não possui mensagens.</a></h5>
-                                            </div>
-                                        </div>
+                                        <div class="media text-center">Nenhuma mensagem nova no momento</div>
                                     </div>
                                 @endif
                                 @can('admin')
                                 <div id="nav-tab3" class="tab-pane alerts-widget" role="tabpanel">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <span class="fa fa-support text-success"></span>
-                                        </div>
-                                        <div class="media-body">
-                                            <h5 class="media-heading"><a href="#">Não há notificações pendentes.</a></h5>
-                                        </div>
-                                    </div>
+                                    <div class="media text-center">Nenhuma notificação no momento</div>
                                 </div>
                                 @endcan
                             </div>

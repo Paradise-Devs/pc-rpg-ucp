@@ -120,6 +120,15 @@ class MessageController extends Controller
     public function show($id)
     {
         $message = Message::findOrFail($id);
+        if($message->user->id != Auth::user()->id)
+        {
+            return Redirect::to('message')->with('error', 'Você não tem permissão para acessar esta página.');
+        }
+        else if(!$message->read)
+        {
+            $message->read = true;
+            $message->save();
+        }
         return view('pages.message.show', ['message' => $message]);
     }
 

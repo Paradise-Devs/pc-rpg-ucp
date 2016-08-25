@@ -88,6 +88,16 @@
     </div>
     <hr style="margin-bottom: 0px; margin-top: 0px">
     @endif
+    @if(Session::has('error'))
+        <div class="panel" style="margin-bottom: 0px;">
+            <div class="panel-menu br-n">
+                <div class="alert alert-danger light ml10" style="width: 99%; margin-bottom: 0px;">
+                    <i class="fa fa-info"></i> {{ Session::pull('error') }}
+                </div>
+            </div>
+        </div>
+        <hr style="margin-bottom: 0px; margin-top: 0px">
+    @endif
       <div class="panel">
           <!-- message toolbar header -->
           <div class="panel-menu br-n">

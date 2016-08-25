@@ -47,17 +47,17 @@
                   <div class="media-body va-m">
                       <h2 class="media-heading">{{ $profile->name }}</h2>
                       @if($profile->admin == 1)
-                          <button type="button" class="btn btn-xs btn-warning">Paradiser</button>
+                          <span class="label label-warning">Paradiser</span>
                       @elseif($profile->admin == 2)
-                          <button type="button" class="btn btn-xs btn-info">Moderador</button>
+                          <span class="label label-info">Moderador</span>
                       @elseif($profile->admin == 3)
-                          <button type="button" class="btn btn-xs btn-primary">Supervisor</button>
+                          <span class="label label-primary">Supervisor</span>
                       @elseif($profile->admin == 4)
-                          <button type="button" class="btn btn-xs btn-danger">Administrador</button>
+                          <span class="label label-danger">Administrador</span>
                       @elseif($profile->admin > 4)
-                          <button type="button" class="btn btn-xs btn-success">Desenvolvedor</button>
+                          <span class="label label-success">Desenvolvedor</span>
                       @else
-                          <button type="button" class="btn btn-xs btn-default">Jogador</button>
+                          <span class="label label-default">Jogador</span>
                       @endif
 
                       <p class="lead mt15" style="font-size: 14pt;">{{ $profile->bio }}</p>
