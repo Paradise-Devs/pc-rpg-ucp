@@ -143,6 +143,21 @@
             </div>
             --}}
         </div>
+        <!-- message reply form -->
+        <form id="compose-form" method="POST" action="{{ url('/message') }}">
+            {{ csrf_field() }}
+            <div class="message-reply pt0 pb0 mt0 mb0">
+                <textarea id="compose-reply-form" name="conteudo" class="summernote">Resposta...</textarea>
+                <div class="panel-footer p7 mt0 pt0 text-right">
+                    <div class="actions btn-group">
+                        <input name="usuario" type="hidden" value="{{ $message->creator->username }}">
+                        <input name="assunto" type="hidden" value="RE: {{ $message->subject }}">
+                        <button href="{{ url('/message') }}" class="btn btn-sm btn-default"><i class="fa fa-arrow-left"></i> Voltar</button>
+                        <button id="submit-compose-form" type="button" class="btn btn-sm btn-primary"><i class="fa fa-mail-forward"></i> Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
   </div>
 </section>
@@ -150,7 +165,7 @@
 <!--                                                                        -->
 @section('scripts')
 <div class="quick-compose-form">
-    <form id="compose-form" method="POST" action="{{ url('/message') }}">
+    <form id="compose-quick-form" method="POST" action="{{ url('/message') }}">
         {{ csrf_field() }}
         <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="">
         <input name="assunto" type="text" class="form-control" id="inputSubject" placeholder="Assunto" required="">
@@ -160,63 +175,57 @@
 <script src="{{ URL::asset('vendor/plugins/summernote/summernote.min.js') }}"></script>
 <script type="text/javascript">
 jQuery(document).ready(function() {
-  var msgListing = $('#message-table > tbody > tr > td');
-  var msgCheckbox = $('#message-table > tbody > tr input[type=checkbox]');
-
-  // on message table checkbox click, toggle highlighted class
-  msgCheckbox.on('click', function() {
-    $(this).parents('tr').toggleClass('highlight');
-  });
-
-  // on message table row click, redirect page. Unless target was a checkbox
-  msgListing.not(":first-child").on('click', function(e) {
-
-    // stop event bubble if clicked item is not a checkbox
-    e.stopPropagation();
-    e.preventDefault();
-
-    // Redirect to message compose page if clicked item is not a checkbox
-    window.location = "messages_details.html";
-  });
-
-  // On button click display quick compose message form
-  $('#quick-compose').on('click', function() {
-
-    // Admin Dock Plugin
-    $('.quick-compose-form').dockmodal({
-      minimizedWidth: 260,
-      width: 470,
-      height: 480,
-      title: 'Nova Mensagem',
-      initialState: "docked",
-      buttons: [{
-        html: "Enviar",
-        buttonClass: "btn btn-primary btn-sm",
-        click: function(e, dialog) {
-          // do something when the button is clicked
-          // dialog.dockmodal("close");
-          $('.summernote-quick').each( function() { $(this).val($(this).code()); });
-          document.getElementById("compose-form").submit();
-
-          // after dialog closes fire a success notification
-          setTimeout(function() {
-            msgCallback();
-          }, 500);
-        }
-      }]
+    // Summernote
+    $('#submit-compose-form').on('click', function() {
+        $('#compose-reply-form').each( function() { $(this).val($(this).code()); });
+        document.getElementById("compose-form").submit();
     });
-  });
 
-  // Init Summernote
-  $('.summernote-quick').summernote({
-    height: 275, //set editable area's height
-    focus: false, //set focus editable area after Initialize summernote
-    toolbar: [
-      ['style', ['bold', 'italic', 'underline', ]],
-      ['para', ['ul', 'ol', 'paragraph']],
-      ['height', ['height']],
-    ]
-  });
+    $('.summernote').summernote({
+      height: 297, //set editable area's height
+      focus: false, //set focus editable area after Initialize summernote
+      oninit: function() {},
+      onChange: function(contents, $editable) {},
+    });
+
+    // On button click display quick compose message form
+    $('#quick-compose').on('click', function() {
+
+      // Admin Dock Plugin
+      $('.quick-compose-form').dockmodal({
+        minimizedWidth: 260,
+        width: 470,
+        height: 480,
+        title: 'Nova Mensagem',
+        initialState: "docked",
+        buttons: [{
+          html: "Enviar",
+          buttonClass: "btn btn-primary btn-sm",
+          click: function(e, dialog) {
+            // do something when the button is clicked
+            // dialog.dockmodal("close");
+            $('.summernote-quick').each( function() { $(this).val($(this).code()); });
+            document.getElementById("compose-quick-form").submit();
+
+            // after dialog closes fire a success notification
+            setTimeout(function() {
+              msgCallback();
+            }, 500);
+          }
+        }]
+      });
+    });
+
+    // Init Summernote
+    $('.summernote-quick').summernote({
+      height: 275, //set editable area's height
+      focus: false, //set focus editable area after Initialize summernote
+      toolbar: [
+        ['style', ['bold', 'italic', 'underline', ]],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+      ]
+    });
   });
 </script>
 @endsection
