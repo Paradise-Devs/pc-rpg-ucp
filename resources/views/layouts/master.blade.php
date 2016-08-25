@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @include('partials.master._head')
         @yield('stylesheets')
+        @include('partials.master._head')
     </head>
-    <body class="sb-l-o sb-r-c onload-check mobile-view tray-rescale">
+    <body class="sb-l-o sb-r-c onload-check mobile-view tray-rescale messages-page">
         <div id="main">
             @include('partials.master._header')
             @include('partials.master._sidebar')

@@ -3,8 +3,8 @@
 @section('title', '| Mensagens')
 <!--                                                                        -->
 @section('stylesheets')
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/summernote/summernote.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/summernote/summernote.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 @endsection
 <!--                                                                        -->
 @section('topbar')
@@ -76,6 +76,22 @@
   <!-- end: .tray-left -->
   <!-- begin: .tray-center -->
   <div class="tray tray-center pn bg-light">
+      @if (count($errors) > 0)
+      <div class="panel" style="margin-bottom: 0px;">
+          <div class="panel-menu br-n">
+              <div class="alert alert-danger light ml10" style="width: 99%; margin-bottom: 0px;">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>
+                              <i class="fa fa-info"></i> {{ $error }}
+                          </li>
+                      @endforeach
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr style="margin-bottom: 0px; margin-top: 0px">
+      @endif
       <div class="panel">
           <!-- message toolbar header -->
           <div class="panel-menu br-n">
@@ -177,8 +193,17 @@
 @endsection
 <!--                                                                        -->
 @section('scripts')
+<div class="quick-compose-form">
+    <form id="compose-form" method="POST" action="{{ url('/message') }}">
+        {{ csrf_field() }}
+        <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="">
+        <input name="assunto" type="text" class="form-control" id="inputSubject" placeholder="Assunto" required="">
+        <textarea name="conteudo" class="summernote-quick"></textarea>
+    </form>
+</div>
 <script src="{{ URL::asset('vendor/plugins/summernote/summernote.min.js') }}"></script>
 <script type="text/javascript">
+jQuery(document).ready(function() {
   var msgListing = $('#message-table > tbody > tr > td');
   var msgCheckbox = $('#message-table > tbody > tr input[type=checkbox]');
 
@@ -212,8 +237,10 @@
         html: "Enviar",
         buttonClass: "btn btn-primary btn-sm",
         click: function(e, dialog) {
-          // do something when the button is clicked
-          dialog.dockmodal("close");
+            // do something when the button is clicked
+            // dialog.dockmodal("close");
+            $('.summernote-quick').each( function() { $(this).val($(this).code()); });
+            document.getElementById("compose-form").submit();
 
           // after dialog closes fire a success notification
           setTimeout(function() {
