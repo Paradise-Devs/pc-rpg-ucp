@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 use App\Message;
 
+use App\Utils;
+
+use Redirect;
+
 use Auth;
 
 class MessageController extends Controller
@@ -76,7 +80,35 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'usuario' => 'required|exists:users,username',
+            'assunto' => 'required|max:128|min:4',
+            'conteudo' => 'required|min:4|max:4096'
+        ]);
+
+        $creator = Auth::user();
+        $receiver_id = Utils::getUserID($request->input('usuario'));
+        $inputs = [
+            'user_id' => $receiver_id,
+            'creator_id' => $creator->id,
+            'receiver_id' => $receiver_id,
+            'subject' => $request->input('assunto'),
+            'content' => $request->input('conteudo'),
+            'category' => 0,
+            'read' => false
+        ];
+        Message::Create($inputs);
+        $inputs = [
+            'user_id' => $creator->id,
+            'creator_id' => $creator->id,
+            'receiver_id' => $receiver_id,
+            'subject' => $request->input('assunto'),
+            'content' => $request->input('conteudo'),
+            'category' => 0,
+            'read' => true
+        ];
+        Message::Create($inputs);
+        return Redirect::to('message/outbox')->with('success', true);
     }
 
     /**
@@ -87,7 +119,8 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        //
+        $message = Message::findOrFail($id);
+        return view('pages.message.show', ['message' => $message]);
     }
 
     /**

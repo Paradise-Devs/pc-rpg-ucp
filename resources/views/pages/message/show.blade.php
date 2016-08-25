@@ -88,102 +88,62 @@
     </div>
     <hr style="margin-bottom: 0px; margin-top: 0px">
     @endif
-      <div class="panel">
-          <!-- message toolbar header -->
-          <div class="panel-menu br-n">
-              <div class="row">
-                  <div class="hidden-xs hidden-sm col-md-3">
-                      <div class="btn-group">
-                          <a href="javascript:location.reload();" class="btn btn-default light">
-                              <i class="fa fa-refresh"></i>
-                          </a>
-                      </div>
-                      <span class="hidden-xs va-m text-muted mr15"> Mostrando
-                          <strong>{{ $messages->count() }}</strong> de
-                          <strong>{{ $messages->total() }}</strong> mensagens.
-                      </span>
-                  </div>
-                  <div class="col-xs-12 col-md-9 text-right">
-                      <div class="btn-group mr10">
+    <div class="panel">
+        <!-- message view -->
+        <div class="message-view">
 
-                      </div>
-                      <div class="btn-group mr10">
-                          <div class="btn-group">
-                              <button type="button" class="btn btn-default light dropdown-toggle ph8" data-toggle="dropdown">
-                                  <span class="fa fa-tags"></span>
-                                  <span class="caret ml5"></span>
-                              </button>
-                              <ul class="dropdown-menu pull-right" role="menu">
-                                  <li><a href="#">Servidor</a></li>
-                                  <li><a href="#">Administração</a></li>
-                                  <li><a href="#">Amigos</a></li>
-                                  <li><a href="#">Financeiro</a></li>
-                              </ul>
-                              <button type="button" class="btn btn-default light">
-                                  <i class="fa fa-trash"></i>
-                              </button>
-                          </div>
-                      </div>
-                      <div class="btn-group">
-                          <a href="{{ $messages->previousPageUrl() }}" class="btn btn-default light">
-                              <i class="fa fa-chevron-left"></i>
-                          </a>
-                          <a href="{{ $messages->nextPageUrl() }}" class="btn btn-default light">
-                              <i class="fa fa-chevron-right"></i>
-                          </a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!-- message listings table -->
-          <table id="message-table" class="table tc-checkbox-1 admin-form theme-warning br-t">
-              <thead>
-                  <tr class="">
-                      <th class="text-center hidden-xs">Selecionar</th>
-                      <th>Autor</th>
-                      <th class="hidden-xs text-center">Categoria</th>
-                      <th>Assunto</th>
-                      <th class="hidden-xs"></th>
-                      <th class="text-center">Data</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  @foreach($messages as $message)
-                      <tr class="message-{{ ($message->read) ? 'read' : 'unread' }}">
-                          <td class="hidden-xs" data-id="{{ $message->id }}">
-                              <label class="option block mn">
-                                  <input type="checkbox" name="mobileos" value="FR">
-                                  <span class="checkbox mn"></span>
-                              </label>
-                          </td>
-                          <td data-id="{{ $message->id }}"><a href="{{ url('/perfil/'.$message->creator->id) }}" class="link-unstyled">
-                              @if($message->creator->admin == 1)
-                                  <span class="text-warning" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @elseif($message->creator->admin == 2)
-                                  <span class="text-info" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @elseif($message->creator->admin == 3)
-                                  <span class="text-primary" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @elseif($message->creator->admin == 4)
-                                  <span class="text-danger" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @elseif($message->creator->admin > 4)
-                                  <span class="text-system" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @else
-                                  <span class="text-unstyled" style="font-weight: bold;">{{ $message->creator->username }}</span>
-                              @endif
-                          </a></td>
-                          <td class="hidden-xs text-center" data-id="{{ $message->id }}">
-                              <span class="badge badge-system mr10 fs11">Administração</span>
-                          </td>
-                          <td data-id="{{ $message->id }}">{{ $message->subject }}</td>
-                          <td class="hidden-xs" data-id="{{ $message->id }}">
-                              <i class="fa fa-paperclip fs15 text-muted va-b"></i>
-                          </td>
-                          <td class="text-center" data-id="{{ $message->id }}">{{ $message->created_at->format('d/M/Y - H:i') }}</td>
-                      </tr>
-                  @endforeach
-              </tbody>
-          </table>
-      </div>
+            <!-- message meta info -->
+            <div class="message-meta">
+                <span class="pull-right text-muted">{{ $message->created_at->format('d/M/Y - H:i') }}</span>
+                <h3 class="subject">{{ $message->subject }}</h3>
+                <hr class="mt20 mb15">
+            </div>
+
+            <!-- message header -->
+            <div class="message-header">
+                <img src="{{ URL::asset("uploads/avatars/".$message->creator->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
+                <div class="pull-right mt5 clearfix">
+                    @if($message->creator->admin == 1)
+                        <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>
+                    @elseif($message->creator->admin == 2)
+                        <span class="label label-info"><i class="fa fa-fire"></i> moderador</span>
+                    @elseif($message->creator->admin == 3)
+                        <span class="label label-primary"><i class="imoon imoon-user3"></i> supervisor</span>
+                    @elseif($message->creator->admin == 4)
+                        <span class="label label-danger"><i class="imoon imoon-user3"></i> administrador</span>
+                    @elseif($message->creator->admin > 4)
+                        <span class="label label-success"><i class="fa fa-code"></i> desenvolvedor</span>
+                    @else
+                        <span class="label label-default"><i class="fa fa-briefcase"></i> Jogador</span>
+                    @endif
+                    <span class="label label-system">Administração</span>
+                </div>
+                <h4 class="mt15 mb5">De: <a href="{{ url('/perfil/'.$message->creator->id) }}" class="link-unstyled"><span class="text-primary" style="font-weight: bold;">{{ $message->creator->username }}</span></a></h4>
+                <small class="text-muted clearfix">Para: <a href="{{ url('/perfil/'.$message->receiver->id) }}" class="link-unstyled">{{ $message->receiver->username }}</a></small>
+            </div>
+
+            <hr class="mb15 mt15">
+
+            <!-- message body -->
+            <div class="message-body">
+                {!! $message->content !!}
+            </div>
+
+            <hr class="mb15 mt15">
+
+            <!-- message footer -->
+            {{--
+            <div class="message-footer">
+                <span class="text-center text-muted">
+                    Visto que todos os pedidos de ajuda devem estar visível a todos
+                    (outras pessoas podem ter o mesmo problema que você),
+                    eu não dou suporte via mensagem privada ou
+                    qualquer outro meio de contato.
+                </span>
+            </div>
+            --}}
+        </div>
+    </div>
   </div>
 </section>
 @endsection
@@ -216,7 +176,7 @@ jQuery(document).ready(function() {
     e.preventDefault();
 
     // Redirect to message compose page if clicked item is not a checkbox
-    window.location = '{!! url('/message') !!}' + '/' + $(this).data("id");
+    window.location = "messages_details.html";
   });
 
   // On button click display quick compose message form

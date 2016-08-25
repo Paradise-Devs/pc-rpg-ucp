@@ -3,8 +3,8 @@
 @section('title', '| Mensagens')
 <!--                                                                        -->
 @section('stylesheets')
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/summernote/summernote.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/summernote/summernote.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 @endsection
 <!--                                                                        -->
 @section('topbar')
@@ -46,10 +46,6 @@
           <a href="{{ url('/message/lixeira') }}" class="list-group-item">
               <i class="fa fa-trash"></i>Excluídos
           </a>
-          <a href="#" class="list-group-item">
-              <i class="fa fa-gear"></i>
-              Config. de Mensagens
-          </a>
       </div>
 
       <!-- Tags Menu -->
@@ -76,6 +72,36 @@
   <!-- end: .tray-left -->
   <!-- begin: .tray-center -->
   <div class="tray tray-center pn bg-light">
+      @if (count($errors) > 0)
+      <div class="panel" style="margin-bottom: 0px;">
+          <div class="panel-menu br-n">
+              <div class="alert alert-danger light ml10" style="width: 99%; margin-bottom: 0px;">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>
+                              <i class="fa fa-info"></i> {{ $error }}
+                          </li>
+                      @endforeach
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr style="margin-bottom: 0px; margin-top: 0px">
+      @endif
+      @if(Session::has('success'))
+          <div class="panel" style="margin-bottom: 0px;">
+              <div class="panel-menu br-n">
+                  <div class="alert alert-success light ml10" style="width: 99%; margin-bottom: 0px;">
+                      <ul>
+                          <li>
+                              <i class="fa fa-info"></i> Operação realizada com sucesso.
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <hr style="margin-bottom: 0px; margin-top: 0px">
+      @endif
       <div class="panel">
           <!-- message toolbar header -->
           <div class="panel-menu br-n">
@@ -138,13 +164,13 @@
               <tbody>
                   @foreach($messages as $message)
                       <tr class="message-{{ ($message->read) ? 'read' : 'unread' }}">
-                          <td class="hidden-xs">
+                          <td class="hidden-xs" data-id="{{ $message->id }}">
                               <label class="option block mn">
                                   <input type="checkbox" name="mobileos" value="FR">
                                   <span class="checkbox mn"></span>
                               </label>
                           </td>
-                          <td><a href="{{ url('/perfil/'.$message->receiver->id) }}" class="link-unstyled">
+                          <td data-id="{{ $message->id }}"><a href="{{ url('/perfil/'.$message->receiver->id) }}" class="link-unstyled">
                               @if($message->receiver->admin == 1)
                                   <span class="text-warning" style="font-weight: bold;">{{ $message->receiver->username }}</span>
                               @elseif($message->receiver->admin == 2)
@@ -159,14 +185,14 @@
                                   <span class="text-unstyled" style="font-weight: bold;">{{ $message->receiver->username }}</span>
                               @endif
                           </a></td>
-                          <td class="hidden-xs text-center">
+                          <td class="hidden-xs text-center" data-id="{{ $message->id }}">
                               <span class="badge badge-system mr10 fs11">Administração</span>
                           </td>
-                          <td class=""><a href="{{ url('/message/'.$message->id) }}">{{ $message->subject }}</a></td>
-                          <td class="hidden-xs">
+                          <td class="" data-id="{{ $message->id }}">{{ $message->subject }}</td>
+                          <td class="hidden-xs" data-id="{{ $message->id }}">
                               <i class="fa fa-paperclip fs15 text-muted va-b"></i>
                           </td>
-                          <td class="text-center">{{ $message->created_at->format('d/M/Y - H:i') }}</td>
+                          <td class="text-center" data-id="{{ $message->id }}">{{ $message->created_at->format('d/M/Y - H:i') }}</td>
                       </tr>
                   @endforeach
               </tbody>
@@ -177,8 +203,17 @@
 @endsection
 <!--                                                                        -->
 @section('scripts')
+<div class="quick-compose-form">
+    <form id="compose-form" method="POST" action="{{ url('/message') }}">
+        {{ csrf_field() }}
+        <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="">
+        <input name="assunto" type="text" class="form-control" id="inputSubject" placeholder="Assunto" required="">
+        <textarea name="conteudo" class="summernote-quick"></textarea>
+    </form>
+</div>
 <script src="{{ URL::asset('vendor/plugins/summernote/summernote.min.js') }}"></script>
 <script type="text/javascript">
+jQuery(document).ready(function() {
   var msgListing = $('#message-table > tbody > tr > td');
   var msgCheckbox = $('#message-table > tbody > tr input[type=checkbox]');
 
@@ -195,7 +230,7 @@
     e.preventDefault();
 
     // Redirect to message compose page if clicked item is not a checkbox
-    window.location = "messages_details.html";
+    window.location = '{!! url('/message') !!}' + '/' + $(this).data("id");
   });
 
   // On button click display quick compose message form
@@ -212,8 +247,10 @@
         html: "Enviar",
         buttonClass: "btn btn-primary btn-sm",
         click: function(e, dialog) {
-          // do something when the button is clicked
-          dialog.dockmodal("close");
+            // do something when the button is clicked
+            // dialog.dockmodal("close");
+            $('.summernote-quick').each( function() { $(this).val($(this).code()); });
+            document.getElementById("compose-form").submit();
 
           // after dialog closes fire a success notification
           setTimeout(function() {
