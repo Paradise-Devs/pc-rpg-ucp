@@ -76,7 +76,7 @@
                             <label for="username" class="field prepend-icon {{ $errors->has('username') ? ' state-error' : '' }}">
                                 <input type="username" name="username" id="username" class="gui-input" value="{{ old('username') }}" placeholder="Entre com seu usuário">
                                 <label for="username" class="field-icon">
-                                    <i class="fa fa-envelope-o"></i>
+                                    <i class="fa fa-user"></i>
                                 </label>
                             </label>
                             @if ($errors->has('username'))
