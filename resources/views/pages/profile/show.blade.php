@@ -5,7 +5,7 @@
 @endsection
 <!--                                                                        -->
 @section('stylesheets')
-<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/theme.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/summernote/summernote.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/fonts/icomoon/icomoon.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/select2/css/core.css') }}">
@@ -37,7 +37,7 @@
             <i class="fa fa-user-times"></i> Desfazer amizade
         </a>--}}
         @if($profile->id != $user->id)
-            <a id="message_btn" href="#" type="button" class="btn btn-sm btn-info btn-gradient dark">
+            <a id="quick-compose" type="button" class="btn btn-sm btn-info btn-gradient dark">
                 <i class="fa fa-envelope-o"></i> Enviar mensagem
             </a>
             @if($profile->admin < 1)
@@ -67,6 +67,22 @@
 @section('content')
 <section id="content" class="animated fadeIn">
   <div class="page-heading">
+      @if (count($errors) > 0)
+      <div class="panel" style="margin-bottom: 0px;">
+          <div class="panel-menu br-n">
+              <div class="alert alert-danger light ml10" style="width: 99%; margin-bottom: 0px;">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>
+                              <i class="fa fa-info"></i> {{ $error }}
+                          </li>
+                      @endforeach
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr style="margin-bottom: 0px; margin-top: 0px">
+      @endif
       <div class="media clearfix">
           {{--
           <div id="blocked_info" class="alert alert-micro alert-border-left alert-danger">
@@ -246,8 +262,59 @@
 @endsection
 <!--                                                                        -->
 @section('scripts')
+    <div class="quick-compose-form">
+        <form id="compose-quick-form" method="POST" action="{{ url('/message') }}">
+            {{ csrf_field() }}
+            <input name="usuario" type="text" class="form-control" placeholder="Usuário" value="{{ $profile->username }}" readonly="">
+            <input name="assunto" type="text" class="form-control" id="inputSubject" placeholder="Assunto" required="">
+            <textarea name="conteudo" class="summernote-quick"></textarea>
+        </form>
+    </div>
     <script src="{{ URL::asset('assets/js/hideseek/jquery.hideseek.min.js') }}"></script>
     <script src="{{ URL::asset('vendor/plugins/select2/select2.min.js') }}"></script>
     <script src="{{ URL::asset('assets/admin-tools/admin-forms/js/jquery.validate.min.js') }}"></script>
     <script src="{{ URL::asset('assets/admin-tools/admin-forms/js/additional-methods.min.js') }}"></script>
+    <script src="{{ URL::asset('vendor/plugins/summernote/summernote.min.js') }}"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function() {
+        // button click display quick compose message form
+        $('#quick-compose').on('click', function() {
+
+          // Admin Dock Plugin
+          $('.quick-compose-form').dockmodal({
+            minimizedWidth: 260,
+            width: 470,
+            height: 480,
+            title: 'Mensagem para ' + '{!! $profile->username !!}',
+            initialState: "docked",
+            buttons: [{
+              html: "Enviar",
+              buttonClass: "btn btn-primary btn-sm",
+              click: function(e, dialog) {
+                // do something when the button is clicked
+                // dialog.dockmodal("close");
+                $('.summernote-quick').each( function() { $(this).val($(this).code()); });
+                document.getElementById("compose-quick-form").submit();
+
+                // after dialog closes fire a success notification
+                setTimeout(function() {
+                  msgCallback();
+                }, 500);
+              }
+            }]
+          });
+        });
+
+        // Init Summernote
+        $('.summernote-quick').summernote({
+          height: 275, //set editable area's height
+          focus: false, //set focus editable area after Initialize summernote
+          toolbar: [
+            ['style', ['bold', 'italic', 'underline', ]],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']],
+          ]
+        });
+      });
+    </script>
 @endsection
