@@ -14,6 +14,7 @@
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome/css/font-awesome.min.css">
 
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
@@ -419,15 +420,14 @@
                             padding: 0px 0px 0px 0px;
                             margin-top: 0px;
                         ">
-                            <div class="media-left pr30">
+                            <div class="media-left pr10">
                                 <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" style="height: 100%">
-                                <div class="level-circle">
-                                    <span class="label label-rounded label-alert level-label"><i class="fa fa-angle-double-up"></i> 152</span>
-                                </div>
                             </div>
-                            <div class="media-body va-m">
+                            <div class="media-body va-m mt10">
+                                <br />
                                 <span class="label label-success fs12"><i class="fa fa-code"></i> desenvolvedor</span>
-                                <h2 class="media-heading mt10" style="color: #fff">Los</h2>
+                                <h2 class="user-nickname">Los</h2>
+                                <h5 class="user-realname">Lucas Souza</h5>
                                 <!--
                                 <span class="label label-danger fs12"><i class="imoon imoon-user3"></i> administrador</span>
                                 <span class="label label-primary fs12"><i class="fa fa-eye"></i> supervisor</span>
@@ -437,8 +437,9 @@
                                 <span class="label label-default fs12"><i class="fa fa-briefcase"></i> caminhoneiro</span>
                                 <span class="label label-alert fs12"><i class="imoon imoon-target"></i> ballas</span>
                                 -->
-
-                                <p class="lead">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt</p>
+                                <blockquote class="blockquote-primary user-status-block mt10" style="background-color: rgba(0, 0, 0, 0.3); max-width: 95%">
+                                    <p class="lead fs16">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunta sxasaassssssssssss sssssssssss sssssssssss sssssss sss s s ss sss ss sss ssssssss</p>
+                                </blockquote>
                             </div>
                         </div>
                     </div>
@@ -472,11 +473,15 @@
                                         <div id="tab1" class="tab-pane active">
                                             <form role="form" action="#">
                                                 <div class="section row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <label for="fullname" class="field-label">Nome Completo</label>
                                                         <input id="fullname" type="text" value="Lucas Souza" class="gui-input">
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
+                                                        <label for="username" class="field-label">Usuário</label>
+                                                        <input id="username" type="text" value="Los" class="gui-input">
+                                                    </div>
+                                                    <div class="col-md-4">
                                                         <label for="bio" class="field-label">Bio</label>
                                                         <input id="bio" type="text" class="gui-input" value="Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt" />
                                                     </div>
@@ -513,12 +518,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label for="email" style="margin-bottom:10px">E-mail</label>
+                                                        <label for="email" style="margin-bottom:10px">YouTube</label>
                                                         <div class="input-group">
                                                             <span class="input-group-addon">
-                                                                <i class="fa fa-envelope-o"></i>
+                                                                <i class="fa fa-youtube-play"></i> youtube.com/channel/
                                                             </span>
-                                                            <input id="email" class="form-control" type="text" placeholder="E-mail" value="los@pc-rpg.com" readonly>
+                                                            <input id="youtube" class="form-control" type="text" value="LucasVideos">
                                                         </div>
                                                     </div>
                                                 </div>
