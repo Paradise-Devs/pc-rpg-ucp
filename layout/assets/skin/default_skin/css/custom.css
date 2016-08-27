@@ -14,14 +14,14 @@
 /* PROFILE LEVEL BADGE */
 .level-circle {
     width:165px;
-    height:163px;
-    line-height: 163px;
+    height:100%;
+    line-height: 223px;
     display: table-cell;
     text-align:center;
     vertical-align: middle;
     background-color:rgba(0, 0, 0, 0.3);
     position: absolute;
-    left:80%;
+    left:85%;
     bottom: 1px;
 }
 
@@ -37,4 +37,42 @@
     vertical-align: top;
     line-height: normal;
     font-size:12px;
+}
+
+/* PROFILE MEMBER DATA */
+.user-nickname {
+    font-family: "Segoe UI";
+    font-weight: 400;
+    color: #fff;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.user-realname {
+    font-family: "Segoe UI";
+    font-weight: 200;
+    color: #e5e5e5;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+.user-location {
+    font-family: "Segoe UI";
+    font-weight: 200;
+    color: #e5e5e5;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+/* FRIEND LIST */
+.friend-nick {
+    font-family: "Segoe UI";
+    font-weight: 400;
+    display: block;
+    font-size: 14px;
+}
+
+.friend-data {
+    display: block;
+    font-size: 10px;
 }

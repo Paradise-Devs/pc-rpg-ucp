@@ -11,11 +11,6 @@ $(document).ready(function(){
     $("#blocked_info").hide();
     $("#banned_info").hide();
 
-    $('#friend_search').hideseek({
-        list:             '.friend_item',
-        ignore:           '.badge'
-    });
-
     $('#player_select').multiselect({
         includeSelectAllOption: true,
         buttonClass: 'multiselect dropdown-toggle btn btn-sm btn-system btn-gradient dark'
@@ -28,6 +23,7 @@ $(document).ready(function(){
             $("#changecover_btn").hide(1000);
             $("#removecover_btn").hide(1000);
             $("#banned_info").hide(1000);
+            $("#blocked_info").hide(1000);
             $("#report_btn_single").hide(1000);
 
             $("#friend_btn").show(1000);
@@ -41,6 +37,7 @@ $(document).ready(function(){
             $("#changecover_btn").hide(1000);
             $("#removecover_btn").hide(1000);
             $("#banned_info").hide(1000);
+            $("#blocked_info").hide(1000);
             $("#report_btn_single").hide(1000);
 
             $("#unfriend_btn").show(1000);
@@ -56,6 +53,7 @@ $(document).ready(function(){
             $("#report_btn").hide(1000);
             $("#unblock_btn").hide(1000);
             $("#banned_info").hide(1000);
+            $("#blocked_info").hide(1000);
             $("#report_btn_single").hide(1000);
 
             $("#acconfig_btn").show(1000);
@@ -71,6 +69,7 @@ $(document).ready(function(){
             $("#removecover_btn").hide(1000);
             $("#acconfig_btn").hide(1000);
             $("#banned_info").hide(1000);
+            $("#blocked_info").hide(1000);
 
             $("#unblock_btn").show(1000);
             $("#report_btn_single").show(1000);
