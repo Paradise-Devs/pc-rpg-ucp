@@ -16,6 +16,10 @@
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
         <link rel="stylesheet" type="text/css" href="assets/fonts/icomoon/icomoon.css">
         <link rel="stylesheet" type="text/css" href="vendor/plugins/select2/css/core.css">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -418,92 +422,182 @@
                         <a href="ticket_manage.html" type="button" class="btn btn-sm btn-system btn-gradient dark">
                             <i class="fa fa-cog"></i> Gerenciar Jogador
                         </a>
-                        <div class="btn-group">
-                            <a id="unfriend_btn" href="#" type="button" class="btn btn-sm btn-danger btn-gradient dark">
-                                <i class="fa fa-user-times"></i> Desfazer amizade
-                            </a>
-                            <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-primary btn-gradient dark">
-                                <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
-                            </a>
-                            <a id="message_btn" href="#" type="button" class="btn btn-sm btn-info btn-gradient dark">
-                                <i class="fa fa-envelope-o"></i> Enviar mensagem
-                            </a>
-                            <a id="accconfig_btn" href="ticket_edit.html" type="button" class="owner_player btn btn-sm btn-info btn-gradient dark">
-                                <i class="fa fa-cog"></i> Configuração da conta
-                            </a>
-                            <a id="block_btn" href="#" type="button" class="btn btn-sm btn-info btn-gradient dark">
-                                <i class="fa fa-bell-slash"></i> Bloquear
-                            </a>
-                            <a id="unblock_btn" href="#" type="button" class="btn btn-sm btn-success btn-gradient dark">
-                                <i class="fa fa-bell"></i> Desbloquear
-                            </a>
-                            <a id="report_btn" href="#" type="button" class="btn btn-sm btn-warning btn-gradient dark">
-                                <i class="fa fa-warning"></i> Denúnciar
-                            </a>
-                        </div>
+
                     </div>
                 </header>
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
-                <section id="content" class="animated fadeIn">
-                    <div class="page-heading">
-                        <div class="media clearfix">
-                            <div id="blocked_info" class="alert alert-micro alert-border-left alert-danger">
-                                <i class="fa fa-ban pr10"></i>
-                                Usuário bloqueado.<br />
-                                Usuários bloqueados por você são impossibilitados de ter qualquer contato com você. Não conseguem visualizar seu perfil ou lhe enviar mensagens privadas.
-                            </div>
+                <section id="content" class="animated fadeIn" style="padding-bottom: 0px">
+                    <div class="page-heading" style="padding: 0px 0px 0px 0px">
+                        <div id="blocked_info" class="alert alert-micro alert-border-left alert-danger">
+                            <i class="fa fa-ban"></i>
+                            Usuário bloqueado.<br />
+                            Usuários bloqueados por você são impossibilitados de ter qualquer contato com você. Não conseguem visualizar seu perfil ou lhe enviar mensagens privadas.
+                        </div>
+                        <div id="banned_info" class="alert alert-micro alert-border-left alert-dark dark">
+                            <i class="fa fa-ban"></i>
+                            Usuário banido.<br />
+                            Usuários banidos são impossibilitados de ter qualquer tipo de interação social pelo painel.
+                        </div>
+                        <div class="media clearfix profile-header" style="
+                            background-image: url('assets/img/covers/los.jpg');
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            color: #fff;
+                            padding: 0px 0px 0px 0px;
+                            margin-top: 0px;
+                        ">
                             <div class="media-left pr30">
-                                <a href="#">
-                                    <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" alt="...">
-                                </a>
+                                <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" style="height: 100%">
+                                <div class="level-circle">
+                                    <span class="label label-rounded label-alert level-label"><i class="fa fa-angle-double-up"></i> 152</span>
+                                </div>
                             </div>
                             <div class="media-body va-m">
-                                <h3 class="media-heading">Los
-                                    <span class="label label-rounded label-default fs12">1 - 14</span>
-                                    <span class="label label-rounded label-primary fs12">15 - 29</span>
-                                    <span class="label label-rounded label-info fs12">30 - 44</span>
-                                    <span class="label label-rounded label-system fs12">45 - 59</span>
-                                    <span class="label label-rounded label-success fs12">60 - 74</span>
-                                    <span class="label label-rounded label-warning fs12">75 - 99</span>
-                                    <span class="label label-rounded label-danger fs12">100 - 114</span>
-                                    <span class="label label-rounded label-alert fs12">115 - 149</span>
-                                    <span class="label label-rounded label-dark fs12">150+</span>
-                                </h3>
                                 <span class="label label-success fs12"><i class="fa fa-code"></i> desenvolvedor</span>
+                                <h2 class="media-heading mt10" style="color: #fff">Los</h2>
+                                <!--
                                 <span class="label label-danger fs12"><i class="imoon imoon-user3"></i> administrador</span>
                                 <span class="label label-primary fs12"><i class="fa fa-eye"></i> supervisor</span>
                                 <span class="label label-info fs12"><i class="fa fa-fire"></i> moderador</span>
                                 <span class="label label-warning fs12"><i class="fa fa-star-o"></i> paradiser</span>
                                 <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
-
                                 <span class="label label-default fs12"><i class="fa fa-briefcase"></i> caminhoneiro</span>
                                 <span class="label label-alert fs12"><i class="imoon imoon-target"></i> ballas</span>
+                                -->
 
-                                <p class="lead mt10">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt</p>
+                                <p class="lead">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt</p>
                                 <div class="media-links">
-                                    <ul class="list-inline list-unstyled">
-                                        <li>
-                                            <a href="#" title="facebook link">
-                                                <span class="fa fa-facebook-square fs35 text-primary"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="twitter link">
-                                                <span class="fa fa-twitter-square fs35 text-info"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="github link">
-                                                <span class="fa fa-github-square fs35 text-dark"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" title="email link">
-                                                <span class="fa fa-envelope-square fs35 text-muted"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <!-- if (user & profileowner != friends)-->
+                                    <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-primary btn-rounded btn-gradient dark">
+                                        <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
+                                    </a>
+
+                                    <!-- if (user & profileowner == friends)-->
+                                    <a id="unfriend_btn" href="#" type="button" class="btn btn-sm btn-default btn-rounded btn-gradient dark">
+                                        <i class="fa fa-user-times"></i> Desfazer amizade
+                                    </a>
+
+                                    <!-- if profileowner blockedby user-->
+                                    <a id="unblock_btn" href="#" type="button" class="btn btn-sm btn-dark btn-rounded btn-gradient dark">
+                                        <i class="fa fa-bell"></i> Desbloquear
+                                    </a>
+
+                                    <!-- if (user == profileowner)-->
+                                    <a id="acconfig_btn" href="ticket_edit.html" type="button" class="owner_player btn btn-sm btn-info btn-rounded btn-gradient dark">
+                                        <i class="fa fa-cog"></i> Configuração da conta
+                                    </a>
+
+                                    <!-- if(playerid != profileowner) && profileowner blockedby playerid -->
+                                    <a id="report_btn_single" href="#" type="button" class="btn btn-sm btn-danger btn-rounded btn-gradient dark ml10">
+                                        <i class="fa fa-warning"></i> Denunciar
+                                    </a>
+
+                                    <!-- if (user == donator, moderator+) && if (user == profileowner)-->
+                                    <div class="btn-group ml10">
+                                        <a id="changecover_btn" href="ticket_edit.html" type="button" class="owner_player btn btn-sm btn-dark btn-rounded btn-gradient dark">
+                                            <i class="fa fa-image"></i> Alterar capa
+                                        </a>
+                                        <a id="removecover_btn" href="ticket_edit.html" type="button" class="owner_player btn btn-sm btn-danger btn-rounded btn-gradient dark">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="btn-group">
+                                        <!-- if profileowner !blockedby user-->
+                                        <a id="block_btn" href="#" type="button" class="btn btn-sm btn-dark btn-rounded btn-gradient dark">
+                                            <i class="fa fa-bell-slash"></i> Bloquear
+                                        </a>
+
+                                        <!-- if(user != profileowner)-->
+                                        <a id="report_btn" href="#" type="button" class="btn btn-sm btn-danger btn-rounded btn-gradient dark">
+                                            <i class="fa fa-warning"></i> Denunciar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel user-group-widget admin-form theme-primary panel-primary panel-border top">
+                            <div class="panel-heading" style="height: 55px; padding-bottom: 5px; padding-top: 0px; padding-right: 8px">
+                                <span class="panel-icon">
+                                    <i class="fa fa-users"></i>
+                                </span>
+                                <span class="panel-title fs20 pl5"> Amigos (12)</span>
+                                <div class="widget-menu pull-right" style="padding-top: 5px">
+                                    <div class="input-group">
+                                        <label class="field prepend-icon">
+                                        <input id="friend_search" type="text" class="gui-input input-sm" placeholder="Procurar amigo...">
+                                            <label for="website" class="field-icon">
+                                              <i class="fa fa-search"></i>
+                                            </label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body panel-scroller scroller-overlay pn" style="max-height: 261px;">
+                                <div class="friend_item mt20">
+                                    <div class="col-md-2">
+                                        <a href="user_profile.html" class="link-unstyled">
+                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
+                                            <div class="caption">
+                                                <h4 class="text-dev fs10" style="margin-top: 3px">
+                                                    Sync
+                                                </h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="friend_item mt20">
+                                    <div class="col-md-2">
+                                        <a href="user_profile.html" class="link-unstyled">
+                                            <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 134px;">
+                                            <div class="caption">
+                                                <h4 class="text-dev fs10" style="margin-top: 3px">With</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="friend_item mt20">
+                                    <div class="col-md-2">
+                                        <a href="user_profile.html" class="link-unstyled">
+                                            <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
+                                            <div class="caption">
+                                                <h4 class="fs10" style="margin-top: 3px">Userrrrrrrrr</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="friend_item mt20">
+                                    <div class="col-md-2">
+                                        <a href="user_profile.html" class="link-unstyled">
+                                            <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
+                                            <div class="caption">
+                                                <h4 class="text-admin fs10" style="margin-top: 3px">ReDKiiL</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="friend_item mt20">
+                                    <div class="col-md-2">
+                                        <a href="user_profile.html" class="link-unstyled">
+                                            <img src="assets/img/avatars/5.jpg" class="user-avatar" style="width: 134px;">
+                                            <div class="caption">
+                                                <h4 class="fs10" style="margin-top: 3px">Userraandom</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="friend_item mt20">
+                                    <div class="col-md-2">
+                                        <a href="user_profile.html" class="link-unstyled">
+                                            <img src="assets/img/avatars/6.jpg" class="user-avatar" style="width: 134px;">
+                                            <div class="caption">
+                                                <h4 class="text-admin fs10" style="margin-top: 3px">ReDKiiL</h4>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -523,9 +617,9 @@
                                 <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
                                     <thead>
                                         <tr class="hidden">
-                                            <th class="mw30">#</th>
-                                            <th>First Name</th>
-                                            <th>Revenue</th>
+                                            <th class="mw30"></th>
+                                            <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -564,156 +658,35 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="panel user-group-widget admin-form theme-primary panel-primary panel-border top">
-                            <div class="panel-heading" style="height: 55px; padding-bottom: 5px; padding-top: 0px; padding-right: 8px">
-                                <span class="panel-icon">
-                                    <i class="fa fa-users"></i>
-                                </span>
-                                <span class="panel-title fs20 pl5"> Amigos (12)</span>
-                                <div class="widget-menu pull-right" style="padding-top: 5px">
-                                    <div class="input-group">
-                                        <label class="field prepend-icon">
-                                        <input id="friend_search" type="text" class="gui-input input-sm" placeholder="Procurar amigo...">
-                                            <label for="website" class="field-icon">
-                                              <i class="fa fa-search"></i>
-                                            </label>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-body panel-scroller scroller-overlay pn" style="max-height: 261px;">
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="text-system fs10" style="margin-top: 3px">
-                                                    Sync
-                                                </h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="text-system fs10" style="margin-top: 3px">With</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="fs10" style="margin-top: 3px">Userrrrrrrrr</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="text-danger fs10" style="margin-top: 3px">ReDKiiL</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="fs10" style="margin-top: 3px">Userraandommmm</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="text-danger fs10" style="margin-top: 3px">ReDKiiL</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="text-system fs10" style="margin-top: 3px">Sync</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="text-system fs10" style="margin-top: 3px">With</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="fs10" style="margin-top: 3px">User Random</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="text-danger fs10" style="margin-top: 3px">ReDKiiL</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="fs10" style="margin-top: 3px">Userraandommmm</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="friend_item mt20">
-                                    <div class="col-md-2">
-                                        <a href="user_profile.html" class="link-unstyled">
-                                            <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 134px;">
-                                            <div class="caption">
-                                                <h4 class="text-danger fs10" style="margin-top: 3px">Ola</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="panel panel-primary panel-border top">
+                    <div class="col-md-4 mb30 animated slideInRight">
+                        <div class="panel panel-info">
                             <div class="panel-heading">
-                                <span class="panel-title"><i class="fa fa"</span>
+                                <span class="panel-icon">
+                                <i class="fa fa-life-ring"></i>
+                                </span>
+                                <span class="panel-title">Social</span>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body text-muted p10">
+                                <div class="list-group fs14 fw600" style="margin-bottom: 3px">
+                                    <a class="list-group-item" href="https://discord.gg/01395UXNDXeJyw2i1">
+                                        <i class="fa fa-comments-o fa-fw text-primary"></i>&nbsp; Enviar mensagem particular
+                                    </a>
+                                    <a class="list-group-item" href="#" target="_blank">
+                                        <i class="fa fa-envelope-o fa-fw text-primary"></i>&nbsp; Email
+                                    </a>
+                                    <a class="list-group-item" href="https://www.youtube.com/channel/UCGo6hd688I7PS3NzRa01yiw" target="_blank">
+                                        <i class="fa fa-youtube-play fa-fw text-primary"></i>&nbsp; YouTube
+                                    </a>
+                                    <a class="list-group-item" href="https://twitter.com/paradisecityrpg" target="_blank">
+                                        <i class="fa fa-twitter fa-fw text-primary"></i>&nbsp; <span class="text-muted">@<span class="text-primary">los799</span>
+                                    </a>
+                                    <a class="list-group-item" href="https://fb.com/paradisecityrpg" target="_blank">
+                                        <i class="fa fa-facebook fa-fw"></i>&nbsp; <span class="text-muted">/<span class="text-primary">lucasosouza</span>
+                                    </a>
+                                    <a class="list-group-item" href="https://fb.com/paradisecityrpg" target="_blank">
+                                        <i class="fa fa-gitlab fa-fw"></i>&nbsp; <span class="text-muted">/u/<span class="text-primary">Los799</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

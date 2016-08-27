@@ -1,0 +1,40 @@
+/*
+    Custom CSS for PC:RPG theme
+*/
+
+/* RANK COLORS */
+.text-dev           { color: #35A700; }
+.text-admin         { color: #00AEFF; }
+.text-supervisor    { color: #009CE5; }
+.text-moderator     { color: #008BCC; }
+.text-betatester    { color: #992A2A; }
+.text-designer      { color: #E48200; }
+.text-paradiser     { color: #CE8500; }
+
+/* PROFILE LEVEL BADGE */
+.level-circle {
+    width:165px;
+    height:163px;
+    line-height: 163px;
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+    background-color:rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left:80%;
+    bottom: 1px;
+}
+
+.level-label {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size:24px;
+}
+
+.level-header {
+    display: relative;
+    vertical-align: top;
+    line-height: normal;
+    font-size:12px;
+}
