@@ -13,6 +13,11 @@
 
 Route::auth();
 
+Route::get('/perfil/amizade/enviar/{id}', 'ProfileController@addFriend');
+Route::get('/perfil/amizade/recusar/{id}', 'ProfileController@denyFriend');
+Route::get('/perfil/amizade/aceitar/{id}', 'ProfileController@acceptFriend');
+Route::get('/perfil/amizade/desfazer/{id}', 'ProfileController@removeFriend');
+
 Route::post('/perfil/save/info', 'ProfileController@info');
 Route::post('/perfil/save/avatar', 'ProfileController@avatar');
 Route::post('/perfil/save/email', 'ProfileController@email');

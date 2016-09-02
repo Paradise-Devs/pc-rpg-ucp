@@ -10,15 +10,20 @@
             <div class="navbar-btn btn-group">
                 <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
                     <span class="fa fa-bell-o fs14 va-m"></span>
-                    @if($new_msg_count > 0)
-                        <span class="badge">{{ $new_msg_count }}</span>
+                    @if($new_msg_count > 0 || $pending_fr_count > 0)
+                        <span class="badge">{{ $new_msg_count + $pending_fr_count }}</span>
                     @endif
                 </button>
                 <div class="dropdown-menu dropdown-persist w350" role="menu">
                     <div class="panel mbn">
                         <div class="panel-menu">
                             <div class="btn-group btn-group-justified btn-group-nav" role="tablist">
-                                <a href="#nav-tab1" data-toggle="tab" class="btn btn-default btn-sm active">Notificações</a>
+                                <a href="#nav-tab1" data-toggle="tab" class="btn btn-default btn-sm active">
+                                    Notificações
+                                    @if($pending_fr_count > 0)
+                                        <span class="label badge-default">{{ $pending_fr_count }}</span>
+                                    @endif
+                                </a>
                                 <a href="#nav-tab2" data-toggle="tab" class="btn btn-default btn-sm">
                                     Mensagens
                                     @if($new_msg_count > 0)
@@ -33,7 +38,32 @@
                         <div class="panel-body panel-scroller scroller-navbar pn">
                             <div class="tab-content br-n pn">
                                 <div id="nav-tab1" class="tab-pane alerts-widget active" role="tabpanel">
-                                    <div class="media text-center">Nenhuma notificação no momento</div>
+                                    @if($pending_fr_count > 0)
+                                        @foreach($user->getFriendRequests() as $request)
+                                            <div class="media">
+                                                <div class="media-left">
+                                                    <span class="glyphicon glyphicon-user text-default"></span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h5 class="media-heading">Solicitação de amizade</h5>
+                                                    <a href="{{ url('/perfil/'.$request->sender->id) }}">{{ $request->sender->username }}</a> - {{ App\Utils::timeElapsedString($request->created_at) }}
+                                                </div>
+                                                <div class="media-right">
+                                                    <div class="media-response"> Aceitar?</div>
+                                                    <div class="btn-group">
+                                                        <a href="{{ url('/perfil/amizade/aceitar/'.$request->sender->id) }}" class="btn btn-default btn-xs light">
+                                                            <i class="fa fa-check text-success"></i>
+                                                        </a>
+                                                        <a href="{{ url('/perfil/amizade/recusar/'.$request->sender->id) }}" class="btn btn-default btn-xs light">
+                                                            <i class="fa fa-remove"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <div class="media text-center">Nenhuma notificação no momento</div>
+                                    @endif
                                 </div>
                                 @if($new_msg_count > 0)
                                     <div id="nav-tab2" class="tab-pane chat-widget" role="tabpanel">

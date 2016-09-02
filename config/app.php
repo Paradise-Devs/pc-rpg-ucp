@@ -158,6 +158,7 @@ return [
         App\Providers\ComposerServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
+        Hootlex\Friendships\FriendshipsServiceProvider::class,
     ],
 
     /*

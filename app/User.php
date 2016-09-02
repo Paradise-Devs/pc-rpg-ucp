@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Hootlex\Friendships\Traits\Friendable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    use Friendable;
+    
     /**
      * The attributes that are mass assignable.
      *

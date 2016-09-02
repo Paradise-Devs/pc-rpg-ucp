@@ -28,14 +28,13 @@
     </div>
 
     <div class="topbar-right">
+        {{-- Gerenciar --}}
         @can('admin')
             <a href="#" type="button" class="btn btn-sm btn-system btn-gradient dark">
                 <i class="fa fa-cog"></i> Gerenciar Jogador
             </a>
         @endcan
-        {{--<a id="unfriend_btn" href="#" type="button" class="btn btn-sm btn-danger btn-gradient dark">
-            <i class="fa fa-user-times"></i> Desfazer amizade
-        </a>--}}
+        {{-- Amizade --}}
         @if($profile->id != $user->id)
             <a id="quick-compose" type="button" class="btn btn-sm btn-info btn-gradient dark">
                 <i class="fa fa-envelope-o"></i> Enviar mensagem
@@ -45,10 +44,25 @@
                     <i class="fa fa-warning"></i> Denúnciar
                 </a>
             @endif
-            <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-primary btn-gradient dark" disabled>
-                <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
-            </a>
+            @if($user->hasSentFriendRequestTo($profile))
+                <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-primary btn-gradient dark" disabled>
+                    <i class="fa fa-user-plus"></i> Solicitação de amizade pendente
+                </a>
+            @elseif($user->isFriendWith($profile))
+                <a id="unfriend_btn" href="{{ url('/perfil/amizade/desfazer/'.$profile->id) }}" type="button" class="btn btn-sm btn-danger btn-gradient dark">
+                    <i class="fa fa-user-times"></i> Desfazer amizade
+                </a>
+            @elseif($user->hasFriendRequestFrom($profile))
+                <a id="friend_btn" href="{{ url('/perfil/amizade/aceitar/'.$profile->id) }}" type="button" class="btn btn-sm btn-primary btn-gradient dark">
+                    <i class="fa fa-user-plus"></i> Aceitar solicitação de amizade
+                </a>
+            @else
+                <a id="friend_btn" href="{{ url('/perfil/amizade/enviar/'.$profile->id) }}" type="button" class="btn btn-sm btn-primary btn-gradient dark">
+                    <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
+                </a>
+            @endif
         @endif
+        {{-- Configurações --}}
         @if($profile->id == $user->id)
             <a id="accconfig_btn" href="{{ url('/perfil/configuracoes') }}" type="button" class="owner_player btn btn-sm btn-info btn-gradient dark">
                 <i class="fa fa-cog"></i> Configurar da conta
@@ -230,7 +244,7 @@
               <span class="panel-icon">
                   <i class="fa fa-users"></i>
               </span>
-              <span class="panel-title fs20 pl5"> Amigos (0)</span>
+              <span class="panel-title fs20 pl5"> Amigos ({{ $profile->getFriends()->count() }})</span>
               <div class="widget-menu pull-right" style="padding-top: 5px">
                   <div class="input-group">
                       <label class="field prepend-icon">
@@ -243,18 +257,20 @@
               </div>
           </div>
           <div class="panel-body panel-scroller scroller-overlay pn" style="max-height: 261px;">
-              {{--<div class="friend_item mt20">
-                  <div class="col-md-2">
-                      <a href="user_profile.html" class="link-unstyled">
-                          <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 134px;">
-                          <div class="caption">
-                              <h4 class="text-system fs10" style="margin-top: 3px">
-                                  Sync
-                              </h4>
-                          </div>
-                      </a>
+              @foreach($profile->getFriends() as $friend)
+                  <div class="friend_item mt20">
+                      <div class="col-md-2">
+                          <a href="{{ url('/perfil/'.$friend->id) }}" class="link-unstyled">
+                              <img src="{{ URL::asset("uploads/avatars/$friend->avatar_url") }}" class="user-avatar" style="width: 134px;">
+                              <div class="caption">
+                                  <h4 class="text-system fs10" style="margin-top: 3px">
+                                      {{ $friend->username }}
+                                  </h4>
+                              </div>
+                          </a>
+                      </div>
                   </div>
-              </div>--}}
+              @endforeach
           </div>
       </div>
   </div>

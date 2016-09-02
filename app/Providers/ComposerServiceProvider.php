@@ -22,8 +22,10 @@ class ComposerServiceProvider extends ServiceProvider {
             {
                 $user = Auth::user();
                 $new_msg_count = Message::where('user_id', $user->id)->where('receiver_id', $user->id)->where('read', false)->count();
+                $pending_fr_count = $user->getFriendRequests()->count();
                 $view->with('user', $user);
                 $view->with('new_msg_count', $new_msg_count);
+                $view->with('pending_fr_count', $pending_fr_count);
                 if($new_msg_count > 0)
                 {
                     $new_messages = Message::where('user_id', $user->id)->where('receiver_id', $user->id)->where('read', false)->take(5)->get();

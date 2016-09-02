@@ -89,4 +89,51 @@ class ProfileController extends Controller
         }
     }
 
+    public function addFriend($id)
+    {
+        $recipient = User::findOrFail($id);
+        $user = Auth::user();
+
+        if(!$user->isFriendWith($recipient))
+        {
+            $user->befriend($recipient);
+        }
+        return Redirect::to('perfil/'.$id);
+    }
+
+    public function removeFriend($id)
+    {
+        $recipient = User::findOrFail($id);
+        $user = Auth::user();
+
+        if($user->isFriendWith($recipient))
+        {
+            $user->unfriend($recipient);
+        }
+        return Redirect::to('perfil/'.$id);
+    }
+
+    public function acceptFriend($id)
+    {
+        $sender = User::findOrFail($id);
+        $recipient = Auth::user();
+
+        if($recipient->hasFriendRequestFrom($sender))
+        {
+            $recipient->acceptFriendRequest($sender);
+        }
+        return Redirect::to('perfil/'.$id);
+    }
+
+    public function denyFriend($id)
+    {
+        $sender = User::findOrFail($id);
+        $recipient = Auth::user();
+
+        if($recipient->hasFriendRequestFrom($sender))
+        {
+            $recipient->denyFriendRequest($sender);
+        }
+        return Redirect::to('perfil/'.$id);
+    }
 }
