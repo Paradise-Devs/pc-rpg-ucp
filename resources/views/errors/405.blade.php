@@ -1,6 +1,6 @@
 @extends('layouts.error')
 
-@section('title', '| Erro 404')
+@section('title', '| Erro 405')
 
 @section('content')
     <h1 class="error-page-title">405!</h1>
