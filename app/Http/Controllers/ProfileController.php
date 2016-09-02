@@ -89,6 +89,12 @@ class ProfileController extends Controller
         }
     }
 
+    public function friendslist($id)
+    {
+        $profile = User::findOrFail($id);
+        return view('pages.profile.friends', ['profile' => $profile]);
+    }
+
     public function addFriend($id)
     {
         $recipient = User::findOrFail($id);

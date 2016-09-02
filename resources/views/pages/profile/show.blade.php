@@ -244,7 +244,7 @@
               <span class="panel-icon">
                   <i class="fa fa-users"></i>
               </span>
-              <span class="panel-title fs20 pl5"> Amigos ({{ $profile->getFriends()->count() }})</span>
+              <a href="{{ url('/perfil/amigos/'.$profile->id) }}" class="panel-title fs20 pl5"> Amigos ({{ $profile->getFriends()->count() }})</a>
               <div class="widget-menu pull-right" style="padding-top: 5px">
                   <div class="input-group">
                       <label class="field prepend-icon">
