@@ -418,11 +418,6 @@
                             <option value="banned"><i class="fa fa-eye-slash"></i> Banido</option>
                             <option value="blocked"><i class="fa fa-eye-slash"></i> Bloqueado</option>
                         </select>
-
-                        <a href="ticket_manage.html" type="button" class="btn btn-sm btn-system btn-gradient dark">
-                            <i class="fa fa-cog"></i> Gerenciar Jogador
-                        </a>
-
                     </div>
                 </header>
                 <!-- End: Topbar -->
@@ -491,7 +486,7 @@
                                         <i class="fa fa-cog"></i> Configuração da conta
                                     </a>
 
-                                    <!-- if(playerid != profileowner) && profileowner blockedby playerid -->
+                                    <!-- if(user != profileowner) && profileowner blockedby user -->
                                     <a id="report_btn_single" href="#" type="button" class="btn btn-sm btn-danger btn-rounded btn-gradient dark ml10">
                                         <i class="fa fa-warning"></i> Denunciar
                                     </a>
@@ -517,6 +512,10 @@
                                             <i class="fa fa-warning"></i> Denunciar
                                         </a>
                                     </div>
+                                    <!-- if (user == supervisor+)-->
+                                    <a href="user_edit_account_admin.html" type="button" class="owner_player btn btn-sm btn-system btn-rounded btn-gradient dark" style="float: right; margin-right:20%">
+                                        <i class="fa fa-cog"></i> Administrar Jogador
+                                    </a>
                                 </div>
                             </div>
                         </div>
