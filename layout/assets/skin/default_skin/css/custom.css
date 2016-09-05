@@ -79,6 +79,7 @@
 .friend-data {
     display: block;
     font-size: 10px;
+    margin-top: 0px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -124,4 +125,16 @@
     background-color:rgba(0, 0, 0, 0.3);
     position: absolute;
     bottom: 42%;
+}
+
+/* -----------------------------------------------------------------------------
+    INDEX PAGE
+------------------------------------------------------------------------------*/
+td .news-link {
+    display: block;
+    width:100%
+}
+
+.news-row:hover {
+    cursor: pointer;
 }

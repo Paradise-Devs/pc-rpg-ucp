@@ -12,6 +12,14 @@
 
         <!-- Stylesheets -->
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/icomoon/icomoon.css">
+
+        <!-- FooTable Plugin CSS -->
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/footable/css/footable.core.min.css">
+
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
 
         <!-- Favicon -->
@@ -374,24 +382,204 @@
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
                 <section id="content" class="animated fadeIn">
-
-                </section>
-                <!-- End: Content -->
-                <!-- Begin: Page Footer -->
-                <footer id="content-footer" class="affix">
                     <div class="row">
-                        <div class="col-md-6">
-                            <span class="footer-legal">© 2012-2016 Paradise City</span>
+                        <div class="col-md-3">
+                            <div class="panel panel-dark">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <span class="fa fa-group"></span>Staff Online: 3
+                                    </span>
+                                </div>
+                                <div class="panel-body panel-scroller scroller-pn pn scroller-primary" style="max-height: 246px;">
+                                    <table class="table tc-bold-last">
+                                        <thead>
+                                            <tr class="hidden">
+                                                <th>Avatar</th>
+                                                <th>Nick</th>
+                                                <th>Online</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center" style="margin-left: 0px; width:0%">
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 20px; float: center">
+                                                    </a>
+                                                </td>
+                                                <td class="text-left" style="margin-left: 0px; width:100%">
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <b class="text-dev">Los</b>
+                                                    </a>
+                                                </td>
+                                                <td style="margin-left: 0px"><span class="label label-success fs10"><i class="fa fa-code"></i> desenvolvedor</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center" style="margin-left: 0px; width:0%">
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 20px; float: center">
+                                                    </a>
+                                                </td>
+                                                <td class="text-left" style="margin-left: 0px; width:100%">
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <b class="text-dev">Witch</b>
+                                                    </a>
+                                                </td>
+                                                <td style="margin-left: 0px"><span class="label label-success fs10"><i class="fa fa-code"></i> desenvolvedor</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center" style="margin-left: 0px; width:0%">
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 20px; float: center">
+                                                    </a>
+                                                </td>
+                                                <td class="text-left" style="margin-left: 0px; width:100%">
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <b class="text-admin">ReDKiiL</b>
+                                                    </a>
+                                                </td>
+                                                <td style="margin-left: 0px"><span class="label label-primary fs10"><i class="imoon imoon-user3"></i> administrador</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6 text-right">
-                            <span class="footer-meta">Paradise<b>Devs</b></span>
-                            <a href="#content" class="footer-return-top">
-                                <span class="fa fa-arrow-up"></span>
-                            </a>
+                        <div class="col-md-6">
+                            <div class="panel panel-dark">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <span class="fa fa-newspaper-o"></span>Notícias
+                                    </span>
+                                </div>
+                                <div class="panel-body pn">
+                                    <table id="news_table" class="table table-hover news-table fw-labels" data-page-navigation=".pagination" data-page-size="3">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10%">Categoria</th>
+                                                <th>Título</th>
+                                                <th>Autor</th>
+                                                <th data-toggle="true">Postado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="news-row row-primary" onClick="document.location.href='http://linkdanoticiaaqui';">
+                                                <td><span class="label label-primary">Grupos & Facções</span></td>
+                                                <td>Nova facção oficial: <b class="text-primary">Ballas</b></td>
+                                                <td>
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
+                                                        <b class="text-dev">Los</b>
+                                                    </a>
+                                                </td>
+                                                <td>3 horas atrás</td>
+                                            </tr>
+                                            <tr class="news-row row-alert" onClick="document.location.href='http://linkdanoticiaaqui';">
+                                                <td><span class="label label-alert">Eventos</span></td>
+                                                <td>
+                                                    <a class="news-link link-unstyled" href="#" target="_blank">
+                                                        XP em dobro de <b class="text-alert">02/09</b> até <b class="text-alert">05/09</b>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <img src="assets/img/avatars/2.jpg" class="user-avatar" style="width: 30px;">
+                                                        <b class="text-dev">SyNC</b>
+                                                    </a>
+                                                </td>
+                                                <td>3 horas atrás</td>
+                                            </tr>
+                                            <tr class="news-row row-system" onClick="document.location.href='http://linkdanoticiaaqui';">
+                                                <td><span class="label label-system">Atualização</span></td>
+                                                <td>Notas da atualização <span class="label label-system">1.3.2</span></td>
+                                                <td>
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 30px;">
+                                                        <b class="text-dev">n0minal</b>
+                                                    </a>
+                                                </td>
+                                                <td>3 horas atrás</td>
+                                            </tr>
+                                            <tr class="news-row row-danger" onClick="document.location.href='http://linkdanoticiaaqui';">
+                                                <td><span class="label label-danger">Administração</span></td>
+                                                <td>Paradisers promovidos para <b class="text-moderator">moderador</b></td>
+                                                <td>
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <img src="assets/img/avatars/3.jpg" class="user-avatar" style="width: 30px;">
+                                                        <b class="text-supervisor">Supervisor</b>
+                                                    </a>
+                                                </td>
+                                                <td>3 horas atrás</td>
+                                            </tr>
+                                            <tr class="news-row row-info" onClick="document.location.href='http://linkdanoticiaaqui';">
+                                                <td><span class="label label-info">Avisos</span></td>
+                                                <td>Manutenção programada: <b class="text-info">05/09</b></td>
+                                                <td>
+                                                    <a href="user_profile.html" class="link-unstyled">
+                                                        <img src="assets/img/avatars/4.jpg" class="user-avatar" style="width: 30px;">
+                                                        <b class="text-dev">Witch</b>
+                                                    </a>
+                                                </td>
+                                                <td>3 horas atrás</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot class="footer-menu">
+                                            <tr>
+                                                <td colspan="5">
+                                                    <nav class="text-right">
+                                                        <ul class="pagination hide-if-no-paging"></ul>
+                                                    </nav>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-dark">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <span class="fa fa-server"></span>Servidor
+                                    </span>
+                                </div>
+                                <div class="panel-body panel-scroller scroller-pn pn scroller-primary" style="max-height: 195px;">
+                                    <table class="table table-hover tc-bold-last">
+                                        <thead>
+                                            <tr class="hidden">
+                                                <th>#</th>
+                                                <th>data</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-muted">Servidor</td>
+                                                <td><span class="label label-success">online</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-muted">Versão</td>
+                                                <td><span class="label label-system">1.3.2</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-muted">Jogadores Conectados</td>
+                                                <td><span class="label label-danger">499 / 500</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-muted">Server Uptime</td>
+                                                <td>2m 3d 23h 13m</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="panel-footer">
+                                    <a href="#" class="btn btn-sm btn-primary btn-block btn-gradient dark"><i class="fa fa-gamepad"></i> Jogar</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </footer>
-                <!-- End: Page Footer -->
+                    <hr class="alt short">
+                    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                </section>
+                <!-- End: Content -->
             </section>
         </div>
         <!-- End: Main -->
@@ -401,15 +589,24 @@
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
+        <!-- FooTable Plugin -->
+        <script src="vendor/plugins/footable/js/footable.all.min.js"></script>
+
+        <!-- FooTable Addon -->
+        <script src="vendor/plugins/footable/js/footable.filter.min.js"></script>
+
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
         <script src="assets/js/demo/demo.js"></script>
         <script src="assets/js/main.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function() {
-              "use strict";
-              // Init Theme Core
-              Core.init();
+                "use strict";
+                // Init Theme Core
+                Core.init();
+
+                // Init FooTable
+                $('.news-table').footable();
             });
         </script>
         <!-- END: PAGE SCRIPTS -->
