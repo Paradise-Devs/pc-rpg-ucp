@@ -138,3 +138,17 @@ td .news-link {
 .news-row:hover {
     cursor: pointer;
 }
+
+/* -----------------------------------------------------------------------------
+    GROUPS PAGE
+------------------------------------------------------------------------------*/
+.group-logo {
+    border: 3px solid #CCC;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+.group-data {
+    float: right;
+}
