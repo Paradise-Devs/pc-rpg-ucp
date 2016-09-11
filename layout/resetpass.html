@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <title>PC:RPG | Início</title>
+        <meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
+        <meta name="description" content="Paradise City RPG">
+        <meta name="author" content="Paradise Devs">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="‪#009dc7">
+
+        <!-- Stylesheets -->
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/img/favicon.ico">
+    </head>
+    <body class="external-page auth-body sb-l-c sb-r-c">
+        <div id="main" class="animated fadeIn">
+            <section id="content_wrapper">
+                <div id="canvas-wrapper">
+                    <canvas id="demo-canvas"></canvas>
+                </div>
+                <section id="content" class="">
+                    <div class="admin-form theme-info mw500" style="margin-top: 10%;" id="login">
+                        <div class="row mb15 table-layout">
+                            <div class="col-xs-6 pln">
+                                <a href="{{ url('/') }}" title="Return to Dashboard">
+                                <img src="assets/img/logos/logo-big.png" class="img-responsive w250">
+                                </a>
+                            </div>
+                            <div class="col-xs-6 va-b">
+                                <div class="login-links text-right">
+                                    <a href="#" class="" title="False Credentials">Recuperação de senha</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-info heading-border br-n">
+                            <form role="form" method="POST" action="{{ url('/password/email') }}" id="contact">
+                                <div class="panel-body p15 pt25">
+                                    <div class="alert alert-micro alert-info pastel mn">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <i class="fa fa-info pr10"></i> Insira o seu
+                                        <b>e-mail</b> e instruções serão enviadas para você.
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="section">
+                                        <div class="smart-widget">
+                                            <label for="email" class="field prepend-icon {{ $errors->has('email') ? 'state-error' : '' }}">
+                                                <input type="email" name="email" id="email" class="gui-input" placeholder="Insira o seu endereço de email">
+                                                <label for="email" class="field-icon">
+                                                    <i class="fa fa-envelope-o"></i>
+                                                </label>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-block">Enviar solicitação</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!-- Begin: Page Footer -->
+            <footer id="auth-footer" class="affix">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="footer-since">DESDE <b>2012</b></span>
+                        <span class="footer-separator">|</span>
+                        <a href="#" class="link-unstyled">WEBGIT INC.</a> -
+                        <a href="#" class="link-unstyled">PARADISE DEVS</a>
+                        <span class="footer-separator">|</span>
+                        <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End: Page Footer -->
+        </div>
+        <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
+        <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+        <script src="vendor/plugins/canvasbg/canvasbg.js"></script>
+        <script src="assets/js/utility/utility.js"></script>
+        <script src="assets/js/demo/demo.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+              "use strict";
+              Core.init();
+              Demo.init();
+              CanvasBG.init({
+                Loc: {
+                  x: window.innerWidth / 4.1,
+                  y: window.innerHeight / 4.2
+                },
+              });
+            });
+        </script>
+    </body>
+</html>

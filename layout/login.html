@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <title>PC:RPG | Início</title>
+        <meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
+        <meta name="description" content="Paradise City RPG">
+        <meta name="author" content="Paradise Devs">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="‪#009dc7">
+
+        <!-- Stylesheets -->
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/img/favicon.ico">
+    </head>
+    <body class="external-page auth-body sb-l-c sb-r-c">
+        <div id="main" class="animated fadeIn">
+            <section id="content_wrapper">
+                <div id="canvas-wrapper">
+                    <canvas id="demo-canvas"></canvas>
+                </div>
+                <section id="content" class="">
+                    <div class="admin-form theme-info" id="login1">
+                        <div class="row mb15 table-layout">
+                            <div class="col-xs-6 va-m pln">
+                                <a href="{{ url('/" title="Voltar ao início">
+                                    <img src="assets/img/logos/logo-big.png" class="img-responsive w400" style="padding-bottom: 0px">
+                                </a>
+                            </div>
+                            <div class="col-xs-6 text-right va-b pr5">
+                                <div class="login-links">
+                                    <a href="resetpass.html" class="" title="Esqueci minha senha">Esqueci minha senha</a>
+                                    <span class="text-white"> | </span>
+                                    <a href="register.html" class="active" title="Registrar">Registrar</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-info mt10 br-n">
+                            <div class="panel-heading heading-border bg-white">
+                                <span class="panel-title hidden">
+                                <i class="fa fa-sign-in"></i>Registrar</span>
+                                <div class="section row mn">
+                                    <div class="col-sm-4">
+                                        <a href="#" class="button btn-social facebook span-left mr5 btn-block" disabled>
+                                        <span>
+                                        <i class="fa fa-facebook"></i>
+                                        </span>Facebook</a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href="#" class="button btn-social twitter span-left mr5 btn-block" disabled>
+                                        <span>
+                                        <i class="fa fa-twitter"></i>
+                                        </span>Twitter</a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a href="#" class="button btn-social googleplus span-left btn-block" disabled>
+                                        <span>
+                                        <i class="fa fa-google-plus"></i>
+                                        </span>Google+</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/customlogin">
+                                <div class="panel-body bg-light p30">
+                                    <div class="row">
+                                        <div class="col-sm-7 pr30">
+                                            <div class="section row hidden">
+                                                <div class="col-md-4">
+                                                    <a href="#" class="button btn-social facebook span-left mr5 btn-block">
+                                                    <span>
+                                                    <i class="fa fa-facebook"></i>
+                                                    </span>Facebook</a>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="#" class="button btn-social twitter span-left mr5 btn-block">
+                                                    <span>
+                                                    <i class="fa fa-twitter"></i>
+                                                    </span>Twitter</a>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="#" class="button btn-social googleplus span-left btn-block">
+                                                    <span>
+                                                    <i class="fa fa-google-plus"></i>
+                                                    </span>Google+</a>
+                                                </div>
+                                            </div>
+                                            <div class="section">
+                                                <label for="username" class="field-label text-muted fs18 mb10">Usuário</label>
+                                                <label for="username" class="field prepend-icon {{ $errors->has('username') ? ' state-error' : '' }}">
+                                                    <input type="username" name="username" id="username" class="gui-input" placeholder="Entre com seu usuário">
+                                                    <label for="username" class="field-icon">
+                                                        <i class="fa fa-user"></i>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                            <div class="section">
+                                                <label for="username" class="field-label text-muted fs18 mb10">Senha</label>
+                                                <label for="password" class="field prepend-icon {{ $errors->has('password') ? ' state-error' : '' }}">
+                                                    <input type="password" name="password" id="password" class="gui-input" placeholder="Entre com a senha">
+                                                    <label for="password" class="field-icon">
+                                                        <i class="fa fa-lock"></i>
+                                                    </label>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 br-l br-grey pl30">
+                                            <h3 class="mb25"> Paradise City RPG:</h3>
+                                            <p class="mb15">
+                                                <span class="fa fa-check text-success pr5"></span> Totalmente gratuido
+                                            </p>
+                                            <p class="mb15">
+                                                <span class="fa fa-check text-success pr5"></span> Ilimitadas possibilidades
+                                            </p>
+                                            <p class="mb15">
+                                                <span class="fa fa-check text-success pr5"></span> Conquiste propriedades
+                                            </p>
+                                            <p class="mb15">
+                                                <span class="fa fa-check text-success pr5"></span> Conheça pessoas novas
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer clearfix p10 ph15">
+                                    <button type="submit" class="button btn-primary mr10 pull-right">Acessar</button>
+                                    <label class="switch ib switch-primary pull-left input-align mt10">
+                                    <input type="checkbox" name="remember" id="remember" checked>
+                                    <label for="remember" data-on="SIM" data-off="NÃO"></label>
+                                    <span>Lembrar me</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <!-- Begin: Page Footer -->
+            <footer id="auth-footer" class="affix">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="footer-since">DESDE <b>2012</b></span>
+                        <span class="footer-separator">|</span>
+                        <a href="#" class="link-unstyled">WEBGIT INC.</a> -
+                        <a href="#" class="link-unstyled">PARADISE DEVS</a>
+                        <span class="footer-separator">|</span>
+                        <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End: Page Footer -->
+        </div>
+        <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
+        <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+        <script src="vendor/plugins/canvasbg/canvasbg.js"></script>
+        <script src="assets/js/utility/utility.js"></script>
+        <script src="assets/js/demo/demo.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+              "use strict";
+              Core.init();
+              Demo.init();
+              CanvasBG.init({
+                Loc: {
+                  x: window.innerWidth / 4.1,
+                  y: window.innerHeight / 4.2
+                },
+              });
+            });
+        </script>
+    </body>
+</html>
