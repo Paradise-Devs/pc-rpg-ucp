@@ -43,25 +43,12 @@
                   </span>
                   <div class="widget-menu pull-right mr10">
                       <div class="progress progress-bar" style="width: 120px; margin-top: 13%">
-                          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%;">3/5</div>
+                          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5" style="width: 60%;">0/5</div>
                       </div>
                   </div>
               </div>
               <div class="panel-body panel-scroller scroller-sm pn">
-                  <blockquote class="blockquote-primary" style="font-size: 95%">
-                      <p>Você foi notificado por que eu quis, é isso, valeu, flw</p>
-                      <h6>Administrador: <a href="user_profile.html">Larceny</a></h6>
-                  </blockquote>
-                  <hr class="short alt">
-                  <blockquote class="blockquote-primary" style="font-size: 95%">
-                      <p>Você foi notificado por que eu também quis, é isso, valeu, flw</p>
-                      <h6>Administrador: <a href="user_profile.html">With</a></h6>
-                  </blockquote>
-                  <hr class="short alt">
-                  <blockquote class="blockquote-primary" style="font-size: 95%">
-                      <p>Eu também</p>
-                      <h6>Administrador: <a href="user_profile.html">Los</a></h6>
-                  </blockquote>
+                  Nenhuma notificação.
               </div>
           </div>
       </div>
@@ -108,32 +95,11 @@
                           </thead>
                           <tbody>
                               <tr>
-                                  <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details-contest">#213</a></td>
-                                  <td>Banimento</td>
-                                  <td>3 dias atrás</td>
-                                  <td>Nunca</td>
-                                  <td>Servidor</td>
-                              </tr>
-                              <tr class="text-muted">
-                                  <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details-contest">#209</a></td>
-                                  <td>Banimento</td>
-                                  <td>3 dias atrás</td>
-                                  <td>Expirado</td>
-                                  <td><a href="user_profile.html">Los</a></td>
-                              </tr>
-                              <tr>
-                                  <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details">#200</a></td>
-                                  <td>Expulsão</td>
-                                  <td>3 dias atrás</td>
-                                  <td>-</td>
-                                  <td><a href="user_profile.html">With</a></td>
-                              </tr>
-                              <tr>
-                                  <td><a type="button" class="modal-launcher btn btn-xs btn-primary btn-gradient dark" href="#modal-details">#154</a></td>
-                                  <td>Remoção de Cargo</td>
-                                  <td>3 dias atrás</td>
-                                  <td>-</td>
-                                  <td><a href="user_profile.html">Larceny</a></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td>Nenhuma punição</td>
+                                  <td></td>
+                                  <td></td>
                               </tr>
                           </tbody>
                       </table>
