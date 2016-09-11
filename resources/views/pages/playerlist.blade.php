@@ -43,8 +43,6 @@
                 </span>
                 <ul class="nav panel-tabs">
                     <li class="active"><a href="#tab1" data-toggle="tab">Todos</a></li>
-                    <li><a href="#tab2" data-toggle="tab">Staff</a></li>
-                    <li><a href="#tab3" data-toggle="tab">Banidos</a></li>
                 </ul>
             </div>
             <div class="panel-body pn">
@@ -152,64 +150,8 @@
               }
           });
 
-          var tableStaff = $('#datatable2').dataTable({
-              "sDom": 't<"dt-panelfooter clearfix"ip>',
-              "language": {
-                    "sEmptyTable": "Nenhum registro encontrado",
-                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
-                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sInfoThousands": ".",
-                    "sLengthMenu": "_MENU_ resultados por página",
-                    "sLoadingRecords": "Carregando...",
-                    "sProcessing": "Processando...",
-                    "sZeroRecords": "Nenhum jogador encontrado",
-                    "sSearch": "Pesquisar",
-                    "oPaginate": {
-                    "sNext": "Próximo",
-                    "sPrevious": "Anterior",
-                    "sFirst": "Primeiro",
-                    "sLast": "Último"
-                },
-                "oAria": {
-                    "sSortAscending": ": Ordenar colunas de forma ascendente",
-                    "sSortDescending": ": Ordenar colunas de forma descendente"
-                }
-              }
-          });
-
-          var tableBanned = $('#datatable3').dataTable({
-              "sDom": 't<"dt-panelfooter clearfix"ip>',
-              "language": {
-                    "sEmptyTable": "Nenhum registro encontrado",
-                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
-                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-                    "sInfoPostFix": "",
-                    "sInfoThousands": ".",
-                    "sLengthMenu": "_MENU_ resultados por página",
-                    "sLoadingRecords": "Carregando...",
-                    "sProcessing": "Processando...",
-                    "sZeroRecords": "Nenhum jogador encontrado",
-                    "sSearch": "Pesquisar",
-                    "oPaginate": {
-                    "sNext": "Próximo",
-                    "sPrevious": "Anterior",
-                    "sFirst": "Primeiro",
-                    "sLast": "Último"
-                },
-                "oAria": {
-                    "sSortAscending": ": Ordenar colunas de forma ascendente",
-                    "sSortDescending": ": Ordenar colunas de forma descendente"
-                }
-              }
-          });
-
             $('#player_search').keyup(function() {
                 tableActive.fnFilter($(this).val());
-                tableStaff.fnFilter($(this).val());
-                tableBanned.fnFilter($(this).val());
             });
 
             $('#datatable_filter').css('display', 'none');
