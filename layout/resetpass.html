@@ -44,24 +44,21 @@
                         </div>
                         <div class="panel panel-info heading-border br-n">
                             <form role="form" method="POST" action="{{ url('/password/email') }}" id="contact">
-                                <div class="panel-body p15 pt25">
-                                    <div class="alert alert-micro alert-info pastel mn">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                        <i class="fa fa-info pr10"></i> Insira o seu
-                                        <b>e-mail</b> e instruções serão enviadas para você.
-                                    </div>
+                                <div class="panel-body bg-light">
+                                    {{ csrf_field() }}
+                                    @if (session('status'))
+                                        <div class="alert alert-micro alert-success pastel mn">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
+                                    <label for="email" class="field prepend-icon {{ $errors->has('email') ? 'state-error' : '' }}">
+                                        <input type="email" name="email" id="email" class="gui-input" value="{{ old('email') }}" placeholder="Insira o seu endereço de email" required>
+                                        <label for="email" class="field-icon">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </label>
+                                    </label>
                                 </div>
                                 <div class="panel-footer">
-                                    <div class="section">
-                                        <div class="smart-widget">
-                                            <label for="email" class="field prepend-icon {{ $errors->has('email') ? 'state-error' : '' }}">
-                                                <input type="email" name="email" id="email" class="gui-input" placeholder="Insira o seu endereço de email">
-                                                <label for="email" class="field-icon">
-                                                    <i class="fa fa-envelope-o"></i>
-                                                </label>
-                                            </label>
-                                        </div>
-                                    </div>
                                     <button type="submit" class="btn btn-success btn-block">Enviar solicitação</button>
                                 </div>
                             </form>

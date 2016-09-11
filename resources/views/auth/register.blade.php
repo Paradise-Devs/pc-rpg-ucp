@@ -5,14 +5,14 @@
         <div class="row mb15 table-layout">
             <div class="col-xs-6 va-m pln">
                 <a href="{{ url('/') }}" title="Return to Dashboard">
-                <img src="assets/img/logos/logo-big.png" title="AdminDesigns Logo" class="img-responsive w250">
+                <img src="assets/img/logos/logo-big.png" class="img-responsive w250">
                 </a>
             </div>
             <div class="col-xs-6 text-right va-b pr5">
                 <div class="login-links">
                     <a href="{{ url('/login') }}" class="" title="Acessar">Acessar</a>
                     <span class="text-white"> | </span>
-                    <a href="{{ url('/register') }}" class="active" title="Registrar">Registrar</a>
+                    <a class="active">Registrar</a>
                 </div>
             </div>
         </div>
@@ -145,4 +145,18 @@
             </form>
         </div>
     </div>
+@endsection
+@section('footer')
+<footer id="auth-footer" class="affix">
+    <div class="row">
+        <div class="col-md-6">
+            <span class="footer-since">DESDE <b>2012</b></span>
+            <span class="footer-separator">|</span>
+            <a href="http://www.webgit.com.br/" class="link-unstyled">WEBGIT INC.</a> -
+            <a href="#" class="link-unstyled">PARADISE DEVS</a>
+            <span class="footer-separator">|</span>
+            <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
+        </div>
+    </div>
+</footer>
 @endsection

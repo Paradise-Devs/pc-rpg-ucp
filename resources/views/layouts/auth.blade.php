@@ -13,6 +13,7 @@
                     @yield('content')
                 </section>
             </section>
+            @yield('footer')
         </div>
         @include('partials.auth._javascript')
     </body>

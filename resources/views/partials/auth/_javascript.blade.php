@@ -4,6 +4,7 @@
 <script src="{{ URL::asset('assets/js/utility/utility.js') }}"></script>
 <script src="{{ URL::asset('assets/js/demo/demo.js') }}"></script>
 <script src="{{ URL::asset('assets/js/main.js') }}"></script>
+<script src="https://use.fontawesome.com/748a1b45e6.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
       "use strict";
