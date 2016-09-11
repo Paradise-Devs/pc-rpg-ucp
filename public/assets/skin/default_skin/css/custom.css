@@ -12,12 +12,80 @@
 .text-paradiser     { color: #CE8500; }
 
 /* -----------------------------------------------------------------------------
+    COMING SOON PAGE
+------------------------------------------------------------------------------*/
+.cs-page-content {
+    width:100%;
+    height:100%;
+    line-height: 100px;
+    display: table-cell;
+    text-align:center;
+    vertical-align: middle;
+    position: absolute;
+    top: 30%;
+    z-index: 1;
+    text-shadow: 1px 1px 30px #3c3c3c;
+}
+
+.cs-page-logo {
+    text-align:center;
+    vertical-align: middle;
+}
+
+.cs-page-title {
+    font-family: "Segoe UI";
+    font-weight: 100;
+    font-size: 15px;
+    color: #c3eee7;
+    margin-bottom: 25px;
+}
+
+.cs-page-text {
+    font-family: "Segoe UI";
+    font-weight: 100;
+    font-size: 20px;
+    letter-spacing: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #3c3c3c;
+}
+
+/* -----------------------------------------------------------------------------
     AUTH PAGES
 ------------------------------------------------------------------------------*/
 #demo-canvas {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../../img/background/3.jpg');
+    transition: background 5s linear;
+    -webkit-animation: zoom 50s infinite; /* Chrome, Safari, Opera */
+    animation: zoom 50s infinite;
+    z-index: -255;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes zoom {
+    0% {
+        -webkit-transform: scale(1, 1);
+    }
+    50% {
+        -webkit-transform: scale(1.2,1.2);
+    }
+    100% {
+        -webkit-transform: scale(1, 1);
+    }
+}
+
+/* Standard syntax */
+@keyframes zoom {
+   0% {
+        transform: scale(1, 1);
+   }
+   50% {
+       transform: scale(1.2, 1.2);
+   }
+   100% {
+        transform: scale(1, 1);
+   }
 }
 
 #auth-footer {
