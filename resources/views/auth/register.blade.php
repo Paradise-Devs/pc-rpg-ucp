@@ -75,7 +75,7 @@
                     <!-- end .section row section -->
                     <div class="section">
                         <label for="username" class="field prepend-icon {{ $errors->has('username') ? 'state-error' : '' }}">
-                            <input type="username" name="username" id="username" class="gui-input" value="{{ old('username') }}" placeholder="Nome de usuário">
+                            <input type="username" name="username" id="username" class="gui-input" value="{{ old('username') }}" placeholder="Nome.Sobrenome (Usuário)">
                             <label for="username" class="field-icon">
                                 <i class="fa fa-user"></i>
                             </label>
