@@ -49,7 +49,7 @@
             </div>
         </footer>
         <!-- End: Page Footer -->
-        <audio src="path/to/song.mp3"></audio>
+        <audio src="{{ URL::asset('assets/sounds/Koresma_-_Bridges.mp3') }}" loop autoplay></audio>
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
         <script src="vendor/plugins/canvasbg/canvasbg.js"></script>
