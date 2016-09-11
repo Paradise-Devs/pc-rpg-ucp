@@ -161,32 +161,6 @@
                     <span class="sidebar-title">FAQ</span>
                 </a>
             </li>
-            <!-- Sidebar: Char Status -->
-            <li class="sidebar-label pt25 pb10">Status</li>
-            <li class="sidebar-stat">
-                <a href="#projectOne" class="fs11">
-                    <span class="fa fa-inbox text-info"></span>
-                    <span class="sidebar-title text-muted">XP (Personagem)</span>
-                    <span class="pull-right mr20 text-muted">35%</span>
-                    <div class="progress progress-bar-xs mh20 mb10">
-                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
-                            <span class="sr-only">35% completo</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
-            <li class="sidebar-stat">
-                <a href="#projectOne" class="fs11">
-                    <span class="fa fa-dropbox text-warning"></span>
-                    <span class="sidebar-title text-muted">XP (Emprego)</span>
-                    <span class="pull-right mr20 text-muted">62%</span>
-                    <div class="progress progress-bar-xs mh20">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 62%">
-                            <span class="sr-only">62% completo</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
         </ul>
         <!-- End: Sidebar Left Menu -->
     </div>
