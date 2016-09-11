@@ -19,7 +19,7 @@
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="assets/img/favicon.ico">
+        <link rel="icon" type="image/png" href="favicon.png">
     </head>
     <body class="external-page auth-body sb-l-c sb-r-c">
         <div id="main" class="animated fadeIn">

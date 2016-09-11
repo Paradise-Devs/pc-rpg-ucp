@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/custom.css') }}">
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="{{ URL::asset('assets/img/favicon.ico') }}">
+        <link rel="icon" type="image/png" href="{{ URL::asset('favicon.png') }}">
 
     </head>
     <body class="error-page sb-l-o sb-r-c onload-check mobile-view tray-rescale">

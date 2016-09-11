@@ -9,4 +9,4 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/theme.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/custom.css') }}">
-<link rel="shortcut icon" href="{{ URL::asset('assets/img/favicon.ico') }}">
+<link rel="icon" type="image/png" href="{{ URL::asset('favicon.png') }}">

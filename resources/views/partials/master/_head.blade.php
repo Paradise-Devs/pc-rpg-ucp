@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/theme.css') }}">
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="{{ URL::asset('assets/img/favicon.ico') }}">
+<link rel="icon" type="image/png" href="{{ URL::asset('favicon.png') }}">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
