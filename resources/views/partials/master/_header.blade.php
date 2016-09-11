@@ -71,7 +71,7 @@
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="{{ url('/perfil/'.$message->creator->id) }}">
-                                                        <img class="media-object" alt="64x64" src="{{ URL::asset('uploads/avatars/' . $message->creator->avatar_url) }}">
+                                                        <img class="media-object" alt="64x64" src="{{ URL::asset('storage/avatars/' . $message->creator->avatar_url) }}">
                                                     </a>
                                                 </div>
                                                 <a href="{{ url('/message/'.$message->id) }}" class="media-body link-unstyled">
@@ -115,7 +115,7 @@
         </li>
         <li class="dropdown menu-merge">
             <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-                <img src="{{ URL::asset('uploads/avatars/' . $user->avatar_url) }}" alt="avatar" class="mw30 br64" />
+                <img src="{{ URL::asset('storage/avatars/' . $user->avatar_url) }}" alt="avatar" class="mw30 br64" />
                 <span class="hidden-xs pl15"> {{ $user->name }} </span>
                 <span class="caret caret-tp hidden-xs"></span>
             </a>

@@ -48,7 +48,7 @@
                               <tr>
                                   <td class="text-center" style="margin-left: 0px; width:0%">
                                       <a href="{{ url('/perfil/'.$player->id) }}" class="link-unstyled">
-                                          <img src="{{ URL::asset('uploads/avatars/' . $player->avatar_url) }}" class="user-avatar" style="width: 20px; float: center">
+                                          <img src="{{ URL::asset('storage/avatars/' . $player->avatar_url) }}" class="user-avatar" style="width: 20px; float: center">
                                       </a>
                                   </td>
                                   <td class="text-left" style="margin-left: 0px; width:100%">

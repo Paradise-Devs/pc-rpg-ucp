@@ -41,7 +41,7 @@
               <div class="media clearfix">
                   <div class="media-left pr30">
                       <a href="#">
-                          <img class="media-object mw150" style="border-radius: 100%" src="{{ URL::asset("uploads/avatars/$profile->avatar_url") }}" alt="Avatar de {{ $profile->name }}">
+                          <img class="media-object mw150" style="border-radius: 100%" src="{{ URL::asset("storage/avatars/$profile->avatar_url") }}" alt="Avatar de {{ $profile->name }}">
                       </a>
                   </div>
                   <div class="media-body va-m">
@@ -201,7 +201,7 @@
                           <div id="tab2" class="tab-pane">
                               <div class="col-md-3">
                                   <div class="media-left pr30">
-                                      <img class="media-object mw150" src="{{ URL::asset("uploads/avatars/$profile->avatar_url") }}" alt="...">
+                                      <img class="media-object mw150" src="{{ URL::asset("storage/avatars/$profile->avatar_url") }}" alt="...">
                                   </div>
                               </div>
                               <div class="col-md-9 admin-form theme-primary">

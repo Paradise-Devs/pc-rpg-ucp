@@ -101,7 +101,7 @@
 
             <!-- message header -->
             <div class="message-header">
-                <img src="{{ URL::asset("uploads/avatars/".$message->creator->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
+                <img src="{{ URL::asset("storage/avatars/".$message->creator->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                 <div class="pull-right mt5 clearfix">
                     @if($message->creator->admin == 1)
                         <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>

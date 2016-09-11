@@ -59,7 +59,7 @@ class ProfileController extends Controller
             ]);
             $image = $request->file('file2');
 
-            $path = 'uploads/avatars/';
+            $path = 'storage/avatars/';
             $ext = $image->getClientOriginalExtension();
             $fname = md5(time()) . ".$ext";
 

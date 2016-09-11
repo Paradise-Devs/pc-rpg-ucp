@@ -63,7 +63,7 @@
                             <tbody>
                                 @foreach($profile->getFriends() as $friend)
                                     <tr>
-                                        <td class="text-center"><img src="{{ URL::asset("uploads/avatars/$friend->avatar_url") }}" class="user-avatar" style="width: 30px;"></td>
+                                        <td class="text-center"><img src="{{ URL::asset("storage/avatars/$friend->avatar_url") }}" class="user-avatar" style="width: 30px;"></td>
                                         <td><a href="{{ url('/perfil/'.$friend->id) }}" class="link-unstyled">
                                             @if($friend->admin == 1)
                                                 <span class="text-warning" style="font-weight: bold;">{{ $friend->username }}</span>

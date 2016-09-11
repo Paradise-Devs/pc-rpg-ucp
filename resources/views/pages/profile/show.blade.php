@@ -107,7 +107,7 @@
           --}}
           <div class="media-left pr30">
               <a href="#">
-                  <img class="media-object mw150" src="{{ URL::asset("uploads/avatars/$profile->avatar_url") }}" alt="...">
+                  <img class="media-object mw150" src="{{ URL::asset("storage/avatars/$profile->avatar_url") }}" alt="...">
               </a>
           </div>
           <div class="media-body va-m">
@@ -261,7 +261,7 @@
                   <div class="friend_item mt20">
                       <div class="col-md-2">
                           <a href="{{ url('/perfil/'.$friend->id) }}" class="link-unstyled">
-                              <img src="{{ URL::asset("uploads/avatars/$friend->avatar_url") }}" class="user-avatar" style="width: 134px;">
+                              <img src="{{ URL::asset("storage/avatars/$friend->avatar_url") }}" class="user-avatar" style="width: 134px;">
                               <div class="caption">
                                   <h4 class="text-system fs10" style="margin-top: 3px">
                                       {{ $friend->username }}
