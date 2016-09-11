@@ -12,6 +12,57 @@
 .text-paradiser     { color: #CE8500; }
 
 /* -----------------------------------------------------------------------------
+    AUTH PAGES
+------------------------------------------------------------------------------*/
+#demo-canvas {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../../img/background/3.jpg');
+}
+
+#auth-footer {
+    color: #AAA;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 44px;
+    padding: 12px 15px;
+    background-color: rgba(0, 0, 0, 0.5);;
+    -webkit-transition: margin 0.2s ease;
+    transition: margin 0.2s ease;
+}
+
+.footer-since {
+    font-family: "Segoe UI";
+    font-weight: 300;
+    color: #9C9B9B;
+    text-shadow: 0px 0px 3px #000;
+}
+
+.footer-separator {
+    font-family: "Segoe UI";
+    font-weight: 100;
+    color: #505050;
+    text-shadow: 0px 0px 3px #000;
+}
+
+.footer-poweredby {
+    font-family: "Segoe UI";
+    font-weight: 400;
+    color: #505050;
+    text-shadow: 0px 0px 3px #000;
+}
+
+#auth-footer a {
+    font-family: "Segoe UI";
+    font-weight: 100;
+    color: #6cd7ff;
+    text-shadow: 0px 0px 3px #000;
+}
+
+/* -----------------------------------------------------------------------------
     USER PROFILE PAGES
 ------------------------------------------------------------------------------*/
 
@@ -79,6 +130,7 @@
 .friend-data {
     display: block;
     font-size: 10px;
+    margin-top: 0px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -88,15 +140,17 @@
     width: 100%;
     height: 100%;
     padding: 0px 0px 0px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url('../../../img/background/1.jpg');
 }
 
 .error-page-title {
-    font-size: 140px;
+    font-size: 120px;
     font-family: "Segoe UI";
-    font-weight: 600;
+    font-weight: 50%;
     color: #fff;
-    line-height: 120px;
+    line-height: 80px;
 }
 
 .error-page-subtitle {
@@ -104,7 +158,7 @@
     font-weight: 100;
     font-size: 20px;
     color: #c3eee7;
-    margin-bottom: 45px;
+    margin-bottom: 25px;
 }
 
 .error-page-text {
@@ -116,12 +170,38 @@
 
 .error-page-content {
     width:100%;
-    height:30%;
+    height:40%;
     line-height: 100px;
     display: table-cell;
     text-align:center;
     vertical-align: middle;
     background-color:rgba(0, 0, 0, 0.3);
     position: absolute;
-    bottom: 42%;
+    bottom: 30%;
+}
+
+/* -----------------------------------------------------------------------------
+    INDEX PAGE
+------------------------------------------------------------------------------*/
+td .news-link {
+    display: block;
+    width:100%
+}
+
+.news-row:hover {
+    cursor: pointer;
+}
+
+/* -----------------------------------------------------------------------------
+    GROUPS PAGE
+------------------------------------------------------------------------------*/
+.group-logo {
+    border: 3px solid #CCC;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+.group-data {
+    float: right;
 }
