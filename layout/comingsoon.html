@@ -34,21 +34,42 @@
                 </div>
             </section>
             <!-- End: Content -->
-            <!-- Begin: Page Footer -->
-            <footer id="auth-footer" class="affix">
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="footer-since">DESDE <b>2012</b></span>
-                        <span class="footer-separator">|</span>
-                        <a href="#" class="link-unstyled">WEBGIT INC.</a> -
-                        <a href="#" class="link-unstyled">PARADISE DEVS</a>
-                        <span class="footer-separator">|</span>
-                        <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End: Page Footer -->
         </div>
+        <!-- Begin: Page Footer -->
+        <footer id="auth-footer" class="affix" style="z-index: 1">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="footer-since">DESDE <b>2012</b></span>
+                    <span class="footer-separator">|</span>
+                    <a href="#" class="link-unstyled">WEBGIT</a> -
+                    <a href="#" class="link-unstyled">PARADISE DEVS</a>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
+                </div>
+                <!-- @IF USER LOGGED IN
+                <div class="col-md-6 text-right">
+                    <a href="login.html" class="link-unstyled">LOGIN</a>
+                    <span class="footer-separator">•</span>
+                    <a href="register.html" class="link-unstyled">REGISTRO</a>
+                </div>
+                -->
+                <!-- @IF NOT
+                <div class="col-md-6 text-right">
+                    <a href="user_profile.html" class="dropdown-toggle p10 link-unstyled" data-toggle="dropdown" aria-expanded="true">
+                        <img src="assets/img/avatars/1.jpg" alt="avatar" class="br64" style="width: 25px;"/>
+                        <span class="hidden-xs pl10">Los</span>
+                    </a>
+                    <span class="footer-separator">|</span>
+                    <a href="messages_inbox.html"><i class="fa fa-envelope text-info ml15" data-toggle="tooltip" data-placement="top" title="Mensagens"></i></a>
+                    <a href="user_friends.html"><i class="fa fa-group text-muted ml15" data-toggle="tooltip" data-placement="top" title="Amigos"></i></a>
+                    <a href="ticket_index.html"><i class="fa fa-support text-muted ml15 mr15" data-toggle="tooltip" data-placement="top" title="Suporte"></i></a>
+                    <span class="footer-separator">|</span>
+                    <a href="ticket_index.html"><i class="fa fa-sign-out ml15 text-danger" data-toggle="tooltip" data-placement="top" title="Sair"></i></a>
+                </div>
+                @endif !-->
+            </div>
+        </footer>
+        <!-- End: Page Footer -->
         <audio src="path/to/song.mp3"></audio>
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
