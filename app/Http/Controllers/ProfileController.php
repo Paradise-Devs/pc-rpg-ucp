@@ -59,7 +59,7 @@ class ProfileController extends Controller
             ]);
             $image = $request->file('file2');
 
-            $path = 'uploads/avatars/';
+            $path = 'storage/avatars/';
             $ext = $image->getClientOriginalExtension();
             $fname = md5(time()) . ".$ext";
 
@@ -89,4 +89,57 @@ class ProfileController extends Controller
         }
     }
 
+    public function friendslist($id)
+    {
+        $profile = User::findOrFail($id);
+        return view('pages.profile.friends', ['profile' => $profile]);
+    }
+
+    public function addFriend($id)
+    {
+        $recipient = User::findOrFail($id);
+        $user = Auth::user();
+
+        if(!$user->isFriendWith($recipient))
+        {
+            $user->befriend($recipient);
+        }
+        return Redirect::to('perfil/'.$id);
+    }
+
+    public function removeFriend($id)
+    {
+        $recipient = User::findOrFail($id);
+        $user = Auth::user();
+
+        if($user->isFriendWith($recipient))
+        {
+            $user->unfriend($recipient);
+        }
+        return Redirect::to('perfil/'.$id);
+    }
+
+    public function acceptFriend($id)
+    {
+        $sender = User::findOrFail($id);
+        $recipient = Auth::user();
+
+        if($recipient->hasFriendRequestFrom($sender))
+        {
+            $recipient->acceptFriendRequest($sender);
+        }
+        return Redirect::to('perfil/'.$id);
+    }
+
+    public function denyFriend($id)
+    {
+        $sender = User::findOrFail($id);
+        $recipient = Auth::user();
+
+        if($recipient->hasFriendRequestFrom($sender))
+        {
+            $recipient->denyFriendRequest($sender);
+        }
+        return Redirect::to('perfil/'.$id);
+    }
 }

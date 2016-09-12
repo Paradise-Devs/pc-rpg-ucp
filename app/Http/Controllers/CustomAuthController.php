@@ -16,16 +16,15 @@ class CustomAuthController extends Controller
             'username' => 'required',
             'password' => 'required'
         ]);
-	 $salt = "pcacc";
+
         $username = $request->input('username');
         $password = $request->input('password');
         $remember = $request->input('remember');
 
-        $count = User::where('username', $username)->where('password', strtoupper(hash('sha256', $password.$salt)))->count();
+        $count = User::where('username', $username)->where('password', $password)->count();
         if($count > 0)
         {
-			
-            $user = User::where('username', $username)->where('password', strtoupper(hash('sha256', $password.$salt)))->first();
+            $user = User::where('username', $username)->where('password', $password)->first();
             Auth::loginUsingId($user->id, $remember);
             return Redirect::to('home');
         }
