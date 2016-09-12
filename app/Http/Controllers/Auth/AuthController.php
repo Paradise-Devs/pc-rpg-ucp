@@ -53,7 +53,7 @@ class AuthController extends Controller
         return Validator::make($data, [
             'firstname' => 'required|max:20',
             'lastname' => 'required|max:20',
-            'username' => 'required|max:24|unique:users|regex:/[A-Z][a-z]{1,16}(\.)[A-Z][a-z]{1,16}/',
+            'username' => 'required|max:24|unique:users|regex:/^[a-zA-Z_]+$/',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required',
@@ -69,11 +69,12 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+		$salt = "pcacc";
         $user = User::create([
             'name' => $data['firstname'] . ' ' . $data['lastname'],
             'email' => $data['email'],
             'username' => $data['username'],
-            'password' => $data['password'],
+            'password' => strtoupper(hash('sha256', $data['password'].$salt)),
         ]);
 
         DB::table('players')->insert(['user_id' => $user->id, 'x' => 1449.01, 'y' => -2287.10, 'z' => 13.54, 'a' => 96.36]);
