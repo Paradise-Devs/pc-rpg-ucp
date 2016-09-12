@@ -47,14 +47,14 @@
                     <span class="sidebar-title">Início</span>
                 </a>
             </li>
-            <li>
+            <!--<li>
                 <a href="#">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
                     <span class="sidebar-title">Loja</span>
                 </a>
-            </li>
+            </li>-->
             <!-- Sidebar: Patrimônio -->
-            <li class="sidebar-label pt15">Patrimônio</li>
+            {{--<li class="sidebar-label pt15">Patrimônio</li>
             <li>
                 <a class="accordion-toggle" href="#">
                     <span class="glyphicon glyphicon-plane"></span>
@@ -108,7 +108,7 @@
                     <span class="fa fa-laptop"></span>
                     <span class="sidebar-title">Mobília</span>
                 </a>
-            </li>
+            </li>--}}
             <!-- Sidebar: Social -->
             <li class="sidebar-label pt15">Social</li>
             <li>
@@ -117,7 +117,7 @@
                     <span class="sidebar-title">Jogadores</span>
                 </a>
             </li>
-            <li>
+            {{--<li>
                 <a href="#">
                     <span class="fa fa-institution"></span>
                     <span class="sidebar-title">Emprego</span>
@@ -128,7 +128,7 @@
                     <span class="fa fa-group"></span>
                     <span class="sidebar-title">Grupos</span>
                 </a>
-            </li>
+            </li>--}}
             <li>
                 <a href="{{ url('/ranking') }}">
                     <span class="fa fa-list"></span>

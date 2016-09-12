@@ -195,7 +195,7 @@
             "language": {
                 "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
                 "infoEmpty": "Não há entradas para serem mostradas",
-                "emptyTable": "Nenhuma denúncia encontrada",
+                "emptyTable": "Nenhum ticket encontrado",
                 "paginate": {
                     "first":      "Primeiro",
                     "previous":   "Anterior",
