@@ -51,8 +51,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'firstname' => 'required|max:20',
-            'lastname' => 'required|max:20',
+            'name' => 'required|max:40',
             'username' => 'required|max:24|unique:users|regex:/[A-Z][a-z]{1,16}(\.)[A-Z][a-z]{1,16}/',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
@@ -69,9 +68,9 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-		$salt = "pcacc";
+		    $salt = "pcacc";
         $user = User::create([
-            'name' => $data['firstname'] . ' ' . $data['lastname'],
+            'name' => $data['name'],
             'email' => $data['email'],
             'username' => $data['username'],
             'password' => strtoupper(hash('sha256', $data['password'].$salt)),

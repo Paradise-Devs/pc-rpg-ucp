@@ -46,31 +46,16 @@
                         <span>Registre a sua conta</span>
                     </div>
                     <!-- .section-divider -->
-                    <div class="section row">
-                        <div class="col-md-6">
-                            <label for="firstname" class="field prepend-icon {{ $errors->has('firstname') ? 'state-error' : '' }}">
-                                <input type="text" name="firstname" id="firstname" class="gui-input" value="{{ old('firstname') }}" placeholder="Primeiro nome">
-                                <label for="firstname" class="field-icon">
-                                    <i class="fa fa-user"></i>
-                                </label>
+                    <div class="section">
+                        <label for="name" class="field prepend-icon {{ $errors->has('name') ? 'state-error' : '' }}">
+                            <input type="text" name="name" id="name" class="gui-input" value="{{ old('name') }}" placeholder="Nome">
+                            <label for="name" class="field-icon">
+                                <i class="fa fa-user"></i>
                             </label>
-                            @if ($errors->has('firstname'))
-                                <em for="firstname" class="state-error">{{ $errors->first('firstname') }}</em>
-                            @endif
-                        </div>
-                        <!-- end section -->
-                        <div class="col-md-6">
-                            <label for="lastname" class="field prepend-icon {{ $errors->has('lastname') ? 'state-error' : '' }}">
-                                <input type="text" name="lastname" id="lastname" class="gui-input" value="{{ old('lastname') }}" placeholder="Último nome">
-                                <label for="lastname" class="field-icon">
-                                    <i class="fa fa-user"></i>
-                                </label>
-                            </label>
-                            @if ($errors->has('lastname'))
-                                <em for="lastname" class="state-error">{{ $errors->first('lastname') }}</em>
-                            @endif
-                        </div>
-                        <!-- end section -->
+                        </label>
+                        @if ($errors->has('name'))
+                            <em for="name" class="state-error">{{ $errors->first('name') }}</em>
+                        @endif
                     </div>
                     <!-- end .section row section -->
                     <div class="section">
