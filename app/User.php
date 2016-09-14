@@ -8,14 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Friendable;
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'admin', 'bio', 'twitter_url', 'facebook_url', 'github_url', 'avatar_url'
+        'name', 'birthdate', 'username', 'email', 'password', 'admin', 'bio', 'twitter_url', 'facebook_url', 'github_url', 'avatar_url'
     ];
 
     /**

@@ -62,14 +62,16 @@
                         </div>
                         <div class="col-md-6">
                             <div class="section">
-                                <label class="field select">
-                                    <select id="gender" name="gender">
-                                        <option value="">Sexo</option>
-                                        <option value="macho">Masculino</option>
-                                        <option value="femea">Feminino</option>
+                                <label class="field select {{ $errors->has('sexo') ? 'state-error' : '' }}">
+                                    <select id="sexo" name="sexo">
+                                        <option value="0" {{ (old('sexo') == 0) ? 'selected' : '' }}>Masculino</option>
+                                        <option value="1" {{ (old('sexo') == 1) ? 'selected' : '' }}>Feminino</option>
                                     </select>
                                     <i class="arrow"></i>
                                 </label>
+                                @if ($errors->has('sexo'))
+                                    <em for="sexo" class="state-error">{{ $errors->first('sexo') }}</em>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -88,6 +90,19 @@
                                 @endif
                             </div>
                         </div>
+                    </div>
+                    <!-- end section -->
+                    <!-- end .section row section -->
+                    <div class="section">
+                        <label for="date" class="field prepend-icon {{ $errors->has('date') ? 'state-error' : '' }}">
+                            <input type="text" name="date" id="dateInput" class="gui-input" value="{{ old('date') }}" placeholder="Data de Nascimento">
+                            <label for="date" class="field-icon">
+                                <i class="fa fa-calendar"></i>
+                            </label>
+                        </label>
+                        @if ($errors->has('date'))
+                            <em for="date" class="state-error">{{ $errors->first('date') }}</em>
+                        @endif
                     </div>
                     <!-- end section -->
                     <!-- end .section row section -->
@@ -171,4 +186,11 @@
         </div>
     </div>
 </footer>
+<!-- Scripts -->
+<script src="{{ URL::asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/jquery/jquery_ui/jquery-ui.min.js') }}"></script>
+<script src="{{ URL::asset('vendor/plugins/jquerymask/jquery.maskedinput.min.js') }}"></script>
+<script>
+$("#dateInput").mask("99/99/9999");
+</script>
 @endsection
