@@ -273,3 +273,20 @@ td .news-link {
 .group-data {
     float: right;
 }
+
+/* -----------------------------------------------------------------------------
+    LAUNCHPAD PAGES
+------------------------------------------------------------------------------*/
+table.footable.fw-labels2 > tbody > tr > td:first-child + td .label {
+  width: 100%;
+  display: inline-block;
+  padding: 4px 4px 6px;
+  font-size: 11px;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.launchpad-row:hover {
+    cursor: pointer;
+}
