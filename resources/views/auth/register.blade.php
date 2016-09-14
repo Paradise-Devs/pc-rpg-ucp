@@ -46,65 +46,92 @@
                         <span>Registre a sua conta</span>
                     </div>
                     <!-- .section-divider -->
-                    <div class="section">
-                        <label for="name" class="field prepend-icon {{ $errors->has('name') ? 'state-error' : '' }}">
-                            <input type="text" name="name" id="name" class="gui-input" value="{{ old('name') }}" placeholder="Nome">
-                            <label for="name" class="field-icon">
-                                <i class="fa fa-user"></i>
-                            </label>
-                        </label>
-                        @if ($errors->has('name'))
-                            <em for="name" class="state-error">{{ $errors->first('name') }}</em>
-                        @endif
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="section">
+                                <label for="name" class="field prepend-icon {{ $errors->has('name') ? 'state-error' : '' }}">
+                                    <input type="text" name="name" id="name" class="gui-input" value="{{ old('name') }}" placeholder="Nome">
+                                    <label for="name" class="field-icon">
+                                        <i class="fa fa-user"></i>
+                                    </label>
+                                </label>
+                                @if ($errors->has('name'))
+                                    <em for="name" class="state-error">{{ $errors->first('name') }}</em>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="section">
+                                <label class="field select">
+                                    <select id="gender" name="gender">
+                                        <option value="">Sexo</option>
+                                        <option value="macho">Masculino</option>
+                                        <option value="femea">Feminino</option>
+                                    </select>
+                                    <i class="arrow"></i>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <!-- end .section row section -->
-                    <div class="section">
-                        <label for="username" class="field prepend-icon {{ $errors->has('username') ? 'state-error' : '' }}">
-                            <input type="username" name="username" id="username" class="gui-input" value="{{ old('username') }}" placeholder="Nome.Sobrenome (Usuário)">
-                            <label for="username" class="field-icon">
-                                <i class="fa fa-user"></i>
-                            </label>
-                        </label>
-                        @if ($errors->has('username'))
-                            <em for="username" class="state-error">{{ $errors->first('username') }}</em>
-                        @endif
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section">
+                                <label for="username" class="field prepend-icon {{ $errors->has('username') ? 'state-error' : '' }}">
+                                    <input type="username" name="username" id="username" class="gui-input" value="{{ old('username') }}" placeholder="Nome.Sobrenome (Usuário)">
+                                    <label for="username" class="field-icon">
+                                        <i class="fa fa-user"></i>
+                                    </label>
+                                </label>
+                                @if ($errors->has('username'))
+                                    <em for="username" class="state-error">{{ $errors->first('username') }}</em>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                     <!-- end section -->
                     <!-- end .section row section -->
-                    <div class="section">
-                        <label for="email" class="field prepend-icon {{ $errors->has('email') ? 'state-error' : '' }}">
-                            <input type="email" name="email" id="email" class="gui-input" value="{{ old('email') }}" placeholder="Endereço de e-mail">
-                            <label for="email" class="field-icon">
-                                <i class="fa fa-envelope"></i>
-                            </label>
-                        </label>
-                        @if ($errors->has('email'))
-                            <em for="email" class="state-error">{{ $errors->first('email') }}</em>
-                        @endif
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section">
+                                <label for="email" class="field prepend-icon {{ $errors->has('email') ? 'state-error' : '' }}">
+                                    <input type="email" name="email" id="email" class="gui-input" value="{{ old('email') }}" placeholder="Endereço de e-mail">
+                                    <label for="email" class="field-icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </label>
+                                </label>
+                                @if ($errors->has('email'))
+                                    <em for="email" class="state-error">{{ $errors->first('email') }}</em>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                     <!-- end section -->
-                    <div class="section">
-                        <label for="password" class="field prepend-icon {{ $errors->has('password') ? 'state-error' : '' }}">
-                            <input type="password" name="password" id="password" class="gui-input" value="{{ old('password') }}" placeholder="Crie uma senha">
-                            <label for="password" class="field-icon">
-                                <i class="fa fa-unlock-alt"></i>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="section">
+                                <label for="password" class="field prepend-icon {{ $errors->has('password') ? 'state-error' : '' }}">
+                                    <input type="password" name="password" id="password" class="gui-input" value="{{ old('password') }}" placeholder="Crie uma senha">
+                                    <label for="password" class="field-icon">
+                                        <i class="fa fa-unlock-alt"></i>
+                                    </label>
+                                </label>
+                                @if ($errors->has('password'))
+                                    <em for="password" class="state-error">{{ $errors->first('password') }}</em>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="password-confirm" class="field prepend-icon {{ $errors->has('password_confirmation') ? 'state-error' : '' }}">
+                                <input type="password" name="password_confirmation" id="password-confirm" class="gui-input" placeholder="Repita a sua senha">
+                                <label for="password_confirmation" class="field-icon">
+                                    <i class="fa fa-lock"></i>
+                                </label>
                             </label>
-                        </label>
-                        @if ($errors->has('password'))
-                            <em for="password" class="state-error">{{ $errors->first('password') }}</em>
-                        @endif
-                    </div>
-                    <!-- end section -->
-                    <div class="section">
-                        <label for="password-confirm" class="field prepend-icon {{ $errors->has('password_confirmation') ? 'state-error' : '' }}">
-                            <input type="password" name="password_confirmation" id="password-confirm" class="gui-input" placeholder="Repita a sua senha">
-                            <label for="password_confirmation" class="field-icon">
-                                <i class="fa fa-lock"></i>
-                            </label>
-                        </label>
-                        @if ($errors->has('password_confirmation'))
-                            <em for="password_confirmation" class="state-error">{{ $errors->first('password_confirmation') }}</em>
-                        @endif
+                            @if ($errors->has('password_confirmation'))
+                                <em for="password_confirmation" class="state-error">{{ $errors->first('password_confirmation') }}</em>
+                            @endif
+                        </div>
                     </div>
                     <!-- end section -->
                     <div class="section-divider mv40">
