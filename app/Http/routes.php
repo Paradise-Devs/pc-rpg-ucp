@@ -13,6 +13,8 @@
 
 Route::auth();
 
+Route::resource('bugs', 'BugController');
+
 Route::get('/perfil/amizade/enviar/{id}', 'ProfileController@addFriend');
 Route::get('/perfil/amizade/recusar/{id}', 'ProfileController@denyFriend');
 Route::get('/perfil/amizade/aceitar/{id}', 'ProfileController@acceptFriend');

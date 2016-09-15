@@ -161,6 +161,12 @@
                     <span class="sidebar-title">FAQ</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/bugs') }}">
+                    <span class="fa fa-bug"></span>
+                    <span class="sidebar-title">Feedback</span>
+                </a>
+            </li>
         </ul>
         <!-- End: Sidebar Left Menu -->
     </div>
