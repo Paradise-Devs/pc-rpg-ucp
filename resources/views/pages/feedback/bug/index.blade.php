@@ -81,30 +81,8 @@
                               <tbody>
                                   @foreach($bugs as $bug)
                                       <tr class="launchpad-row" onClick="document.location.href='{{ url('/bugs/'.$bug->id) }}';">
-                                          @if($bug->importance >= 3)
-                                              <td><span class="label label-danger">crítica</span></td>
-                                          @elseif($bug->importance == 2)
-                                              <td><span class="label label-warning">alta</span></td>
-                                          @elseif($bug->importance == 1)
-                                              <td><span class="label label-primary">média</span></td>
-                                          @else
-                                              <td><span class="label label-success">baixa</span></td>
-                                          @endif
-                                          @if($bug->status == 1)
-                                              <td><span class="label label-success">corrigido</span></td>
-                                          @elseif($bug->status == 2)
-                                              <td><span class="label label-alert">em análise</span></td>
-                                          @elseif($bug->status == 3)
-                                              <td><span class="label label-warning">em progresso</span></td>
-                                          @elseif($bug->status == 4)
-                                              <td><span class="label label-system">confirmado</span></td>
-                                          @elseif($bug->status == 5)
-                                              <td><span class="label label-default">incompleto</span></td>
-                                          @elseif($bug->status == 6)
-                                              <td><span class="label label-danger">cancelado</span></td>
-                                          @else
-                                              <td><span class="label label-info">novo</span></td>
-                                          @endif
+                                          <td><span class="label label-{{ $bug->importance_style }}">{{ $bug->importance }}</span></td>
+                                          <td><span class="label label-{{ $bug->status_style }}">{{ $bug->status }}</span></td>
                                           <td>{{ $bug->title }}</td>
                                           <td>
                                               <a href="{{ url('/perfil/'.$bug->user->id) }}" class="link-unstyled">

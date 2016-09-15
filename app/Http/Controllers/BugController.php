@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Bug;
 
+use Auth;
+
 class BugController extends Controller
 {
     /**
@@ -50,7 +52,19 @@ class BugController extends Controller
      */
     public function show($id)
     {
-        //
+        $bug = Bug::findOrFail($id);
+        $bug->views++;
+        $bug->save();
+        
+        $user = Auth::user();
+        if($user->admin > 1)
+        {
+            return view('pages.bug.show-dev', ['bug' => $bug]);
+        }
+        else
+        {
+            return view('pages.bug.show', ['bug' => $bug]);
+        }
     }
 
     /**
