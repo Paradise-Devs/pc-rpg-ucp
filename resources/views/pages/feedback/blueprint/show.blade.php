@@ -55,11 +55,8 @@
                             @if($user->id == $blueprint->user->id)
                                 <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button>
                             @else
-                                {{--<form action="{{ url('/blueprints/upvote/'.$blueprint->id) }}" method="post" id="form_affects">
-                                    {{ csrf_field() }}
-                                </form>--}}
-                                <a href="{{ url('/blueprints/upvote/'.$blueprint->id) }}" class="btn btn-sm btn-gradient btn-success"><i class="fa fa-thumbs-up"></i> {{ $blueprint->upvotes }}</a>
-                                <a href="{{ url('/blueprints/downvote/'.$blueprint->id) }}" class="btn btn-sm btn-gradient btn-danger"><i class="fa fa-thumbs-down"></i> {{ $blueprint->downvotes }}</a>
+                                <a href="{{ url('/blueprints/upvote/'.$blueprint->id) }}" class="btn btn-sm btn-gradient btn-success" title="{{ $blueprint->upvotes }} pessoa(s) curtiram esta ideia"><i class="fa fa-thumbs-up"></i> {{ $blueprint->upvotes }}</a>
+                                <a href="{{ url('/blueprints/downvote/'.$blueprint->id) }}" class="btn btn-sm btn-gradient btn-danger" title="{{ $blueprint->downvotes }} pessoa(s) não curtiram esta ideia"><i class="fa fa-thumbs-down"></i> {{ $blueprint->downvotes }}</a>
                             @endif
                         </div>
                         <h4>
