@@ -16,6 +16,10 @@ Route::auth();
 Route::post('bugs/affect/{id}', 'BugController@affect');
 Route::resource('bugs', 'BugController');
 
+Route::get('blueprints/upvote/{id}', 'BlueprintController@upvote');
+Route::get('blueprints/downvote/{id}', 'BlueprintController@downvote');
+Route::resource('blueprints', 'BlueprintController');
+
 Route::get('/perfil/amizade/enviar/{id}', 'ProfileController@addFriend');
 Route::get('/perfil/amizade/recusar/{id}', 'ProfileController@denyFriend');
 Route::get('/perfil/amizade/aceitar/{id}', 'ProfileController@acceptFriend');

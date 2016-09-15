@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bug extends Model
 {
-    protected $fillable = ['user_id', 'title', 'description', 'importance', 'importance_style', 'importance_icon', 'status', 'status_style', 'status_icon', 'affects', 'views'];
+    protected $fillable = ['user_id', 'title', 'description', 'importance', 'importance_style', 'importance_icon', 'status', 'status_style', 'status_icon', 'views'];
 
     /**
     * The user that owns the message.

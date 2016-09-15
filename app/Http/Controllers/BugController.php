@@ -149,7 +149,7 @@ class BugController extends Controller
     {
         $bug        = Bug::findOrFail($id);
         $user       = Auth::user();
-        $affected   = BugAffected::where('user_id', $user->id)->count();
+        $affected   = BugAffected::where('bug_id', $id)->where('user_id', $user->id)->count();
         if($affected)
         {
             return Redirect::to('/bugs/'.$id)->with('error', "Você já confirmou este bug.");
