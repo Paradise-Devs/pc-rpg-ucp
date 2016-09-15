@@ -11,7 +11,7 @@
       <div class="topbar-left">
           <ol class="breadcrumb">
               <li class="crumb-active">
-                  <a href="#">UCP</a>
+                  <a href="{{ url('/') }}">UCP</a>
               </li>
               <li class="crumb-icon">
                   <a href="{{ url('/') }}">
@@ -40,8 +40,14 @@
                   </li>
               </ul>
           </div>
+          @if(Session::has('success'))
+              <div class="alert alert-success light ml10" style="width: 99%;">
+                  <i class="fa fa-info"></i> Operação realizada com sucesso.
+              </div>
+          @endif
           <div class="row">
               <div class="col-md-12">
+                  <hr style="margin-bottom: 0px; margin-top: 0px">
                   <div class="alert alert-default alert-dismissable">
                       <h3 class="mt5">Bem vindo!</h3>
                       <p>Esta página foi criada com o objetivo de melhorarmos o PC:RPG de uma forma mais aberta.
@@ -70,12 +76,12 @@
                           <table class="main-table table table-hover fw-labels fw-labels2" data-page-navigation=".pagination" data-page-size="10">
                               <thead>
                                   <tr>
-                                      <th style="width: 8%">Prioridade</th>
+                                      <th style="width: 12%">Prioridade</th>
                                       <th style="width: 8%">Status</th>
                                       <th>Título</th>
-                                      <th style="width: 10%">Autor</th>
+                                      <th style="width: 20%">Autor</th>
                                       <th class="text-center" style="width: 20%">Stats</th>
-                                      <th class="text-right" style="width: 15%">Última resposta</th>
+                                      <th class="text-right" style="width: 15%">Última atualização</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -91,9 +97,9 @@
                                               </a>
                                           </td>
                                           <td class="text-center">
-                                              <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> {{ $bug->affects }}</span>
-                                              <span class="label badge-default"><i class="fa fa-comment mr5"></i> 0</span>
-                                              <span class="label badge-default"><i class="fa fa-eye mr5"></i> {{ $bug->views }}</span>
+                                              <span class="label badge-success" title="Pessoas afetadas"><i class="fa fa-thumbs-up mr5"></i> {{ count($bug->affects) + 1 }}</span>
+                                              <span class="label badge-default" title="Comentários"><i class="fa fa-comment mr5"></i> 0</span>
+                                              <span class="label badge-default" title="Visualizações"><i class="fa fa-eye mr5"></i> {{ $bug->views }}</span>
                                           </td>
                                           <td class="text-right">{{ App\Utils::timeElapsedString($bug->updated_at) }}</td>
                                       </tr>

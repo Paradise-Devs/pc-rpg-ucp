@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bug extends Model
 {
-    protected $fillable = ['user_id', 'title', 'description', 'importance', 'importance_style', 'status', 'status_style', 'affects', 'views'];
+    protected $fillable = ['user_id', 'title', 'description', 'importance', 'importance_style', 'importance_icon', 'status', 'status_style', 'status_icon', 'affects', 'views'];
 
     /**
     * The user that owns the message.
@@ -22,5 +22,13 @@ class Bug extends Model
    public function actions()
    {
        return $this->hasMany('App\BugLog');
+   }
+
+    /**
+    * The players the are affected by this bug
+    */
+   public function affects()
+   {
+       return $this->hasMany('App\BugAffected');
    }
 }

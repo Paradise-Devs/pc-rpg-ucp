@@ -13,6 +13,7 @@
 
 Route::auth();
 
+Route::post('bugs/affect/{id}', 'BugController@affect');
 Route::resource('bugs', 'BugController');
 
 Route::get('/perfil/amizade/enviar/{id}', 'ProfileController@addFriend');

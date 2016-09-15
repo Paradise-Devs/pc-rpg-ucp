@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBugsTable extends Migration
+class CreateBugAffectedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,19 +12,12 @@ class CreateBugsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bugs', function (Blueprint $table) {
+        Schema::create('bug_affecteds', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('title');
-            $table->text('description');
-            $table->string('importance');
-            $table->string('importance_style');
-            $table->string('importance_icon', 32);
-            $table->string('status');
-            $table->string('status_style');
-            $table->string('status_icon', 32);
-            $table->integer('views')->unsigned();
+            $table->integer('bug_id')->unsigned();
+            $table->foreign('bug_id')->references('id')->on('bugs')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -36,6 +29,6 @@ class CreateBugsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bugs');
+        Schema::drop('bug_affecteds');
     }
 }
