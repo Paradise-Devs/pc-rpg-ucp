@@ -16,9 +16,14 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
 
+        <!-- Summernote CSS  -->
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/summernote/summernote.css">
+
         <!-- FooTable Plugin CSS -->
         <link rel="stylesheet" type="text/css" href="vendor/plugins/footable/css/footable.core.min.css">
 
+        <!-- Admin Forms CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
 
         <!-- Favicon -->
@@ -30,7 +35,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="sb-l-o sb-l-m sb-r-c onload-check mobile-view tray-rescale">
+    <body class="sb-l-o sb-l-m sb-r-c onload-check mobile-view tray-rescale messages-page">
         <!-- Start: Main -->
         <div id="main">
             <!-- Start: Header -->
@@ -434,318 +439,54 @@
                                 <span class="glyphicon glyphicon-home"></span>
                                 </a>
                             </li>
-                            <li class="crumb-trail">Feedback</li>
+                            <li class="crumb-trail"><a href="launchpad_index.html">Feedback</a></li>
+                            <li class="crumb-trail"><a href="launchpad_index.html">Bugs/Glitchs</a></li>
+                            <li class="crumb-trail">Reportar bug</li>
                         </ol>
                     </div>
                 </header>
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
-                <section id="content" class="table-layout animated fadeIn">
-                    <div class="tray tray-center">
-                        <div class="page-tabs">
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a href="#">Bugs/Glitchs</a>
-                                </li>
-                                <li>
-                                    <a href="launchpad_qa.html">Perguntas & Respostas</a>
-                                </li>
-                                <li>
-                                    <a href="launchpad_suggestions.html">Sugestões</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="alert alert-default alert-dismissable">
-                                    <h3 class="mt5">Bem vindo!</h3>
-                                    <p>Esta página foi criada com o objetivo de melhorarmos o PC:RPG de uma forma mais aberta.
-                                        Aqui, você pode reportar um bug para que nossa equipe possa corrigi-lo.
-                                        Você também pode marcar bugs já reportados caso eles já tenham te afetado e acompanhar conforme corrigimos o mesmo.
-                                        <br />
-                                        <small class="text-muted">Utilize esta página apenas para reportar bugs, caso tenha alguma dúvida sobre o servidor, abra um ticket ou faça uma pergunta na comunidade.</small>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="panel panel-info panel-border top">
-                                    <div class="panel-heading">
-                                        <span class="panel-title">
-                                            <span class="fa fa-bug"></span>Bugs/Glitchs
-                                        </span>
-                                        <div class="widget-menu pull-right mr10">
+                <section id="content" class="animated fadeIn">
+                    <!-- begin: .tray-center -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <div class="admin-form theme-primary">
+                                    <div class="panel panel-primary panel-border top">
+                                        <div class="panel-heading">
+                                            <span class="panel-title"><i class="fa fa-bug"></i>Reportar bug</span>
+                                        </div>
+                                        <!-- end .panel-heading section -->
+                                        <textarea id="markdown-editor" name="content" data-language="pt" rows="10" placeholder="Diga-nos, qual o problema que estas enfrentando?"></textarea>
+                                        <div class="section-divider mb40" id="spy1">
+                                            <span style="color: #4a89dc;">Título</span>
+                                        </div>
+                                        <div class="panel-body" style="padding-top: 1px">
+                                            <div class="section row">
+                                                <div class="col-md-12">
+                                                    <label for="title" class="field">
+                                                        <input type="text" name="title" id="title" class="gui-input" maxlength="70" placeholder="Título" required>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <!-- end section -->
+                                        </div>
+                                        <!-- end .form-body section -->
+                                        <div class="panel-footer text-right">
                                             <div class="btn-group">
-                                                <a href="launchpad_create.html" type="button" class="btn btn-sm btn-info light"><i class="fa fa-plus"></i> reportar bug</a>
+                                                <a href="ticket_index.html" class="btn btn-default btn-gradient dark btn-blocks">
+                                                    <i class="fa fa-close"></i> Cancelar
+                                                </a>
+                                                <a href="#" id="submit_ticket" type="submit" class="btn btn-primary btn-gradient dark btn-blocks">
+                                                    <i class="fa fa-mail-forward"></i> Enviar
+                                                </a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="panel-body pn">
-                                        <table class="main-table table table-hover fw-labels fw-labels2" data-page-navigation=".pagination" data-page-size="10">
-                                            <thead>
-                                                <tr>
-                                                    <th style="width: 8%">Prioridade</th>
-                                                    <th style="width: 8%">Status</th>
-                                                    <th>Título</th>
-                                                    <th style="width: 10%">Autor</th>
-                                                    <th class="text-center" style="width: 10%">Stats</th>
-                                                    <th class="text-right" style="width: 15%">Última resposta</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-danger">crítico</span></td>
-                                                    <td><span class="label label-success">reparado</span></td>
-                                                    <td>dialog buttons missing</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-warning">em reparo</span></td>
-                                                    <td>Desktop folder gets created sometimes and is recognized by pantheon-files</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-system">confirmado</span></td>
-                                                    <td>New windows sometimes open in the background</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-alert">em análise</span></td>
-                                                    <td>Provide Gsignond interoperability for libsignon applications</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-primary">média</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Guest session logs out instead of screen off</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Invalid code name in elementary.list and patches.list</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-success">baixa</span></td>
-                                                    <td><span class="label label-danger">cancelado</span></td>
-                                                    <td><i class="fa fa-lock text-danger mr5"></i> Customizing XKB layout files has no effect on keyboard layouts</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-danger"><i class="fa fa-thumbs-down mr5"></i> - 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Testando paginação</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Testando paginação</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Testando paginação</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Testando paginação</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Testando paginação</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Testando paginação</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                                <tr class="launchpad-row" onClick="document.location.href='launchpad_bug_details.html';">
-                                                    <td><span class="label label-warning">alta</span></td>
-                                                    <td><span class="label label-info">novo</span></td>
-                                                    <td>Testando paginação</td>
-                                                    <td>
-                                                        <a href="user_profile.html" class="link-unstyled">
-                                                            <img src="assets/img/avatars/1.jpg" class="user-avatar" style="width: 30px;">
-                                                            <b class="text-dev">Los</b>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span class="label badge-success"><i class="fa fa-thumbs-up mr5"></i> 8</span>
-                                                        <span class="label badge-default"><i class="fa fa-quote-right mr5"></i> 2</span>
-                                                        <span class="label badge-default"><i class="fa fa-eye mr5"></i> 155</span>
-                                                    </td>
-                                                    <td class="text-right">3 horas atrás</td>
-                                                </tr>
-                                            </tbody>
-                                            <tfoot class="footer-menu">
-                                                <tr>
-                                                    <td colspan="8">
-                                                        <nav class="text-right">
-                                                            <ul class="pagination hide-if-no-paging"></ul>
-                                                        </nav>
-                                                    </td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
+                                        <!-- end .form-footer section -->
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </section>
@@ -758,12 +499,12 @@
         <!-- jQuery -->
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+        <script src="vendor/plugins/maxlength/bootstrap-maxlength.min.js"></script>
 
-        <!-- FooTable Plugin -->
-        <script src="vendor/plugins/footable/js/footable.all.min.js"></script>
-
-        <!-- FooTable Addon -->
-        <script src="vendor/plugins/footable/js/footable.filter.min.js"></script>
+        <!-- MarkDown JS -->
+        <script src="vendor/plugins/markdown/markdown.js"></script>
+        <script src="vendor/plugins/markdown/to-markdown.js"></script>
+        <script src="vendor/plugins/markdown/bootstrap-markdown.js"></script>
 
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
@@ -771,11 +512,29 @@
         <script src="assets/js/main.js"></script>
         <script type="text/javascript">
             jQuery(document).ready(function() {
-              "use strict";
-              // Init Theme Core
-              Core.init();
+                "use strict";
+                // Init Theme Core
+                Core.init();
 
-              $('.main-table').footable();
+                // Init MarkDown Editor
+                $("#markdown-editor").markdown({
+                    savable: false,
+                    onChange: function(e) {
+                        var content = e.parseContent(),
+                        content_length = (content.match(/\n/g) || []).length + content.length
+                        if (content == '') {
+                            $('#md-footer').hide()
+                        } else {
+                            $('#md-footer').show().html(content)
+                        }
+                    }
+                });
+
+                // Init Bootstrap Maxlength Plugin
+                $('input[maxlength]').maxlength({
+                    threshold: 70,
+                    placement: "bottom"
+                });
             });
         </script>
         <!-- END: PAGE SCRIPTS -->
