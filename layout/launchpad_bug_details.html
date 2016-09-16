@@ -469,13 +469,16 @@
                                     <img src="assets/img/avatars/1.jpg" class="img-responsive mw40 pull-left mr20">
                                     <div class="pull-right mt5 clearfix">
                                         <!-- IF USERID == REPORTOWNER -->
-
+                                        <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button>
                                         <!-- @ENDIF -->
                                         <!--
                                             adicionar/remover classe "active" quando jogador marcar esse botão
                                             não mostrar esse botão para userid dono do report
                                         -->
-                                        <button class="btn btn-sm btn-gradient dark btn-success active"><span class="label badge-dark"><i class="fa fa-thumbs-up"></i> 25</span> aconteceu comigo </button>
+                                        <div class="btn-group">
+                                            <button class="btn btn-sm dark btn-success disabled"><i class="fa fa-thumbs-up"></i> 25</span></button>
+                                            <button class="btn btn-sm btn-gradient dark btn-success active">aconteceu comigo </button>
+                                        </div>
                                     </div>
                                     <h4>
                                         <a href="user_profile.html" class="link-unstyled"><b class="text-dev">Los</b></a>
