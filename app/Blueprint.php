@@ -23,4 +23,12 @@ class Blueprint extends Model
   {
       return $this->hasMany('App\BlueprintLog');
   }
+
+  /**
+  * The comments
+  */
+ public function comments()
+ {
+     return $this->hasMany('App\BlueprintComment');
+ }
 }

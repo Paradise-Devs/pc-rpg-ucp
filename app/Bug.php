@@ -31,4 +31,12 @@ class Bug extends Model
    {
        return $this->hasMany('App\BugAffected');
    }
+
+    /**
+    * The comments
+    */
+   public function comments()
+   {
+       return $this->hasMany('App\BugComment');
+   }
 }

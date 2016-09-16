@@ -68,7 +68,7 @@
                           </span>
                           <div class="widget-menu pull-right mr10">
                               <div class="btn-group">
-                                  <button type="button" class="btn btn-sm btn-info light"><i class="fa fa-plus"></i> reportar bug</button>
+                                  <a href="{{ url('/bugs/create') }}" class="btn btn-sm btn-info light"><i class="fa fa-plus"></i> reportar bug</a>
                               </div>
                           </div>
                       </div>
@@ -98,7 +98,7 @@
                                           </td>
                                           <td class="text-center">
                                               <span class="label badge-success" title="Pessoas afetadas"><i class="fa fa-thumbs-up mr5"></i> {{ count($bug->affects) + 1 }}</span>
-                                              <span class="label badge-default" title="Comentários"><i class="fa fa-comment mr5"></i> 0</span>
+                                              <span class="label badge-default" title="Comentários"><i class="fa fa-comment mr5"></i> {{ count($bug->comments) }}</span>
                                               <span class="label badge-default" title="Visualizações"><i class="fa fa-eye mr5"></i> {{ $bug->views }}</span>
                                           </td>
                                           <td class="text-right">{{ App\Utils::timeElapsedString($bug->updated_at) }}</td>

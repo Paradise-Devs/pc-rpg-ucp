@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\BugComment;
+
 use App\BugAffected;
 
 use App\BugLog;
@@ -38,7 +40,7 @@ class BugController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.feedback.bug.create');
     }
 
     /**
@@ -49,7 +51,54 @@ class BugController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|min:4|max:70',
+            'description' => 'required|min:4',
+            'importance' => 'required'
+        ]);
+
+        switch ($request->input('importance'))
+        {
+            case 'crítico':
+                $importance_style = 'danger';
+                $importance_icon = 'fire';
+                break;
+
+            case 'alta':
+                $importance_style = 'warning';
+                $importance_icon = 'arrow-up';
+                break;
+
+            case 'média':
+                $importance_style = 'primary';
+                $importance_icon = 'arrow-right';
+                break;
+
+            case 'baixa':
+                $importance_style = 'success';
+                $importance_icon = 'arrow-down';
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
+        $inputs = [
+            'user_id' => Auth::user()->id,
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'importance' => $request->input('importance'),
+            'importance_style' => $importance_style,
+            'importance_icon' => $importance_icon,
+            'status' => 'novo',
+            'status_style' => 'info',
+            'status_icon' => 'bug',
+            'views' => 0
+        ];
+
+        Bug::Create($inputs);
+        return Redirect::to('bugs');
     }
 
     /**
@@ -66,7 +115,9 @@ class BugController extends Controller
 
         $affected   = BugAffected::where('user_id', Auth::user()->id)->count();
         $affects    = BugAffected::where('bug_id', $id)->count();
-        return view('pages.feedback.bug.show', ['bug' => $bug, 'affected' => $affected, 'affects' => $affects]);
+
+        $comments   = BugComment::where('bug_id', $id)->paginate(5);
+        return view('pages.feedback.bug.show', ['bug' => $bug, 'affected' => $affected, 'affects' => $affects, 'comments' => $comments]);
     }
 
     /**
@@ -155,6 +206,21 @@ class BugController extends Controller
             return Redirect::to('/bugs/'.$id)->with('error', "Você já confirmou este bug.");
         }
         BugAffected::create(['bug_id' => $id, 'user_id' => $user->id]);
+        return Redirect::to('/bugs/'.$id);
+    }
+
+    /**
+     * Store a newly comment.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function comment(Request $request, $id)
+    {
+        $bug        = Bug::findOrFail($id);
+        $user       = Auth::user();
+        BugComment::create(['bug_id' => $id, 'user_id' => $user->id, 'message' => $request->input('comment')]);
         return Redirect::to('/bugs/'.$id);
     }
 }

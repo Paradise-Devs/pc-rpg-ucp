@@ -4,6 +4,7 @@
 <!--                                                                        -->
 @section('stylesheets')
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/summernote/summernote.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/custom.css') }}">
 @endsection
 <!--                                                                        -->
 @section('topbar')
@@ -74,13 +75,57 @@
                         {{ $bug->description }}
                     </div>
                 </div>
+                <hr style="margin: 0px 0px">
+                <div class="comments-separator">
+                    COMENTÁRIOS ({{ $bug->comments->count() }})
+                </div>
+                <hr style="margin: 0px 0px">
+                <!-- message view -->
+                @foreach($comments as $i => $comment)
+                    <div class="message-view pt5" {{ ($i % 2 == 0) ? 'style="background-color: #F9F9F9"' : '' }}>
+                        <!-- message header -->
+                        <div class="message-header">
+                            <img src="{{ URL::asset('storage/avatars/' . $comment->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
+                            <div class="pull-right mt5 clearfix">
+                                @if($user->id == $comment->user->id)
+                                    <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button>
+                                @endif
+                            </div>
+                            <h4>
+                                <a href="{{ url('/perfil/'.$comment->user->id) }}" class="link-unstyled"><b class="link-unstyled">{{ $comment->user->username }}</b></a>
+                                <small class="text-muted clearfix">{{ $comment->created_at->format('d/m/Y - H:i') }} {{ ($comment->created_at != $comment->updated_at) ? '| editado as: '.$comment->updated_at->format('d/m/Y - H:i') : '' }}</small>
+                            </h4>
+                        </div>
 
+                        <hr class="mb15 mt15" style="border-color: #e5e5e5">
+                        <!-- message body -->
+                        <div class="message-body">
+                            {{ $comment->message }}
+                        </div>
+                    </div>
+                @endforeach
+                <div class="comments-pagging">
+                    <div class="btn-group">
+                        @if($comments->currentPage() > 1)
+                            <a href="{{ $comments->url(1) }}" class="btn btn-sm btn-primary"><i class="fa fa-chevron-left"></i></a>
+                            <a href="{{ $comments->previousPageUrl() }}" class="btn btn-sm btn-primary">{{ $comments->currentPage() - 1 }}</a>
+                        @endif
+                        <a href="#" class="btn btn-sm btn-primary disabled">{{ $comments->currentPage() }}</a>
+                        @if($comments->hasMorePages())
+                            <a href="{{ $comments->nextPageUrl() }}" class="btn btn-sm btn-primary">{{ $comments->currentPage() + 1 }}</a>
+                            <a href="{{ $comments->url($comments->lastPage()) }}" class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i></a>
+                        @endif
+                    </div>
+                </div>
                 <hr class="alt" style="margin-bottom: 0px; margin-top: 0px">
                 <!-- message reply form -->
                 <div class="message-reply pt0 pb0 mt0 mb0">
-                    <textarea id="report-reply" name="content" data-language="pt" rows="10" placeholder="Comentário..." required></textarea>
+                    <form action="{{ url('/bugs/comment/'.$bug->id) }}" method="post" id="post_comment_form">
+                        {{ csrf_field() }}
+                        <textarea id="report-reply" name="comment" data-language="pt" rows="10" placeholder="Comentário..." required></textarea>
+                    </form>
                     <div class="panel-footer p7 mt0 pt0 text-right">
-                        <button class="btn btn-sm btn-rounded btn-gradient dark btn-primary">enviar <i class="fa fa-mail-forward"></i></button>
+                        <button form="post_comment_form" class="btn btn-sm btn-rounded btn-gradient dark btn-primary">enviar <i class="fa fa-mail-forward"></i></button>
                     </div>
                 </div>
             </div>

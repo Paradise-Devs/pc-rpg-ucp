@@ -68,7 +68,7 @@
                           </span>
                           <div class="widget-menu pull-right mr10">
                               <div class="btn-group">
-                                  <button type="button" class="btn btn-sm btn-info light"><i class="fa fa-plus"></i> sugerir</button>
+                                  <a href="{{ url('/blueprints/create') }}" class="btn btn-sm btn-info light"><i class="fa fa-plus"></i> sugerir</a>
                               </div>
                           </div>
                       </div>
@@ -99,7 +99,7 @@
                                           <td class="text-center">
                                               <span class="label badge-success" title="Curtidas"><i class="fa fa-thumbs-up mr5"></i> {{ $blueprint->upvotes }}</span>
                                               <span class="label badge-danger" title="Descurtidas"><i class="fa fa-thumbs-down mr5"></i> {{ $blueprint->downvotes }}</span>
-                                              <span class="label badge-default" title="Comentários"><i class="fa fa-comment mr5"></i> 0</span>
+                                              <span class="label badge-default" title="Comentários"><i class="fa fa-comment mr5"></i> {{ count($blueprint->comments) }}</span>
                                               <span class="label badge-default" title="Visualizações"><i class="fa fa-eye mr5"></i> {{ $blueprint->views }}</span>
                                           </td>
                                           <td class="text-right">{{ App\Utils::timeElapsedString($blueprint->updated_at) }}</td>

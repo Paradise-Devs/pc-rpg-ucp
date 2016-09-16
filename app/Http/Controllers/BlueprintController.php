@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\BlueprintComment;
+
 use App\BlueprintVote;
 
 use App\BlueprintLog;
@@ -38,7 +40,7 @@ class BlueprintController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.feedback.blueprint.create');
     }
 
     /**
@@ -49,7 +51,56 @@ class BlueprintController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|min:4|max:70',
+            'description' => 'required|min:4',
+            'importance' => 'required'
+        ]);
+
+        switch ($request->input('importance'))
+        {
+            case 'crítico':
+                $importance_style = 'danger';
+                $importance_icon = 'fire';
+                break;
+
+            case 'alta':
+                $importance_style = 'warning';
+                $importance_icon = 'arrow-up';
+                break;
+
+            case 'média':
+                $importance_style = 'primary';
+                $importance_icon = 'arrow-right';
+                break;
+
+            case 'baixa':
+                $importance_style = 'success';
+                $importance_icon = 'arrow-down';
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
+        $inputs = [
+            'user_id' => Auth::user()->id,
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'importance' => $request->input('importance'),
+            'importance_style' => $importance_style,
+            'importance_icon' => $importance_icon,
+            'status' => 'novo',
+            'status_style' => 'info',
+            'status_icon' => 'file-text',
+            'upvotes' => 0,
+            'downvotes' => 0,
+            'views' => 0
+        ];
+
+        Blueprint::Create($inputs);
+        return Redirect::to('blueprints');
     }
 
     /**
@@ -63,7 +114,8 @@ class BlueprintController extends Controller
         $blueprint = Blueprint::findOrFail($id);
         $blueprint->views++;
         $blueprint->save();
-        return view('pages.feedback.blueprint.show', ['blueprint' => $blueprint]);
+        $comments = BlueprintComment::paginate(5);
+        return view('pages.feedback.blueprint.show', ['blueprint' => $blueprint, 'comments' => $comments]);
     }
 
     /**
@@ -204,6 +256,21 @@ class BlueprintController extends Controller
             $blueprint->downvotes++;
             $blueprint->save();
         }
+        return Redirect::to('/blueprints/'.$id);
+    }
+
+    /**
+     * Store a newly comment.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function comment(Request $request, $id)
+    {
+        $bp         = Blueprint::findOrFail($id);
+        $user       = Auth::user();
+        BlueprintComment::create(['blueprint_id' => $id, 'user_id' => $user->id, 'message' => $request->input('comment')]);
         return Redirect::to('/blueprints/'.$id);
     }
 }

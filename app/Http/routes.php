@@ -13,9 +13,11 @@
 
 Route::auth();
 
+Route::post('bugs/comment/{id}', 'BugController@comment');
 Route::post('bugs/affect/{id}', 'BugController@affect');
 Route::resource('bugs', 'BugController');
 
+Route::post('blueprints/comment/{id}', 'BlueprintController@comment');
 Route::get('blueprints/upvote/{id}', 'BlueprintController@upvote');
 Route::get('blueprints/downvote/{id}', 'BlueprintController@downvote');
 Route::resource('blueprints', 'BlueprintController');
