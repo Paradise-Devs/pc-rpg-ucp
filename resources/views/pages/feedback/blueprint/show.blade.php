@@ -53,9 +53,9 @@
                     <div class="message-header">
                         <img src="{{ URL::asset('storage/avatars/'.$blueprint->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                         <div class="pull-right mt5 clearfix">
-                            @if($user->id == $blueprint->user->id)
-                                <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button>
-                            @else
+                            @if($user->id == $blueprint->user->id && $blueprint->status != 'implementado')
+                                <a href="{{ url('/blueprints/' . $blueprint->id . '/edit') }}"class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</a>
+                            @elseif($user->id != $blueprint->user->id && $blueprint->status != 'implementado')
                                 <a href="{{ url('/blueprints/upvote/'.$blueprint->id) }}" class="btn btn-sm btn-gradient btn-success" title="{{ $blueprint->upvotes }} pessoa(s) curtiram esta ideia"><i class="fa fa-thumbs-up"></i> {{ $blueprint->upvotes }}</a>
                                 <a href="{{ url('/blueprints/downvote/'.$blueprint->id) }}" class="btn btn-sm btn-gradient btn-danger" title="{{ $blueprint->downvotes }} pessoa(s) não curtiram esta ideia"><i class="fa fa-thumbs-down"></i> {{ $blueprint->downvotes }}</a>
                             @endif
@@ -86,7 +86,7 @@
                             <img src="{{ URL::asset('storage/avatars/' . $comment->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                             <div class="pull-right mt5 clearfix">
                                 @if($user->id == $comment->user->id)
-                                    <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button>
+                                    <!-- <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button> -->
                                 @endif
                             </div>
                             <h4>
@@ -161,9 +161,8 @@
                 <div class="tray-affix affix-top" data-spy="affix" data-offset-top="200">
                     <div class="tray-bin btn-dimmer row" style="margin-left: -1px; margin-top: 10px; padding-right: 20px; margin-bottom: 5px">
                         <div class="col-xs-3 pln">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="importance" value="baixa">
                                 <input type="hidden" name="importance_style" value="success">
                                 <input type="hidden" name="importance_icon" value="arrow-down">
@@ -171,9 +170,8 @@
                             </form>
                         </div>
                         <div class="col-xs-3">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="importance" value="média">
                                 <input type="hidden" name="importance_style" value="primary">
                                 <input type="hidden" name="importance_icon" value="arrow-right">
@@ -181,9 +179,8 @@
                             </form>
                         </div>
                         <div class="col-xs-3">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="importance" value="alta">
                                 <input type="hidden" name="importance_style" value="warning">
                                 <input type="hidden" name="importance_icon" value="arrow-up">
@@ -191,9 +188,8 @@
                             </form>
                         </div>
                         <div class="col-xs-3">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="importance" value="crítico">
                                 <input type="hidden" name="importance_style" value="danger">
                                 <input type="hidden" name="importance_icon" value="fire">
@@ -205,50 +201,9 @@
                 <br />
                 <div class="tray-affix affix-top" data-spy="affix" data-offset-top="200">
                     <div class="tray-bin btn-dimmer row" style="margin-left: -1px; padding-right: 20px; margin-bottom: 5px">
-                        <div class="col-xs-4 pln">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('PUT') }}
-                                <input type="hidden" name="status" value="confirmado">
-                                <input type="hidden" name="status_style" value="system">
-                                <input type="hidden" name="status_icon" value="exclamation">
-                                <input type="submit" class="btn btn-system btn-gradient btn-alt btn-block item-active" value="confirmado"></button>
-                            </form>
-                        </div>
-                        <div class="col-xs-4">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('PUT') }}
-                                <input type="hidden" name="status" value="em análise">
-                                <input type="hidden" name="status_style" value="alert">
-                                <input type="hidden" name="status_icon" value="eye">
-                                <input type="submit" class="btn btn-alert btn-gradient btn-alt btn-block item-active" value="em análise"></button>
-                            </form>
-                        </div>
-                        <div class="col-xs-4">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('PUT') }}
-                                <input type="hidden" name="status" value="em progresso">
-                                <input type="hidden" name="status_style" value="warning">
-                                <input type="hidden" name="status_icon" value="code">
-                                <input type="submit" class="btn btn-warning btn-gradient btn-alt btn-block item-active" value="em progresso"></button>
-                            </form>
-                        </div>
-                        <div class="col-xs-4 pln">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('PUT') }}
-                                <input type="hidden" name="status" value="corrigido">
-                                <input type="hidden" name="status_style" value="success">
-                                <input type="hidden" name="status_icon" value="check">
-                                <input type="submit" class="btn btn-success btn-gradient btn-alt btn-block item-active" value="corrigido"></button>
-                            </form>
-                        </div>
                         <div class="col-xs-4 ">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="status" value="incompleto">
                                 <input type="hidden" name="status_style" value="danger">
                                 <input type="hidden" name="status_icon" value="times">
@@ -256,13 +211,48 @@
                             </form>
                         </div>
                         <div class="col-xs-4">
-                            <form action="{{ url('/blueprints/'.$blueprint->id) }}" method="post">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
+                                <input type="hidden" name="status" value="em análise">
+                                <input type="hidden" name="status_style" value="alert">
+                                <input type="hidden" name="status_icon" value="eye">
+                                <input type="submit" class="btn btn-alert btn-gradient btn-alt btn-block item-active" value="em análise"></button>
+                            </form>
+                        </div>
+                        <div class="col-xs-4">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="status" value="em progresso">
+                                <input type="hidden" name="status_style" value="warning">
+                                <input type="hidden" name="status_icon" value="code">
+                                <input type="submit" class="btn btn-warning btn-gradient btn-alt btn-block item-active" value="em progresso"></button>
+                            </form>
+                        </div>
+                        <div class="col-xs-4">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
+                                {{ csrf_field() }}
                                 <input type="hidden" name="status" value="cancelado">
                                 <input type="hidden" name="status_style" value="danger">
                                 <input type="hidden" name="status_icon" value="fire">
                                 <input type="submit" class="btn btn-danger btn-gradient btn-alt btn-block item-active" value="cancelado"></button>
+                            </form>
+                        </div>
+                        <div class="col-xs-4 pln">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="status" value="em beta">
+                                <input type="hidden" name="status_style" value="system">
+                                <input type="hidden" name="status_icon" value="exclamation">
+                                <input type="submit" class="btn btn-system btn-gradient btn-alt btn-block item-active" value="em beta"></button>
+                            </form>
+                        </div>
+                        <div class="col-xs-4 pln">
+                            <form action="{{ url('/blueprints/status/'.$blueprint->id) }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="status" value="implementado">
+                                <input type="hidden" name="status_style" value="success">
+                                <input type="hidden" name="status_icon" value="check">
+                                <input type="submit" class="btn btn-success btn-gradient btn-alt btn-block item-active" value="implementado"></button>
                             </form>
                         </div>
                     </div>

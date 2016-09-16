@@ -53,9 +53,9 @@
                     <div class="message-header">
                         <img src="{{ URL::asset('storage/avatars/'.$bug->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                         <div class="pull-right mt5 clearfix">
-                            @if($user->id == $bug->user->id)
-                                <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button>
-                            @else
+                            @if($user->id == $bug->user->id && $bug->status != 'corrigido')
+                                <a href="{{ url('/bugs/' . $bug->id . '/edit') }}" class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</a>
+                            @elseif($user->id != $bug->user->id && $bug->status != 'corrigido')
                                 <form action="{{ url('/bugs/affect/'.$bug->id) }}" method="post" id="form_affects">
                                     {{ csrf_field() }}
                                 </form>
@@ -88,7 +88,7 @@
                             <img src="{{ URL::asset('storage/avatars/' . $comment->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                             <div class="pull-right mt5 clearfix">
                                 @if($user->id == $comment->user->id)
-                                    <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button>
+                                    <!-- <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button> -->
                                 @endif
                             </div>
                             <h4>
@@ -163,9 +163,8 @@
                 <div class="tray-affix affix-top" data-spy="affix" data-offset-top="200">
                     <div class="tray-bin btn-dimmer row" style="margin-left: -1px; margin-top: 10px; padding-right: 20px; margin-bottom: 5px">
                         <div class="col-xs-3 pln">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="importance" value="baixa">
                                 <input type="hidden" name="importance_style" value="success">
                                 <input type="hidden" name="importance_icon" value="arrow-down">
@@ -173,9 +172,8 @@
                             </form>
                         </div>
                         <div class="col-xs-3">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="importance" value="média">
                                 <input type="hidden" name="importance_style" value="primary">
                                 <input type="hidden" name="importance_icon" value="arrow-right">
@@ -183,9 +181,8 @@
                             </form>
                         </div>
                         <div class="col-xs-3">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="importance" value="alta">
                                 <input type="hidden" name="importance_style" value="warning">
                                 <input type="hidden" name="importance_icon" value="arrow-up">
@@ -193,9 +190,8 @@
                             </form>
                         </div>
                         <div class="col-xs-3">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="importance" value="crítico">
                                 <input type="hidden" name="importance_style" value="danger">
                                 <input type="hidden" name="importance_icon" value="fire">
@@ -208,9 +204,8 @@
                 <div class="tray-affix affix-top" data-spy="affix" data-offset-top="200">
                     <div class="tray-bin btn-dimmer row" style="margin-left: -1px; padding-right: 20px; margin-bottom: 5px">
                         <div class="col-xs-4 pln">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="status" value="confirmado">
                                 <input type="hidden" name="status_style" value="system">
                                 <input type="hidden" name="status_icon" value="exclamation">
@@ -218,9 +213,8 @@
                             </form>
                         </div>
                         <div class="col-xs-4">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="status" value="em análise">
                                 <input type="hidden" name="status_style" value="alert">
                                 <input type="hidden" name="status_icon" value="eye">
@@ -228,9 +222,8 @@
                             </form>
                         </div>
                         <div class="col-xs-4">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="status" value="em progresso">
                                 <input type="hidden" name="status_style" value="warning">
                                 <input type="hidden" name="status_icon" value="code">
@@ -238,9 +231,8 @@
                             </form>
                         </div>
                         <div class="col-xs-4 pln">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="status" value="corrigido">
                                 <input type="hidden" name="status_style" value="success">
                                 <input type="hidden" name="status_icon" value="check">
@@ -248,9 +240,8 @@
                             </form>
                         </div>
                         <div class="col-xs-4 ">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="status" value="incompleto">
                                 <input type="hidden" name="status_style" value="danger">
                                 <input type="hidden" name="status_icon" value="times">
@@ -258,9 +249,8 @@
                             </form>
                         </div>
                         <div class="col-xs-4">
-                            <form action="{{ url('/bugs/'.$bug->id) }}" method="post">
+                            <form action="{{ url('/bugs/status/' . $bug->id) }}" method="post">
                                 {{ csrf_field() }}
-                                {{ method_field('PUT') }}
                                 <input type="hidden" name="status" value="cancelado">
                                 <input type="hidden" name="status_style" value="danger">
                                 <input type="hidden" name="status_icon" value="fire">

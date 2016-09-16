@@ -15,11 +15,13 @@ Route::auth();
 
 Route::post('bugs/comment/{id}', 'BugController@comment');
 Route::post('bugs/affect/{id}', 'BugController@affect');
+Route::post('bugs/status/{id}', 'BugController@update_stat');
 Route::resource('bugs', 'BugController');
 
 Route::post('blueprints/comment/{id}', 'BlueprintController@comment');
 Route::get('blueprints/upvote/{id}', 'BlueprintController@upvote');
 Route::get('blueprints/downvote/{id}', 'BlueprintController@downvote');
+Route::post('blueprints/status/{id}', 'BlueprintController@update_stat');
 Route::resource('blueprints', 'BlueprintController');
 
 Route::get('/perfil/amizade/enviar/{id}', 'ProfileController@addFriend');

@@ -126,7 +126,12 @@ class BlueprintController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blueprint = Blueprint::findOrFail($id);
+        if(Auth::user()->id == $blueprint->user->id || Gate::allows('admin'))
+        {
+            return view('pages.feedback.blueprint.edit', ['blueprint' => $blueprint]);
+        }
+        return Redirect::to('/blueprints/' . $id);
     }
 
     /**
@@ -137,6 +142,29 @@ class BlueprintController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required|min:4|max:70',
+            'description' => 'required|min:4'
+        ]);
+
+        $inputs = [
+            'title' => $request->input('title'),
+            'description' => $request->input('description')
+        ];
+
+        Blueprint::find($id)->update($inputs);
+        return Redirect::to('blueprints/'. $id);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_stat(Request $request, $id)
     {
         $blueprint = Blueprint::findOrFail($id);
         if(Gate::allows('developer'))

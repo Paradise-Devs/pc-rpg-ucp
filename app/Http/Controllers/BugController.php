@@ -128,7 +128,12 @@ class BugController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bug = Bug::findOrFail($id);
+        if(Auth::user()->id == $bug->user->id || Gate::allows('admin'))
+        {
+            return view('pages.feedback.bug.edit', ['bug' => $bug]);
+        }
+        return Redirect::to('/bugs/' . $id);
     }
 
     /**
@@ -139,6 +144,29 @@ class BugController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required|min:4|max:70',
+            'description' => 'required|min:4'
+        ]);
+
+        $inputs = [
+            'title' => $request->input('title'),
+            'description' => $request->input('description')
+        ];
+
+        Bug::find($id)->update($inputs);
+        return Redirect::to('bugs/'. $id);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_stat(Request $request, $id)
     {
         $bug = Bug::findOrFail($id);
         if(Gate::allows('developer'))
