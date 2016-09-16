@@ -26,7 +26,7 @@
             <div class="cs-page-content pull-center">
                 <img src="assets/img/logos/logo-big.png" class="cs-page-logo w700 text-center">
                 <h2 class="cs-page-title">OPEN BETA - v0.2</h2>
-                <h3 class="cs-page-text">EM  BREVE</h3>
+                <h3 class="cs-page-text">BEM VINDO</h3>
             </div>
             <section id="content_wrapper">
                 <div id="canvas-wrapper">
@@ -46,6 +46,27 @@
                     <span class="footer-separator">|</span>
                     <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
                 </div>
+                @if(Auth::check())
+                    <div class="col-md-6 text-right">
+                        <a href="{{ url('/perfil/' . Auth::user()->id) }}" class="dropdown-toggle p10 link-unstyled" data-toggle="dropdown" aria-expanded="true">
+                            <img src="{{ URL::asset('storage/avatars/' . Auth::user()->avatar_url) }}" alt="avatar" class="br64" style="width: 25px;"/>
+                            <span class="hidden-xs pl10">{{ Auth::user()->name }}</span>
+                        </a>
+                        <span class="footer-separator">|</span>
+                        <a href="{{ url('/dashboard') }}"><i class="fa fa-tachometer text-info ml15" data-toggle="tooltip" data-placement="top" title="Dasboard"></i></a>
+                        <a href="{{ url('/message') }}"><i class="fa fa-envelope text-muted ml15" data-toggle="tooltip" data-placement="top" title="Mensagens"></i></a>
+                        <a href="{{ url('/perfil/amigos/' . Auth::user()->id) }}"><i class="fa fa-group text-muted ml15" data-toggle="tooltip" data-placement="top" title="Amigos"></i></a>
+                        <a href="{{ url('/ticket') }}"><i class="fa fa-support text-muted ml15 mr15" data-toggle="tooltip" data-placement="top" title="Suporte"></i></a>
+                        <span class="footer-separator">|</span>
+                        <a href="{{ url('/logout') }}"><i class="fa fa-sign-out ml15 text-danger" data-toggle="tooltip" data-placement="top" title="Sair"></i></a>
+                    </div>
+                @else
+                    <div class="col-md-6 text-right">
+                        <a href="{{ url('/login') }}" class="link-unstyled">LOGIN</a>
+                        <span class="footer-separator">•</span>
+                        <a href="{{ url('/register') }}" class="link-unstyled">REGISTRO</a>
+                    </div>
+                @endif
             </div>
         </footer>
         <!-- End: Page Footer -->

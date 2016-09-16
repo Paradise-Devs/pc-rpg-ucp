@@ -61,7 +61,7 @@ Route::resource('ticket', 'TicketController');
 
 Route::get('/punicoes', 'PunishmentsController@index');
 Route::get('/denuncias', 'ReportsController@index');
-Route::get('/ranking', 'HomeController@ranking');
-Route::get('/jogadores', 'HomeController@players');
-Route::get('/home', 'HomeController@index');
+Route::get('/ranking', 'UCPController@ranking');
+Route::get('/jogadores', 'UCPController@players');
+Route::get('/dashboard', 'UCPController@index');
 Route::get('/', 'HomeController@index');
