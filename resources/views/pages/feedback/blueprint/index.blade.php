@@ -35,9 +35,6 @@
                   <li class="active">
                       <a href="#">Blueprints</a>
                   </li>
-                  <li>
-                      <a href="{{ url('/answers') }}">Perguntas & Respostas</a>
-                  </li>
               </ul>
           </div>
           @if(Session::has('success'))
