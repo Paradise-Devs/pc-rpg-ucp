@@ -12,6 +12,34 @@
 .text-paradiser     { color: #CE8500; }
 
 /* -----------------------------------------------------------------------------
+    ABOUT US PAGE
+------------------------------------------------------------------------------*/
+.about-page-content {
+    margin: 20px;
+    padding: 10px;
+    color: #fff;
+    z-index: 1;
+
+    background-size: 95% 95%;
+    border-radius: 2px;
+    text-shadow: 1px 1px 4px #3c3c3c;
+}
+
+.about-page {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../../img/background/5.jpg');
+}
+
+.about-page-title {
+    font-family: "Segoe UI";
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0px;
+}
+
+/* -----------------------------------------------------------------------------
     COMING SOON PAGE
 ------------------------------------------------------------------------------*/
 .cs-page-content {
@@ -47,6 +75,20 @@
     letter-spacing: 20px;
     color: #fff;
     text-shadow: 1px 1px 2px #3c3c3c;
+}
+
+.btn-play {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);;
+    box-shadow: 0px 0px 10px #3c3c3c;
+}
+
+.btn-play:hover {
+    color: #6cd7ff;
+}
+
+.btn-play i{
+    color: #6cd7ff;
 }
 
 /* -----------------------------------------------------------------------------

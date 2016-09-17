@@ -24,9 +24,10 @@
     <body class="external-page auth-body sb-l-c sb-r-c">
         <div id="main" class="animated fadeIn">
             <div class="cs-page-content pull-center">
-                <img src="assets/img/logos/logo-big.png" class="cs-page-logo w700 text-center">
+                <img src="assets/img/logos/logo-big.png" class="cs-page-logo text-center" style="width: 50%">
                 <h2 class="cs-page-title">OPEN BETA - v0.2</h2>
-                <h3 class="cs-page-text">BEM VINDO</h3>
+                <h3 class="cs-page-text pl10">BEM VINDO</h3>
+                <a href="samp://pc-rpg.com" class="btn btn-lg btn-play"><i class="fa fa-gamepad mr5 fs20"></i> JOGAR</a>
             </div>
             <section id="content_wrapper">
                 <div id="canvas-wrapper">
@@ -38,16 +39,22 @@
         <!-- Begin: Page Footer -->
         <footer id="auth-footer" class="affix" style="z-index: 1">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <span class="footer-since">DESDE <b>2012</b></span>
                     <span class="footer-separator">|</span>
-                    <a href="#" class="link-unstyled">WEBGIT</a> -
                     <a href="#" class="link-unstyled">PARADISE DEVS</a>
                     <span class="footer-separator">|</span>
                     <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
                 </div>
+                <div class="col-md-4 text-center">
+                    <a href="login.html" class="link-unstyled ml10 mr10"><i class="fa fa-info mr5"></i> SOBRE O PC:RPG</a>
+                    <span class="footer-separator">•</span>
+                    <a href="https://discord.gg/hpvRGZe" class="link-unstyled ml10 mr10"><i class="fa fa-comments-o mr5"></i> DISCORD</a>
+                    <span class="footer-separator">•</span>
+                    <a href="index.html" class="link-unstyled ml10 mr10"><i class="fa fa-cogs mr5"></i> UCP</a>
+                </div>
                 @if(Auth::check())
-                    <div class="col-md-6 text-right">
+                    <div class="col-md-4 text-right">
                         <a href="{{ url('/perfil/' . Auth::user()->id) }}" class="dropdown-toggle p10 link-unstyled" data-toggle="dropdown" aria-expanded="true">
                             <img src="{{ URL::asset('storage/avatars/' . Auth::user()->avatar_url) }}" alt="avatar" class="br64" style="width: 25px;"/>
                             <span class="hidden-xs pl10">{{ Auth::user()->name }}</span>
@@ -61,7 +68,7 @@
                         <a href="{{ url('/logout') }}"><i class="fa fa-sign-out ml15 text-danger" data-toggle="tooltip" data-placement="top" title="Sair"></i></a>
                     </div>
                 @else
-                    <div class="col-md-6 text-right">
+                    <div class="col-md-4 text-right">
                         <a href="{{ url('/login') }}" class="link-unstyled">LOGIN</a>
                         <span class="footer-separator">•</span>
                         <a href="{{ url('/register') }}" class="link-unstyled">REGISTRO</a>
