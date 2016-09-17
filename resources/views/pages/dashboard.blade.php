@@ -58,17 +58,15 @@
                                   </td>
                                   <td style="margin-left: 0px">
                                     @if($player->admin == 1)
-                                        <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>
+                                        <span class="label label-warning fs10"><i class="fa fa-star-o"></i> paradiser</span>
                                     @elseif($player->admin == 2)
-                                        <span class="label label-info"><i class="fa fa-fire"></i> moderador</span>
+                                        <span class="label label-info fs10"><i class="fa fa-fire"></i> moderador</span>
                                     @elseif($player->admin == 3)
-                                        <span class="label label-primary"><i class="imoon imoon-user3"></i> supervisor</span>
+                                        <span class="label label-primary fs10"><i class="imoon imoon-user3"></i> supervisor</span>
                                     @elseif($player->admin == 4)
                                         <span class="label label-primary fs10"><i class="imoon imoon-user3"></i> administrador</span>
                                     @elseif($player->admin > 4)
                                         <span class="label label-success fs10"><i class="fa fa-code"></i> desenvolvedor</span>
-                                    @else
-                                        <span class="label label-default"><i class="fa fa-briefcase"></i> jogador</span>
                                     @endif
                                   </td>
                               </tr>
@@ -121,7 +119,7 @@
       <div class="row">
           <div class="col-md-3">
               <a href="{{ url('/message') }}" class="link-unstyled">
-                  <div class="panel panel-tile bg-success light">
+                  <div class="panel panel-tile text-primary br-primary-light">
                       <div class="panel-body pn pl20 p5">
                           <i class="fa fa-envelope icon-bg"></i>
                           <h2 class="mt15 lh15">
