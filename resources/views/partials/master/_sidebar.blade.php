@@ -44,7 +44,7 @@
         <ul class="nav sidebar-menu">
             <li class="sidebar-label pt20">Início</li>
             <li>
-                <a href="/">
+                <a href="{{ url('/dashboard') }}">
                     <span class="glyphicon glyphicon-home"></span>
                     <span class="sidebar-title">Início</span>
                 </a>

@@ -12,10 +12,10 @@
       <div class="topbar-left">
           <ol class="breadcrumb">
               <li class="crumb-active">
-                  <a href="{{ url('/') }}">UCP</a>
+                  <a href="{{ url('/dashboard') }}">UCP</a>
               </li>
               <li class="crumb-icon">
-                  <a href="{{ url('/') }}">
+                  <a href="{{ url('/dashboard') }}">
                   <span class="glyphicon glyphicon-home"></span>
                   </a>
               </li>

@@ -14,7 +14,7 @@
                 <a href="#">UCP</a>
             </li>
             <li class="crumb-icon">
-                <a href="{{ url('/') }}">
+                <a href="{{ url('/dashboard') }}">
                 <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
@@ -57,15 +57,15 @@
                                       </a>
                                   </td>
                                   <td style="margin-left: 0px">
-                                    @if($user->admin == 1)
+                                    @if($player->admin == 1)
                                         <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>
-                                    @elseif($user->admin == 2)
+                                    @elseif($player->admin == 2)
                                         <span class="label label-info"><i class="fa fa-fire"></i> moderador</span>
-                                    @elseif($user->admin == 3)
+                                    @elseif($player->admin == 3)
                                         <span class="label label-primary"><i class="imoon imoon-user3"></i> supervisor</span>
-                                    @elseif($user->admin == 4)
+                                    @elseif($player->admin == 4)
                                         <span class="label label-primary fs10"><i class="imoon imoon-user3"></i> administrador</span>
-                                    @elseif($user->admin > 4)
+                                    @elseif($player->admin > 4)
                                         <span class="label label-success fs10"><i class="fa fa-code"></i> desenvolvedor</span>
                                     @else
                                         <span class="label label-default"><i class="fa fa-briefcase"></i> jogador</span>

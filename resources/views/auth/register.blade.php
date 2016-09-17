@@ -4,7 +4,7 @@
     <div class="admin-form theme-info mw700" style="margin-top: 3%;" id="login1">
         <div class="row mb15 table-layout">
             <div class="col-xs-6 va-m pln">
-                <a href="{{ url('/') }}" title="Return to Dashboard">
+                <a href="{{ url('/dashboard') }}" title="Retornar ao Dashboard">
                 <img src="assets/img/logos/logo-big.png" class="img-responsive w250">
                 </a>
             </div>
