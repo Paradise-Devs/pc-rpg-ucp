@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/admin-tools/admin-forms/css/admin-forms.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/fonts/icomoon/icomoon.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/select2/css/core.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/custom.css') }}">
 @endsection
 <!--                                                                        -->
 @section('topbar')
@@ -20,67 +21,22 @@
             </li>
             <li class="crumb-icon">
                 <a href="{{ url('/dashboard') }}">
-                <span class="glyphicon glyphicon-home"></span>
+                    <span class="glyphicon glyphicon-home"></span>
                 </a>
             </li>
+            <li class="crumb-trail">
+                <a href="{{ url('/jogadores') }}">
+                    Jogadores
+                </a>
             <li class="crumb-trail">{{ $profile->username }}</li>
         </ol>
-    </div>
-
-    <div class="topbar-right">
-        {{-- Gerenciar --}}
-        @can('admin')
-            <a href="#" type="button" class="btn btn-sm btn-system btn-gradient dark">
-                <i class="fa fa-cog"></i> Gerenciar Jogador
-            </a>
-        @endcan
-        {{-- Amizade --}}
-        @if($profile->id != $user->id)
-            <a id="quick-compose" type="button" class="btn btn-sm btn-info btn-gradient dark">
-                <i class="fa fa-envelope-o"></i> Enviar mensagem
-            </a>
-            @if($profile->admin < 1)
-                <a id="report_btn" href="{{ url('/denuncia/create') }}" type="button" class="btn btn-sm btn-warning btn-gradient dark">
-                    <i class="fa fa-warning"></i> Denúnciar
-                </a>
-            @endif
-            @if($user->hasSentFriendRequestTo($profile))
-                <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-primary btn-gradient dark" disabled>
-                    <i class="fa fa-user-plus"></i> Solicitação de amizade pendente
-                </a>
-            @elseif($user->isFriendWith($profile))
-                <a id="unfriend_btn" href="{{ url('/perfil/amizade/desfazer/'.$profile->id) }}" type="button" class="btn btn-sm btn-danger btn-gradient dark">
-                    <i class="fa fa-user-times"></i> Desfazer amizade
-                </a>
-            @elseif($user->hasFriendRequestFrom($profile))
-                <a id="friend_btn" href="{{ url('/perfil/amizade/aceitar/'.$profile->id) }}" type="button" class="btn btn-sm btn-primary btn-gradient dark">
-                    <i class="fa fa-user-plus"></i> Aceitar solicitação de amizade
-                </a>
-            @else
-                <a id="friend_btn" href="{{ url('/perfil/amizade/enviar/'.$profile->id) }}" type="button" class="btn btn-sm btn-primary btn-gradient dark">
-                    <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
-                </a>
-            @endif
-        @endif
-        {{-- Configurações --}}
-        @if($profile->id == $user->id)
-            <a id="accconfig_btn" href="{{ url('/perfil/configuracoes') }}" type="button" class="owner_player btn btn-sm btn-info btn-gradient dark">
-                <i class="fa fa-cog"></i> Configurar da conta
-            </a>
-        @endif
-        {{--<a id="block_btn" href="#" type="button" class="btn btn-sm btn-info btn-gradient dark">
-            <i class="fa fa-bell-slash"></i> Bloquear
-        </a>
-        <a id="unblock_btn" href="#" type="button" class="btn btn-sm btn-success btn-gradient dark">
-            <i class="fa fa-bell"></i> Desbloquear
-        </a>--}}
     </div>
 </header>
 @endsection
 <!--                                                                        -->
 @section('content')
-<section id="content" class="animated fadeIn">
-  <div class="page-heading">
+<section id="content" class="animated fadeIn" style="padding-bottom: 0px">
+  <div class="page-heading" style="padding: 0px 0px 0px 0px">
       @if (count($errors) > 0)
       <div class="panel" style="margin-bottom: 0px;">
           <div class="panel-menu br-n">
@@ -97,7 +53,14 @@
       </div>
       <hr style="margin-bottom: 0px; margin-top: 0px">
       @endif
-      <div class="media clearfix">
+      <div class="media clearfix profile-header" style="
+          background-image: url('{{URL::asset('assets/img/covers/default.jpg')}}');
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          color: #fff;
+          padding: 0px 0px 0px 0px;
+          margin-top: 0px;
+      ">
           {{--
           <div id="blocked_info" class="alert alert-micro alert-border-left alert-danger">
               <i class="fa fa-ban pr10"></i>
@@ -105,80 +68,151 @@
               Usuários bloqueados por você são impossibilitados de ter qualquer contato com você. Não conseguem visualizar seu perfil ou lhe enviar mensagens privadas.
           </div>
           --}}
-          <div class="media-left pr30">
-              <a href="#">
-                  <img class="media-object mw150" src="{{ URL::asset("storage/avatars/$profile->avatar_url") }}" alt="...">
-              </a>
-          </div>
-          <div class="media-body va-m">
-              <h3 class="media-heading">{{ $profile->username }}
+          <div class="media-left pr10">
+              <img class="media-object mw150 mr20" src="{{ URL::asset("storage/avatars/$profile->avatar_url") }}" alt="..." style="height: 100%">
+              <div class="level-circle">
                   @if($player->level < 15)
-                      <span class="label label-rounded label-default fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-default level-label fs24"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @elseif($player->level < 30)
-                      <span class="label label-rounded label-primary fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-primary level-label"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @elseif($player->level < 45)
-                      <span class="label label-rounded label-info fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-info level-label"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @elseif($player->level < 60)
-                      <span class="label label-rounded label-system fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-system level-label"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @elseif($player->level < 75)
-                      <span class="label label-rounded label-success fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-success level-label"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @elseif($player->level < 100)
-                      <span class="label label-rounded label-warning fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-warning level-label"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @elseif($player->level < 115)
-                      <span class="label label-rounded label-danger fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-danger level-label"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @elseif($player->level < 150)
-                      <span class="label label-rounded label-alert fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-alert level-label"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @else
-                      <span class="label label-rounded label-dark fs12">{{ $player->level }}</span>
+                      <span class="label label-rounded label-dark level-label"><i class="fa fa-angle-double-up"></i> {{ $player->level }}</span>
                   @endif
-              </h3>
-              @if($profile->admin == 1)
-                  <span class="label label-warning"><i class="fa fa-star-o"></i> paradiser</span>
-              @elseif($profile->admin == 2)
-                  <span class="label label-info"><i class="fa fa-fire"></i> moderador</span>
-              @elseif($profile->admin == 3)
-                  <span class="label label-primary"><i class="imoon imoon-user3"></i> supervisor</span>
-              @elseif($profile->admin == 4)
-                  <span class="label label-danger"><i class="imoon imoon-user3"></i> administrador</span>
-              @elseif($profile->admin > 4)
-                  <span class="label label-success"><i class="fa fa-code"></i> desenvolvedor</span>
-              @else
-                  <span class="label label-default"><i class="fa fa-briefcase"></i> Jogador</span>
-              @endif
-
-              <p class="lead mt10">{{ $profile->bio }}</p>
-              <div class="media-links">
-                  <ul class="list-inline list-unstyled">
-                      @if($profile->facebook_url)
-                          <li>
-                              <a href="http://fb.com/{{ $profile->facebook_url }}" title="{{ $profile->facebook_url }}">
-                                  <span class="fa fa-facebook-square fs35 text-primary"></span>
-                              </a>
-                          </li>
-                      @endif
-                      @if($profile->twitter_url)
-                          <li>
-                              <a href="http://twitter.com/{{ $profile->twitter_url }}" title="{{ $profile->twitter_url }}">
-                                  <span class="fa fa-twitter-square fs35 text-info"></span>
-                              </a>
-                          </li>
-                      @endif
-                      @if($profile->github_url)
-                          <li>
-                              <a href="http://github.com/{{ $profile->github_url }}" title="{{ $profile->github_url }}">
-                                  <span class="fa fa-github-square fs35 text-dark"></span>
-                              </a>
-                          </li>
-                      @endif
-                      @if($profile->email)
-                          <li>
-                              <a href="mailto:{{ $profile->email }}" title="{{ $profile->email }}">
-                                  <span class="fa fa-envelope-square fs35 text-muted"></span>
-                              </a>
-                          </li>
-                      @endif
-                  </ul>
               </div>
+          </div>
+          <div class="media-body va-m mt10 ml10">
+              <br />
+              @if($profile->admin == 1)
+                  <span class="label label-warning fs12"><i class="fa fa-star-o"></i> paradiser</span>
+              @elseif($profile->admin == 2)
+                  <span class="label label-info fs12"><i class="fa fa-fire"></i> moderador</span>
+              @elseif($profile->admin == 3)
+                  <span class="label label-primary fs12"><i class="imoon imoon-user3"></i> supervisor</span>
+              @elseif($profile->admin == 4)
+                  <span class="label label-danger fs12"><i class="imoon imoon-user3"></i> administrador</span>
+              @elseif($profile->admin > 4)
+                  <span class="label label-success fs12"><i class="fa fa-code"></i> desenvolvedor</span>
+              @else
+                  <span class="label label-default fs12"><i class="fa fa-briefcase"></i> Jogador</span>
+              @endif
+              <h2 class="user-nickname">{{ $profile->username }}</h2>
+              <h5 class="user-realname">{{ $profile->name }}</h5>
+
+              <blockquote class="blockquote-primary user-status-block mt10" style="background-color: rgba(0, 0, 0, 0.3); max-width: 80%">
+                  <p class="lead fs16">{{ $profile->bio }}</p>
+              </blockquote>
+              <div class="media-links mb10">
+                  @if($profile->id != $user->id)
+                      @if(!$user->isFriendWith($profile))
+                          @if($user->hasSentFriendRequestTo($profile))
+                              <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-alert btn-rounded btn-gradient dark disabled">
+                                  <i class="fa fa-user-plus"></i> Solicitação de amizade pendente
+                              </a>
+                          @elseif($user->hasFriendRequestFrom($profile))
+                              <a id="friend_btn" href="{{ url('/perfil/amizade/aceitar/'.$profile->id) }}" type="button" class="btn btn-sm btn-rounded btn-success btn-gradient dark">
+                                  <i class="fa fa-user-plus"></i> Aceitar solicitação de amizade
+                              </a>
+                          @else
+                              <a id="friend_btn" href="{{ url('/perfil/amizade/enviar/'.$profile->id) }}" type="button" class="btn btn-sm btn-rounded btn-primary btn-gradient dark">
+                                  <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
+                              </a>
+                          @endif
+                      @elseif($user->isFriendWith($profile))
+                          <a id="unfriend_btn" href="{{ url('/perfil/amizade/desfazer/'.$profile->id) }}" type="button" class="btn btn-sm btn-default btn-rounded btn-gradient dark">
+                              <i class="fa fa-user-times"></i> Desfazer amizade
+                          </a>
+                      @endif
+                      @if($profile->admin < 1)
+                          <a id="report_btn" href="{{ url('/denuncia/create') }}" type="button" class="btn btn-sm btn-danger btn-rounded btn-gradient dark ml10">
+                              <i class="fa fa-warning"></i> Denúnciar
+                          </a>
+                      @endif
+                  @endif
+                  {{-- Configurações --}}
+                  @if($profile->id == $user->id)
+                      <a id="accconfig_btn" href="{{ url('/perfil/configuracoes') }}" type="button" class="owner_player btn btn-sm btn-info btn-rounded btn-gradient dark">
+                          <i class="fa fa-cog"></i> Configurar da conta
+                      </a>
+                  @endif
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-4 animated slideInLeft" style="position: relative; z-index: 1">
+      <div class="panel user-group-widget panel-info">
+          <div class="panel-heading" style="height: 55px; padding-bottom: 5px; padding-top: 0px; padding-right: 8px">
+              <span class="panel-icon">
+                  <i class="fa fa-users"></i>
+              </span>
+              <span class="panel-title fs20 pl5"> Amigos (12)</span>
+              <div class="widget-menu pull-right">
+                  <a href="{{ url('/perfil/amigos/'.$profile->id) }}" style="color: #fff">ver todos</a>
+              </div>
+          </div>
+          <div class="panel-body panel-scroller scroller-overlay pn" style="max-height: 261px;">
+              <table class="table tc-bold-last">
+                  <thead>
+                      <tr class="hidden">
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @foreach($profile->getFriends() as $friend)
+                          <tr>
+                              <td style="width: 20%"><img src="{{ URL::asset("storage/avatars/$friend->avatar_url") }}" class="user-avatar" style="width: 50px; float: center"></td>
+                              <td>
+                                  <span class="friend-nick">
+                                      @if($friend->isOnline)
+                                          <span class="fa fa-circle text-success fs10"></span>
+                                      @else
+                                          <span class="fa fa-circle text-danger fs10"></span>
+                                      @endif
+                                      <a href="{{ url('/perfil/'.$friend->id) }}" class="link-unstyled">
+                                          <span class="text-admin">{{ $friend->username }}</span>
+                                      </a>
+                                  </span>
+                                  <span class="text-muted friend-data">{{ $friend->jobname }}</span>
+                                  <span class="text-muted friend-data">{{ $friend->rankname }}</span>
+                              </td>
+                              <td>
+                                  @if($player->level < 15)
+                                      <span class="label label-rounded label-default level-label fs10">{{ $friend->level }}</span>
+                                  @elseif($player->level < 30)
+                                      <span class="label label-rounded label-primary level-label fs10">{{ $friend->level }}</span>
+                                  @elseif($player->level < 45)
+                                      <span class="label label-rounded label-info level-label fs10">{{ $friend->level }}</span>
+                                  @elseif($player->level < 60)
+                                      <span class="label label-rounded label-system level-label fs10">{{ $friend->level }}</span>
+                                  @elseif($player->level < 75)
+                                      <span class="label label-rounded label-success level-label fs10">{{ $friend->level }}</span>
+                                  @elseif($player->level < 100)
+                                      <span class="label label-rounded label-warning level-label fs10">{{ $friend->level }}</span>
+                                  @elseif($player->level < 115)
+                                      <span class="label label-rounded label-danger level-label fs10">{{ $friend->level }}</span>
+                                  @elseif($player->level < 150)
+                                      <span class="label label-rounded label-alert level-label fs10">{{ $friend->level }}</span>
+                                  @else
+                                      <span class="label label-rounded label-dark level-label fs10">{{ $friend->level }}</span>
+                                  @endif
+                              </td>
+                          </tr>
+                      @endforeach
+                  </tbody>
+              </table>
           </div>
       </div>
   </div>
@@ -194,83 +228,70 @@
               </div>
           </div>
           <div class="panel-body pn">
-              <table class="table mbn tc-icon-1 tc-med-2 tc-bold-last">
+              <table class="table tc-med-1 tc-bold-last">
                   <thead>
                       <tr class="hidden">
-                          <th class="mw30">#</th>
                           <th>First Name</th>
                           <th>Revenue</th>
                       </tr>
                   </thead>
                   <tbody>
                       <tr>
-                          <td><strong>#</strong></td>
                           <td>+ Tempo Jogado</td>
                           <td>{{ gmdate("H:i:s", $player->played_time) }} horas <i class="fa fa-clock-o text-info pl5"></i></td>
                       </tr>
                       <tr>
-                          <td><strong>#</strong></td>
                           <td>+ Level</td>
                           <td>{{ $player->level }} <i class="fa fa-angle-double-up text-info pl5"></i></td>
                       </tr>
                       <tr>
-                          <td><strong>#</strong></td>
                           <td>+ Dinheiro</td>
                           <td>{{ $player->money + $player->bank }} <i class="fa fa-usd text-info pl5"></i></td>
-                      </tr>
-                      <tr>
-                          <td><strong>#</strong></td>
-                          <td>+ Eventos Ganhos</td>
-                          <td>0 <i class="fa fa-trophy text-info pl5"></i></td>
-                      </tr>
-                      <tr>
-                          <td><strong>#</strong></td>
-                          <td>+</td>
-                          <td><span class="text-info"></span></td>
-                      </tr>
-                      <tr>
-                          <td><strong>#</strong></td>
-                          <td>+</td>
-                          <td><span class="text-info"></span></td>
                       </tr>
                   </tbody>
               </table>
           </div>
       </div>
   </div>
-  <div class="col-md-8">
-      <div class="panel user-group-widget admin-form theme-primary panel-primary panel-border top">
-          <div class="panel-heading" style="height: 55px; padding-bottom: 5px; padding-top: 0px; padding-right: 8px">
+  <div class="col-md-4 mb30 animated slideInRight">
+      <div class="panel panel-info">
+          <div class="panel-heading">
               <span class="panel-icon">
-                  <i class="fa fa-users"></i>
+              <i class="fa fa-life-ring"></i>
               </span>
-              <a href="{{ url('/perfil/amigos/'.$profile->id) }}" class="panel-title fs20 pl5"> Amigos ({{ $profile->getFriends()->count() }})</a>
-              <div class="widget-menu pull-right" style="padding-top: 5px">
-                  <div class="input-group">
-                      <label class="field prepend-icon">
-                      <input id="friend_search" type="text" class="gui-input input-sm" placeholder="Procurar amigo...">
-                          <label for="website" class="field-icon">
-                            <i class="fa fa-search"></i>
-                          </label>
-                      </label>
-                  </div>
-              </div>
+              <span class="panel-title">Social</span>
           </div>
-          <div class="panel-body panel-scroller scroller-overlay pn" style="max-height: 261px;">
-              @foreach($profile->getFriends() as $friend)
-                  <div class="friend_item mt20">
-                      <div class="col-md-2">
-                          <a href="{{ url('/perfil/'.$friend->id) }}" class="link-unstyled">
-                              <img src="{{ URL::asset("storage/avatars/$friend->avatar_url") }}" class="user-avatar" style="width: 134px;">
-                              <div class="caption">
-                                  <h4 class="text-system fs10" style="margin-top: 3px">
-                                      {{ $friend->username }}
-                                  </h4>
-                              </div>
+          <div class="panel-body text-muted p10">
+              <div class="list-group fs14 fw600" style="margin-bottom: 3px">
+                  <a class="list-group-item" href="#">
+                      <i class="fa fa-comments-o fa-fw text-primary"></i>&nbsp; Enviar mensagem particular
+                  </a>
+                  @if($profile->email)
+                      <a class="list-group-item" href="mailto:{{ $profile->email }}" target="_blank">
+                          <i class="fa fa-envelope-o fa-fw text-primary"></i>&nbsp; Email
+                      </a>
+                  @endif
+                  {{--<a class="list-group-item" href="https://www.youtube.com/channel/UCGo6hd688I7PS3NzRa01yiw" target="_blank">
+                      <i class="fa fa-youtube-play fa-fw text-primary"></i>&nbsp; YouTube
+                  </a>--}}
+                  @if($profile->twitter_url)
+                      <a class="list-group-item" href="http://twitter.com/{{ $profile->twitter_url }}" target="_blank">
+                          <i class="fa fa-twitter fa-fw text-primary"></i>&nbsp; <span class="text-muted">@<span class="text-primary">{{ $profile->twitter_url }}</span>
+                      </a>
+                  @endif
+                  @if($profile->facebook_url)
+                      <a class="list-group-item" href="https://fb.com/{{ $profile->facebook_url }}" target="_blank">
+                          <i class="fa fa-facebook fa-fw"></i>&nbsp; <span class="text-muted">/<span class="text-primary">{{ $profile->facebook_url }}</span>
+                      </a>
+                  @endif
+                  @if($profile->admin > 4)
+                      @if($profile->github_url)
+                          <a class="list-group-item" href="http://github.com/{{ $profile->github_url }}" target="_blank">
+                              <i class="fa fa-github fa-fw"></i>&nbsp; <span class="text-muted">/<span class="text-primary">{{ $profile->github_url }}</span>
                           </a>
-                      </div>
-                  </div>
-              @endforeach
+                      @endif
+                  @endif
+              </div>
           </div>
       </div>
   </div>
