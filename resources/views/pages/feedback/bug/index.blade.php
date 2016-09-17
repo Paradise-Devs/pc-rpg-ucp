@@ -74,7 +74,7 @@
                           <table class="main-table table table-hover fw-labels fw-labels2" data-page-navigation=".pagination" data-page-size="10">
                               <thead>
                                   <tr>
-                                      <th style="width: 12%">Prioridade</th>
+                                      <th style="width: 8%">Prioridade</th>
                                       <th style="width: 8%">Status</th>
                                       <th>Título</th>
                                       <th style="width: 20%">Autor</th>
