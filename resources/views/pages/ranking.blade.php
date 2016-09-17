@@ -51,7 +51,27 @@
                             @foreach($players_level as $key => $value)
                                 <tr>
                                     <td class="text-center"><strong>#{{ $key + 1 }}</strong></td>
-                                    <td class="text-center"><span class="label label-rounded label-dark fs12">{{ $value->level }}</span></td>
+                                    <td class="text-center">
+                                        @if($player->level < 15)
+                                            <span class="label label-rounded label-default fs12">{{ $player->level }}</span>
+                                        @elseif($player->level < 30)
+                                            <span class="label label-rounded label-primary fs12">{{ $player->level }}</span>
+                                        @elseif($player->level < 45)
+                                            <span class="label label-rounded label-info fs12">{{ $player->level }}</span>
+                                        @elseif($player->level < 60)
+                                            <span class="label label-rounded label-system fs12">{{ $player->level }}</span>
+                                        @elseif($player->level < 75)
+                                            <span class="label label-rounded label-success fs12">{{ $player->level }}</span>
+                                        @elseif($player->level < 100)
+                                            <span class="label label-rounded label-warning fs12">{{ $player->level }}</span>
+                                        @elseif($player->level < 115)
+                                            <span class="label label-rounded label-danger fs12">{{ $player->level }}</span>
+                                        @elseif($player->level < 150)
+                                            <span class="label label-rounded label-alert fs12">{{ $player->level }}</span>
+                                        @else
+                                            <span class="label label-rounded label-dark fs12">{{ $player->level }}</span>
+                                        @endif
+                                    </td>
                                     <td class="text-left">
                                         <img src="{{ URL::asset('storage/avatars/' . $value->avatar_url) }}" class="user-avatar" style="width: 30px;">
                                         <a href="{{ url('/perfil/'.$value->id) }}" class="link-unstyled"><span class="text-primary" style="font-weight: bold;">{{ $value->username }}</span></a>
