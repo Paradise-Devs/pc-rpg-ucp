@@ -4,6 +4,7 @@
 <!--                                                                        -->
 @section('stylesheets')
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/plugins/footable/css/footable.core.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('assets/skin/default_skin/css/custom.css') }}">
 @endsection
 <!--                                                                        -->
 @section('topbar')
