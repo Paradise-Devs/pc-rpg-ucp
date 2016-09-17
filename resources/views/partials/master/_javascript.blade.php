@@ -12,4 +12,10 @@
       // Init Theme Core
       Core.init();
     });
+
+    $(".sidebar-search").keyup(function (e) {
+    if (e.keyCode == 13) {
+        document.getElementById("search-form").submit();
+    }
+});
 </script>

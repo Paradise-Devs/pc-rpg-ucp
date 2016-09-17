@@ -33,7 +33,9 @@
                     <span class="input-group-addon">
                         <i class="fa fa-search"></i>
                     </span>
-                    <input type="text" id="sidebar-search" class="form-control" placeholder="Procurar...">
+                    <form action="{{ url('/busca') }}" method="get" id="search-form">
+                        <input type="text" name="busca" id="sidebar-search" class="form-control" placeholder="Procurar...">
+                    </form>
                 </div>
             </div>
         </header>

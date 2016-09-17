@@ -62,4 +62,19 @@ class UCPController extends Controller
         $players_money = User::selectRaw('users.id, username, (money + bank) as cash, avatar_url')->orderBy('cash', 'desc')->join('players', 'users.id', '=', 'players.user_id')->take(25)->get();
         return view('pages.ranking', ['players_level' => $players_level, 'players_ptime' => $players_ptime, 'players_money' => $players_money]);
     }
+
+    /**
+     * Show the search.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $search = $request->input('busca');
+        $users  = User::select('users.id', 'username', 'level', 'admin', 'created_at', 'avatar_url')
+        ->join('players', 'users.id', '=', 'players.user_id')->
+        where('name', 'like', '%'.$search.'%')->
+        orWhere('username', 'like', '%'.$search.'%')->get();
+        return view('pages.search', ['users' => $users]);
+    }
 }
