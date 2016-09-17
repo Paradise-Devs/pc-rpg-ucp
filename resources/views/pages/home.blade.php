@@ -47,11 +47,11 @@
                     <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
                 </div>
                 <div class="col-md-4 text-center">
-                    <a href="login.html" class="link-unstyled ml10 mr10"><i class="fa fa-info mr5"></i> SOBRE O PC:RPG</a>
+                    <a href="{{ url('/aboutus') }}" class="link-unstyled ml10 mr10"><i class="fa fa-info mr5"></i> SOBRE O PC:RPG</a>
                     <span class="footer-separator">•</span>
                     <a href="https://discord.gg/hpvRGZe" class="link-unstyled ml10 mr10"><i class="fa fa-comments-o mr5"></i> DISCORD</a>
                     <span class="footer-separator">•</span>
-                    <a href="index.html" class="link-unstyled ml10 mr10"><i class="fa fa-cogs mr5"></i> UCP</a>
+                    <a href="{{ url('/dashboard') }}" class="link-unstyled ml10 mr10"><i class="fa fa-cogs mr5"></i> UCP</a>
                 </div>
                 @if(Auth::check())
                     <div class="col-md-4 text-right">
@@ -60,10 +60,9 @@
                             <span class="hidden-xs pl10">{{ Auth::user()->name }}</span>
                         </a>
                         <span class="footer-separator">|</span>
-                        <a href="{{ url('/dashboard') }}"><i class="fa fa-tachometer text-info ml15" data-toggle="tooltip" data-placement="top" title="Dasboard"></i></a>
                         <a href="{{ url('/message') }}"><i class="fa fa-envelope text-muted ml15" data-toggle="tooltip" data-placement="top" title="Mensagens"></i></a>
                         <a href="{{ url('/perfil/amigos/' . Auth::user()->id) }}"><i class="fa fa-group text-muted ml15" data-toggle="tooltip" data-placement="top" title="Amigos"></i></a>
-                        <a href="{{ url('/ticket') }}"><i class="fa fa-support text-muted ml15 mr15" data-toggle="tooltip" data-placement="top" title="Suporte"></i></a>
+                        <a href="{{ url('/ticket') }}"><i class="fa fa-support text-info ml15 mr15" data-toggle="tooltip" data-placement="top" title="Suporte"></i></a>
                         <span class="footer-separator">|</span>
                         <a href="{{ url('/logout') }}"><i class="fa fa-sign-out ml15 text-danger" data-toggle="tooltip" data-placement="top" title="Sair"></i></a>
                     </div>
