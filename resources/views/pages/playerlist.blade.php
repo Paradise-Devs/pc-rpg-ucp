@@ -97,8 +97,13 @@
                                         <td>{{ $player->created_at->format("d/m/Y") }}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a type="button" class="btn btn-xs btn-success btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Adicionar como amigo" disabled><i class="glyphicons glyphicons-user_add"></i></a>
-                                                <a type="button" class="btn btn-xs btn-info btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Enviar mensagem" disabled><i class="fa fa-envelope"></i></a>
+                                                @if($player->id == $user->id)
+                                                    <a href="#" class="btn btn-xs btn-success btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Adicionar como amigo" disabled><i class="glyphicons glyphicons-user_add"></i></a>
+                                                @elseif($user->isFriendWith($player))
+                                                    <a href="{{ url('/perfil/amizade/desfazer/'.$player->id) }}" class="btn btn-xs btn-danger btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Remover amigo"><i class="glyphicons glyphicons-user_remove"></i></a>
+                                                @else
+                                                    <a href="{{ url('/perfil/amizade/enviar/'.$player->id) }}" class="btn btn-xs btn-success btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Adicionar como amigo"><i class="glyphicons glyphicons-user_add"></i></a>
+                                                @endif
                                                 <a type="button" class="btn btn-xs btn-default btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Bloquear" disabled><i class="fa fa-ban"></i></a>
                                             </div>
                                         </td>
