@@ -47,7 +47,7 @@
                                 @endif
                             </div>
                             <!-- end .panel-heading section -->
-                            <textarea id="markdown-editor" name="description" data-language="pt" rows="10" placeholder="Diga-nos, detalhadamente, qual o problema que está enfrentando?"></textarea>
+                            <textarea id="markdown-editor" name="description" data-language="pt" rows="10" placeholder="Diga-nos, qual é a sua ideia?"></textarea>
                             <div class="section-divider mb40" id="spy1">
                                 <span style="color: #4a89dc;">Título</span>
                             </div>
