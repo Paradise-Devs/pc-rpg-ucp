@@ -91,7 +91,7 @@
                                           <td>
                                               <a href="{{ url('/perfil/'.$bug->user->id) }}" class="link-unstyled">
                                                   <img src="{{ URL::asset('storage/avatars/'.$bug->user->avatar_url) }}" class="user-avatar" style="width: 30px;">
-                                                  <b class="text-dev">{{ $bug->user->username }}</b>
+                                                  <b class="text-unstyled">{{ $bug->user->username }}</b>
                                               </a>
                                           </td>
                                           <td class="text-center">

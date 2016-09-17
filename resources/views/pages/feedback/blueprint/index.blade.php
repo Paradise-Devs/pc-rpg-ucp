@@ -91,7 +91,7 @@
                                           <td>
                                               <a href="{{ url('/perfil/'.$blueprint->user->id) }}" class="link-unstyled">
                                                   <img src="{{ URL::asset('storage/avatars/'.$blueprint->user->avatar_url) }}" class="user-avatar" style="width: 30px;">
-                                                  <b class="text-dev">{{ $blueprint->user->username }}</b>
+                                                  <b class="text-unstyled">{{ $blueprint->user->username }}</b>
                                               </a>
                                           </td>
                                           <td class="text-center">
