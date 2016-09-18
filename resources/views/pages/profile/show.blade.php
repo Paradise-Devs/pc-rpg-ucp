@@ -143,7 +143,7 @@
                   {{-- Configurações --}}
                   @if($profile->id == $user->id)
                       <a id="accconfig_btn" href="{{ url('/perfil/configuracoes') }}" type="button" class="owner_player btn btn-sm btn-info btn-rounded btn-gradient dark">
-                          <i class="fa fa-cog"></i> Configurar da conta
+                          <i class="fa fa-cog"></i> Configurar conta
                       </a>
                   @endif
               </div>
