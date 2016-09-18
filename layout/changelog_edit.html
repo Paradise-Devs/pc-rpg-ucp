@@ -3,7 +3,7 @@
     <head>
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
-        <title>PC:RPG | Changelog</title>
+        <title>PC:RPG | Editar Changelog</title>
         <meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
         <meta name="description" content="Paradise City RPG - SA:MP Server">
         <meta name="author" content="Paradise City RPG">
@@ -16,7 +16,6 @@
 
         <!-- css dessa pagina -->
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
-        <link href="vendor/plugins/nestable/nestable.css" rel="stylesheet" type="text/css">
         <link href="vendor/plugins/magnific/magnific-popup.css" rel="stylesheet" type="text/css" >
 
         <!-- Custom CSS -->
@@ -442,281 +441,15 @@
                                 </a>
                             </li>
                             <li class="crumb-trail"><a href="changelog_index.html">Changelogs</a></li>
-                            <li class="crumb-trail">Gerenciar Changelogs</li>
+                            <li class="crumb-trail"><a href="changelog_manage.html">Gerenciar Changelogs</a></li>
+                            <li class="crumb-trail">Editar Changelog</li>
                         </ol>
                     </div>
                 </header>
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
                 <section id="content" class="animated fadeIn">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <span class="panel-icon">
-                                        <i class="fa fa-clock-o"></i>
-                                    </span>
-                                    <span class="panel-title"> Atividade</span>
-                                </div>
-                                <div class="panel-body panel-scroller scroller-md scroller-pn scroller-info scroller-active" style="padding: 0px 0px 0px 0px">
-                                    <ol class="timeline-list">
-                                        <li class="timeline-item">
-                                            <div class="timeline-icon bg-info light">
-                                                <span class="fa fa-list"></span>
-                                            </div>
-                                            <div class="timeline-desc">
-                                                <span class="text-dev">Sync</span> adicionou o item #1 na to-do list
-                                            </div>
-                                            <div class="timeline-date">1:25</div>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <div class="timeline-icon bg-info light">
-                                                <span class="fa fa-list"></span>
-                                            </div>
-                                            <div class="timeline-desc">
-                                                <span class="text-dev">Lós</span> adicionou o item #2 na to-do list
-                                            </div>
-                                            <div class="timeline-date">14:25</div>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <div class="timeline-icon bg-info light">
-                                                <span class="fa fa-list"></span>
-                                            </div>
-                                            <div class="timeline-desc">
-                                                <span class="text-dev">Lós</span> adicionou o item #3 na to-do list
-                                            </div>
-                                            <div class="timeline-date">14:25</div>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <div class="timeline-icon bg-system light">
-                                                <span class="fa fa-code"></span>
-                                            </div>
-                                            <div class="timeline-desc">
-                                                <span class="text-dev">Lós</span> adicionou o item #3 na categoria "Adicionados" do changelog atual
-                                            </div>
-                                            <div class="timeline-date">14:25</div>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <div class="timeline-icon bg-info light">
-                                                <span class="fa fa-list"></span>
-                                            </div>
-                                            <div class="timeline-desc">
-                                                <span class="text-dev">Sync</span> adicionou o item #4 na to-do list
-                                            </div>
-                                            <div class="timeline-date">14:25</div>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <div class="timeline-icon bg-danger light">
-                                                <span class="fa fa-check"></span>
-                                            </div>
-                                            <div class="timeline-desc">
-                                                <span class="text-dev">Lós</span> publicou o changelog da versão <b>v0.2.3</b>
-                                            </div>
-                                            <div class="timeline-date">14:25</div>
-                                        </li>
-                                        <li class="timeline-item">
-                                            <div class="timeline-icon bg-info light">
-                                                <span class="fa fa-list"></span>
-                                            </div>
-                                            <div class="timeline-desc">
-                                                <span class="text-dev">Sync</span> removeu o item #4 da to-do list
-                                            </div>
-                                            <div class="timeline-date">14:25</div>
-                                        </li>
-                                    </ol>
-                                </div>
-                                <div class="panel-footer">
-                                    <div class="admin-form theme-info">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <a class="btn btn-info btn-lg dark btn-block"><i class="fa fa-remove"></i> Limpar</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="panel panel-info panel-widget task-widget">
-                                <div class="panel-heading">
-                                    <span class="panel-icon">
-                                        <i class="fa fa-list"></i>
-                                    </span>
-                                    <span class="panel-title"> To-do list</span>
-                                </div>
-                                <div class="panel-body panel-scroller scroller-md scroller-pn pn scroller scroller-info scroller-active">
-                                    <ul class="task-list task-current">
-                                        <li class="task-label">Pendentes</li>
-                                        <!--
-                                            Classes:
-                                                - success: adicionado
-                                                - danger: removido
-                                                - info: corrigido
-                                                - alert: alterado
-                                        -->
-                                        <li class="task-item info">
-                                            <div class="task-handle">
-                                                <div class="checkbox-custom">
-                                                    <input type="checkbox" id="todo-1">
-                                                    <label for="todo-1"></label>
-                                                </div>
-                                            </div>
-                                            <div class="task-desc">
-                                                <b class="text-muted">[#1]</b>
-                                                Emprego não aumentando nível ao chegar no XP máximo
-                                            </div>
-                                            <div class="task-menu"></div>
-                                        </li>
-                                        <li class="task-item success">
-                                            <div class="task-handle">
-                                                <div class="checkbox-custom">
-                                                    <input type="checkbox" id="todo-2">
-                                                    <label for="todo-2"></label>
-                                                </div>
-                                            </div>
-                                            <div class="task-desc">
-                                                <b class="text-muted">[#2]</b>
-                                                Adicionar funções de paradisers</div>
-                                            <div class="task-menu"></div>
-                                        </li>
-                                    </ul>
-                                    <ul class="task-list task-completed">
-                                        <li class="task-label">Finalizados</li>
-                                        <li class="task-item success item-checked">
-                                            <div class="task-handle">
-                                                <div class="checkbox-custom">
-                                                    <input type="checkbox" id="todo-3" checked>
-                                                    <label for="todo-3"></label>
-                                                </div>
-                                            </div>
-                                            <div class="task-desc"><b class="text-muted">[#3]</b> Adicionar comandos administrativos para paradisers</div>
-                                            <div class="task-menu ui-sortable-handle"></div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="panel-footer">
-                                    <div class="admin-form theme-info">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="section" style="margin-bottom: 0px">
-                                                        <label class="field select">
-                                                            <select>
-                                                                <option>Adicionar</option>
-                                                                <option>Remover</option>
-                                                                <option>Corrigir</option>
-                                                                <option>Alterar</option>
-                                                            </select>
-                                                            <i class="arrow"></i>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <div class="section" style="margin-bottom: 0px">
-                                                        <div class="smart-widget sm-right smr-50">
-                                                            <label class="field">
-                                                                <input type="text" class="gui-input" placeholder="Descrição...">
-                                                            </label>
-                                                            <button type="submit" class="button btn-primary">
-                                                                <i class="fa fa-plus"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h5 class="text-muted">
-                                Changelog atual v0.2.4
-                                <div class="btn-group pull-right" style="margin-top: -5px">
-                                    <a class="btn btn-dark btn-gradient btn-sm dark"><i class="fa fa-remove"></i> Limpar</a>
-                                    <a href="changelog_edit.html" class="btn btn-dark btn-gradient btn-sm dark"><i class="fa fa-pencil"></i> Editar</a>
-                                    <a class="btn btn-success btn-sm dark"><i class="fa fa-check"></i> Publicar</a>
-                                </div>
-                            </h5>
-                            <hr class="short alt">
-                            <div class="dd mb35" id="changelog" style="max-width: 100%">
-                                <ol class="dd-list">
-                                    <li class="dd-item" data-id="1">
-                                        <div class="dd-handle">Atualização v0.2.4</div>
-                                        <ol class="dd-list">
-                                            <li class="dd-item" data-id="1">
-                                                <div class="dd-handle">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  aa aa aaaaaaaa aaaa aaaaaaaaaaaaaaaaaaaaaa a a a a a a a aaaaaaaaaaaa</div>
-                                            </li>
-                                            <li class="dd-item" data-id="2">
-                                                <div class="dd-handle">Alterações</div>
-                                                <ol class="dd-list">
-                                                    <li class="dd-item" data-id="3">
-                                                        <div class="dd-handle">Adicionados</div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="4">
-                                                                <div class="dd-handle">tal tal tal</div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="5">
-                                                                <div class="dd-handle">tal tal tal</div>
-                                                            </li>
-                                                        </ol>
-                                                    </li>
-                                                    <li class="dd-item" data-id="6">
-                                                        <div class="dd-handle">Removido</div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="7">
-                                                                <div class="dd-handle">tal tal tal</div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="8">
-                                                                <div class="dd-handle">tal tal tal</div>
-                                                            </li>
-                                                        </ol>
-                                                    </li>
-                                                    <li class="dd-item" data-id="9">
-                                                        <div class="dd-handle">Corrigido</div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="10">
-                                                                <div class="dd-handle">tal tal tal</div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="11">
-                                                                <div class="dd-handle">tal tal tal</div>
-                                                            </li>
-                                                        </ol>
-                                                    </li>
-                                                    <li class="dd-item" data-id="12">
-                                                        <div class="dd-handle">Alterado</div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="12">
-                                                                <div class="dd-handle">tal tal tal</div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="13">
-                                                                <div class="dd-handle">tal tal tal</div>
-                                                            </li>
-                                                        </ol>
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                            <li class="dd-item" data-id="14">
-                                                <div class="dd-handle">Imagens</div>
-                                                <div class="dd-content">
-                                                    <div class="changelog-images">
-                                                        <a href="assets/img/background/1.jpg"><img src="assets/img/background/1.jpg" class="img-responsive img-changelog"></a>
-                                                        <a href="assets/img/background/2.jpg"><img src="assets/img/background/2.jpg" class="img-responsive img-changelog"></a>
-                                                        <a href="assets/img/background/3.jpg"><img src="assets/img/background/3.jpg" class="img-responsive img-changelog"></a>
-                                                        <a href="assets/img/background/4.jpg"><img src="assets/img/background/4.jpg" class="img-responsive img-changelog"></a>
-                                                        <a href="assets/img/background/5.jpg"><img src="assets/img/background/5.jpg" class="img-responsive img-changelog"></a>
-                                                        <a href="assets/img/background/1.jpg"><img src="assets/img/background/1.jpg" class="img-responsive img-changelog"></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ol>
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
+
                 </section>
                 <!-- End: Content -->
             </section>
