@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <title>PC:RPG | Configurar Conta</title>
+        <meta name="keywords" content="RPG Paradise City SAMP SA:MP GTA San Andreas" />
+        <meta name="description" content="Paradise City RPG - SA:MP Server">
+        <meta name="author" content="Paradise City RPG">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="‪#009dc7">
+
+        <!-- Stylesheets -->
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
+        <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+
+        <!-- DATATABLES -->
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/media/css/dataTables.bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/Editor/css/dataTables.editor.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/plugins/select2/css/core.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/img/favicon.ico">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="sb-l-o sb-r-c onload-check mobile-view tray-rescale">
+        <!-- Start: Main -->
+        <div id="main">
+            <!-- Start: Header -->
+            <header class="navbar navbar-fixed-top navbar-shadow bg-primary">
+                <div class="navbar-branding dark bg-primary">
+                    <a class="navbar-brand" href="dashboard.html">
+                    <b>PC</b>RPG
+                    </a>
+                    <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown menu-merge">
+                        <div class="navbar-btn btn-group">
+                            <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle">
+                                <span class="fa fa-bell-o fs14 va-m"></span>
+                                <span class="badge">10</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-persist w350" role="menu">
+                                <div class="panel mbn">
+                                    <div class="panel-menu">
+                                        <div class="btn-group btn-group-justified btn-group-nav" role="tablist">
+                                            <a href="#nav-tab1" data-toggle="tab" class="btn btn-default btn-sm active">Notificações <span class="label label-info">5</span></a>
+                                            <a href="#nav-tab2" data-toggle="tab" class="btn btn-default btn-sm">Mensagens <span class="label label-default">0</span></a>
+                                            <a href="#nav-tab3" data-toggle="tab" class="btn btn-default btn-sm">Admin <span class="label label-danger">5</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body panel-scroller scroller-navbar pn">
+                                        <div class="tab-content br-n pn">
+                                            <div id="nav-tab1" class="tab-pane alerts-widget active" role="tabpanel">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <span class="glyphicon glyphicon-user text-default"></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading">Solicitação de amizade</h5>
+                                                        <a href="user_profile.html">Lós</a> - 16 horas atrás
+                                                    </div>
+                                                    <div class="media-right">
+                                                        <div class="media-response"> Aceitar?</div>
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-default btn-xs light">
+                                                                <i class="fa fa-check text-success"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-default btn-xs light">
+                                                                <i class="fa fa-remove"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <span class="fa fa-eye text-warning"></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><a href="user_profile.html">Você recebeu uma punição</a></h5>
+                                                        1 dia atrás
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <span class="fa fa-support text-success"></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><a href="ticket_index.html">Seu ticket foi respondido</a></h5>
+                                                        2 dias atrás
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <span class="fa fa-flag text-danger"></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><a href="complaint_index.html.html">Sua denúncia foi analisada</a></h5>
+                                                        2 dias atrás
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <span class="glyphicon glyphicon-user text-default"></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><a href="user_profile.html">Lós</a> aceitou sua solicitação de amizade</h5>
+                                                         3 dias atrás
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="nav-tab2" class="tab-pane chat-widget" role="tabpanel">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="#">
+                                                            <img class="media-object" alt="64x64" src="assets/img/avatars/3.jpg">
+                                                        </a>
+                                                    </div>
+                                                    <a href="messages_details.html" class="media-body link-unstyled">
+                                                        <span class="media-status online"></span>
+                                                        <h5 class="media-heading">
+                                                            Larceny
+                                                            <small> - 53 minutos atrás</small>
+                                                        </h5>
+                                                        <span class="text-muted" style="color: #999">Safado é nois cachjorro, to ligado que cê gosta de uma carne mijada safado e e...</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div id="nav-tab3" class="tab-pane alerts-widget active" role="tabpanel">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <span class="fa fa-flag text-danger"></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><a href="complaint_index.html.html">3 denúncias não analisadas</a></h5>
+                                                        43 segundos atrás
+                                                    </div>
+                                                </div>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <span class="fa fa-support text-success"></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5 class="media-heading"><a href="ticket_index.html">13 tickets não respondidos</a></h5>
+                                                        2 dias atrás
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer text-center p7">
+                                        <a href="#" class="link-unstyled"> Limpar </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-divider hidden-xs">
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li class="dropdown menu-merge">
+                        <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
+                            <img src="assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64" />
+                            <span class="hidden-xs pl15"> Los </span>
+                            <span class="caret caret-tp hidden-xs"></span>
+                        </a>
+                        <ul class="dropdown-menu list-group dropdown-persist w250" role="menu">
+                            <li class="list-group-item">
+                                <a href="messages_inbox.html">
+                                    <span class="fa fa-envelope"></span> Mensagens
+                                    <span class="label label-warning">2</span>
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="user_profile.html">
+                                    <span class="fa fa-user"></span> Meu Perfil
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="user_edit_account.html">
+                                    <span class="fa fa-gear"></span> Config. Conta
+                                </a>
+                            </li>
+                            <li class="dropdown-footer">
+                                <a href="#" class="">
+                                    <span class="fa fa-power-off pr5"></span> Deslogar
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </header>
+            <!-- End: Header -->
+            <!-- Start: Sidebar -->
+            <aside id="sidebar_left" class="nano nano-light affix sidebar-light">
+                <!-- Start: Sidebar Left Content -->
+                <div class="sidebar-left-content nano-content">
+                    <!-- Start: Sidebar Header -->
+                    <header class="sidebar-header">
+                        <!-- Sidebar Widget - Author -->
+                        <div class="sidebar-widget author-widget">
+                            <div class="media">
+                                <a class="media-left" href="#">
+                                    <img src="assets/img/avatars/3.jpg" class="img-responsive">
+                                </a>
+                                <div class="media-body">
+                                    <div class="media-author" style="color: #17AE48">Los</div>
+                                    <div class="media-links">
+                                        <a href="messages_inbox.html"><i class="fa fa-envelope" data-toggle="tooltip" data-placement="bottom" title="Mensagens"></i></a>
+                                        <a href="user_friends.html"><i class="fa fa-group ml20" data-toggle="tooltip" data-placement="bottom" title="Amigos"></i></a>
+                                        <a href="user_profile.html"><i class="fa fa-user ml20" data-toggle="tooltip" data-placement="bottom" title="Perfil"></i></a>
+                                        <a href="ticket_index.html"><i class="fa fa-support ml20" data-toggle="tooltip" data-placement="bottom" title="Suporte"></i></a>
+                                        <a href="ticket_index.html"><i class="fa fa-sign-out ml20 text-danger" data-toggle="tooltip" data-placement="bottom" title="Sair"></i></a>
+                                    </div>
+                                    <span class="badge badge-default fs9" style="position: absolute; left: 5px; top:30px; float:center">
+                                        666
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Sidebar Widget - Search -->
+                        <div class="sidebar-widget search-widget">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                                <input type="text" id="sidebar-search" class="form-control" placeholder="Procurar usuários, grupos...">
+                            </div>
+                        </div>
+                    </header>
+                    <!-- End: Sidebar Header -->
+                    <!-- Start: Sidebar Menu -->
+                    <ul class="nav sidebar-menu">
+                        <li class="sidebar-label pt20">Início</li>
+                        <li class="active">
+                            <a href="index.html">
+                                <span class="glyphicon glyphicon-home"></span>
+                                <span class="sidebar-title">Início</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="market_index.html">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                <span class="sidebar-title">Loja</span>
+                            </a>
+                        </li>
+                        <!-- Mod+ -->
+                        <li>
+                            <a class="accordion-toggle" href="#">
+                                <span class="fa fa-cog text-system"></span>
+                                <span class="sidebar-title">Admin</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="nav sub-nav">
+                                <!-- Mod+ -->
+                                <li>
+                                    <a href="player_manage.html">
+                                        <span class="fa fa-group"></span>
+                                        Gerenciar Jogadores <span class="label label-xs bg-primary">5</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ticket_manage.html">
+                                        <span class="fa fa-support"></span>
+                                        Gerenciar Tickets <span class="label label-xs bg-primary">5</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="complaint_manage.html">
+                                        <span class="fa fa-flag"></span>
+                                        Gerenciar Denúncias <span class="label label-xs bg-primary">6</span>
+                                    </a>
+                                </li>
+                                <!-- Admin+ -->
+                                <li>
+                                    <a href="news_manage.html">
+                                        <span class="fa fa-newspaper-o"></span>
+                                        Gerenciar Notícias <span class="label label-xs bg-primary">5</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="faq_manage.html">
+                                        <span class="fa fa-quote-left"></span>
+                                        Gerenciar FAQ <span class="label label-xs bg-primary">2</span>
+                                    </a>
+                                </li>
+                                <!-- Dev/GOD+ -->
+                                <li>
+                                    <a href="server_manage.html">
+                                        <span class="fa fa-code"></span>
+                                        Gerenciar Servidor <span class="label label-xs bg-primary">2</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Sidebar: Patrimônio -->
+                        <li class="sidebar-label pt15">Patrimônio</li>
+                        <li>
+                            <a class="accordion-toggle" href="#">
+                                <span class="glyphicon glyphicon-plane"></span>
+                                <span class="sidebar-title">Transporte</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="nav sub-nav">
+                                <li>
+                                    <a href="vehicles_index.html">
+                                        <span class="fa fa-car"></span>
+                                        Terrestre <span class="label label-xs bg-primary">0/6</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="airplanes_index.html">
+                                        <span class="fa fa-fighter-jet"></span>
+                                        Aéreo <span class="label label-xs bg-primary">0/1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ships_index.html">
+                                        <span class="fa fa-ship"></span>
+                                        Marítimo <span class="label label-xs bg-primary">0/1</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="accordion-toggle" href="#">
+                                <span class="fa fa-building"></span>
+                                <span class="sidebar-title">Propriedades</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="nav sub-nav">
+                                <li>
+                                    <a href="home_index.html">
+                                        <span class="fa fa-home"></span>
+                                        Moradia <span class="label label-xs bg-primary">0/1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="buzz_index.html">
+                                        <span class="fa fa-briefcase"></span>
+                                        Empresa <span class="label label-xs bg-primary">0/0</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="objects_index.html">
+                                <span class="fa fa-laptop"></span>
+                                <span class="sidebar-title">Objetos</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar: Social -->
+                        <li class="sidebar-label pt15">Social</li>
+                        <li>
+                            <a href="player_index.html">
+                                <span class="fa fa-gamepad"></span>
+                                <span class="sidebar-title">Jogadores</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="job_index.html">
+                                <span class="fa fa-institution"></span>
+                                <span class="sidebar-title">Emprego</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="groups_index.html">
+                                <span class="fa fa-group"></span>
+                                <span class="sidebar-title">Grupos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="ranking_index.html">
+                                <span class="fa fa-list"></span>
+                                <span class="sidebar-title">Ranking</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="punishments_index.html">
+                                <span class="fa fa-eye"></span>
+                                <span class="sidebar-title">Punições</span>
+                            </a>
+                        </li>
+                        <!-- Sidebar: Suporte -->
+                        <li class="sidebar-label pt20">Suporte</li>
+                        <li>
+                            <a href="ticket_index.html">
+                                <span class="fa fa-question"></span>
+                                <span class="sidebar-title">Tickets</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="complaint_index.html">
+                                <span class="fa fa-flag"></span>
+                                <span class="sidebar-title">Denúncias</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="faq_index.html">
+                                <span class="fa fa-info"></span>
+                                <span class="sidebar-title">FAQ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="launchpad_index.html">
+                                <span class="fa fa-bug"></span>
+                                <span class="sidebar-title">Feedback</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- End: Sidebar Left Menu -->
+                </div>
+                <!-- End: Sidebar Left Content -->
+            </aside>
+            <!-- Start: Content-Wrapper -->
+            <section id="content_wrapper">
+                <!-- Start: Topbar -->
+                <header id="topbar" class="affix">
+                    <div class="topbar-left">
+                        <ol class="breadcrumb">
+                            <li class="crumb-active">
+                                <a href="#">UCP</a>
+                            </li>
+                            <li class="crumb-icon">
+                                <a href="index.html">
+                                <span class="glyphicon glyphicon-home"></span>
+                                </a>
+                            </li>
+                            <li class="crumb-trail"><a href="user_profile.html">Meu Perfil</a></li>
+                            <li class="crumb-trail">Configurar Conta</li>
+                        </ol>
+                    </div>
+                </header>
+                <!-- End: Topbar -->
+                <!-- Begin: Content -->
+                <section id="content" class="animated fadeIn" style="padding-bottom: 0px">
+                    <div class="page-heading" style="padding: 0px 0px 0px 0px">
+                        <div class="media clearfix profile-header" style="
+                            background-image: url('assets/img/covers/los.jpg');
+                            background-repeat: no-repeat;
+                            background-size: 100% 100%;
+                            color: #fff;
+                            padding: 0px 0px 0px 0px;
+                            margin-top: 0px;
+                        ">
+                            <div class="media-left pr10">
+                                <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" style="height: 100%">
+                            </div>
+                            <div class="media-body va-m mt10">
+                                <br />
+                                <span class="label label-success fs12"><i class="fa fa-code"></i> desenvolvedor</span>
+                                <h2 class="user-nickname">Los</h2>
+                                <h5 class="user-realname">Lucas Souza</h5>
+                                <!--
+                                <span class="label label-danger fs12"><i class="imoon imoon-user3"></i> administrador</span>
+                                <span class="label label-primary fs12"><i class="fa fa-eye"></i> supervisor</span>
+                                <span class="label label-info fs12"><i class="fa fa-fire"></i> moderador</span>
+                                <span class="label label-warning fs12"><i class="fa fa-star-o"></i> paradiser</span>
+                                <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
+                                <span class="label label-default fs12"><i class="fa fa-briefcase"></i> caminhoneiro</span>
+                                <span class="label label-alert fs12"><i class="imoon imoon-target"></i> ballas</span>
+                                -->
+                                <blockquote class="blockquote-primary user-status-block mt10" style="background-color: rgba(0, 0, 0, 0.3); max-width: 95%">
+                                    <p class="lead fs16">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunta sxasaassssssssssss sssssssssss sssssssssss sssssss sss s s ss sss ss sss ssssssss</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel panel-dark">
+                            <div class="panel-heading">
+                                <span class="panel-title">
+                                <span class="fa fa-eye"></span>Histórico de Punições</span>
+                            </div>
+                            <div class="panel-body pn">
+                                <div class="bs-component">
+                                    <table class="table table-hover" id="datatable" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 5%">Ação</th>
+                                                <th>Tipo</th>
+                                                <th>Quando</th>
+                                                <th>Expira Em</th>
+                                                <th>Administrador</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center"><a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i></a></td>
+                                                <td>Banimento</td>
+                                                <td>3 dias atrás</td>
+                                                <td>Nunca</td>
+                                                <td>Servidor</td>
+                                            </tr>
+                                            <tr class="text-muted">
+                                                <td class="text-center"><a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i></a></td>
+                                                <td>Banimento</td>
+                                                <td>3 dias atrás</td>
+                                                <td>Expirado</td>
+                                                <td><a href="user_profile.html">Los</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i></a></td>
+                                                <td>Expulsão</td>
+                                                <td>3 dias atrás</td>
+                                                <td>-</td>
+                                                <td><a href="user_profile.html">With</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center"><a type="button" class="btn btn-xs btn-danger btn-gradient dark"><i class="fa fa-trash"></i></a></td>
+                                                <td>Remoção de Cargo</td>
+                                                <td>3 dias atrás</td>
+                                                <td>-</td>
+                                                <td><a href="user_profile.html">Larceny</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="admin-form theme-info">
+                                <div class="panel-heading" style="height: 50px; padding-bottom: 0px; padding-top: 3px">
+                                    <span class="panel-title fs18">
+                                        Config. da Conta
+                                    </span>
+                                    <ul class="nav panel-tabs">
+                                        <li class="active">
+                                            <a href="#tab0" data-toggle="tab" aria-expanded="true">Administração</a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab1" data-toggle="tab" aria-expanded="true">Informações Pessoais</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="#tab2" data-toggle="tab" aria-expanded="false">Avatar</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div id="tab0" class="tab-pane active">
+                                            <div class="section-divider" style="margin-top: 0px; margin-bottom: 3%">
+                                                <span style="color: #4a89dc;">PUNIÇÃO</span>
+                                            </div>
+                                            <h6 class="text-center">
+                                                A punição escolhida abaixo será dada automaticamente ao jogador, mesmo se estiver jogando.
+                                                Em caso de punição atribuida incorretamente, vá até o perfil do jogador e remova/edite.
+                                            </h6>
+                                            <div class="section row mt20">
+                                                <div class="col-md-6">
+                                                    <label class="field select">
+                                                        <select id="punishment">
+                                                            <option selected="" value="null">Selecione...</option>
+                                                            <optgroup label="Conta">
+                                                                <!-- Nível baixo -->
+                                                                <option value="notification_id">Notificar</option>
+                                                                <option value="tempban_id">Banimento Temporário</option>
+                                                                <!-- Nível médio -->
+                                                                <option value="permaban_id">Banimento Permanente</option>
+                                                            </optgroup>
+                                                            <optgroup label="Personagem">
+                                                                <!-- Nível baixo -->
+                                                                <option value="applyticket_id">Aplicar Multa</option>
+                                                                <option value="sendtoprision_id">Prisão</option>
+                                                                <option value="sendtouw_id">Enviar para Underworld</option>
+                                                            </optgroup>
+                                                        </select>
+                                                        <i class="arrow"></i>
+                                                    </label>
+
+                                                    <input type="text" id="reason_accept" class="gui-input mt20" placeholder="Motivo da punição" maxlength="70" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="punishment-option" id="notification_div">
+                                                        <div class="progress" style="clear: both; margin-bottom: 2px">
+                                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                                                                <span class="sr-only"> 3/5 notificações </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="status mb30" style="top: 35%; font-size: 11px; color: #AAB5BC; font-weight: 600; text-transform: uppercase; display: block;">
+                                                            <div class="status-title" style="float: left; display: inline-block;"> notificações </div>
+                                                            <div class="status-number" style="float: right; display: inline-block;"> 3/5 </div>
+                                                        </div>
+                                                        <!-- Mostrar com 4 => notificações -->
+                                                        <blockquote id="fournots" class="blockquote-danger fs12 hidden" style="color: #999; margin-top: 38px">
+                                                            <p><strong>Atenção!</strong> Este usuário já tem 4 notificações, notifica-lo novamente, vai bani-lo por 7 dias automaticamente. Notificações expiram em 30 dias.</p>
+                                                        </blockquote>
+                                                        <!-- Mostrar com <= 3 notificações -->
+                                                        <blockquote class="blockquote-primary fs12" style="color: #999; margin-top: 38px">
+                                                            <p>Com 5 notificações o usuário vai ser automaticamente banido por 7 dias. Notificações expiram em 30 dias.</p>
+                                                        </blockquote>
+                                                    </div>
+                                                    <div class="punishment-option" id="tempban_div">
+                                                        <div class="admin-form">
+                                                            <input id="tempban_label" type="text" style="color: #4a89dc;" class="slider-countbox mb5" value="3 dia(s)">
+                                                            <div class="slider-wrapper slider-primary">
+                                                                <div id="tempbandays_slider"></div>
+                                                            </div>
+                                                        </div>
+                                                        <blockquote class="blockquote-primary fs12" style="color: #999; margin-top: 34px">
+                                                            <p>Este usuário já possui <strong>5</strong> banimentos temporários registrados.</p>
+                                                        </blockquote>
+                                                    </div>
+                                                    <div class="punishment-option fs12 text-info" id="permaban_div">
+                                                        <ul>
+                                                            <li>Punições Registradas:</li>
+                                                            <li>Último IP:</li>
+                                                            <li>E-mail da conta:</li>
+                                                            <hr class="short alt" style="margin-top: 2%; margin-bottom: 2%">
+                                                            Após o banimento, o jogador ainda vai conseguir utilizar o painel.<br />
+                                                            O banimento também poderá ser contestado pelo jogador.
+                                                        </ul>
+                                                    </div>
+                                                    <div class="punishment-option fs12 text-info" id="applyticket_div">
+                                                        <div class="admin-form">
+                                                            <input id="ticket_label" type="text" style="color: #4a89dc;" class="slider-countbox mb5" value="$500">
+                                                            <div class="slider-wrapper slider-primary">
+                                                                <div id="ticket_slider"></div>
+                                                            </div>
+                                                        </div>
+                                                        <blockquote class="blockquote-primary fs12" style="color: #999; margin-top: 34px">
+                                                            <p>Valor no banco: <b class="text-info">$39.000</b></p>
+                                                        </blockquote>
+                                                    </div>
+                                                    <div class="punishment-option fs12 text-info" id="sendtoprision_div">
+                                                        <div class="admin-form">
+                                                            <input id="prision_label" type="text" style="color: #4a89dc;" class="slider-countbox mb5" value="2 hora(s)">
+                                                            <div class="slider-wrapper slider-primary">
+                                                                <div id="sendtoprision_slider"></div>
+                                                            </div>
+                                                        </div>
+                                                        <blockquote class="blockquote-primary fs12" style="color: #999; margin-top: 34px">
+                                                            <p>Este jogador já foi enviado para a prisão <b class="text-info">5</b> vezes</p>
+                                                        </blockquote>
+                                                    </div>
+                                                    <div class="punishment-option fs12 text-info" id="sendtouw_div">
+                                                        <div class="admin-form">
+                                                            <input id="uw_label" type="text" style="color: #4a89dc;" class="slider-countbox mb5" value="2 hora(s)">
+                                                            <div class="slider-wrapper slider-primary">
+                                                                <div id="sendtouw_slider"></div>
+                                                            </div>
+                                                        </div>
+                                                        <blockquote class="blockquote-primary fs12" style="color: #999; margin-top: 34px">
+                                                            <p>Este jogador já foi enviado para o underworld <b class="text-info">5</b> vezes</p>
+                                                        </blockquote>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="section-divider" style="margin-top: 3%; margin-bottom: 3%">
+                                                <span style="color: #4a89dc;">LOCALIZAÇÃO</span>
+                                            </div>
+                                            <div class="section row">
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            X
+                                                        </span>
+                                                        <input class="form-control" type="text" value="1824.17">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            Y
+                                                        </span>
+                                                        <input class="form-control" type="text" value="-1806.32">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            Z
+                                                        </span>
+                                                        <input class="form-control" type="text" value="13.17">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            A
+                                                        </span>
+                                                        <input class="form-control" type="text" value="119.46">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            INT
+                                                        </span>
+                                                        <input class="form-control" type="text" value="0">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            VW
+                                                        </span>
+                                                        <input class="form-control" type="text" value="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="section row">
+                                                <div class="col-md-6">
+                                                    <div class="section-divider" style="margin-top: 3%; margin-bottom: 3%">
+                                                        <span style="color: #4a89dc;">FACÇÃO</span>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="field select">
+                                                            <select id="country" name="country">
+                                                                <option>Sem facção</option>
+                                                                <option selected>LSPD</option>
+                                                                <option>San News</option>
+                                                            </select>
+                                                            <i class="arrow"></i>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="field select">
+                                                            <select id="country" name="country">
+                                                                <option>Sem cargo</option>
+                                                                <option selected>Capitão</option>
+                                                                <option>Major</option>
+                                                                <option>Coronel</option>
+                                                                <option>Soldado</option>
+                                                                <option>Cabo</option>
+                                                                <option>Oficial</option>
+                                                            </select>
+                                                            <i class="arrow"></i>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="section-divider" style="margin-top: 3%; margin-bottom: 3%">
+                                                        <span style="color: #4a89dc;">EMPREGO</span>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label class="field select">
+                                                            <select id="country" name="country">
+                                                                <option>Desempregado</option>
+                                                                <option selected>Policial</option>
+                                                                <option>taltaltal</option>
+                                                            </select>
+                                                            <i class="arrow"></i>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="section row">
+                                                <div class="col-md-6">
+                                                    <div class="section-divider" style="margin-top: 3%; margin-bottom: 3%">
+                                                        <span style="color: #4a89dc;">ADMINISTRAÇÃO</span>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label class="field select">
+                                                            <select id="country" name="country">
+                                                                <option>Desempregado</option>
+                                                                <option selected>Developer</option>
+                                                                <option>taltaltal</option>
+                                                            </select>
+                                                            <i class="arrow"></i>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="section-divider" style="margin-top: 3%; margin-bottom: 3%">
+                                                        <span style="color: #4a89dc;">FINANCEIRO</span>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-bank"></i>
+                                                            </span>
+                                                            <input class="form-control" type="text" value="0">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-dollar"></i>
+                                                            </span>
+                                                            <input class="form-control" type="text" value="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="section row">
+                                                <div class="col-md-6">
+                                                    <div class="section-divider" style="margin-top: 3%; margin-bottom: 3%">
+                                                        <span style="color: #4a89dc;">Patrimônio</span>
+                                                    </div>
+                                                    <div class="section row">
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-home"></i>
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-building"></i>
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-briefcase"></i>
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="section row">
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-car"></i> 1
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-car"></i> 2
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-car"></i> 3
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="section row">
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-car"></i> 4
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-car"></i> 5
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-car"></i> 6
+                                                                </span>
+                                                                <input class="form-control" type="text" value="0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="section-divider" style="margin-top: 3%; margin-bottom: 3%">
+                                                        <span style="color: #4a89dc;">Licenças</span>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <select class="licenses" multiple="multiple" size="10">
+                                                            <option value="option1">Moto</option>
+                                                            <option value="option2">Carro</option>
+                                                            <option value="option3">Caminhão</option>
+                                                            <option value="option4">Helicóptero</option>
+                                                            <option value="option5">Avião</option>
+                                                            <option value="option6">Botes</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="tab1" class="tab-pane">
+                                            <form role="form" action="#">
+                                                <div class="section row">
+                                                    <div class="col-md-4">
+                                                        <label for="fullname" class="field-label">Nome Completo</label>
+                                                        <input id="fullname" type="text" value="Lucas Souza" class="gui-input">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="username" class="field-label">Usuário</label>
+                                                        <input id="username" type="text" value="Los" class="gui-input">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="bio" class="field-label">Bio</label>
+                                                        <input id="bio" type="text" class="gui-input" value="Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt" />
+                                                    </div>
+                                                </div>
+                                                <div class="section-divider" style="margin-top: 3%; margin-bottom: 3%">
+                                                    <span style="color: #4a89dc;">Social</span>
+                                                </div>
+                                                <div class="section row">
+                                                    <div class="col-md-3">
+                                                        <label for="twitter" style="margin-bottom:10px">Twitter</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-twitter font-blue"></i> twitter.com/
+                                                            </span>
+                                                            <input id="twitter" type="text" class="form-control" placeholder="Twitter" value="los799">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="facebook" style="margin-bottom:10px">Facebook</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-facebook font-blue"></i> fb.com/
+                                                            </span>
+                                                            <input id="facebook" type="text" class="form-control" placeholder="Facebook" value="lucasosouza">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="github" style="margin-bottom:10px">GitLab</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-gitlab"></i> gitlab.com/u/
+                                                            </span>
+                                                            <input id="github" class="form-control" type="text" placeholder="GitLab" value="Los799">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label for="email" style="margin-bottom:10px">YouTube</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-youtube-play"></i> youtube.com/channel/
+                                                            </span>
+                                                            <input id="youtube" class="form-control" type="text" value="LucasVideos">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div id="tab2" class="tab-pane">
+                                            <div class="col-md-3">
+                                                <div class="media">
+                                                    <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" alt="...">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 admin-form theme-primary">
+                                                <ul class="list-unstyled mt40">
+                                                    <li>Dimensões Máximas:
+                                                        <strong class="text-dark"> 165x165</strong>
+                                                    </li>
+                                                    <li>Tamanho Máximo:
+                                                        <strong class="text-dark"> 100kb</strong>
+                                                    </li>
+                                                    <li>Formatos Aceitos:
+                                                        <strong class="text-dark">.jpg, .jpeg, .bmp, .png</strong>
+                                                    </li>
+                                                </ul>
+                                                <div class="section" style="margin-top: 1px; margin-bottom: 0px">
+                                                    <label class="field prepend-icon file">
+                                                        <span class="button btn-primary">Selecionar arquivo...</span>
+                                                        <input type="file" class="gui-file" name="file2" id="file2" onchange="document.getElementById('uploader2').value = this.value;">
+                                                        <input type="text" class="gui-input" id="uploader2" placeholder="Por favor, selecione o arquivo">
+                                                        <label class="field-icon">
+                                                            <i class="fa fa-upload"></i>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer text-right">
+                                    <div class="btn-group">
+                                        <a href="#" id="save_ticket" type="submit" class="btn btn-sm btn-primary btn-gradient dark btn-blocks">
+                                            <i class="fa fa-save"></i> Salvar
+                                        </a>
+                                        <a href="user_profile.html" class="btn btn-sm btn-default btn-gradient dark btn-blocks">
+                                            <i class="fa fa-close"></i> Cancelar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End: Content -->
+            </section>
+        </div>
+        <!-- End: Main -->
+
+        <!-- BEGIN: PAGE SCRIPTS -->
+        <!-- jQuery -->
+        <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
+        <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+
+        <!-- SCRIPTS DESTA PAGINA -->
+        <script src="vendor/plugins/maxlength/bootstrap-maxlength.min.js"></script>
+        <script src="assets/js/custom_complaint.js"></script>
+        <script src="vendor/plugins/duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+
+        <!-- Datatables -->
+        <script src="vendor/plugins/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="vendor/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+        <script src="vendor/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
+        <script src="vendor/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+
+        <!-- Theme Javascript -->
+        <script src="assets/js/utility/utility.js"></script>
+        <script src="assets/js/demo/demo.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+              "use strict";
+              // Init Theme Core
+              Core.init();
+
+              $("#playerMoney").spinner({
+                  min: 100,
+                  max: 43500,
+                  step: 100,
+                  start: 43500,
+              });
+
+              $("#playerMoneyBank").spinner({
+                  min: 100,
+                  max: 43500,
+                  step: 100,
+                  start: 43500,
+              });
+
+              $("#playerXP").spinner({
+                  min: 0,
+                  max: 235342,
+                  step: 100,
+                  start: 235342,
+              });
+
+              $("#playerLevel").spinner({
+                  min: 1,
+                  max: 34,
+                  step: 1,
+                  start: 34,
+              });
+
+              // Init Bootstrap Maxlength Plugin
+              $('input[maxlength]').maxlength({
+                  threshold: 70,
+                  placement: "bottom"
+              });
+
+              // Init DataTables
+              $('#datatable').dataTable({
+                  "sDom": 't<"dt-panelfooter clearfix"ip>',
+                  "language": {
+                      "info": "Mostrando _START_ até _END_ de _TOTAL_ registros",
+                      "infoEmpty": "Não há entradas para serem mostradas",
+                      "emptyTable": "Nenhuma punição encontrada",
+                      "paginate": {
+                          "first":      "Primeiro",
+                          "previous":   "Anterior",
+                          "next":       "Próximo",
+                          "last":       "Último"
+                      }
+                  }
+              });
+
+              var licenses = $('.licenses').bootstrapDualListbox({
+                showFilterInputs: false,
+                selectedListLabel: 'Licenças do Jogador',
+                nonSelectedListLabel: 'Licenças Disponíveis',
+                preserveSelectionOnMove: 'moved',
+                infoTextEmpty: 'sem licenças',
+                infoText: 'Mostrando todas as {0} licenças',
+                moveOnSelect: true,
+              });
+            });
+        </script>
+        <!-- END: PAGE SCRIPTS -->
+    </body>
+</html>
