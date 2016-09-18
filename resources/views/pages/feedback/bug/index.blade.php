@@ -71,7 +71,7 @@
                           </div>
                       </div>
                       <div class="panel-body pn">
-                          <table class="main-table table table-hover fw-labels fw-labels2" data-page-navigation=".pagination" data-page-size="10">
+                          <table class="main-table table table-hover fw-labels fw-labels2" data-page-navigation=".pagination" data-page-size="10" data-sort="false">
                               <thead>
                                   <tr>
                                       <th style="width: 8%">Prioridade</th>

@@ -29,7 +29,7 @@ class BugController extends Controller
      */
     public function index()
     {
-        $bugs = Bug::all();
+        $bugs = Bug::orderBy('id', 'desc')->get();
         return view('pages.feedback.bug.index', ['bugs' => $bugs]);
     }
 

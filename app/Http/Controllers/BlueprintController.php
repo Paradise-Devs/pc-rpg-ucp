@@ -29,7 +29,7 @@ class BlueprintController extends Controller
      */
     public function index()
     {
-        $blueprints = Blueprint::all();
+        $blueprints = Blueprint::orderBy('id', 'desc')->get();
         return view('pages.feedback.blueprint.index', ['blueprints' => $blueprints]);
     }
 
