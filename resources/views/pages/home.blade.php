@@ -27,7 +27,7 @@
                 <img src="assets/img/logos/logo-big.png" class="cs-page-logo text-center" style="width: 50%">
                 <h2 class="cs-page-title">OPEN BETA - v0.2</h2>
                 <h3 class="cs-page-text pl10">BEM VINDO</h3>
-                <a href="samp://pc-rpg.com" class="btn btn-lg btn-play"><i class="fa fa-gamepad mr5 fs20"></i> JOGAR</a>
+                <a href="samp://play.pc-rpg.com:7777" class="btn btn-lg btn-play"><i class="fa fa-gamepad mr5 fs20"></i> JOGAR</a>
             </div>
             <section id="content_wrapper">
                 <div id="canvas-wrapper">
