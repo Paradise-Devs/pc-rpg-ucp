@@ -14,6 +14,10 @@
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
 
+        <!-- css dessa pagina -->
+        <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
+        <link href="vendor/plugins/magnific/magnific-popup.css" rel="stylesheet" type="text/css" >
+
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
 
@@ -439,28 +443,264 @@
                             <li class="crumb-trail">Changelog</li>
                         </ol>
                     </div>
+                    <div class="topbar-right">
+                        <a href="changelog_manage.html" class="btn btn-sm btn-system btn-gradient dark">
+                            <i class="fa fa-cogs"></i> Gerenciar changelogs
+                        </a>
+                    </div>
                 </header>
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
-                <section id="content" class="animated fadeIn">
-
-                </section>
-                <!-- End: Content -->
-                <!-- Begin: Page Footer -->
-                <footer id="content-footer" class="affix">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <span class="footer-legal">© 2012-2016 Paradise City</span>
+                <section id="content" class="table-layout animated fadeIn">
+                    <aside class="tray tray-left tray300" data-tray-height="match" style="margin-top:0px; padding-top: 0px">
+                        <div class="animated-delay" data-animate='["200","fadeIn"]'>
+                            <h5>Navegação</h5>
+                            <div id="nav-spy">
+                                <ul class="nav tray-nav tray-nav-border" data-nav-animate="zoomIn" data-smoothscroll="-125" data-spy="affix" data-offset-top="320">
+                                    <li class="active"><a href="#pv03b"><span class="fa fa-angle-double-up fa-lg"></span>v0.3<b>b</b></a></li>
+                                    <li><a href="#pv0213b"><span class="fa fa-angle-up fa-lg"></span> v0.2<span class="text-muted">.13<b>b</b></span></a></li>
+                                    <li><a href="#pv0211b"><span class="fa fa-angle-up fa-lg"></span> v0.2<span class="text-muted">.11<b>b</b></span></a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col-md-6 text-right">
-                            <span class="footer-meta">Paradise<b>Devs</b></span>
-                            <a href="#content" class="footer-return-top">
-                                <span class="fa fa-arrow-up"></span>
-                            </a>
+                    </aside>
+                    <div class="tray tray-center">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel-group accordion" id="accordion">
+                                    <div class="panel" id="pv03b">
+                                        <div class="panel-heading" role="tab" id="hv030b">
+                                            <span class="panel-title">
+                                                <a class="accordion-toggle accordion-icon link-unstyled collapse" data-toggle="collapse" data-parent="#accordion" href="#v030" aria-expanded="true" aria-controls="v030">
+                                                    Atualização v0.3b
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div id="v030" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="hv030b">
+                                            <div class="panel-menu collapse in">
+                                                <div class="pull-right" style="margin-top: -3px">
+                                                    <!-- BOTÃO PARA DEV -->
+                                                    <div class="btn-group">
+                                                        <a href="changelog_edit.html" class="btn btn-sm btn-gradient dark btn-info"><i class="fa fa-pencil"></i> editar</a>
+                                                        <a href="#" class="btn btn-sm btn-gradient dark btn-danger"><i class="fa fa-close"></i> excluir</a>
+                                                    </div>
+                                                    <!-- FIM BOTÃO PARA < DEV -->
+                                                    <!-- BOTÃO PARA < DEV -->
+                                                    <div class="btn-group">
+                                                        <!-- REMOVER CLASSE btn-gradient DO BOTÃO QUE O JOGADOR VOTAR -->
+                                                        <a href="#" class="btn btn-sm dark btn-success"><i class="fa fa-thumbs-up"></i> 55 pessoas curtiram essa atualização</a>
+                                                        <a href="#" class="btn btn-sm btn-gradient ddark btn-danger"><i class="fa fa-thumbs-down"></i> 12</a>
+                                                    </div>
+                                                    <!-- FIM BOTÃO PARA < DEV -->
+                                                </div>
+                                                <span class="label bg-primary mr10"><i class="fa fa-gamepad"></i> servidor</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-desktop"></i> site</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-sliders"></i> painel</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-comments-o"></i> fórum</span>
+                                            </div>
+                                            <div class="panel-body">
+                                                <!-- DESCRIÇÃO DA ATT -->
+                                                Esta atualização é uma atualização major, ou seja, é uma atualização grande que afeta maior parte dos sistemas do PC:RPG
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title"><i class="fa fa-plus mr10"></i> ADICIONADO</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="changelog-added">
+                                                    <li>TAL TAL TAL TAL</li>
+                                                    <li>TAL TAL TAL TAL</li>
+                                                </ul>
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title"><i class="fa fa-minus mr10"></i> REMOVIDO</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="changelog-removed">
+                                                    <li>TAL TAL TAL TAL</li>
+                                                    <li>TAL TAL TAL TAL</li>
+                                                </ul>
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title"><i class="fa fa-asterisk mr10"></i> CORRIGIDO</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="changelog-fixed">
+                                                    <li>TAL TAL TAL TAL</li>
+                                                    <li>TAL TAL TAL TAL</li>
+                                                </ul>
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title"><i class="fa fa-exchange mr10"></i> ALTERADO</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="changelog-changed">
+                                                    <li>TAL TAL TAL TAL</li>
+                                                    <li>TAL TAL TAL TAL</li>
+                                                </ul>
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title">IMAGENS DA ATUALIZAÇÃO</span>
+                                                    </div>
+                                                </div>
+                                                <div class="changelog-images text-center">
+                                                    <a href="assets/img/background/1.jpg" title=""><img src="assets/img/background/1.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/2.jpg" title=""><img src="assets/img/background/2.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/3.jpg" title=""><img src="assets/img/background/3.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/4.jpg" title=""><img src="assets/img/background/4.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/5.jpg" title=""><img src="assets/img/background/5.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/1.jpg" title=""><img src="assets/img/background/1.jpg" width="131" height="87"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel" id="pv0213b">
+                                        <div class="panel-heading" role="tab" id="hv0213b">
+                                            <span class="panel-title">
+                                                <a class="accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion" href="#v0213" aria-expanded="false" aria-controls="v0213">
+                                                    Atualização v0.2.13b
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div id="v0213" class="panel-collapse collapse" role="tabpanel" aria-labelledby="hv0213b">
+                                            <div class="panel-menu">
+                                                <span class="label bg-primary mr10"><i class="fa fa-gamepad"></i> servidor</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-desktop"></i> site</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-sliders"></i> painel</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-comments-o"></i> fórum</span>
+                                            </div>
+                                            <div class="panel-body">
+                                                <!-- DESCRIÇÃO DA ATT -->
+                                                Esta atualização é uma atualização major, ou seja, é uma atualização grande que afeta maior parte dos sistemas do PC:RPG
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title"><i class="fa fa-plus mr10"></i> ADICIONADO</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="changelog-added">
+                                                    <li>TAL TAL TAL TAL</li>
+                                                    <li>TAL TAL TAL TAL</li>
+                                                </ul>
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title"><i class="fa fa-minus mr10"></i> REMOVIDO</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="changelog-removed">
+                                                    <li>TAL TAL TAL TAL</li>
+                                                    <li>TAL TAL TAL TAL</li>
+                                                </ul>
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title"><i class="fa fa-asterisk mr10"></i> CORRIGIDO</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="changelog-fixed">
+                                                    <li>TAL TAL TAL TAL</li>
+                                                    <li>TAL TAL TAL TAL</li>
+                                                </ul>
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title"><i class="fa fa-exchange mr10"></i> ALTERADO</span>
+                                                    </div>
+                                                </div>
+                                                <ul class="changelog-changed">
+                                                    <li>TAL TAL TAL TAL</li>
+                                                    <li>TAL TAL TAL TAL</li>
+                                                </ul>
+                                                <div class="admin-form theme-info">
+                                                    <div class="section-divider" style="margin-top: 3%">
+                                                        <span class="changelog-divider-title">IMAGENS DA ATUALIZAÇÃO</span>
+                                                    </div>
+                                                </div>
+                                                <div class="changelog-images text-center">
+                                                    <a href="assets/img/background/1.jpg" title=""><img src="assets/img/background/1.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/2.jpg" title=""><img src="assets/img/background/2.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/3.jpg" title=""><img src="assets/img/background/3.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/4.jpg" title=""><img src="assets/img/background/4.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/5.jpg" title=""><img src="assets/img/background/5.jpg" width="131" height="87"></a>
+                                                    <a href="assets/img/background/1.jpg" title=""><img src="assets/img/background/1.jpg" width="131" height="87"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel" id="pv03b">
+                                        <div class="panel-heading" role="tab" id="hv0211b">
+                                            <span class="panel-title">
+                                                <a class="accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion" href="#v0211b" aria-expanded="false" aria-controls="v0211b">
+                                                    Atualização v0.2.11b
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div id="v0211b" class="panel-collapse collapse" role="tabpanel" aria-labelledby="hv0211b">
+                                            <div class="panel-menu">
+                                                <span class="label bg-primary mr10"><i class="fa fa-gamepad"></i> servidor</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-desktop"></i> site</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-sliders"></i> painel</span>
+                                                <span class="label bg-primary mr10"><i class="fa fa-comments-o"></i> fórum</span>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="admin-form theme-info">
+                                                    <!-- DESCRIÇÃO DA ATT -->
+                                                    Esta atualização é uma atualização major, ou seja, é uma atualização grande que afeta maior parte dos sistemas do PC:RPG
+                                                    <div class="admin-form theme-info">
+                                                        <div class="section-divider" style="margin-top: 3%">
+                                                            <span class="changelog-divider-title"><i class="fa fa-plus mr10"></i> ADICIONADO</span>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="changelog-added">
+                                                        <li>TAL TAL TAL TAL</li>
+                                                        <li>TAL TAL TAL TAL</li>
+                                                    </ul>
+                                                    <div class="admin-form theme-info">
+                                                        <div class="section-divider" style="margin-top: 3%">
+                                                            <span class="changelog-divider-title"><i class="fa fa-minus mr10"></i> REMOVIDO</span>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="changelog-removed">
+                                                        <li>TAL TAL TAL TAL</li>
+                                                        <li>TAL TAL TAL TAL</li>
+                                                    </ul>
+                                                    <div class="admin-form theme-info">
+                                                        <div class="section-divider" style="margin-top: 3%">
+                                                            <span class="changelog-divider-title"><i class="fa fa-asterisk mr10"></i> CORRIGIDO</span>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="changelog-fixed">
+                                                        <li>TAL TAL TAL TAL</li>
+                                                        <li>TAL TAL TAL TAL</li>
+                                                    </ul>
+                                                    <div class="admin-form theme-info">
+                                                        <div class="section-divider" style="margin-top: 3%">
+                                                            <span class="changelog-divider-title"><i class="fa fa-exchange mr10"></i> ALTERADO</span>
+                                                        </div>
+                                                    </div>
+                                                    <ul class="changelog-changed">
+                                                        <li>TAL TAL TAL TAL</li>
+                                                        <li>TAL TAL TAL TAL</li>
+                                                    </ul>
+                                                    <div class="admin-form theme-info">
+                                                        <div class="section-divider" style="margin-top: 3%">
+                                                            <span class="changelog-divider-title">IMAGENS DA ATUALIZAÇÃO</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="changelog-images text-center">
+                                                        <a href="assets/img/background/1.jpg" title=""><img src="assets/img/background/1.jpg" width="131" height="87"></a>
+                                                        <a href="assets/img/background/2.jpg" title=""><img src="assets/img/background/2.jpg" width="131" height="87"></a>
+                                                        <a href="assets/img/background/3.jpg" title=""><img src="assets/img/background/3.jpg" width="131" height="87"></a>
+                                                        <a href="assets/img/background/4.jpg" title=""><img src="assets/img/background/4.jpg" width="131" height="87"></a>
+                                                        <a href="assets/img/background/5.jpg" title=""><img src="assets/img/background/5.jpg" width="131" height="87"></a>
+                                                        <a href="assets/img/background/1.jpg" title=""><img src="assets/img/background/1.jpg" width="131" height="87"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </footer>
-                <!-- End: Page Footer -->
+                </section>
+                <!-- End: Content -->
             </section>
         </div>
         <!-- End: Main -->
@@ -469,6 +709,9 @@
         <!-- jQuery -->
         <script src="vendor/jquery/jquery-1.11.1.min.js"></script>
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
+
+        <!-- SCRIPTS DESSA PAGINA -->
+        <script src="vendor/plugins/magnific/jquery.magnific-popup.js"></script>
 
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
@@ -479,6 +722,12 @@
               "use strict";
               // Init Theme Core
               Core.init();
+
+                $('.changelog-images').magnificPopup({
+                    delegate: 'a', // child items selector, by clicking on it popup will open
+                    type: 'image',
+                    gallery:{enabled:true}
+                });
             });
         </script>
         <!-- END: PAGE SCRIPTS -->

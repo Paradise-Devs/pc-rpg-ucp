@@ -12,6 +12,59 @@
 .text-paradiser     { color: #CE8500; }
 
 /* -----------------------------------------------------------------------------
+    CHANGELOG PAGE
+------------------------------------------------------------------------------*/
+.theme-info .section-divider .changelog-divider-title {
+    color: #4a89dc;
+    background: #fff;
+}
+
+.changelog-added, .changelog-removed, .changelog-fixed, .changelog-changed {
+    list-style-type: none;
+}
+
+.changelog-added li:before {
+    font-family: 'FontAwesome';
+    content: '';
+    font-size: 15px;
+    margin:0 5px 0 -20px;
+    padding-right: 7px;
+    color: #70ca63;
+}
+
+.changelog-removed li:before {
+    font-family: 'FontAwesome';
+    content: '';
+    font-size: 15px;
+    margin:0 5px 0 -20px;
+    padding-right: 7px;
+    color: #df5640;
+}
+
+.changelog-fixed li:before {
+    font-family: 'FontAwesome';
+    content: '';
+    font-size: 15px;
+    margin:0 5px 0 -20px;
+    padding-right: 7px;
+    color: #3bafda;
+}
+
+.changelog-changed li:before {
+    font-family: 'FontAwesome';
+    content: '';
+    font-size: 15px;
+    margin:0 5px 0 -20px;
+    padding-right: 7px;
+    color: #967adc;
+}
+
+.changelog-list li {
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+/* -----------------------------------------------------------------------------
     ABOUT US PAGE
 ------------------------------------------------------------------------------*/
 .about-page-content {
@@ -19,7 +72,6 @@
     padding: 10px;
     color: #fff;
     z-index: 1;
-
     background-size: 95% 95%;
     border-radius: 2px;
     text-shadow: 1px 1px 4px #3c3c3c;
