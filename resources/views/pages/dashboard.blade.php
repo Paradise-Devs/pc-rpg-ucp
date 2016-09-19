@@ -118,10 +118,14 @@
       <hr class="alt short" style="margin-top: 0px; margin-bottom: 25px">
       <div class="row">
           <div class="col-md-3">
-              <a href="{{ url('/message') }}" class="link-unstyled">
-                  <div class="panel panel-tile text-primary br-primary-light">
+             <a href="{{ url('/message') }}" class="link-unstyled">
+                @if($new_msg_count > 0)
+                    <div class="panel panel-tile bg-success light">
+                @else
+                    <div class="panel panel-tile text-primary br-primary-light">
+                @endif
                       <div class="panel-body pn pl20 p5">
-                          <i class="fa fa-envelope icon-bg"></i>
+                          <i class="fa fa-envelope icon-bg" style="font-size: 100px; line-height: 100px"></i>
                           <h2 class="mt15 lh15">
                               <b>{{ $new_msg_count }}</b>
                           </h2>
@@ -132,9 +136,13 @@
           </div>
           <div class="col-md-3">
               <a href="{{ url('/ticket') }}" class="link-unstyled">
-                  <div class="panel panel-tile text-primary br-primary-light">
-                      <div class="panel-body pn pl20 p5">
-                          <i class="fa fa-question-circle icon-bg"></i>
+                  @if($tickets > 0)
+                      <div class="panel panel-tile bg-success light">
+                  @else
+                      <div class="panel panel-tile text-primary br-primary-light">
+                  @endif
+                      <div class="panel-body pl20 p5">
+                          <i class="fa fa-question-circle icon-bg" style="font-size: 100px; line-height: 100px"></i>
                           <h2 class="lh15">
                               <b>{{ $tickets }}</b>
                           </h2>
@@ -145,9 +153,13 @@
           </div>
           <div class="col-md-3">
               <a href="{{ url('/denuncias') }}" class="link-unstyled">
-                  <div class="panel panel-tile text-primary br-primary-light">
-                      <div class="panel-body pn pl20 p5">
-                          <i class="fa fa-flag icon-bg"></i>
+                  @if($reports > 0)
+                      <div class="panel panel-tile bg-success light">
+                  @else
+                      <div class="panel panel-tile text-primary br-primary-light">
+                  @endif
+                      <div class="panel-body pl20 p5">
+                          <i class="fa fa-flag icon-bg" style="font-size: 100px; line-height: 100px"></i>
                           <h2 class="lh15">
                               <b>{{ $reports }}</b>
                           </h2>
@@ -157,17 +169,19 @@
               </a>
           </div>
           <div class="col-md-3">
-              <a href="{{ url('/punicoes') }}" class="link-unstyled">
-                  <div class="panel panel-tile bg-danger light">
-                      <div class="panel-body pn pl20 p5">
-                          <i class="fa fa-eye icon-bg"></i>
-                          <h2 class="lh15">
-                              <b>?</b>
-                          </h2>
-                          <h5 class="text-muted">Punições</h5>
+              <div class="panel panel-tile text-primary br-primary-light">
+                  <a href="{{ url('/punicoes') }}" class="link-unstyled">
+                      <div class="panel panel-tile text-primary br-primary-light">
+                          <div class="panel-body pl20 p5">
+                              <i class="fa fa-eye icon-bg" style="font-size: 100px; line-height: 100px"></i>
+                              <h2 class="lh15">
+                                  <b>?</b>
+                              </h2>
+                              <h5 class="text-muted">Punições</h5>
+                          </div>
                       </div>
-                  </div>
-              </a>
+                  </a>
+              </div>
           </div>
       </div>
   </section>
