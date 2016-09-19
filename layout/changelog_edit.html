@@ -16,7 +16,6 @@
 
         <!-- css dessa pagina -->
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
-        <link href="vendor/plugins/magnific/magnific-popup.css" rel="stylesheet" type="text/css" >
 
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/custom.css">
@@ -449,7 +448,355 @@
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
                 <section id="content" class="animated fadeIn">
-
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-dark panel-border top">
+                                <div class="panel-heading">
+                                    <span class="panel-title">Configurações da Atualização</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="admin-form theme-info">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="section-divider">
+                                                    <span class="changelog-divider-title">Descrição da Atualização</span>
+                                                </div>
+                                                <div class="section" style="margin-bottom: 0px">
+                                                    <label class="field prepend-icon">
+                                                        <input type="text" id="att-desc" class="gui-input" placeholder="Descrição da atualização">
+                                                        <b class="tooltip tip-left-top"><em>Esta descrição vai ser mostrada na primeira linha do changelog</em></b>
+                                                        <label for="att-desc" class="field-icon">
+                                                            <i class="fa fa-pencil"></i>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="section-divider">
+                                                    <span class="changelog-divider-title">VERSÃO</span>
+                                                </div>
+                                                <div class="section" style="margin-bottom: 0px">
+                                                    <label class="field prepend-icon">
+                                                        <input type="text" id="att-version" class="gui-input" placeholder="Versão da atualização">
+                                                        <b class="tooltip tip-left-top"><em>Padrão: v[major].[minor].[patch]</em></b>
+                                                        <label for="att-version" class="field-icon">
+                                                            <i class="fa fa-connectdevelop"></i>
+                                                        </label>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="section-divider">
+                                                    <span class="changelog-divider-title">SISTEMAS AFETADOS</span>
+                                                </div>
+                                                <div class="option-group field section">
+                                                    <label class="mt10 option option-primary">
+                                                        <input type="checkbox" name="mobileos" value="FR">
+                                                        <span class="checkbox"></span>Servidor
+                                                    </label>
+                                                    <label class="mt10 option option-primary">
+                                                        <input type="checkbox" name="mobileos" value="FR">
+                                                        <span class="checkbox"></span>UCP
+                                                    </label>
+                                                    <label class="mt10 option option-primary">
+                                                        <input type="checkbox" name="mobileos" value="FR">
+                                                        <span class="checkbox"></span>Site
+                                                    </label>
+                                                    <label class="mt10 option option-primary">
+                                                        <input type="checkbox" name="mobileos" value="FR">
+                                                        <span class="checkbox"></span>Fórum
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="section-divider">
+                                                    <span class="changelog-divider-title">IMAGENS DA ATUALIZAÇÃO</span>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="fileupload-preview thumbnail cursor mb15">
+                                                            <img src="http://placehold.it/240x200">
+                                                        </div>
+                                                        <span class="btn btn-primary btn-file btn-block">
+                                                            <span class="fileupload-new">Selecionar...</span>
+                                                            <span class="fileupload-exists">Alterar</span>
+                                                            <input type="file">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="fileupload-preview thumbnail cursor mb15">
+                                                            <img src="http://placehold.it/240x200">
+                                                        </div>
+                                                        <span class="btn btn-primary btn-file btn-block">
+                                                            <span class="fileupload-new">Selecionar...</span>
+                                                            <span class="fileupload-exists">Alterar</span>
+                                                            <input type="file">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="fileupload-preview thumbnail cursor mb15">
+                                                            <img src="http://placehold.it/240x200">
+                                                        </div>
+                                                        <span class="btn btn-primary btn-file btn-block">
+                                                            <span class="fileupload-new">Selecionar...</span>
+                                                            <span class="fileupload-exists">Alterar</span>
+                                                            <input type="file">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="fileupload-preview thumbnail cursor mb15">
+                                                            <img src="http://placehold.it/240x200">
+                                                        </div>
+                                                        <span class="btn btn-primary btn-file btn-block">
+                                                            <span class="fileupload-new">Selecionar...</span>
+                                                            <span class="fileupload-exists">Alterar</span>
+                                                            <input type="file">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="fileupload-preview thumbnail cursor mb15">
+                                                            <img src="http://placehold.it/240x200">
+                                                        </div>
+                                                        <span class="btn btn-primary btn-file btn-block">
+                                                            <span class="fileupload-new">Selecionar...</span>
+                                                            <span class="fileupload-exists">Alterar</span>
+                                                            <input type="file">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="fileupload-preview thumbnail cursor mb15">
+                                                            <img src="http://placehold.it/240x200">
+                                                        </div>
+                                                        <span class="btn btn-primary btn-file btn-block">
+                                                            <span class="fileupload-new">Selecionar...</span>
+                                                            <span class="fileupload-exists">Alterar</span>
+                                                            <input type="file">
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="text-right">
+                                        <div class="btn-group">
+                                            <!--
+                                                NÃO ESQUECE DE ADD CLASSE DISABLED CASO TODOS OS CAMPOS NÃO ESTIVEREM PREENCHIDOS
+                                                TALVEZ COLOCAR UM DIALOG DE CONFIRMAÇÃO ANTES DE PUBLICAR
+                                            -->
+                                            <a class="btn btn-success btn-sm dark"><i class="fa fa-check"></i> Publicar</a>
+                                            <a href="#" type="button" class="btn btn-info btn-gradient btn-sm dark"><i class="fa fa-save"></i> salvar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <span class="panel-icon">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                    <span class="panel-title"> Adicionado</span>
+                                    <div class="widget-menu pull-right">
+                                        <a class="btn btn-dark btn-gradient btn-sm dark"><i class="fa fa-remove"></i> Limpar</a>
+                                    </div>
+                                </div>
+                                <div class="panel-body panel-scroller scroller-md scroller-pn scroller-success scroller-overlay" style="padding: 0px 0px 0px 0px">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Cras justo odio</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Dapibus ac facilisis in</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Morbi leo risus</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Porta ac consectetur ac</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Vestibulum at eros</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Cras justo odio</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Dapibus ac facilisis in</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Morbi leo risus</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Porta ac consectetur ac</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Vestibulum at eros</li>
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="admin-form theme-success">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="section" style="margin-bottom: 0px">
+                                                        <div class="smart-widget sm-right smr-50">
+                                                            <label class="field">
+                                                                <input type="text" class="gui-input" placeholder="Descrição...">
+                                                            </label>
+                                                            <button type="submit" class="button btn-primary">
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <span class="panel-icon">
+                                        <i class="fa fa-close"></i>
+                                    </span>
+                                    <span class="panel-title">Removido</span>
+                                    <div class="widget-menu pull-right">
+                                        <a class="btn btn-dark btn-gradient btn-sm dark"><i class="fa fa-remove"></i> Limpar</a>
+                                    </div>
+                                </div>
+                                <div class="panel-body panel-scroller scroller-md scroller-pn scroller-danger scroller-overlay" style="padding: 0px 0px 0px 0px">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Cras justo odio</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Dapibus ac facilisis in</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Morbi leo risus</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Porta ac consectetur ac</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Vestibulum at eros</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Cras justo odio</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Dapibus ac facilisis in</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Morbi leo risus</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Porta ac consectetur ac</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Vestibulum at eros</li>
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="admin-form theme-danger">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="section" style="margin-bottom: 0px">
+                                                        <div class="smart-widget sm-right smr-50">
+                                                            <label class="field">
+                                                                <input type="text" class="gui-input" placeholder="Descrição...">
+                                                            </label>
+                                                            <button type="submit" class="button btn-primary">
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <span class="panel-icon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </span>
+                                    <span class="panel-title">Corrigido</span>
+                                    <div class="widget-menu pull-right">
+                                        <a class="btn btn-dark btn-gradient btn-sm dark"><i class="fa fa-remove"></i> Limpar</a>
+                                    </div>
+                                </div>
+                                <div class="panel-body panel-scroller scroller-md scroller-pn scroller-info scroller-overlay" style="padding: 0px 0px 0px 0px">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Cras justo odio</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Dapibus ac facilisis in</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Morbi leo risus</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Porta ac consectetur ac</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Vestibulum at eros</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Cras justo odio</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Dapibus ac facilisis in</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Morbi leo risus</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Porta ac consectetur ac</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Vestibulum at eros</li>
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="admin-form theme-info">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="section" style="margin-bottom: 0px">
+                                                        <div class="smart-widget sm-right smr-50">
+                                                            <label class="field">
+                                                                <input type="text" class="gui-input" placeholder="Descrição...">
+                                                            </label>
+                                                            <button type="submit" class="button btn-primary">
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-alert">
+                                <div class="panel-heading">
+                                    <span class="panel-icon">
+                                        <i class="fa fa-exchange"></i>
+                                    </span>
+                                    <span class="panel-title">Alterado</span>
+                                    <div class="widget-menu pull-right">
+                                        <a class="btn btn-dark btn-gradient btn-sm dark"><i class="fa fa-remove"></i> Limpar</a>
+                                    </div>
+                                </div>
+                                <div class="panel-body panel-scroller scroller-md scroller-pn scroller-alert scroller-overlay" style="padding: 0px 0px 0px 0px">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Cras justo odio</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Dapibus ac facilisis in</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Morbi leo risus</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Porta ac consectetur ac</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Vestibulum at eros</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Cras justo odio</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Dapibus ac facilisis in</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Morbi leo risus</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Porta ac consectetur ac</li>
+                                        <li class="list-group-item"><a href="#" class="link-unstyled btn btn-xs btn-danger dark mr10"><i class="fa fa-close" style="color: #fff"></i></a>Vestibulum at eros</li>
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="admin-form theme-info">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="section" style="margin-bottom: 0px">
+                                                        <div class="smart-widget sm-right smr-50">
+                                                            <label class="field">
+                                                                <input type="text" class="gui-input" placeholder="Descrição...">
+                                                            </label>
+                                                            <button type="submit" class="button btn-primary">
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <!-- End: Content -->
             </section>
@@ -462,8 +809,7 @@
         <script src="vendor/jquery/jquery_ui/jquery-ui.min.js"></script>
 
         <!-- SCRIPTS DESSA PAGINA -->
-        <script src="vendor/plugins/nestable/jquery.nestable.js"></script>
-        <script src="vendor/plugins/magnific/jquery.magnific-popup.js"></script>
+        <script src="vendor/plugins/fileupload/fileupload.js"></script>
 
         <!-- Theme Javascript -->
         <script src="assets/js/utility/utility.js"></script>
@@ -475,62 +821,8 @@
                 // Init Theme Core
                 Core.init();
 
-                $('.changelog-images').magnificPopup({
-                    delegate: 'a', // child items selector, by clicking on it popup will open
-                    type: 'image',
-                    gallery:{enabled:true}
-                });
-
-                $('#changelog').nestable({
-                    group: 1
-                });
-
-                var taskWidget = $('div.task-widget');
-                var taskItems = taskWidget.find('li.task-item');
-                var currentItems = taskWidget.find('ul.task-current');
-                var completedItems = taskWidget.find('ul.task-completed');
-
-                // Init jQuery Sortable on Task Widget
-                taskWidget.sortable({
-                    items: taskItems, // only init sortable on list items (not labels)
-                    handle: '.task-menu',
-                    axis: 'y',
-                    connectWith: ".task-list",
-                    update: function( event, ui ) {
-                        var Item = ui.item;
-                        var ParentList = Item.parent();
-
-                        // If item is already checked move it to "current items list"
-                        if (ParentList.hasClass('task-current')) {
-                            Item.removeClass('item-checked').find('input[type="checkbox"]').prop('checked', false);
-                        }
-                        if (ParentList.hasClass('task-completed')) {
-                            Item.addClass('item-checked').find('input[type="checkbox"]').prop('checked', true);
-                        }
-                    }
-                });
-
-                // Custom Functions to handle/assign list filter behavior
-                taskItems.on('click', function(e) {
-                    e.preventDefault();
-                    var This = $(this);
-                    var Target = $(e.target);
-
-                    if (Target.is('.task-menu') && Target.parents('.task-completed').length) {
-                        This.remove();
-                        return;
-                    }
-
-                    if (Target.parents('.task-handle').length) {
-                        // If item is already checked move it to "current items list"
-                        if (This.hasClass('item-checked')) {
-                            This.removeClass('item-checked').find('input[type="checkbox"]').prop('checked', false);
-                        }
-                        // Otherwise move it to the "completed items list"
-                        else {
-                            This.addClass('item-checked').find('input[type="checkbox"]').prop('checked', true);
-                        }
-                    }
+                $('.fileupload-preview').on('click', function() {
+                    $('.btn-file > input').click();
                 });
             });
         </script>

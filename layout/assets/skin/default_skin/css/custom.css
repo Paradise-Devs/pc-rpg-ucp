@@ -22,6 +22,7 @@
 .theme-info .section-divider .changelog-divider-title {
     color: #4a89dc;
     background: #fff;
+    text-transform: uppercase;
 }
 
 .changelog-added, .changelog-removed, .changelog-fixed, .changelog-changed {
