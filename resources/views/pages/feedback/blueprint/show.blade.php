@@ -70,7 +70,7 @@
 
                     <!-- message body -->
                     <div class="message-body">
-                        {{ $blueprint->description }}
+                        {!! $blueprint->description !!}
                     </div>
                 </div>
                 <hr style="margin: 0px 0px">

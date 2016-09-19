@@ -72,7 +72,7 @@
 
                     <!-- message body -->
                     <div class="message-body">
-                        {{ $bug->description }}
+                        {!! $bug->description !!}
                     </div>
                 </div>
                 <hr style="margin: 0px 0px">

@@ -156,7 +156,7 @@
               <span class="panel-icon">
                   <i class="fa fa-users"></i>
               </span>
-              <span class="panel-title fs20 pl5"> Amigos (12)</span>
+              <span class="panel-title fs20 pl5"> Amigos ({{ $profile->getFriendsCount() }})</span>
               <div class="widget-menu pull-right">
                   <a href="{{ url('/perfil/amigos/'.$profile->id) }}" style="color: #fff">ver todos</a>
               </div>

@@ -99,7 +99,7 @@
                     <div class="col-sm-5 br-l br-grey pl30">
                         <h3 class="mb25"> Paradise City RPG:</h3>
                         <p class="mb15">
-                            <span class="fa fa-check text-success pr5"></span> Totalmente gratuido
+                            <span class="fa fa-check text-success pr5"></span> Totalmente gratuito
                         </p>
                         <p class="mb15">
                             <span class="fa fa-check text-success pr5"></span> Ilimitadas possibilidades
