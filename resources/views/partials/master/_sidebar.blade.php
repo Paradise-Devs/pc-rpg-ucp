@@ -7,19 +7,19 @@
             <div class="sidebar-widget author-widget">
                 <div class="media">
                     <a class="media-left" href="#">
-                        <img src="{{ URL::asset('storage/avatars/' . $user->avatar_url) }}" class="img-responsive">
+                        <img src="{{ URL::asset('storage/avatars/' . Auth::user()->avatar_url) }}" class="img-responsive">
                     </a>
                     <div class="media-body">
-                        <div class="media-author">{{ $user->name }}</div>
-                        @if($user->admin == 1)
+                        <div class="media-author">{{ Auth::user()->name }}</div>
+                        @if(Auth::user()->admin == 1)
                             <div class="media-links" style="color: #f6bb42">Paradiser</div>
-                        @elseif($user->admin == 2)
+                        @elseif(Auth::user()->admin == 2)
                             <div class="media-links" style="color: #3bafda">Moderador</div>
-                        @elseif($user->admin == 3)
+                        @elseif(Auth::user()->admin == 3)
                             <div class="media-links" style="color: #3498db">Supervisor</div>
-                        @elseif($user->admin == 4)
+                        @elseif(Auth::user()->admin == 4)
                             <div class="media-links" style="color: #df5640">Administrador</div>
-                        @elseif($user->admin > 4)
+                        @elseif(Auth::user()->admin > 4)
                             <div class="media-links" style="color: #17AE48">Desenvolvedor</div>
                         @else
                             <div class="media-links" style="color: #777777">Jogador</div>

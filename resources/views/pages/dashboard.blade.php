@@ -119,7 +119,7 @@
       <div class="row">
           <div class="col-md-3">
              <a href="{{ url('/message') }}" class="link-unstyled">
-                @if($new_msg_count > 0)
+                @if($unreadMessages > 0)
                     <div class="panel panel-tile bg-success light">
                 @else
                     <div class="panel panel-tile text-primary br-primary-light">
@@ -127,7 +127,7 @@
                       <div class="panel-body pn pl20 p5">
                           <i class="fa fa-envelope icon-bg" style="font-size: 100px; line-height: 100px"></i>
                           <h2 class="mt15 lh15">
-                              <b>{{ $new_msg_count }}</b>
+                              <b>{{ $unreadMessages }}</b>
                           </h2>
                           <h5 class="text-muted">Novas MP's</h5>
                       </div>

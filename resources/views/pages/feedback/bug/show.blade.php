@@ -53,9 +53,9 @@
                     <div class="message-header">
                         <img src="{{ URL::asset('storage/avatars/'.$bug->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                         <div class="pull-right mt5 clearfix">
-                            @if($user->id == $bug->user->id && $bug->status != 'corrigido')
+                            @if(Auth::user()->id == $bug->user->id && $bug->status != 'corrigido')
                                 <a href="{{ url('/bugs/' . $bug->id . '/edit') }}" class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</a>
-                            @elseif($user->id != $bug->user->id && $bug->status != 'corrigido')
+                            @elseif(Auth::user()->id != $bug->user->id && $bug->status != 'corrigido')
                                 <form action="{{ url('/bugs/affect/'.$bug->id) }}" method="post" id="form_affects">
                                     {{ csrf_field() }}
                                 </form>
@@ -87,7 +87,7 @@
                         <div class="message-header">
                             <img src="{{ URL::asset('storage/avatars/' . $comment->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                             <div class="pull-right mt5 clearfix">
-                                @if($user->id == $comment->user->id)
+                                @if(Auth::user()->id == $comment->user->id)
                                     <!-- <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button> -->
                                 @endif
                             </div>

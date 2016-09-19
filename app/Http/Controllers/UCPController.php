@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Redirect;
 use App\User;
 use App\Ticket;
 use App\Report;
+use App\Notification;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -76,5 +78,16 @@ class UCPController extends Controller
         where('name', 'like', '%'.$search.'%')->
         orWhere('username', 'like', '%'.$search.'%')->get();
         return view('pages.search', ['users' => $users]);
+    }
+
+    /**
+     * Clear the user's notifications.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function clearNotifications()
+    {
+        Notification::where('user_id', Auth::user()->id)->update(['is_read' => 1]);
+        return Redirect::back();
     }
 }

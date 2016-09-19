@@ -53,9 +53,9 @@
                     <div class="message-header">
                         <img src="{{ URL::asset('storage/avatars/'.$blueprint->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                         <div class="pull-right mt5 clearfix">
-                            @if($user->id == $blueprint->user->id && $blueprint->status != 'implementado')
+                            @if(Auth::user()->id == $blueprint->user->id && $blueprint->status != 'implementado')
                                 <a href="{{ url('/blueprints/' . $blueprint->id . '/edit') }}"class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</a>
-                            @elseif($user->id != $blueprint->user->id && $blueprint->status != 'implementado')
+                            @elseif(Auth::user()->id != $blueprint->user->id && $blueprint->status != 'implementado')
                                 <a href="{{ url('/blueprints/upvote/'.$blueprint->id) }}" class="btn btn-sm btn-gradient btn-success" title="{{ $blueprint->upvotes }} pessoa(s) curtiram esta ideia"><i class="fa fa-thumbs-up"></i> {{ $blueprint->upvotes }}</a>
                                 <a href="{{ url('/blueprints/downvote/'.$blueprint->id) }}" class="btn btn-sm btn-gradient btn-danger" title="{{ $blueprint->downvotes }} pessoa(s) não curtiram esta ideia"><i class="fa fa-thumbs-down"></i> {{ $blueprint->downvotes }}</a>
                             @endif
@@ -85,7 +85,7 @@
                         <div class="message-header">
                             <img src="{{ URL::asset('storage/avatars/' . $comment->user->avatar_url) }}" class="img-responsive mw40 pull-left mr20">
                             <div class="pull-right mt5 clearfix">
-                                @if($user->id == $comment->user->id)
+                                @if(Auth::user()->id == $comment->user->id)
                                     <!-- <button class="btn btn-sm btn-gradient btn-dark dark btn-primary"><i class="fa fa-pencil"></i> editar</button> -->
                                 @endif
                             </div>

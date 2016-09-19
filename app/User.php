@@ -42,4 +42,22 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Message');
     }
+
+    /**
+     * Get all of the user's notifications.
+     */
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification');
+    }
+
+    /**
+     * Adds a notification for the user
+     */
+    public function newNotification()
+    {
+        $notification = new Notification;
+        $notification->user()->associate($this);
+        return $notification;
+    }
 }

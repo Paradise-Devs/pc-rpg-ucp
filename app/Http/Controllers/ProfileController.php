@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\User;
 use App\Utils;
+use App\Notification;
 
 use Auth;
 use Redirect;
@@ -97,13 +98,14 @@ class ProfileController extends Controller
 
     public function addFriend($id)
     {
-        $recipient = User::findOrFail($id);
         $user = Auth::user();
+        $recipient = User::findOrFail($id);
 
         if(!$user->isFriendWith($recipient))
         {
             $user->befriend($recipient);
         }
+        $recipient->newNotification()->withType('FriendRequest')->regarding($user)->deliver();
         return Redirect::to('perfil/'.$id);
     }
 
@@ -128,6 +130,7 @@ class ProfileController extends Controller
         {
             $recipient->acceptFriendRequest($sender);
         }
+        Notification::where('type', 'FriendRequest')->where('user_id', $recipient->id)->where('object_id', $id)->update(['is_read' => 1]);
         return Redirect::to('perfil/'.$id);
     }
 
@@ -140,6 +143,7 @@ class ProfileController extends Controller
         {
             $recipient->denyFriendRequest($sender);
         }
+        Notification::where('type', 'FriendRequest')->where('user_id', $recipient->id)->where('object_id', $id)->update(['is_read' => 1]);
         return Redirect::to('perfil/'.$id);
     }
 }

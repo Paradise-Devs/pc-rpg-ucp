@@ -13,7 +13,7 @@
                     </tr>
                     <tr>
                         <td class="free-text" style="width: 80% !important; padding: 10px 60px 0px;">
-                            Esse e-mail está sendo enviado para a redefinição da senha da conta com email {{ $user->getEmailForPasswordReset() }}, se você não é dono desse e-mail ou não solicitou a redefinição de senha, por favor, entre em contato.
+                            Esse e-mail está sendo enviado para a redefinição da senha da conta com email {{ Auth::user()->getEmailForPasswordReset() }}, se você não é dono desse e-mail ou não solicitou a redefinição de senha, por favor, entre em contato.
                         </td>
                     </tr>
                     <tr>
@@ -30,7 +30,7 @@
                                                             <w:anchorlock/>
                                                             <center style="color:#ffffff;font-family:Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;">Shop Now</center>
                                                         </v:roundrect>
-                                                        <![endif]--><a class="button-mobile" href="{{ $link = url('password/reset', $token) . '?email=' . urlencode($user->getEmailForPasswordReset()) }}"
+                                                        <![endif]--><a class="button-mobile" href="{{ $link = url('password/reset', $token) . '?email=' . urlencode(Auth::user()->getEmailForPasswordReset()) }}"
                                                             style="background-color:#4a89dc;border-radius:5px;color:#ffffff;display:inline-block;font-family:'Cabin', Helvetica, Arial, sans-serif;font-size:14px;font-weight:regular;line-height:45px;text-align:center;text-decoration:none;width:250px;-webkit-text-size-adjust:none;mso-hide:all;">Clique aqui para redefinir</a>
                                                     </div>
                                                 </td>

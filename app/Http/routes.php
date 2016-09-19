@@ -67,5 +67,6 @@ Route::get('/ranking', 'UCPController@ranking');
 Route::get('/jogadores', 'UCPController@players');
 Route::get('/dashboard', 'UCPController@index');
 Route::get('/busca', 'UCPController@search');
+Route::get('/clearnotifications', 'UCPController@clearNotifications');
 Route::get('/aboutus', 'HomeController@about');
 Route::get('/', 'HomeController@index');

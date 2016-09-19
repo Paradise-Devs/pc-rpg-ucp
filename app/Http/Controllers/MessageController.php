@@ -6,9 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Notification;
+
 use App\Message;
 
 use App\Utils;
+
+use App\User;
 
 use Redirect;
 
@@ -97,7 +101,7 @@ class MessageController extends Controller
             'category' => 0,
             'read' => false
         ];
-        Message::Create($inputs);
+        $message = Message::Create($inputs);
         $inputs = [
             'user_id' => $creator->id,
             'creator_id' => $creator->id,
@@ -108,6 +112,9 @@ class MessageController extends Controller
             'read' => true
         ];
         Message::Create($inputs);
+
+        $receiver = User::find($receiver_id);
+        $receiver->newNotification()->withType('Message')->regarding($message)->deliver();
         return Redirect::to('message/outbox')->with('success', true);
     }
 
@@ -128,6 +135,8 @@ class MessageController extends Controller
         {
             $message->read = true;
             $message->save();
+
+            Notification::where('type', 'Message')->where('user_id', Auth::user()->id)->where('object_id', $id)->update(['is_read' => 1]);
         }
         return view('pages.message.show', ['message' => $message]);
     }

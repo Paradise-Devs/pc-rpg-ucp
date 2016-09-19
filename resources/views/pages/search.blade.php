@@ -101,9 +101,9 @@
                                                     <td>{{ $player->created_at->format('d/m/Y') }}</td>
                                                     <td>
                                                         <div class="btn-group">
-                                                            @if($player->id == $user->id)
+                                                            @if($player->id == Auth::user()->id)
                                                                 <a href="#" class="btn btn-xs btn-success btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Adicionar como amigo" disabled><i class="glyphicons glyphicons-user_add"></i></a>
-                                                            @elseif($user->isFriendWith($player))
+                                                            @elseif(Auth::user()->isFriendWith($player))
                                                                 <a href="{{ url('/perfil/amizade/desfazer/'.$player->id) }}" class="btn btn-xs btn-danger btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Remover amigo"><i class="glyphicons glyphicons-user_remove"></i></a>
                                                             @else
                                                                 <a href="{{ url('/perfil/amizade/enviar/'.$player->id) }}" class="btn btn-xs btn-success btn-gradient dark" data-toggle="tooltip" data-placement="top" title="Adicionar como amigo"><i class="glyphicons glyphicons-user_add"></i></a>

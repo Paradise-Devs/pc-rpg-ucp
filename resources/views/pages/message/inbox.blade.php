@@ -36,8 +36,8 @@
           <div class="list-group-header"> Menu </div>
           <a href="{{ url('/message') }}" class="list-group-item">
               <i class="fa fa-inbox text-info"></i>Caixa de Entrada
-              @if($new_msg_count > 0)
-                  <span class="label badge-warning">{{ $new_msg_count }}</span>
+              @if($unreadMessages > 0)
+                  <span class="label badge-warning">{{ $unreadMessages }}</span>
               @endif
           </a>
           <a href="{{ url('/message/outbox') }}" class="list-group-item">

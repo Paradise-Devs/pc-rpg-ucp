@@ -114,13 +114,13 @@
                   <p class="lead fs16">{{ $profile->bio }}</p>
               </blockquote>
               <div class="media-links mb10">
-                  @if($profile->id != $user->id)
-                      @if(!$user->isFriendWith($profile))
-                          @if($user->hasSentFriendRequestTo($profile))
+                  @if($profile->id != Auth::user()->id)
+                      @if(!Auth::user()->isFriendWith($profile))
+                          @if(Auth::user()->hasSentFriendRequestTo($profile))
                               <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-alert btn-rounded btn-gradient dark disabled">
                                   <i class="fa fa-user-plus"></i> Solicitação de amizade pendente
                               </a>
-                          @elseif($user->hasFriendRequestFrom($profile))
+                          @elseif(Auth::user()->hasFriendRequestFrom($profile))
                               <a id="friend_btn" href="{{ url('/perfil/amizade/aceitar/'.$profile->id) }}" type="button" class="btn btn-sm btn-rounded btn-success btn-gradient dark">
                                   <i class="fa fa-user-plus"></i> Aceitar solicitação de amizade
                               </a>
@@ -129,7 +129,7 @@
                                   <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
                               </a>
                           @endif
-                      @elseif($user->isFriendWith($profile))
+                      @elseif(Auth::user()->isFriendWith($profile))
                           <a id="unfriend_btn" href="{{ url('/perfil/amizade/desfazer/'.$profile->id) }}" type="button" class="btn btn-sm btn-default btn-rounded btn-gradient dark">
                               <i class="fa fa-user-times"></i> Desfazer amizade
                           </a>
@@ -141,7 +141,7 @@
                       @endif
                   @endif
                   {{-- Configurações --}}
-                  @if($profile->id == $user->id)
+                  @if($profile->id == Auth::user()->id)
                       <a id="accconfig_btn" href="{{ url('/perfil/configuracoes') }}" type="button" class="owner_player btn btn-sm btn-info btn-rounded btn-gradient dark">
                           <i class="fa fa-cog"></i> Configurar conta
                       </a>
