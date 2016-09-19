@@ -53,6 +53,9 @@
                           <br /> Você também pode marcar bugs já reportados caso eles já tenham te afetado e acompanhar conforme corrigimos o mesmo.
                           <br />
                           <small class="text-muted">Utilize esta página apenas para reportar bugs, caso tenha alguma dúvida sobre o servidor, abra um ticket ou faça uma pergunta na comunidade.</small>
+                          <p class="text-right">
+                              <a href="{{ url('/bugs/create') }}" class="btn btn-info light"><i class="fa fa-plus"></i> reportar bug</a>
+                          </p>
                       </p>
                   </div>
               </div>
@@ -65,9 +68,12 @@
                               <span class="fa fa-bug"></span>Bugs
                           </span>
                           <div class="widget-menu pull-right mr10">
-                              <div class="btn-group">
-                                  <a href="{{ url('/bugs/create') }}" class="btn btn-sm btn-info light"><i class="fa fa-plus"></i> reportar bug</a>
-                              </div>
+                              <select class="form-control" style="display: inline-block">
+                                  <option selected>Ordenar por...</option>
+                                  <option>Prioridade</option>
+                                  <option>Status</option>
+                                  <option>Mais recente</option>
+                              </select>
                           </div>
                       </div>
                       <div class="panel-body pn">
