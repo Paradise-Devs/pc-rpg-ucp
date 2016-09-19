@@ -31,16 +31,28 @@ class BlueprintController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $blueprints = Blueprint::orderBy('id', 'desc')->get();
-        return view('pages.feedback.blueprint.index', ['blueprints' => $blueprints]);
+        $order = $request->input('order');
+        $status = $request->input('status');
+        $importance = $request->input('importance');
+
+        if($status && $importance)
+            $blueprints = Blueprint::orderBy('id', ($order == 'asc') ? 'asc' : 'desc')->where('status', $status)->where('importance', $importance)->get();
+        else if($status)
+            $blueprints = Blueprint::orderBy('id', ($order == 'asc') ? 'asc' : 'desc')->where('status', $status)->get();
+        else if($importance)
+            $blueprints = Blueprint::orderBy('id', ($order == 'asc') ? 'asc' : 'desc')->where('importance', $importance)->get();
+        else
+            $blueprints = Blueprint::orderBy('id', ($order == 'asc') ? 'asc' : 'desc')->get();
+
+        return view('pages.feedback.blueprint.index', ['blueprints' => $blueprints, 'order' => $order, 'status' => $status, 'importance' => $importance]);
     }
 
     /**

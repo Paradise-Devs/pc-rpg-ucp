@@ -53,9 +53,6 @@
                           <br /> Você também pode marcar bugs já reportados caso eles já tenham te afetado e acompanhar conforme corrigimos o mesmo.
                           <br />
                           <small class="text-muted">Utilize esta página apenas para reportar bugs, caso tenha alguma dúvida sobre o servidor, abra um ticket ou faça uma pergunta na comunidade.</small>
-                          <p class="text-right">
-                              <a href="{{ url('/bugs/create') }}" class="btn btn-info light"><i class="fa fa-plus"></i> reportar bug</a>
-                          </p>
                       </p>
                   </div>
               </div>
@@ -68,12 +65,48 @@
                               <span class="fa fa-bug"></span>Bugs
                           </span>
                           <div class="widget-menu pull-right mr10">
-                              <select class="form-control" style="display: inline-block">
-                                  <option selected>Ordenar por...</option>
-                                  <option>Prioridade</option>
-                                  <option>Status</option>
-                                  <option>Mais recente</option>
-                              </select>
+                              <div class="btn-group">
+                                  <a href="{{ url('/bugs/create') }}" class="btn btn-sm btn-info light"><i class="fa fa-plus"></i> reportar bug</a>
+                              </div>
+                          </div>
+                          <div class="widget-menu pull-right mr10">
+                              <form action="{{ url('/bugs') }}">
+                                  <input type="hidden" name="order" value="{{ $order }}">
+                                  <input type="hidden" name="status" value="{{ $status }}">
+                                  <select name="importance" class="form-control" style="display: inline-block" onchange="this.form.submit()">
+                                        <option {{ ($importance == '') ? 'selected' : '' }} value = "">Todos</option>
+                                        <option {{ ($importance == 'crítico') ? 'selected' : '' }} value = "crítico">Critico</option>
+                                        <option {{ ($importance == 'alta') ? 'selected' : '' }} value = "alta">Alta</option>
+                                        <option {{ ($importance == 'media') ? 'selected' : '' }} value = "média">Média</option>
+                                        <option {{ ($importance == 'baixa') ? 'selected' : '' }} value = "baixa">Baixa</option>
+                                  </select>
+                              </form>
+                          </div>
+                          <div class="widget-menu pull-right mr10">
+                              <form action="{{ url('/bugs') }}">
+                                  <input type="hidden" name="order" value="{{ $order }}">
+                                  <input type="hidden" name="importance" value="{{ $importance }}">
+                                  <select name="status" class="form-control" style="display: inline-block" onchange="this.form.submit()">
+                                        <option {{ ($status == '') ? 'selected' : '' }} value = "">Todos</option>
+                                        <option {{ ($status == 'novo') ? 'selected' : '' }} value = "novo">Novo</option>
+                                        <option {{ ($status == 'confirmado') ? 'selected' : '' }} value = "confirmado">Confirmado</option>
+                                        <option {{ ($status == 'em progresso') ? 'selected' : '' }} value = "em progresso">Em progresso</option>
+                                        <option {{ ($status == 'em análise') ? 'selected' : '' }} value = "em análise">Em análise</option>
+                                        <option {{ ($status == 'corrigido') ? 'selected' : '' }} value = "corrigido">Corrigido</option>
+                                        <option {{ ($status == 'cancelado') ? 'selected' : '' }} value = "cancelado">Cancelado</option>
+                                        <option {{ ($status == 'incompleto') ? 'selected' : '' }} value = "incompleto">Incompleto</option>
+                                  </select>
+                              </form>
+                          </div>
+                          <div class="widget-menu pull-right mr10">
+                              <form action="{{ url('/bugs') }}">
+                                  <input type="hidden" name="status" value="{{ $status }}">
+                                  <input type="hidden" name="importance" value="{{ $importance }}">
+                                  <select name="order" class="form-control" style="display: inline-block" onchange="this.form.submit()">
+                                        <option value = "" {{ ($order == '') ? 'selected' : '' }}>Mais recente</option>
+                                        <option value = "asc" {{ ($order == 'asc') ? 'selected' : '' }}>Mais antigo</option>
+                                  </select>
+                              </form>
                           </div>
                       </div>
                       <div class="panel-body pn">

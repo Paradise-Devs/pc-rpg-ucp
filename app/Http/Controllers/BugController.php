@@ -31,16 +31,27 @@ class BugController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $bugs = Bug::orderBy('id', 'desc')->get();
-        return view('pages.feedback.bug.index', ['bugs' => $bugs]);
+        $order = $request->input('order');
+        $status = $request->input('status');
+        $importance = $request->input('importance');
+
+        if($status && $importance)
+            $bugs = Bug::orderBy('id', ($order == 'asc') ? 'asc' : 'desc')->where('status', $status)->where('importance', $importance)->get();
+        else if($status)
+            $bugs = Bug::orderBy('id', ($order == 'asc') ? 'asc' : 'desc')->where('status', $status)->get();
+        else if($importance)
+            $bugs = Bug::orderBy('id', ($order == 'asc') ? 'asc' : 'desc')->where('importance', $importance)->get();
+        else
+            $bugs = Bug::orderBy('id', ($order == 'asc') ? 'asc' : 'desc')->get();
+        return view('pages.feedback.bug.index', ['bugs' => $bugs, 'order' => $order, 'status' => $status, 'importance' => $importance]);
     }
 
     /**

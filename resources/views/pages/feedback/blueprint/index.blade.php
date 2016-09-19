@@ -69,6 +69,45 @@
                                   <a href="{{ url('/blueprints/create') }}" class="btn btn-sm btn-info light"><i class="fa fa-plus"></i> sugerir</a>
                               </div>
                           </div>
+                          <div class="widget-menu pull-right mr10">
+                              <form action="{{ url('/bugs') }}">
+                                  <input type="hidden" name="order" value="{{ $order }}">
+                                  <input type="hidden" name="status" value="{{ $status }}">
+                                  <select name="importance" class="form-control" style="display: inline-block" onchange="this.form.submit()">
+                                        <option {{ ($importance == '') ? 'selected' : '' }} value = "">Todos</option>
+                                        <option {{ ($importance == 'crítico') ? 'selected' : '' }} value = "crítico">Critico</option>
+                                        <option {{ ($importance == 'alta') ? 'selected' : '' }} value = "alta">Alta</option>
+                                        <option {{ ($importance == 'media') ? 'selected' : '' }} value = "média">Média</option>
+                                        <option {{ ($importance == 'baixa') ? 'selected' : '' }} value = "baixa">Baixa</option>
+                                  </select>
+                              </form>
+                          </div>
+                          <div class="widget-menu pull-right mr10">
+                              <form action="{{ url('/bugs') }}">
+                                  <input type="hidden" name="order" value="{{ $order }}">
+                                  <input type="hidden" name="importance" value="{{ $importance }}">
+                                  <select name="status" class="form-control" style="display: inline-block" onchange="this.form.submit()">
+                                        <option {{ ($status == '') ? 'selected' : '' }} value = "">Todos</option>
+                                        <option {{ ($status == 'novo') ? 'selected' : '' }} value = "novo">Novo</option>
+                                        <option {{ ($status == 'confirmado') ? 'selected' : '' }} value = "confirmado">Confirmado</option>
+                                        <option {{ ($status == 'em progresso') ? 'selected' : '' }} value = "em progresso">Em progresso</option>
+                                        <option {{ ($status == 'em análise') ? 'selected' : '' }} value = "em análise">Em análise</option>
+                                        <option {{ ($status == 'corrigido') ? 'selected' : '' }} value = "corrigido">Corrigido</option>
+                                        <option {{ ($status == 'cancelado') ? 'selected' : '' }} value = "cancelado">Cancelado</option>
+                                        <option {{ ($status == 'incompleto') ? 'selected' : '' }} value = "incompleto">Incompleto</option>
+                                  </select>
+                              </form>
+                          </div>
+                          <div class="widget-menu pull-right mr10">
+                              <form action="{{ url('/bugs') }}">
+                                  <input type="hidden" name="status" value="{{ $status }}">
+                                  <input type="hidden" name="importance" value="{{ $importance }}">
+                                  <select name="order" class="form-control" style="display: inline-block" onchange="this.form.submit()">
+                                        <option value = "" {{ ($order == '') ? 'selected' : '' }}>Mais recente</option>
+                                        <option value = "asc" {{ ($order == 'asc') ? 'selected' : '' }}>Mais antigo</option>
+                                  </select>
+                              </form>
+                          </div>
                       </div>
                       <div class="panel-body pn">
                           <table class="main-table table table-hover fw-labels fw-labels2" data-page-navigation=".pagination" data-page-size="10" data-sort="false">
