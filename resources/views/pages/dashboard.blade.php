@@ -169,19 +169,17 @@
               </a>
           </div>
           <div class="col-md-3">
-              <div class="panel panel-tile text-primary br-primary-light">
-                  <a href="{{ url('/punicoes') }}" class="link-unstyled">
-                      <div class="panel panel-tile text-primary br-primary-light">
-                          <div class="panel-body pl20 p5">
-                              <i class="fa fa-eye icon-bg" style="font-size: 100px; line-height: 100px"></i>
-                              <h2 class="lh15">
-                                  <b>?</b>
-                              </h2>
-                              <h5 class="text-muted">Punições</h5>
-                          </div>
+              <a href="{{ url('/punicoes') }}" class="link-unstyled">
+                  <div class="panel panel-tile text-primary br-primary-light">
+                      <div class="panel-body pl20 p5">
+                          <i class="fa fa-eye icon-bg" style="font-size: 100px"></i>
+                          <h2 class="lh15">
+                              <b>?</b>
+                          </h2>
+                          <h5 class="text-muted">Punições</h5>
                       </div>
-                  </a>
-              </div>
+                  </div>
+              </a>
           </div>
       </div>
   </section>
