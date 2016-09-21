@@ -39,7 +39,7 @@
                     </span>
                 </div>
                 <div class="panel-body pn">
-                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="level_tbl" cellspacing="0" width="100%">
+                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="level_tbl" cellspacing="0" width="100%" data-sort="false">
                         <thead>
                             <tr>
                                 <th class="mw30 text-center" style="width: 5%">#</th>
@@ -91,7 +91,7 @@
                     </span>
                 </div>
                 <div class="panel-body pn">
-                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="playedTime_tbl" cellspacing="0" width="100%">
+                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="playedTime_tbl" cellspacing="0" width="100%" data-sort="false">
                         <thead>
                             <tr>
                                 <th class="mw30 text-center" style="width: 5%">#</th>
@@ -123,7 +123,7 @@
                     </span>
                 </div>
                 <div class="panel-body pn">
-                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="money_tbl" cellspacing="0" width="100%">
+                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="money_tbl" cellspacing="0" width="100%" data-sort="false">
                         <thead>
                             <tr>
                                 <th class="mw30 text-center" style="width: 5%">#</th>
@@ -148,7 +148,8 @@
             </div>
         </div>
     </div>
-    {{--<div class="row">
+    {{--
+    <div class="row">
         <div class="col-md-4">
             <div class="panel">
                 <div class="panel-heading">
@@ -215,7 +216,8 @@
                 </div>
             </div>
         </div>
-    </div>--}}
+    </div>
+    --}}
 </section>
 @endsection
 <!--                                                                        -->
