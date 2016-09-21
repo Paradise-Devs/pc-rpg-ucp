@@ -39,7 +39,7 @@
                     </span>
                 </div>
                 <div class="panel-body pn">
-                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="level_tbl" cellspacing="0" width="100%" data-sort="false">
+                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="level_tbl" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th class="mw30 text-center" style="width: 5%">#</th>
@@ -91,7 +91,7 @@
                     </span>
                 </div>
                 <div class="panel-body pn">
-                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="playedTime_tbl" cellspacing="0" width="100%" data-sort="false">
+                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="playedTime_tbl" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th class="mw30 text-center" style="width: 5%">#</th>
@@ -123,7 +123,7 @@
                     </span>
                 </div>
                 <div class="panel-body pn">
-                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="money_tbl" cellspacing="0" width="100%" data-sort="false">
+                    <table class="table table-hover mbn tc-icon-1 tc-med-2 tc-bold-last" id="money_tbl" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th class="mw30 text-center" style="width: 5%">#</th>
@@ -231,6 +231,7 @@
         jQuery(document).ready(function() {
           // Init DataTables
           var tableLevel = $('#level_tbl').dataTable({
+              "bSort": false,
               "sDom": 't<"dt-panelfooter clearfix"ip>',
               "language": {
                     "sEmptyTable": "Nenhum registro encontrado",
@@ -258,6 +259,7 @@
           });
 
           var tablePlayedTime = $('#playedTime_tbl').dataTable({
+              "bSort": false,
               "sDom": 't<"dt-panelfooter clearfix"ip>',
               "language": {
                     "sEmptyTable": "Nenhum registro encontrado",
@@ -285,6 +287,7 @@
           });
 
           var tableXPrate = $('#rateXP_tbl').dataTable({
+              "bSort": false,
               "sDom": 't<"dt-panelfooter clearfix"ip>',
               "language": {
                     "sEmptyTable": "Nenhum registro encontrado",
