@@ -103,7 +103,7 @@
                             @foreach($players_ptime as $key => $value)
                                 <tr>
                                     <td class="text-center"><strong>#{{ $key + 1 }}</strong></td>
-                                    <td class="text-center">{{ gmdate("H:i:s", $value->played_time) }}</td>
+                                    <td class="text-center">{{ ($value->played_time >= 86400) ? gmdate("d\d H:i:s", $value->played_time) : gmdate("H:i:s", $value->played_time) }}</td>
                                     <td class="text-left">
                                         <img src="{{ URL::asset('storage/avatars/' . $value->avatar_url) }}" class="user-avatar" style="width: 30px;">
                                         <a href="{{ url('/perfil/'.$value->id) }}" class="link-unstyled"><span class="text-primary" style="font-weight: bold;">{{ $value->username }}</span></a>
