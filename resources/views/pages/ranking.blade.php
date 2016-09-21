@@ -314,6 +314,7 @@
               }
           });
           var tableMoney = $('#money_tbl').dataTable({
+              "bSort": false,
               "sDom": 't<"dt-panelfooter clearfix"ip>',
               "language": {
                     "sEmptyTable": "Nenhum registro encontrado",
@@ -340,6 +341,7 @@
               }
           });
           var tablePatr = $('#pat_tbl').dataTable({
+              "bSort": false,
               "sDom": 't<"dt-panelfooter clearfix"ip>',
               "language": {
                     "sEmptyTable": "Nenhum registro encontrado",
@@ -366,6 +368,7 @@
               }
           });
           var tableEvents = $('#events_tbl').dataTable({
+              "bSort": false,
               "sDom": 't<"dt-panelfooter clearfix"ip>',
               "language": {
                     "sEmptyTable": "Nenhum registro encontrado",
