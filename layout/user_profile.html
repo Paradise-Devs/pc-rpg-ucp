@@ -458,6 +458,7 @@
                 <!-- End: Topbar -->
                 <!-- Begin: Content -->
                 <section id="content" class="animated fadeIn" style="padding-bottom: 0px">
+                    <!-- Begin .page-heading -->
                     <div class="page-heading" style="padding: 0px 0px 0px 0px">
                         <div id="blocked_info" class="alert alert-micro alert-border-left alert-danger">
                             <i class="fa fa-ban"></i>
@@ -469,93 +470,26 @@
                             Usuário banido.<br />
                             Usuários banidos são impossibilitados de ter qualquer tipo de interação social pelo painel.
                         </div>
-                        <div class="media clearfix profile-header" style="
-                            background-image: url('assets/img/covers/los.jpg');
+                        <div class="media clearfix" style="
+                            margin: 0px 0px 0px 0px;
+                            background-image: url('http://52.67.156.16/assets/img/covers/default.jpg');
                             background-repeat: no-repeat;
                             background-size: 100% 100%;
                             color: #fff;
                             padding: 0px 0px 0px 0px;
                             margin-top: 0px;
                         ">
-                            <div class="media-left pr10">
-                                <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" style="height: 100%">
-                                <div class="level-circle">
-                                    <span class="label label-rounded label-alert level-label"><i class="fa fa-angle-double-up"></i> 152</span>
-                                </div>
-                            </div>
-                            <div class="media-body va-m mt10">
-                                <br />
-                                <span class="label label-success fs12"><i class="fa fa-code"></i> desenvolvedor</span>
-                                <h2 class="user-nickname">Los</h2>
-                                <h5 class="user-realname">Lucas Souza</h5>
-                                <!--
-                                <span class="label label-danger fs12"><i class="imoon imoon-user3"></i> administrador</span>
-                                <span class="label label-primary fs12"><i class="fa fa-eye"></i> supervisor</span>
-                                <span class="label label-info fs12"><i class="fa fa-fire"></i> moderador</span>
-                                <span class="label label-warning fs12"><i class="fa fa-star-o"></i> paradiser</span>
-                                <span class="label label-dark fs12"><i class="fa fa-ban"></i> banido</span>
-                                <span class="label label-default fs12"><i class="fa fa-briefcase"></i> caminhoneiro</span>
-                                <span class="label label-alert fs12"><i class="imoon imoon-target"></i> ballas</span>
-                                -->
-                                <blockquote class="blockquote-primary user-status-block mt10" style="background-color: rgba(0, 0, 0, 0.3); max-width: 80%">
-                                    <p class="lead fs16">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunta sxasaassssssssssss sssssssssss ssssssssss sssssss sss s s ss sss ss sss ssssssss</p>
-                                </blockquote>
-                                <div class="media-links mb10">
-                                    <!-- if (user & profileowner != friends)-->
-                                    <a id="friend_btn" href="#" type="button" class="btn btn-sm btn-primary btn-rounded btn-gradient dark">
-                                        <i class="fa fa-user-plus"></i> Enviar solicitação de amizade
-                                    </a>
-
-                                    <!-- if (user & profileowner == friends)-->
-                                    <a id="unfriend_btn" href="#" type="button" class="btn btn-sm btn-default btn-rounded btn-gradient dark">
-                                        <i class="fa fa-user-times"></i> Desfazer amizade
-                                    </a>
-
-                                    <!-- if profileowner blockedby user-->
-                                    <a id="unblock_btn" href="#" type="button" class="btn btn-sm btn-dark btn-rounded btn-gradient dark">
-                                        <i class="fa fa-bell"></i> Desbloquear
-                                    </a>
-
-                                    <!-- if (user == profileowner)-->
-                                    <a id="acconfig_btn" href="user_edit_account.html" type="button" class="owner_player btn btn-sm btn-info btn-rounded btn-gradient dark">
-                                        <i class="fa fa-cog"></i> Configuração da conta
-                                    </a>
-
-                                    <!-- if(user != profileowner) && profileowner blockedby user -->
-                                    <a id="report_btn_single" href="#" type="button" class="btn btn-sm btn-danger btn-rounded btn-gradient dark ml10">
-                                        <i class="fa fa-warning"></i> Denunciar
-                                    </a>
-
-                                    <!-- if (user == donator, moderator+) && if (user == profileowner)-->
-                                    <div class="btn-group ml10">
-                                        <a id="changecover_btn" href="#" type="button" class="owner_player btn btn-sm btn-dark btn-rounded btn-gradient dark">
-                                            <i class="fa fa-image"></i> Alterar capa
-                                        </a>
-                                        <a id="removecover_btn" href="#" type="button" class="owner_player btn btn-sm btn-danger btn-rounded btn-gradient dark">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </div>
-
-                                    <div class="btn-group">
-                                        <!-- if profileowner !blockedby user-->
-                                        <a id="block_btn" href="#" type="button" class="btn btn-sm btn-dark btn-rounded btn-gradient dark">
-                                            <i class="fa fa-bell-slash"></i> Bloquear
-                                        </a>
-
-                                        <!-- if(user != profileowner)-->
-                                        <a id="report_btn" href="#" type="button" class="btn btn-sm btn-danger btn-rounded btn-gradient dark">
-                                            <i class="fa fa-warning"></i> Denunciar
-                                        </a>
-                                    </div>
-                                    <!-- if (user == supervisor+)-->
-                                    <a href="user_edit_account_admin.html" type="button" class="owner_player btn btn-sm btn-system btn-rounded btn-gradient dark" style="float: right; margin-right:20%">
-                                        <i class="fa fa-cog"></i> Administrar Jogador
-                                    </a>
-                                </div>
-                            </div>
+                          <div class="media-left pr30">
+                              <img class="media-object mw150" src="assets/img/avatars/profile_avatar.jpg" alt="...">
+                          </div>
+                          <div class="media-body va-m">
+                            <h2 class="user-nickname">Los</h2>
+                            <blockquote class="blockquote-primary user-status-block mt10" style="background-color: rgba(0, 0, 0, 0.3); max-width: 95%">
+                                <p class="lead fs16">Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt. Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet ctetur adicing elit, sed do eiusmod tempor incididunt</p>
+                            </blockquote>
                         </div>
                     </div>
-                    <div class="col-md-3 animated slideInLeft" style="position: relative; z-index: 1">
+                    <div class="col-md-3 animated slideInLeft mt10" style="position: relative; z-index: 1">
                         <div class="panel user-group-widget panel-info">
                             <div class="panel-heading" style="height: 55px; padding-bottom: 5px; padding-top: 0px; padding-right: 8px">
                                 <span class="panel-icon">
@@ -751,7 +685,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 animated slideInLeft">
+                    <div class="col-md-3 animated slideInLeft mt10">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <span class="panel-icon">
@@ -768,7 +702,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 animated slideInRight">
+                    <div class="col-md-3 animated slideInRight mt10">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <span class="panel-icon">
@@ -824,7 +758,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb30 animated slideInRight">
+                    <div class="col-md-3 mb30 animated slideInRight mt10">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <span class="panel-icon">
