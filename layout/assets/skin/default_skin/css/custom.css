@@ -292,17 +292,31 @@
 }
 
 /* FRIEND LIST */
-.friend-nick {
-    font-family: "Segoe UI";
-    font-weight: 400;
-    display: block;
-    font-size: 14px;
+.friend-img {
+    display: inline;
+    max-width: 45px;
+    margin-top: 5px;
 }
 
-.friend-data {
-    display: block;
-    font-size: 10px;
-    margin-top: 0px;
+.friend-list {
+    padding: 0px 0px 5px 5px;
+    background-color: #fff;
+}
+
+/* SCREENSHOTS */
+.screenshots-images {
+    display: inline-table;
+    padding: 0px 0px 0px 0px;
+    max-width: 400px;
+    margin-bottom: 5px;
+    background-color: #fff;
+}
+
+.ss-img {
+    display: inline;
+    max-width: 168px;
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 /* -----------------------------------------------------------------------------

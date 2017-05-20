@@ -24,6 +24,7 @@ $(document).ready(function(){
             $("#removecover_btn").hide(1000);
             $("#banned_info").hide(1000);
             $("#blocked_info").hide(1000);
+            $("#unblock_btn").hide(1000);
             $("#report_btn_single").hide(1000);
 
             $("#friend_btn").show(1000);
@@ -38,6 +39,7 @@ $(document).ready(function(){
             $("#removecover_btn").hide(1000);
             $("#banned_info").hide(1000);
             $("#blocked_info").hide(1000);
+            $("#unblock_btn").hide(1000);
             $("#report_btn_single").hide(1000);
 
             $("#unfriend_btn").show(1000);
