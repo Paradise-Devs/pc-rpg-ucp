@@ -11,6 +11,7 @@
         <meta name="theme-color" content="‪#009dc7">
 
         <!-- Stylesheets -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
         <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700'>
         <link rel="stylesheet" type="text/css" href="assets/skin/default_skin/css/theme.css">
         <link rel="stylesheet" type="text/css" href="assets/admin-tools/admin-forms/css/admin-forms.css">
