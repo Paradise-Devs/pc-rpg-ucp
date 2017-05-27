@@ -25,9 +25,15 @@
         <div id="main" class="animated fadeIn">
             <div class="cs-page-content pull-center">
                 <img src="assets/img/logos/logo-big.png" class="cs-page-logo text-center" style="width: 50%">
-                <h2 class="cs-page-title">OPEN BETA - v0.2</h2>
-                <h3 class="cs-page-text pl10">BEM VINDO</h3>
-                <a href="samp://play.pc-rpg.com:7777" class="btn btn-lg btn-play"><i class="fa fa-gamepad mr5 fs20"></i> JOGAR</a>
+                <h2 class="cs-page-title">GT:MP - SA:MP RPG SERVER</h2>
+                <a href="{{ url('/dashboard') }}" class="btn btn-lg btn-play"><i class="fa fa-angle-right mr5"></i> SA:MP</a>
+                <a href="#" class="btn btn-lg btn-play ml20 disabled"><i class="fa fa-angle-right mr5"></i> GT:MP</a>
+                <br />
+                <div class="btn-group">
+                    <a href="{{ url('/aboutus') }}" class="btn btn-lg btn-play-alt"><span class="pull-left fa fa-info-circle mr5"></span> SOBRE O PC:RPG</a>
+                    <a href="https://discord.gg/hpvRGZe" class="btn btn-lg btn-play-alt"><span class="pull-left fa fa-comments-o mr5"></span> DISCORD</a>
+                    <a href="http://forum.pc-rpg.com/" class="btn btn-lg btn-play-alt"><span class="pull-left fa fa-group mr5"></span> FÓRUM</a>
+                </div>
             </div>
             <section id="content_wrapper">
                 <div id="canvas-wrapper">
@@ -39,40 +45,13 @@
         <!-- Begin: Page Footer -->
         <footer id="auth-footer" class="affix" style="z-index: 1">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12 text-center">
                     <span class="footer-since">DESDE <b>2012</b></span>
                     <span class="footer-separator">|</span>
                     <a href="#" class="link-unstyled">PARADISE DEVS</a>
                     <span class="footer-separator">|</span>
-                    <span class="footer-poweredby">FEITO COM <a href="#" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
+                    <span class="footer-poweredby">FEITO COM <a href="https://gitlab.com/" class="link-unstyled"><i class="fa fa-gitlab ml5 mr5"></i></a> E <i class="fa fa-heart-o ml5 mr5 text-danger"></i></span>
                 </div>
-                <div class="col-md-4 text-center">
-                    <a href="{{ url('/aboutus') }}" class="link-unstyled ml10 mr10"><i class="fa fa-info mr5"></i> SOBRE O PC:RPG</a>
-                    <span class="footer-separator">•</span>
-                    <a href="https://discord.gg/hpvRGZe" class="link-unstyled ml10 mr10"><i class="fa fa-comments-o mr5"></i> DISCORD</a>
-                    <span class="footer-separator">•</span>
-                    <a href="{{ url('/dashboard') }}" class="link-unstyled ml10 mr10"><i class="fa fa-cogs mr5"></i> UCP</a>
-                </div>
-                @if(Auth::check())
-                    <div class="col-md-4 text-right">
-                        <a href="{{ url('/perfil/' . Auth::user()->id) }}" class="dropdown-toggle p10 link-unstyled" data-toggle="dropdown" aria-expanded="true">
-                            <img src="{{ URL::asset('storage/avatars/' . Auth::user()->avatar_url) }}" alt="avatar" class="br64" style="width: 25px;"/>
-                            <span class="hidden-xs pl10">{{ Auth::user()->name }}</span>
-                        </a>
-                        <span class="footer-separator">|</span>
-                        <a href="{{ url('/message') }}"><i class="fa fa-envelope text-muted ml15" data-toggle="tooltip" data-placement="top" title="Mensagens"></i></a>
-                        <a href="{{ url('/perfil/amigos/' . Auth::user()->id) }}"><i class="fa fa-group text-muted ml15" data-toggle="tooltip" data-placement="top" title="Amigos"></i></a>
-                        <a href="{{ url('/ticket') }}"><i class="fa fa-support text-info ml15 mr15" data-toggle="tooltip" data-placement="top" title="Suporte"></i></a>
-                        <span class="footer-separator">|</span>
-                        <a href="{{ url('/logout') }}"><i class="fa fa-sign-out ml15 text-danger" data-toggle="tooltip" data-placement="top" title="Sair"></i></a>
-                    </div>
-                @else
-                    <div class="col-md-4 text-right">
-                        <a href="{{ url('/login') }}" class="link-unstyled">LOGIN</a>
-                        <span class="footer-separator">•</span>
-                        <a href="{{ url('/register') }}" class="link-unstyled">REGISTRO</a>
-                    </div>
-                @endif
             </div>
         </footer>
         <!-- End: Page Footer -->
